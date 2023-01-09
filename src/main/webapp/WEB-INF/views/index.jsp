@@ -14,7 +14,7 @@
 
 			<!--header.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
-			<h3>index main</h3>
+			<h3>index main3545</h3>
 			<!--footer.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
 			<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
