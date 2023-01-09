@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+
+#footerBox {
+	border-top:1px solid black;
+	width:100%;
+	padding: 20px ;
+	text-align: ;
+	line-height:25px;
+	padding-left:15%;
+}
+
+.footerBox {
+	display:inline-block;
+	width:33%;
+}
