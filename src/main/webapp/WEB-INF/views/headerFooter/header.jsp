@@ -5,8 +5,8 @@
 <!--header 코드 입니다.-->
 <header>
     <div id ="headerMenuBox">
-        <div>
-            <p class="chatBot">챗봇</p>
+        <div id="chatBotDiv">
+            <img src="<c:url value='/image/chatBot.png'/>" id="chatBot">
         </div>
         <div>
             <img src="<c:url value='/image/logo.png'/>" id="logoImg">
@@ -16,15 +16,19 @@
         <c:if test="${empty sessionScope.sid }">
             <a href="<c:url value='/member/loginForm'/>" id="headerMenuA" class="signIn">로그인</a>
             <a href="<c:url value='/member/hwForm'/>" id="headerMenuA" class="signUn">회원가입</a>
+            
+            
         </c:if>		
                     
         <!-- 로그인 성공 후 보여줄 메뉴 항목 -->
         <c:if test="${not empty sessionScope.sid }">
-            <a id="headerUserId">${sessionScope.sid}님 환영합니다.</a>
+            <img src="<c:url value='/image/user.png'/>"class="userImg">
+            <a id="headerMenuA" class="headerUserId">${sessionScope.sid}님</a>
             <a href="<c:url value='/member/logout'/>" id="headerMenuA" class="logOut">로그아웃</a>
             <a href="<c:url value='/member/myPage'/>" id="headerMenuA" class="myPage">마이페이지</a>
         </c:if>	
         </div>
     </div>
+    <c:import url="/WEB-INF/views/headerFooter/topMenu.jsp" />
 
 </header>
