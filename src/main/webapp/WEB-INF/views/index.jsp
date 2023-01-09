@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>index 페이지</title>
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css'/>"
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 	</head>
 	<body>
