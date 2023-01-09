@@ -5,4 +5,6 @@
 <!--header 랑 footer 링크 모으는 곳입니다.-->
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/headerFooter/header.css'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/headerFooter/footer.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/headerFooter/topMenu.css'/>">
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+<script src="<c:url value='/js/topMenu.js'/>"></script>
