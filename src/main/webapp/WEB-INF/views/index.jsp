@@ -7,11 +7,11 @@
 		<meta charset="UTF-8">
 		<title>index 페이지</title>
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css'/>"
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 	</head>
 	<body>
-		<div>
-
+		<div class="pageSize">
 			<!--header.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 			<h3>index main123545</h3>
