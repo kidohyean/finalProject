@@ -1,14 +1,22 @@
 package com.finalProject.project.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.finalProject.project.service.CommunityService;
+
+
 @Controller
-public class communityController {
+public class CommunityController {
+	@Autowired
+	private CommunityService service;
 
 	
-	@RequestMapping("/communityController")
-	public String communityController() {
+	@RequestMapping("/CommunityController")
+	public String CommunityController() {
 		return "communi/community";
 	}
+	
+	
 }
