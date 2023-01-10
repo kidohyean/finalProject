@@ -1,31 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript">
-    $(function(){ //아이디가 btnWrite인 버튼을 누르게 되면 write.do 컨트롤러로 맵핑
-        $(".on").click(function(){
-            location.href="cummuni/insert";
-        });
-    });
-     
-    function list(page){ //현재 페이지의 조건을 넘겨준다. +뒤에있는 것들은 검색 
-        location.href="${path}/board/list.do?curPage="+page
-            +"$search_option=${map.search_option}"
-            +"$keyword=${map.keyword}";
-    }
-     
-    </script>
+
 <div class="board_wrap">
 <div class="board_title">
     <strong>커뮤니티</strong>
     <p>자유게시판입니다.</p>
 </div>
 <div class="btWrap">
-    <form method="post" action="/communityController">
-        <input type="hidden" name="pageType" value="inserte">
-        <input href="submit" class="on" value="등록">
-    </form>
-    
+    <a href="/community/insertPage" class="on">등록</a>
 </div>
 <div class="boardListWrap">
     <div class="boardLists">
