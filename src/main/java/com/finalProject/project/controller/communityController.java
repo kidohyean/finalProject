@@ -13,10 +13,14 @@ public class CommunityController {
 	private CommunityService service;
 
 	
-	@RequestMapping("/CommunityController")
+	@RequestMapping("/communityController")
 	public String CommunityController() {
 		return "communi/community";
 	}
 	
+	@RequestMapping("/communi/write")
+	public String write() {
+		return "communi/write";
+	}
 	
 }

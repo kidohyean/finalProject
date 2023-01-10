@@ -1,0 +1,59 @@
+
+.board_wrap {
+    margin: 0 auto;
+}
+
+.board_wrap a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.board_title strong{
+    font-size: 35px;
+}
+
+.board_title p{
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.btWrap{
+    margin: 10px;
+    font-size: 20px;
+    text-align: right;
+    margin-right: 50px;
+}
+
+.on{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.boardLists {
+    text-align: center;
+}
+
+#topList{
+    font-size: 25px;
+    margin: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.num, .count{
+    width: 150px;
+}
+.title{
+    width: 350px;
+}
+.writer{
+    width: 200px;
+}
+.date{
+    width: 300px;
+}
+
+.boardPage{
+    margin-top: 30px;
+    font-size: 25px;
+}
