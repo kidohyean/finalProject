@@ -1,5 +1,7 @@
 package com.finalProject.project.controller;
 
+import java.util.ArrayList;
+
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.finalProject.project.model.AggregationVO;
 import com.finalProject.project.service.CommunityService;
 
 
@@ -21,6 +24,12 @@ public class CommunityController {
 	public String CommunityPage(Model model) {
 		String url ="/WEB-INF/views/communi/list.jsp";
 		model.addAttribute("url", url);
+		ArrayList<AggregationVO> vo = new ArrayList<AggregationVO>();
+		vo = service.listAllAggre();
+		for (AggregationVO aggregationVO : vo) {
+			System.out.println(aggregationVO.getAgName());
+		}
+		model.addAttribute("comList",vo);
 		return "communi/community";
 	}
 
