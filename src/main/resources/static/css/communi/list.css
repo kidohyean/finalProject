@@ -1,37 +1,47 @@
-
 .board_wrap {
     margin: 0 auto;
 }
-
 .board_wrap a{
     text-decoration: none;
     color: inherit;
 }
+.board_title{
+	text-align:center;
+}
 
 .board_title strong{
     font-size: 35px;
+    text-align: center;
 }
 
 .board_title p{
     margin-top: 5px;
     font-size: 20px;
+    font-weight:bold;
+    color:gray;
 }
 
 .btWrap{
-    margin: 10px;
-    font-size: 20px;
+    margin: 15px;
+    font-size: 30px;
     text-align: right;
     margin-right: 50px;
+
 }
 
 .on{
     border: 1px solid black;
     border-radius: 10px;
+    padding: 5px 15px;
 }
+
+.on:hover{
+	background-color: rgb(224,255,224);
+}
+
 .boardLists {
     text-align: center;
 }
-
 #topList{
     font-size: 25px;
     margin: 0;
@@ -40,6 +50,28 @@
     display: inline-block;
 }
 
+#listItem{
+    height: 40px;
+    font-size: 25px;
+    margin: 0;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.head3{
+	height:50px;
+}
+
+
+#selectBox{
+	margin-left:50px;
+	height:30px;
+	width:150px;
+	font-size:20px;
+	text-align:center;
+	font-weight:bold;
+	background-color: rgb(240,240,240);
+}
 .num, .count{
     width: 150px;
 }
@@ -52,12 +84,10 @@
 .date{
     width: 300px;
 }
-
 .boardPage{
     margin-top: 30px;
     font-size: 25px;
 }
-
 .formBox{
     border: 1px solid black;
 }
@@ -66,26 +96,22 @@
     float: left;
     width: 60%;
 }
-
 .formBox .title p{
     margin-top: 20px;
     margin-left: 40px;
     float: left;
     font-size: 25px;
 }
-
 .agName{
     width: 80%;
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
-
 .formBox .info{
     float: left;
     width: 40%;
 }
-
 .formBox .info p{
     margin-top: 20px;
     margin-left: 40px;
@@ -101,29 +127,35 @@
 .agTextBox{
     text-align: center;
 }
-
 .agText{
     font-size: 25px;
     width: 90%;
     height: 500px;
 }
-
 .agBtInsert{
     margin-top: 10px;
     margin-bottom: 30px;
+    text-align:right;
 }
 .agInsertBt{
     width: 100px;
     height: 50px;
     font-size: 30px;
-    background-color: rgb(117, 245, 124);
     border-radius: 10px;
+    background-color:white;
+    margin-right:10px;
+}
+
+.agInsertBt:hover{
+	 background-color: rgb(224,255,224);
 }
 
 .agCancel{
-    width: 100px;
-    height: 50px;
+    padding:4px 17px;
     font-size: 30px;
-    background-color: rgb(117, 245, 124);
-    border-radius: 10px;
+    border:2px solid black;
+    border-radius: 10px;   
+}
+.agCancel:hover{
+	background-color: rgb(224,255,224);
 }
