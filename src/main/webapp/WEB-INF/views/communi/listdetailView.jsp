@@ -4,17 +4,17 @@
 
 <div class="board_wrap">
     <div class="board_title">
-        <strong>커뮤니티</strong>
-        <p>자유게시판입니다.</p>
+        <strong>공지사항</strong>
+        <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
     </div>
     <div class="board_view_wrap">
         <div class="board_view">
             <div class="title">
-                ${comList.agName}
+                글 제목이 들어갑니다.
             </div>
             <div class="info">
                 <dl>
-                    <dt>${comList.num}</dt>
+                    <dt>번호</dt>
                     <dd>1</dd>
                 </dl>
                 <dl>
