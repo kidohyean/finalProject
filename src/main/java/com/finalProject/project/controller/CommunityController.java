@@ -33,12 +33,13 @@ public class CommunityController {
 		return "communi/community";
 	}
 
-	@RequestMapping("/community/insertPage")
-	public String CommunityInsertPage(Model model) {
-		String mode = "pageType";
+	@RequestMapping("/community/{mode}")
+	public String CommunityInsertPage(@PathVariable String mode,Model model) {
+		//String mode = "pageType";
 		String url ="/WEB-INF/views/communi/write.jsp";
-		System.out.println(mode);
+		System.out.println("여여여여여ㅕ여여여여여여여여여여여ㅕㅇ"+mode);
 		model.addAttribute("url", url);
+		model.addAttribute("mode",mode);
 		return "communi/community";
 	}
 
