@@ -1,0 +1,129 @@
+
+.board_wrap {
+    margin: 0 auto;
+}
+
+.board_wrap a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.board_title strong{
+    font-size: 35px;
+}
+
+.board_title p{
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.btWrap{
+    margin: 10px;
+    font-size: 20px;
+    text-align: right;
+    margin-right: 50px;
+}
+
+.on{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.boardLists {
+    text-align: center;
+}
+
+#topList{
+    font-size: 25px;
+    margin: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.num, .count{
+    width: 150px;
+}
+.title{
+    width: 350px;
+}
+.writer{
+    width: 200px;
+}
+.date{
+    width: 300px;
+}
+
+.boardPage{
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.formBox{
+    border: 1px solid black;
+}
+.formBox .title{
+    
+    float: left;
+    width: 60%;
+}
+
+.formBox .title p{
+    margin-top: 20px;
+    margin-left: 40px;
+    float: left;
+    font-size: 25px;
+}
+
+.agName{
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 25px;
+}
+
+.formBox .info{
+    float: left;
+    width: 40%;
+}
+
+.formBox .info p{
+    margin-top: 20px;
+    margin-left: 40px;
+    float: left;
+    font-size: 25px;
+}
+.agMemId{
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 25px;
+}
+.agTextBox{
+    text-align: center;
+}
+
+.agText{
+    font-size: 25px;
+    width: 90%;
+    height: 500px;
+}
+
+.agBtInsert{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.agInsertBt{
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-color: rgb(117, 245, 124);
+    border-radius: 10px;
+}
+
+.agCancel{
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-color: rgb(117, 245, 124);
+    border-radius: 10px;
+}
