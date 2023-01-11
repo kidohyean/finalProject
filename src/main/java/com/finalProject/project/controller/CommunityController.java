@@ -48,5 +48,12 @@ public class CommunityController {
 		model.addAttribute("url", url);
 		return "communi/community";
 	}
+
+	@RequestMapping("/community/listdetail")
+	public String listdetail(Model model) {
+		String url ="/WEB-INF/views/communi/listdetailView.jsp";
+		model.addAttribute("url", url);
+		return "communi/community";
+	}
 	
 }

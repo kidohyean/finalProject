@@ -2,8 +2,9 @@
 
 $(document).ready(function(){
     console.log("start");
-    $(".btFirst").on('click',function(){
+    $(".boardList").on('click',function(){
         console.log("on");
+        location.href="/community/listdetail";
     })
 
 })

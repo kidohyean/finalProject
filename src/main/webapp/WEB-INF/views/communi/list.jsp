@@ -27,8 +27,8 @@
         </div>
         <c:forEach var='comList' items="${comList}">
             <div class="boardList">
-                <div id="listItem" class="num">${comList.num}</div>
-                <div id="listItem" class="title"><a href="/communi/listdetailView">${comList.agName}</a></div>
+                <div id="listItem" class="num">${comList.agName}</div>
+                <div id="listItem" class="title">${comList.agName}</a></div>
                 <div id="listItem" class="writer">${comList.memId}</div>
                 <div id="listItem" class="date">${comList.agDate}</div>
                 <div id="listItem" class="count">${comList.agCount}</div>
