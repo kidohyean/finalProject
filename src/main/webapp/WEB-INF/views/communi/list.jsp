@@ -7,15 +7,17 @@
     <strong>커뮤니티</strong>
     <p>자유게시판입니다.</p>
 </div>
-<div class="btWrap">
-    <a href="/community/insertPage" class="on">등록</a>
-</div>
-  <div class="head3">
+ <div class="head3">
 		<select id="selectBox" name="selectBox" onchange="if(this.value) location.href=(this.value);">
 	          <option>전체글</option>
 	          <option value="recommend" id="recommend">내가쓴글</option>
           </select> 
       </div>
+      
+<div class="btWrap">
+    <a href="/community/${'insertPage'}" class="on">등록</a>
+</div>
+ 
 <div class="boardListWrap">
     <div class="boardLists">
         <div class="top">

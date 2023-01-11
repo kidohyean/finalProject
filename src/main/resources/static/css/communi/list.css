@@ -7,14 +7,20 @@
     text-decoration: none;
     color: inherit;
 }
+.board_title{
+	text-align:center;
+}
 
 .board_title strong{
     font-size: 35px;
+    text-align: center;
 }
 
 .board_title p{
     margin-top: 5px;
     font-size: 20px;
+    font-weight:bold;
+    color:gray;
 }
 
 .btWrap{
@@ -55,6 +61,20 @@
     display: inline-block;
 }
 
+.head3{
+	height:50px;
+}
+
+
+#selectBox{
+	margin-left:50px;
+	height:30px;
+	width:150px;
+	font-size:20px;
+	text-align:center;
+	font-weight:bold;
+	background-color: rgb(240,240,240);
+}
 .num, .count{
     width: 150px;
 }
@@ -126,17 +146,27 @@
 .agBtInsert{
     margin-top: 10px;
     margin-bottom: 30px;
+    text-align:right;
 }
 .agInsertBt{
     width: 100px;
     height: 50px;
     font-size: 30px;
     border-radius: 10px;
+    background-color:white;
+    margin-right:10px;
+}
+
+.agInsertBt:hover{
+	 background-color: rgb(224,255,224);
 }
 
 .agCancel{
-    width: 100px;
-    height: 50px;
+    padding:4px 17px;
     font-size: 30px;
-    border-radius: 10px;
+    border:2px solid black;
+    border-radius: 10px;   
+}
+.agCancel:hover{
+	background-color: rgb(224,255,224);
 }
