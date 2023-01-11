@@ -7,40 +7,27 @@
     text-decoration: none;
     color: inherit;
 }
-.board_title{
-	text-align:center;
-}
 
 .board_title strong{
     font-size: 35px;
-    text-align: center;
 }
 
 .board_title p{
     margin-top: 5px;
     font-size: 20px;
-    font-weight:bold;
-    color:gray;
 }
 
 .btWrap{
-    margin: 15px;
-    font-size: 30px;
+    margin: 10px;
+    font-size: 20px;
     text-align: right;
     margin-right: 50px;
-    
 }
 
 .on{
     border: 1px solid black;
     border-radius: 10px;
-    padding: 5px 15px;
 }
-
-.on:hover{
-	background-color: rgb(224,255,224);
-}
-
 .boardLists {
     text-align: center;
 }
@@ -53,28 +40,6 @@
     display: inline-block;
 }
 
-#listItem{
-    height: 40px;
-    font-size: 25px;
-    margin: 0;
-    border-bottom: 1px solid black;
-    display: inline-block;
-}
-
-.head3{
-	height:50px;
-}
-
-
-#selectBox{
-	margin-left:50px;
-	height:30px;
-	width:150px;
-	font-size:20px;
-	text-align:center;
-	font-weight:bold;
-	background-color: rgb(240,240,240);
-}
 .num, .count{
     width: 150px;
 }
@@ -146,27 +111,19 @@
 .agBtInsert{
     margin-top: 10px;
     margin-bottom: 30px;
-    text-align:right;
 }
 .agInsertBt{
     width: 100px;
     height: 50px;
     font-size: 30px;
+    background-color: rgb(117, 245, 124);
     border-radius: 10px;
-    background-color:white;
-    margin-right:10px;
-}
-
-.agInsertBt:hover{
-	 background-color: rgb(224,255,224);
 }
 
 .agCancel{
-    padding:4px 17px;
+    width: 100px;
+    height: 50px;
     font-size: 30px;
-    border:2px solid black;
-    border-radius: 10px;   
-}
-.agCancel:hover{
-	background-color: rgb(224,255,224);
+    background-color: rgb(117, 245, 124);
+    border-radius: 10px;
 }
