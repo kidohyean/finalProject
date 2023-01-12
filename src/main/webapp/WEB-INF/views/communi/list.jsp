@@ -29,7 +29,7 @@
         <c:forEach var='comList' items="${comList}">
             <div class="boardList">
                 <div id="listItem" class="num">${comList.agNum}</div>
-                <div id="listItem" class="title">${comList.agName}</a></div>
+                <div id="listItem" class="title">${comList.agName}</div>
                 <div id="listItem" class="writer">${comList.memId}</div>
                 <div id="listItem" class="date">${comList.agDate}</div>
                 <div id="listItem" class="count">${comList.agCount}</div>
@@ -37,20 +37,20 @@
         </c:forEach>
         <div class="boardPage">
             <c:if test="${listMap.pager.curBlock > 1}">
-                <a href="#" onclick="list('1')" class="btFirst"><<</a>
+                <a href="#" onclick="list('1')" class="btFirst">처음</a>
             </c:if>
             <c:if test="${listMap.pager.curBlock > 1}">
-                <a href="#" onclick="list('${listMap.pager.prevPage}')" class="btPrev"><</a>
+                <a href="#" onclick="list('${listMap.pager.prevPage}')" class="btPrev">이전</a>
             </c:if>
             
             <c:forEach var ="num" begin="1" end = "${listMap.pager.totPage}">
                 <a href="javascript : list ('${num}')">${num}</a>
             </c:forEach>
             <c:if test="${map.pager.curBlock <= map.pager.totBlock}">
-                <a href="#" onclick="list('${listMap.pager.nextpage}')" class="btNext">></a>
+                <a href="#" onclick="list('${listMap.pager.nextpage}')" class="btNext">다음</a>
             </c:if>
             <c:if test="${map.pager.curBlock <= map.pager.totBlock}">
-                <a href="#" onclick="list('${listMap.pager.totPage}')" class="btLast">>></a>
+                <a href="#" onclick="list('${listMap.pager.totPage}')" class="btLast">마지막</a>
             </c:if>
             
         </div>
