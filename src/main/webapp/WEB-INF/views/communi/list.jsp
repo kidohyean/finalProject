@@ -8,9 +8,9 @@
 </div>
  <div class="head3">
 		<select id="selectBox" name="selectBox" onchange="if(this.value) location.href=(this.value);">
-	          <option>전체글</option>
-	          <option value="recommend" id="recommend">내가쓴글</option>
-          </select> 
+            <option value="/community/list/1" <c:if test="${listPage eq 'list'}">selected</c:if> id="allList">전체글</option>
+	        <option value="/community/myList/1" <c:if test="${listPage eq 'myList'}">selected</c:if> id="myList">내가쓴글</option>
+          </select>
       </div>
 
 <div class="btWrap">
@@ -36,21 +36,28 @@
             </div>
         </c:forEach>
         <div class="boardPage">
-            <c:if test="${listMap.pager.curBlock > 1}">
-                <a href="#" onclick="list('1')" class="btFirst">처음</a>
+            <c:if test="${page.prev}">
+                <a href="/community/${listPage}/1" class="btFirst">처음</a>
             </c:if>
-            <c:if test="${listMap.pager.curBlock > 1}">
-                <a href="#" onclick="list('${listMap.pager.prevPage}')" class="btPrev">이전</a>
+            <c:if test="${page.prev}">
+                <a href="/community/${listPage}/${page.startPageNum - 1}" class="btPrev">이전</a>
             </c:if>
             
-            <c:forEach var ="num" begin="1" end = "${listMap.pager.totPage}">
-                <a href="javascript : list ('${num}')">${num}</a>
+            <c:forEach var ="num" begin="${page.startPageNum}" end = "${page.endPageNum}">
+                <c:if test="${select != num}">
+                    <a href="/community/${listPage}/${num}">${num}</a>
+                </c:if>
+
+                <c:if test="${select == num}">
+                    <b>${num}</b>
+                </c:if>
+                
             </c:forEach>
-            <c:if test="${map.pager.curBlock <= map.pager.totBlock}">
-                <a href="#" onclick="list('${listMap.pager.nextpage}')" class="btNext">다음</a>
+            <c:if test="${page.next}">
+                <a href="/community/${listPage}/${page.endPageNum + 1}" class="btNext">다음</a>
             </c:if>
-            <c:if test="${map.pager.curBlock <= map.pager.totBlock}">
-                <a href="#" onclick="list('${listMap.pager.totPage}')" class="btLast">마지막</a>
+            <c:if test="${page.next}">
+                <a href="/community/${listPage}/${page.pageNum}" class="btLast">마지막</a>
             </c:if>
             
         </div>

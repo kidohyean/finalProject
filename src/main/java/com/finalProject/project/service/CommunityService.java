@@ -1,6 +1,7 @@
 package com.finalProject.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,13 +17,13 @@ public class CommunityService implements ICommunityService {
 	private ICommunityDAO dao;
 
 	@Override
-	public ArrayList<AggregationVO> listAllAggre() {
-		return dao.listAllAggre();
+	public ArrayList<AggregationVO> listAllAggre(HashMap map) {
+		return dao.listAllAggre(map);
 	}
 
 	@Override
-	public void insertAggregation(AggregationVO vo) {
-		dao.insertAggregation(vo);
+	public void insertAggregation(AggregationVO Aggre) {
+		dao.insertAggregation(Aggre);
 
 	}
 
@@ -40,8 +41,25 @@ public class CommunityService implements ICommunityService {
 
 	@Override
 	public AggregationVO detailViewAggre(String memId) {
-		dao.detailViewAggre(memId);
-		return null;
+		return dao.detailViewAggre(memId);
+	}
+
+	@Override
+	public int dataCount() {
+		// TODO Auto-generated method stub
+		return dao.dataCount();
+	}
+
+	@Override
+	public ArrayList<AggregationVO> myListAllAggre(HashMap map) {
+		// TODO Auto-generated method stub
+		return dao.myListAllAggre(map);
+	}
+
+	@Override
+	public int myDataCount(String memId) {
+		// TODO Auto-generated method stub
+		return dao.myDataCount(memId);
 	}
 
 }
