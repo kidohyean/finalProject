@@ -11,16 +11,16 @@
     <section>
     <article id="borad">
        <div id="pageTitle">
-           <h2> ${Aggre.agName }</h2>
+           <h2> ${Aggre.agName}</h2>
        </div>
        <div id="contentTable">
           <table id="detailtable">
             <tbody>
-               <tr><td class="writer"><span>${Aggre.memId }</span>
+               <tr><td class="writer"><span>${Aggre.memId}</span>
             </tbody>
           </table>
        </div>
-    </article>"
+    </article>
     </section>
    
    

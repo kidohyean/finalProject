@@ -40,8 +40,8 @@ public class CommunityService implements ICommunityService {
 	}
 
 	@Override
-	public AggregationVO detailViewAggre(String memId) {
-		return dao.detailViewAggre(memId);
+	public AggregationVO detailViewAggre(String agNum) {
+		return dao.detailViewAggre(agNum);
 	}
 
 	@Override

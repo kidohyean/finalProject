@@ -1,10 +1,10 @@
 
-
+/*
 $(document).ready(function(){
     console.log("start");
     $(".boardList").on('click',function(){
         console.log("on");
-        location.href="/community/detailViewAggre/{agName}";
+        location.href="/community/detailViewAggre/{agNum}";
     })
 
-})
+})*/

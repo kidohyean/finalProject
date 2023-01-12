@@ -29,11 +29,12 @@ private CommunityService service;
 	}
      
      
-     @RequestMapping("/community/detailViewAggre/{agName}")
-	 	public String detailViewAggre(String agName, Model model) {
+     @RequestMapping("/community/detailViewAggre/{agNum}")
+	 	public String detailViewAggre(@PathVariable("agNum") String agNum, Model model) {
 	 		// 상품번호 전달하고 해당 상품 상세 정보 받아오기 (1개 상품에 관한 정보)
-	 		AggregationVO Aggre = service.detailViewAggre(agName);
+	 		
 	 		String url ="/WEB-INF/views/communi/listdetailView.jsp";
+			AggregationVO Aggre = service.detailViewAggre(agNum);
 	 		model.addAttribute("Aggre", Aggre);
 	 		model.addAttribute("url", url);
 	 		return "communi/community";

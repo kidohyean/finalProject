@@ -11,7 +11,7 @@ public interface ICommunityService {
 	public void insertAggregation(AggregationVO Aggre); // 리뷰 추가
 	public void updateAggregation(AggregationVO Aggre); // 리뷰 수정
 	public void deleteAggregation(String memId); //리뷰 삭제
-	public AggregationVO detailViewAggre(String memId); // 리뷰 조회
+	public AggregationVO detailViewAggre(String agNum); // 리뷰 조회
 	public int dataCount();
 	public int myDataCount(String memId);
 }
