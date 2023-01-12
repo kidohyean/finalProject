@@ -6,7 +6,7 @@
   <mapper namespace="com.finalProject.project.dao.ICommunityDAO">
 
   <select id="listAllAggre" parameterType="hashmap" resultType="com.finalProject.project.model.AggregationVO">
-        SELECT * FROM aggregation WHERE agName BETWEEN 10 and 20;
+        SELECT * FROM aggregation WHERE agNum BETWEEN 10 and 20;
   </select>
 
   </mapper>
