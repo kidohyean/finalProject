@@ -15,7 +15,7 @@
         <div>
         <c:if test="${empty sessionScope.sid }">
             <a href="<c:url value='/member/loginForm'/>" id="headerMenuA" class="signIn">로그인</a>
-            <a href="<c:url value='/member/hwForm'/>" id="headerMenuA" class="signUn">회원가입</a>
+            <a href="<c:url value='/member/joinForm'/>" id="headerMenuA" class="signUn">회원가입</a>
             
             
         </c:if>		
