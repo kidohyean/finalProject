@@ -25,6 +25,7 @@ body{
     height: 50px;
     background-color: aqua;
     border-radius: 50%;
+    margin-left:50px;
 }
 #chatBotDiv img{
     
@@ -37,6 +38,7 @@ body{
 #logoImg{
     width: 200px;
     height: 60px;
+    margin-left:100px
 }
 
 #headerMenuA{
@@ -51,4 +53,22 @@ body{
     width: 40px;
     height: 40px;
     margin-right: 10px;
+}
+
+  .top-line{
+	height:4px;
+	background:black;
+	margin: 8px 0 8px;
+	background: rgb(57, 105, 73)
+}
+
+.header-button{
+	font: 600 'Open Sans', sans-serif;
+	width: 100px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
 }

@@ -44,7 +44,7 @@
 				<!-- 왼쪽 -->
 				<div class="left">
 
-
+					<div class="line"></div>
 					<div class="name">
 						<h3>이름</h3>
 						<input type="text" class="form-control" id="memName"
@@ -125,26 +125,26 @@
 
 
 
-					<div class="subscription path">
-						<div class="col-md-8 mb-3">
-							<h3>가입 경로</h3>
-							<select class="custom-select d-block w-100" id="memRoot"
-								name="memRoot">
-								<option value=""></option>
-								<option>검색</option>
-								<option>카페</option>
-							</select>
-							<div class="invalid-feedback">가입 경로를 선택해주세요.</div>
-						</div>
-					</div>
 
-					<hr class="join">
-					<div class="agree-box">
-						<input type="checkbox" class="custom-control-input" id="aggrement"
-							required> <label class="custom-control-label"
-							for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
+
+					<div class="end">
+						<a class="a">가입 경로 </a> <select class="option" id="memRoot" name="memRoot">
+							<option value=""></option>
+							<option>검색</option>
+							<option>카페</option>
+						</select>
 					</div>
-					<input type="submit" id="button" class="button" value="가입완료">
+					<hr />
+					<div class="a1">가입 경로를 선택해주세요.</div>
+
+
+					<div class="line"></div>
+					<div class="agree-box">
+						<input type="checkbox" class="agree" id="aggrement"
+							required> <label class="a1" for="aggrement">개인정보
+							수집 및 이용에 동의합니다.</label>
+					</div>
+					<input type="submit" id="button" class="button-end" value="가입완료">
 					<br> <br> <br>
 
 				</div>

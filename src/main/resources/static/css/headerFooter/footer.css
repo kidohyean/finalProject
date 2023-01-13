@@ -1,22 +1,14 @@
 @charset "UTF-8";
 
 #footerBox {
-	width: 1280px;
-	padding: 5px 20px 5px 20px ;
-	line-height:25px;
-	padding-left:20px;
-	background:rgb(57, 105, 73);
-	
-}
-
-
-.footerBox {
 	display:inline-block;
-	width:33%;
+	width:1280px;
+	padding: 5px 0;
+	line-height:25px;
 	font-size:10px;
 	font-weight:900;
-}
-
-.footerBox div{
+	background:rgb(57, 105, 73);
 	text-align:center;
+	text-align:center;
+	
 }
