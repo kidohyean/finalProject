@@ -1,8 +1,6 @@
 @charset "UTF-8";
 
 #footerBox {
-	position:absolute;
-	bottom:0;
 	width: 1280px;
 	padding: 5px 20px 5px 20px ;
 	line-height:25px;

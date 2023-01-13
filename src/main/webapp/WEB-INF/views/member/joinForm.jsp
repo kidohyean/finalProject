@@ -60,10 +60,9 @@
 						<h3>아이디</h3>
 						<input type="text" class="form-control" id="memId" name="memId"
 							placeholder="아이디을 입력해주세요." value="아이디을 입력해주세요." required>
-						<div>
-							<input class="button" type="button" id="memIdCheckBtn"
-								value="ID 중복 체크">
-						</div>
+						<input class="button" type="button" id="memIdCheckBtn"
+							value="ID 중복 체크">
+
 					</div>
 					</hr>
 
@@ -97,10 +96,10 @@
 							placeholder="0000  번호을 입력해주세요." size="4" required>
 					</div>
 
-				</div>
 
-				<!-- 오른쪽 -->
-				<div class="right">
+
+					<!-- 오른쪽 -->
+
 					<div class="postnumber">
 						<h3>주소</h3>
 						<input type="text" class="form-control" id="memZipcode"
@@ -168,11 +167,14 @@
     }, false);
   </script>
 			<!--bottom  -->
-			<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
+
 		</form>
+		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 	</div>
 
 </body>
+
+
 
 </html>
 
