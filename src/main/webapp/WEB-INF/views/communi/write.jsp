@@ -12,9 +12,10 @@
     </div>
 
    <c:if test="${mode eq 'insertPage'}">
+    <form class="formBox">
     <div class="board_write_wrap">
         <div class="board_write">
-            <form class="formBox"><div class="title">
+           <div class="title">
                     <p>제목</p>
                     <input class="agName" type="text" name="agName" placeholder="제목 입력">
                 </div>
@@ -25,13 +26,14 @@
                 <div class="agTextBox">
                     <textarea class="agText" placeholder="내용 입력"></textarea>
                 </div>
+                
             </div>
             <div class="agBtInsert">
                 <input class="agInsertBt" type="submit" value="저장">
                 <a class="agCancel" href="/community/list/${num=1}">취소</a>
             </div>
-            </form>                 
-    </div>
+            </div>
+            </form>                
    </c:if>
 
 </div>

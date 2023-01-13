@@ -5,6 +5,12 @@
 $(document).ready(function(){
 
     $('.formBox').on('submit', function(){
+    if ($('.agName').val() == "") {
+				alert("제목 입력하세요");
+				$('.agName').focus();
+				return false;
+			}
+    
       if (confirm("저장하시겠습니까?") == true){ 
        $.ajax({
                  type:"post",
@@ -36,5 +42,10 @@ $(document).ready(function(){
        console.log("취소되었습니다");
      }
     
+   
+			
+    
      });
+     
+			
      })
