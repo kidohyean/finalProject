@@ -1,144 +1,138 @@
 package com.finalProject.project.model;
 
 public class PagerVO {
-    // 현재 페이지 번호
-private int num;
-
-// 게시물 총 갯수
-private int dataCount;
-
-// 한 페이지에 출력할 게시물 갯수
-private int postNum = 10;
-
-// 하단 페이징 번호 ([ 게시물 총 갯수 ÷ 한 페이지에 출력할 갯수 ]의 올림)
-private int pageNum;
-
-// 출력할 게시물
-private int displayPost;
-
-// 한번에 표시할 페이징 번호의 갯수
-private int pageNumCnt = 10;
-
-// 표시되는 페이지 번호 중 마지막 번호
-private int endPageNum;
-
-// 표시되는 페이지 번호 중 첫번째 번호
-private int startPageNum;
-
-// 다음/이전 표시 여부
-private boolean prev;
-private boolean next;
-
-    public int getNum() {
-        return this.num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
-
-
-    public int getDataCount() {
-        return this.dataCount;
-    }
-
-    public void setDataCount(int dataCount) {
-        this.dataCount = dataCount;
-        dataCalc();
+    public static final int PAGE_SCALE=10;    //페이지당 게시물수
+    public static final int BLOCK_SCALE=10;    //화면당 페이지수
+    
+    private int curPage;     //현재 페이지
+    private int prevPage;    //이전 페이지
+    private int nextPage;    //다음 페이지
+    private int totPage;    //전체 페이지 갯수
+    private int totBlock;     //전체 페이지블록 갯수
+    private int curBlock;     //현재 블록
+    private int prevBlock;     //이전 블록
+    private int nextBlock;     //다음 블록
+    private int pageBegin;     // #{start} 변수에 전달될 값
+    private int pageEnd;     // #{end} 변수에 전달될 값
+    private int blockBegin; //블록의 시작페이지 번호
+    private int blockEnd;     //블록의 끝페이지 번호
+    
+    //생성자
+    // Pager(레코드갯수, 출력할페이지번호)
+    public PagerVO(int count, int curPage) {
+        curBlock = 1; //현재블록 번호
+        this.curPage = curPage; //현재 페이지 번호
+        setTotPage(count); //전체 페이지 갯수 계산
+        setPageRange(); // #{start}, #{end} 값 계산하는 메소드
+        setTotBlock(); // 전체 블록 갯수 계산
+        setBlockRange(); //블록의 시작,끝 번호 계산
+    } 
+    public void setBlockRange() {
+        //원하는 페이지가 몇번째 블록에 속하는지 계산
+        curBlock=(curPage-1)/BLOCK_SCALE + 1;
+        //블록의 시작페이지,끝페이지 번호 계산
+        blockBegin=(curBlock-1)*BLOCK_SCALE+1;
+        blockEnd=blockBegin+BLOCK_SCALE-1;
+        //마지막 블록 번호가 범위를 초과하지 않도록 처리
+        if(blockEnd > totPage) {
+            blockEnd = totPage;
+        }
+        //[이전][다음]을 눌렀을 때 이동할 페이지 번호
+        prevPage=(curBlock==1) ? 1 : (curBlock-1)*BLOCK_SCALE;
+        nextPage=curBlock>totBlock ? (curBlock*BLOCK_SCALE)
+                : (curBlock*BLOCK_SCALE)+1;
+        //마지막 페이지가 범위를 초과하지 않도록 처리
+        if(nextPage >= totPage) {
+            nextPage=totPage;
+        }
     }
     
-    public int getPostNum() {
-        return this.postNum;
+    //페이지블록의 총 갯수 계산 (총 100페이지라면 10개의 블록이다)
+    public void setTotBlock() {
+        totBlock = (int)Math.ceil(totPage*1.0 / BLOCK_SCALE);
     }
-
-    public void setPostNum(int postNum) {
-        this.postNum = postNum;
+    
+// where rn between #{start} and #{end}에 입력될 값        
+    public void setPageRange() {
+// 시작번호=(현재페이지-1)x페이지당 게시물수 + 1
+// 끝번호=시작번호 + 페이지당 게시물수 - 1        
+        pageBegin = (curPage-1) * PAGE_SCALE + 1;
+        pageEnd = pageBegin + PAGE_SCALE - 1;
     }
-
-    public int getPageNum() {
-        return this.pageNum;
+    
+    public int getCurPage() {
+        return curPage;
     }
-
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
+    public void setCurPage(int curPage) {
+        this.curPage = curPage;
     }
-
-    public int getDisplayPost() {
-        return this.displayPost;
+    public int getPrevPage() {
+        return prevPage;
     }
-
-    public void setDisplayPost(int displayPost) {
-        this.displayPost = displayPost;
+    public void setPrevPage(int prevPage) {
+        this.prevPage = prevPage;
     }
-
-    public int getPageNumCnt() {
-        return this.pageNumCnt;
+    public int getNextPage() {
+        return nextPage;
     }
-
-    public void setPageNumCnt(int pageNumCnt) {
-        this.pageNumCnt = pageNumCnt;
+    public void setNextPage(int nextPage) {
+        this.nextPage = nextPage;
     }
-
-    public int getEndPageNum() {
-        return this.endPageNum;
+    public int getTotPage() {
+        return totPage;
     }
-
-    public void setEndPageNum(int endPageNum) {
-        this.endPageNum = endPageNum;
+    
+    //전체 페이지 갯수 계산
+    public void setTotPage(int count) {
+        // Math.ceil() 올림        
+        totPage = (int)Math.ceil(count*1.0 / PAGE_SCALE);
     }
-
-    public int getStartPageNum() {
-        return this.startPageNum;
+    public int getTotBlock() {
+        return totBlock;
     }
-
-    public void setStartPageNum(int startPageNum) {
-        this.startPageNum = startPageNum;
+    public void setTotBlock(int totBlock) {
+        this.totBlock = totBlock;
     }
-
-    public boolean isPrev() {
-        return this.prev;
+    public int getCurBlock() {
+        return curBlock;
     }
-
-    public boolean getPrev() {
-        return this.prev;
+    public void setCurBlock(int curBlock) {
+        this.curBlock = curBlock;
     }
-
-    public void setPrev(boolean prev) {
-        this.prev = prev;
+    public int getPrevBlock() {
+        return prevBlock;
     }
-
-    public boolean isNext() {
-        return this.next;
+    public void setPrevBlock(int prevBlock) {
+        this.prevBlock = prevBlock;
     }
-
-    public boolean getNext() {
-        return this.next;
+    public int getNextBlock() {
+        return nextBlock;
     }
-
-    public void setNext(boolean next) {
-        this.next = next;
+    public void setNextBlock(int nextBlock) {
+        this.nextBlock = nextBlock;
     }
-
-    private void dataCalc() {
- 
-        // 마지막 번호
-        endPageNum = (int)(Math.ceil((double)num / (double)pageNumCnt) * pageNumCnt);
-        
-        // 시작 번호
-        startPageNum = endPageNum - (pageNumCnt - 1);
-        
-        // 마지막 번호 재계산
-        int endPageNum_tmp = (int)(Math.ceil((double)dataCount / (double)pageNumCnt));
-        
-        if(endPageNum > endPageNum_tmp) {
-         endPageNum = endPageNum_tmp;
-        }
-        
-        prev = startPageNum == 1 ? false : true;
-        next = endPageNum * pageNumCnt >= dataCount ? false : true;
-        
-        displayPost = (num - 1) * postNum;
-        setPageNum(endPageNum_tmp);
-       }
-
+    public int getPageBegin() {
+        return pageBegin;
+    }
+    public void setPageBegin(int pageBegin) {
+        this.pageBegin = pageBegin;
+    }
+    public int getPageEnd() {
+        return pageEnd;
+    }
+    public void setPageEnd(int pageEnd) {
+        this.pageEnd = pageEnd;
+    }
+    public int getBlockBegin() {
+        return blockBegin;
+    }
+    public void setBlockBegin(int blockBegin) {
+        this.blockBegin = blockBegin;
+    }
+    public int getBlockEnd() {
+        return blockEnd;
+    }
+    public void setBlockEnd(int blockEnd) {
+        this.blockEnd = blockEnd;
+    }    
 }

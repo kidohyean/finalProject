@@ -30,6 +30,7 @@ public class CommunityController {
 		// 페이지 import 부분
 		String url ="/WEB-INF/views/communi/list.jsp";
 		model.addAttribute("url", url);
+		System.out.println("여여여여여ㅕ여여여여여여여여여여여ㅕㅇoptChoice"+optChoice);
 		PagerVO page = new PagerVO();
 		ArrayList<AggregationVO> voList = new ArrayList<AggregationVO>();
 		HashMap map = new HashMap<>();
