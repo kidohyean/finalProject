@@ -13,6 +13,6 @@
   </insert>
   
   <select id="detailViewAggre" parameterType="string" resultType="com.finalProject.project.model.AggregationVO">
-    select * from aggregation where agNum = #{agNum}
-	</select>
+		  	select * from aggregation where agName=#{agName}
+		</select>
   </mapper>
