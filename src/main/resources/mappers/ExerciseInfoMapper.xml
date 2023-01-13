@@ -3,20 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-    <mapper namespace="com.spring_boot.movie.dao.IMovieInfoDAO">
-  	<resultMap id="movieresult" type="com.spring_boot.movie.model.MovieInfoVO" >
-  		<result property="routineNo"  column="routineNo"  />
-  		<result property="routineName"  column="routineName"  />
-  		<result property="routineInfo"  column="routineInfo"  />
-  		<result property="routineWarn"  column="routineWarn"  />
-  		<result property="recSupplements"  column="recSupplements"  />
-  		<result property="useMachine"  column="useMachine"  />
-  		<result property="routineDate"  column="routineDate"  />
-  		<result property="recExercise"  column="recExercise"  />
-  	</resultMap>
+   <mapper namespace="com.finalProject.project.dao.IExerciseInfoDAO">
 
   <select id="detailViewRoutineInfo" parameterType="string"
-  								resultType="com.finalProject.ExerciseInfoVO">
+  								resultType="com.finalProject.project.model.ExerciseInfoVO">
   	SELECT * FROM exerciseInfo	WHERE routineNo = #{routineNo}						
   </select>
   

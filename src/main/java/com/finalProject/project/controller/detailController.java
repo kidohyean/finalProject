@@ -18,7 +18,7 @@ import com.finalProject.project.service.CommunityService;
 
 
 @Controller
-public class detailController {
+public class DetailController {
 @Autowired
 private CommunityService service;
      @ResponseBody
