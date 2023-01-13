@@ -39,11 +39,33 @@ body {
 	min-height: 550px;
 }
 
+.line{
+	width:92%;
+	height:4px;
+	background:black;
+	margin: 8px 0 8px;
+	background: rgb(57, 105, 73)
+}
+
 h3 {
 	margin: 8px 0 8px;
 	font-size: 14px;
 	font-weight: 700;
 	text-align: left;
+}
+
+.a {
+	margin: 8px 0 8px;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: left;
+}
+
+.a1 {
+	margin: 8px 0 8px;
+	font-size: 14px;
+	font-weight: 700;
+	margin-right: 30px;
 }
 
 h4 {
@@ -75,14 +97,43 @@ h4 {
 	color: #FFF;
 	border-radius: 5px;
 	border: none;
-	background: #00AE68;
-	margin-left:40%
+	background: #21825B;
+	margin-left: 40%
 }
 
 .button.button:hover {
-	background: #21825B;
+	background: #00AE68;
 }
 
-.address{
+.button-end {
+	font: 600 16px/18px 'Open Sans', sans-serif;
+	width: 150px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
 	margin: 8px 0 8px;
+	margin-right: 30px;
+}
+
+.button-end.button-end:hover {
+	background: #00AE68;
+}
+
+.address {
+	margin: 8px 0 8px;
+}
+
+.agree-box {
+	margin-right: 30px;
+}
+
+.end{
+	float:left;
+}
+
+.option{
+	width:255px;
 }
