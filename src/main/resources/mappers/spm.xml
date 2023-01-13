@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="com.finalProject.project.dao.ISpmDAO">
+   		<resultMap id="spmResult" type="com.finalProject.project.model.spmVO" >
+   			<result property="spmName" column="spmName" />
+   			<result property="spmIngredient" column="spmIngredient" />
+   			<result property="spmEffect" column="spmEffect" />
+   			<result property="spmExplain" column="spmExplain" />
+   			<result property="spmNotIngredient" column="spmNotIngredient" />
+   			<result property="spmCompany" column="spmCompany" />
+   			<result property="spmCtg" column="spmCtg" />
+   			<result property="spmCtgN" column="spmCtgN" />
+   		</resultMap>
+	<select id="ctgListSpm" parameterType="string" resultMap="spmResult">
+		SELECT*FROM supplements WHERE spmCtg=#{spmCtg}
+		ORDER BY spmName
+	</select>
+   
+   <select id="spmDetail" parameterType="string" resultType="com.finalProject.project.model.spmVO">
+		SELECT*FROM supplements WHERE spmName=#{spmName}
+	</select>
+   
+   </mapper>
+  
+  
+  

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+
+* {box-sizing: border-box;max-width: 100%;}
+
+.menu {
+	width: 100%;
+	overflow:hidden;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	}
+
+.menu-con {
+	height:800px;
+	flex-basis: 0;
+	flex-grow: 1;
+	display: flex;
+	-webkit-justify-content:space-around;
+	position:relative;
+	}
+
+.menu-con p {
+	height:20px;
+	-webkit-align-self:center;
+	color:white;
+	font-size:25px;
+	z-index:2;
+	}
+	
+.menu-con p a{
+	color: white;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
