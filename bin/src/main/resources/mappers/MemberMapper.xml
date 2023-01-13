@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.finalProject.project.dao.IMemberDAO">
+  <!-- 암호화 이전에 사용  -->
+  <!-- <select id="loginCheck" parameterType="hashmap" resultType="string">
+  SELECT memId FROM member WHERE memId=#{id} AND memPw=#{pwd}
+  </select> -->
+  
+  <!-- 암호화 한 후 로그인 확인  -->
+  <select id="loginCheck" parameterType="string" resultType="string">
+  SELECT memPw FROM member WHERE memId=#{id}
+  </select> 
+  <!-- 화원등록 -->
+   <insert id="insertMember" parameterType="com.finalProject.project.model.MemberVO">
+  INSERT INTO member (memId, memPw, memName, memEmail, memHp, memZipcode, memAddress1, memAddress2, memNickname, memRoot)
+        VALUES (#{memId}, #{memPw}, #{memName}, #{memEmail}, #{memHp}, #{memZipcode}, #{memAddress1}, #{memAddress2}, #{memNickname}, #{memRoot})
+
+   </insert>
+     <!--중복 검사-->
+     <select id="memIdCheck" parameterType="String"  resultType="string">
+	SELECT memId FROM member where memId = #{memId}
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="memberUpdate">
+		UPDATE member SET 
+		memPw=#{memPw},
+		memName = #{memName}
+		WHERE memId=#{id}
+	</update>
+
+
+   
+  </mapper>
