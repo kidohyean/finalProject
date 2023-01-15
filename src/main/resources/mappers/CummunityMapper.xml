@@ -20,4 +20,14 @@
     SELECT * FROM aggregation WHERE memId=#{memId} ORDER BY agNum DESC LIMIT #{displayPost}, #{postNum};
   </select>
 
+  <update id="updateAggregation" parameterType="hashMap">
+    UPDATE aggregation
+    SET agName=#{agName},agText=#{agText}
+    WHERE agNum =#{agNum}
+  </update>
+
+  <delete id="deleteAggregation" parameterType="int">
+    DELETE FROM aggregation WHERE agNum=#{agNum}
+
+  </delete>
   </mapper>

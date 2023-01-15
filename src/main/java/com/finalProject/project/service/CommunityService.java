@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.finalProject.project.dao.ICommunityDAO;
 import com.finalProject.project.model.AggregationVO;
+import com.finalProject.project.model.commentVO;
 
 @Service
 public class CommunityService implements ICommunityService {
@@ -17,7 +18,7 @@ public class CommunityService implements ICommunityService {
 	private ICommunityDAO dao;
 
 	@Override
-	public ArrayList<AggregationVO> listAllAggre(HashMap map) {
+	public ArrayList<AggregationVO> listAllAggre(HashMap<String,Object> map) {
 		return dao.listAllAggre(map);
 	}
 
@@ -28,19 +29,19 @@ public class CommunityService implements ICommunityService {
 	}
 
 	@Override
-	public void updateAggregation(AggregationVO Aggre) {
-		dao.updateAggregation(Aggre);
+	public void updateAggregation(HashMap<String,Object> map) {
+		dao.updateAggregation(map);
 
 	}
 
 	@Override
-	public void deleteAggregation(String memId) {
-		dao.deleteAggregation(memId);
+	public void deleteAggregation(int agNum) {
+		dao.deleteAggregation(agNum);
 
 	}
 
 	@Override
-	public AggregationVO detailViewAggre(String agNum) {
+	public AggregationVO detailViewAggre(int agNum) {
 		return dao.detailViewAggre(agNum);
 	}
 
@@ -51,7 +52,7 @@ public class CommunityService implements ICommunityService {
 	}
 
 	@Override
-	public ArrayList<AggregationVO> myListAllAggre(HashMap map) {
+	public ArrayList<AggregationVO> myListAllAggre(HashMap<String,Object> map) {
 		// TODO Auto-generated method stub
 		return dao.myListAllAggre(map);
 	}
@@ -59,6 +60,24 @@ public class CommunityService implements ICommunityService {
 	public int myDataCount(String memId) {
 		// TODO Auto-generated method stub
 		return dao.myDataCount(memId);
+	}
+
+	@Override
+	public void viewsAggregation(int agNum) {
+		// TODO Auto-generated method stub
+		dao.viewsAggregation(agNum);
+	}
+
+	@Override
+	public void insertComment(commentVO cVo) {
+		dao.insertComment(cVo);
+		
+	}
+
+	@Override
+	public ArrayList<commentVO> listAllComment(int agNum) {
+		// TODO Auto-generated method stub
+		return dao.listAllComment(agNum);
 	}
 
 }

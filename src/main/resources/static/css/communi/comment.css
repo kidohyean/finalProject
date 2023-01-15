@@ -1,0 +1,31 @@
+
+#commentInsertForm{
+    
+}
+#cmText{
+    height: 50px;
+    height: 40px;
+    font-size: 25px;
+}
+#commentInsertTag{
+    width: 70px;
+    height: 40px;
+    justify-content : center;
+    text-align: center;
+    font-size: 25px;
+    float: left;
+    margin: 0;
+    line-height: 18px;
+}
+
+#commentDiv{
+    width: 100%;
+}
+
+#commentMemId{
+    width: 50px;
+}
+
+.replyCommentForm{
+    visibility: hidden;
+}

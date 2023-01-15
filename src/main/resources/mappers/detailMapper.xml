@@ -12,7 +12,23 @@
   		VALUES (#{agName}, #{memId}, #{agText})
   </insert>
   
-  <select id="detailViewAggre" parameterType="string" resultType="com.finalProject.project.model.AggregationVO">
+  <select id="detailViewAggre" parameterType="int" resultType="com.finalProject.project.model.AggregationVO">
     select * from aggregation where agNum = #{agNum}
 	</select>
+
+  <update id="viewsAggregation" parameterType="int">
+    UPDATE aggregation
+    SET agCount = agCount+1
+    WHERE agNum = #{agNum}
+  </update>
+
+  <insert id="insertComment" parameterType="com.finalProject.project.model.commentVO">
+    INSERT INTO commenttable (cId, cContent, createDate, agNum, memId, updateDate, cDepth, cGroup)
+  	VALUES (DEFAULT, #{cContent}, DEFAULT, #{agNum}, #{memId}, DEFAULT, #{cDepth}, #{cGroup})
+  </insert>
+
+  <select id="listAllComment" parameterType="int" resultType="com.finalProject.project.model.commentVO">
+    select * from commenttable where agNum = #{agNum}
+	</select>
+
   </mapper>

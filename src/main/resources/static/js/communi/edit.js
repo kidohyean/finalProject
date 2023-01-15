@@ -4,19 +4,15 @@
 
 $(document).ready(function(){
 
-  $('#insertFormBox').on('submit', function(){
-    if ($('.agName').val() == "") {
-				alert("제목 입력하세요");
-				$('.agName').focus();
-				return false;
-			}
-    
+    $('#updateFormBox').on('submit', function(){
+      event.preventDefault();
       if (confirm("저장하시겠습니까?") == true){ 
        $.ajax({
                  type:"post",
-                 url:"/community/insertAggregation",
+                 url:"/community/UpdateAggregation",
                  data: {"agName":$('.agName').val(),
-                      "agText":$('.agText').val()},
+                             "agText":$('.agText').val(),
+                             "agNum":$('.agNum').val()},
     
                  success:function(result){
                      if(result == "success"){
@@ -34,16 +30,11 @@ $(document).ready(function(){
              }); // ajax 종료 	
     
        console.log("완료되었습니다.");
-       alert("저장했습니다.");
+       alert("수정했습니다.");
      }else{
        alert("취소합니다");
        console.log("취소되었습니다");
      }
     
-   
-			
-    
      });
-     
-			
      })

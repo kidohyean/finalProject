@@ -1,9 +1,14 @@
 package com.finalProject.project.model;
-import java.sql.Date;
+
+
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 public class AggregationVO {
 
 	private int agNum;
 	private String agName;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date agDate;
 	private String agText;
 	private int agCount;

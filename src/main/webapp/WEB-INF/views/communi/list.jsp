@@ -18,11 +18,27 @@
 <div class="head3">
     <select id="selectBox" name="selectBox" onchange="if(this.value) location.href=(this.value);">
         <option value="/community/list/1" <c:if test="${listPage eq 'list'}">selected</c:if> id="allList">전체글</option>
-        <option value="/community/myList/1" <c:if test="${listPage eq 'myList'}">selected</c:if> id="myList">내가쓴글</option>
+        <!--
+            <c:if test="${empty sessionScope.sid }">
+                로그인 안했을때 비움
+            </c:if>
+        -->
+       
+        <c:if test="${not empty sessionScope.sid }">
+            <option value="/community/myList/1" <c:if test="${listPage eq 'myList'}">selected</c:if> id="myList">내가쓴글</option>
+        </c:if>
       </select>
   </div>
 <div class="btWrap">
-    <a href="/community/${'insertPage'}" class="on">등록</a>
+    
+        <c:if test="${empty sessionScope.sid }">
+            <a class="on">로그인 해야 등록이 됩니다.</a>
+        </c:if>
+        
+       
+        <c:if test="${not empty sessionScope.sid }">
+            <a href="/community/insertPage" class="on">등록</a>
+        </c:if>
 </div>
 <div class="boardListWrap">
     <div class="boardLists">
