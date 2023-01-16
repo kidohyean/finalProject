@@ -1,6 +1,5 @@
 package com.finalProject.project.service;
 
-import java.util.ArrayList;
 
 import com.finalProject.project.model.ExerciseInfoVO;
 
