@@ -16,9 +16,8 @@ public class ExerciseController {
 	// TODO index 연결
 	
 	@RequestMapping("/exercise/detailViewRoutineInfo/{routineNo}")
-	public String detailViewRoutineInfo(@PathVariable String routineNo,
+	public String detailViewRoutineInfo(@PathVariable ("routineNo") String routineNo,
 														  Model model) {
-		// 서비스에게 상품번호 전달하고 상품 정보 받아옴
 		ExerciseInfoVO routine = service.detailViewRoutineInfo(routineNo);
 		model.addAttribute("routine", routine);
 		return "exercise/detailRoutineInfo";

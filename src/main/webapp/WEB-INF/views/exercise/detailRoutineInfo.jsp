@@ -22,24 +22,64 @@
 	</div>
 
 	<div id="wrap-routine">
-			<div id="wrap-container">
-					<div class="routine-image">
-							<a id="kaka" href="<c:url value='/exercise/detailRoutineInfo/${routine.routineNo}'/>">
-							<img value=${routine.routineNo} src="<c:url value='/image/${routine.routineNo}.jpg'/>"></a>
-					</div>
-					<div class="routine-info">
-							<h2>${routine.routineName}</h2>
-							<p> 운동정보 : ${routine.routineInfo }</p>
-							<p> 주의사항 : ${routine.routineWarn }</p>
-							<p> 추천 영양제 : ${routine.recSupplements }</p>
-							<p> 기구사용법 : ${routine.useMachine }</p>
-							<p> 기간별 루틴 : ${routine.routineDate }</p>
-							<p> 같이하면 좋은 운동 : ${routine.recExercise }</p>
-							
-					</div>
-			
+		<div id="wrap-container">
+			<div class="routine-box">
+				<a id="kaka"
+					href="<c:url value='/exercise/detailViewRoutineInfo/${routine.routineNo}'/>"></a>
 			</div>
-	
+			<div class="routine-info">
+				<div class="detail-routine">
+
+					<h2>${routine.routineName}</h2>
+					<hr>
+					<p>운동정보 : ${routine.routineInfo }</p>
+					<p>카테고리 : ${routine.routineCategory }</p>
+					<p>주의사항 : ${routine.routineWarn }</p>
+					<p>추천 영양제 : ${routine.recSupplements }</p>
+				</div>
+
+				<div class="info-box">
+
+					<div class="tab">
+						<div class="flex1">
+							<a href="#" class="panel1 active">운동방법</a> <a href="#"
+								class="panel1">기간별 루틴</a> <a href="#" class="panel1">같이하면 좋은
+								운동</a>
+						</div>
+
+						<div id="contents1-1" class="content1 on">
+							<p>운동방법 : ${routine.useMachine }</p>
+							${routine.useVideo}
+						</div>
+						<div id="contents2-1" class="content1">
+							<p>기간별 추천루틴 :</p>
+							<p>1주차 : ${routine.routineDate1 }</p>
+							<p>2주차 : ${routine.routineDate2 }</p>
+							<p>3주차 : ${routine.routineDate3 }</p>
+							<p>4주차 : ${routine.routineDate4 }</p>
+							<p>이후는 본인이 가능한 만큼만 횟수를 천천히 늘려가며 진행해주세요</p>
+						</div>
+						<div id="contents3-1" class="content1">
+							<form>
+								<input type="submit" id="recExercise1" class="routineBtn"
+									value="#${routine.recExercise1}"
+									formaction="/exercise/detailViewRoutineInfo/1"> <input
+									type="submit" id="recExercise1-1" class="routineBtn"
+									value="#${routine.recExercise2}"
+									formaction="/exercise/detailViewRoutineInfo/2"> <input
+									type="submit" id="recExercise1-2" class="routineBtn"
+									value="#${routine.recExercise3}"
+									formaction="/exercise/detailViewRoutineInfo/3">
+
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
 	</div>
 
 
