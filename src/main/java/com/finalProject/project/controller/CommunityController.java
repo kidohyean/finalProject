@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -35,7 +34,7 @@ public class CommunityController {
 		model.addAttribute("url", url);
 		PagerVO page = new PagerVO();
 		ArrayList<AggregationVO> voList = new ArrayList<AggregationVO>();
-		HashMap map = new HashMap<String,Object>();
+		HashMap<String,Object> map = new HashMap<String,Object>();
 		page.setNum(num);
 		page.setDataCount(service.dataCount());  
 		map.put("displayPost", page.getDisplayPost());
@@ -60,7 +59,7 @@ public class CommunityController {
 		model.addAttribute("url", url);
 		PagerVO page = new PagerVO();
 		ArrayList<AggregationVO> voList = new ArrayList<AggregationVO>();
-		HashMap map = new HashMap<String,Object>();
+		HashMap<String,Object> map = new HashMap<String,Object>();
 		
 		String userId = (String)session.getAttribute("sid");
 		page.setNum(num);
@@ -110,7 +109,7 @@ public class CommunityController {
    public String UpdateAggregation(@RequestParam("agName") String agName,
    									@RequestParam("agText") @Nullable String agText,
 									@RequestParam("agNum") String agNum) { 
-	HashMap map = new HashMap<String,Object>();
+	HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("agName", agName);
 		map.put("agText", agText);
 		map.put("agNum", agNum);
