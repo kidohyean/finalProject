@@ -24,13 +24,6 @@
 	SELECT memId FROM member where memId = #{memId}
 	</select>
 	
-	<!-- 회원 정보 수정 -->
-	<update id="memberUpdate">
-		UPDATE member SET 
-		memPw=#{memPw},
-		memName = #{memName}
-		WHERE memId=#{id}
-	</update>
 
 
    
