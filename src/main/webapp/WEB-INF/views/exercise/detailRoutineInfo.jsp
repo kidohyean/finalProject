@@ -24,17 +24,17 @@
 	<div id="wrap-routine">
 			<div id="wrap-container">
 					<div class="routine-image">
-							<a id="kaka" href="<c:url value='/exercise/detailRoutineInfo/${vo.routineNo}'/>">
-							<img src="<c:url value='/image/${vo.routineNo}.jpg'/>"></a>
+							<a id="kaka" href="<c:url value='/exercise/detailRoutineInfo/${routine.routineNo}'/>">
+							<img value=${routine.routineNo} src="<c:url value='/image/${routine.routineNo}.jpg'/>"></a>
 					</div>
 					<div class="routine-info">
-							<h2>${vo.routineName}</h2>
-							<p> 운동정보 : ${vo.routineInfo }</p>
-							<p> 주의사항 : ${vo.routineWarn }</p>
-							<p> 추천 영양제 : ${vo.recSupplements }</p>
-							<p> 기구사용법 : ${vo.useMachine }</p>
-							<p> 기간별 루틴 : ${vo.routineDate }</p>
-							<p> 같이하면 좋은 운동 : ${vo.recExercise }</p>
+							<h2>${routine.routineName}</h2>
+							<p> 운동정보 : ${routine.routineInfo }</p>
+							<p> 주의사항 : ${routine.routineWarn }</p>
+							<p> 추천 영양제 : ${routine.recSupplements }</p>
+							<p> 기구사용법 : ${routine.useMachine }</p>
+							<p> 기간별 루틴 : ${routine.routineDate }</p>
+							<p> 같이하면 좋은 운동 : ${routine.recExercise }</p>
 							
 					</div>
 			

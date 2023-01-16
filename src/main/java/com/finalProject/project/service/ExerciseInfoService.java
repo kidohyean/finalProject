@@ -12,7 +12,7 @@ import com.finalProject.project.model.ExerciseInfoVO;
 public class ExerciseInfoService implements IExerciseInfoService {
 	@Autowired
 	@Qualifier("IExerciseInfoDAO")
-	IExerciseInfoDAO dao;
+	private IExerciseInfoDAO dao;
 	
 	@Override
 	public ExerciseInfoVO detailViewRoutineInfo(String routineNo) {		

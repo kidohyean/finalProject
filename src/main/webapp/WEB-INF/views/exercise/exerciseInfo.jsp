@@ -40,23 +40,26 @@
 
     <div id="contents2" class="content">
         <h3>추천 동영상</h3>
-       <video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>				
-		<video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>				
-		<video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>
+        <iframe width="380" height="245" src="https://www.youtube.com/embed/7RC_4SyQitQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<iframe width="380" height="245" src="https://www.youtube.com/embed/myNjmnvI6x0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<iframe width="380" height="245" src="https://www.youtube.com/embed/WPkNDnnCPXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<a href="<c:url value='/exercise/exerciseVideo'/>">더보기</a>
     </div>
     
     <div id="contents3" class="content">
-        <h3>추천 동영상</h3>
-      <video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>				
-		<video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>				
-		<video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>
+         <h3>추천 동영상</h3>
+        <iframe width="380" height="245" src="https://www.youtube.com/embed/7RC_4SyQitQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<iframe width="380" height="245" src="https://www.youtube.com/embed/myNjmnvI6x0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<iframe width="380" height="245" src="https://www.youtube.com/embed/WPkNDnnCPXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<a href="<c:url value='/exercise/exerciseVideo'/>">더보기</a>
     </div>
     
     <div id="contents4" class="content">
-        <h3>추천 동영상</h3>
-       <video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>				
-		<video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>				
-		<video><source src="<c:url value='/video/동영상1.mp4'/>" type="video/mp4" /></video>
+       <h3>추천 동영상</h3>
+        <iframe width="380" height="245" src="https://www.youtube.com/embed/7RC_4SyQitQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<iframe width="380" height="245" src="https://www.youtube.com/embed/myNjmnvI6x0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<iframe width="380" height="245" src="https://www.youtube.com/embed/WPkNDnnCPXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<a href="<c:url value='/exercise/exerciseVideo'/>">더보기</a>
     </div>
     </article>
     <article>
