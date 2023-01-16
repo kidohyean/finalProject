@@ -11,8 +11,9 @@
 	margin:0 auto;
 	height: 150px; 
 	width: 1280px; 
-	background-color: rgb(39, 55, 111); 
-	position: relative; top: 0; left: 0;
+	background-color: white;
+	border-bottom:solid rgb(57, 105, 73);
+	position: relative; top: 10px; left: 0;
 	
 	}
 	
@@ -32,15 +33,15 @@
 	border-radius: 5px; 
 	height: 50px; 
 	display: block; 
-	background-color: black; 
+	background-color: rgb(57, 105, 73); 
 	text-align: center; 
 	line-height: 50px; 
 	color: white;
 	}
 	
 .active{
-	background-color: white !important; 
-	color:black !important;
+	background-color: #004000!important; 
+	color:white !important;
 	}
 	
 .content{
@@ -62,12 +63,13 @@ iframe{
 	margin:20px;
 }
 
-input#routine1.routineBtn {
+input.routineBtn {
 	border:1px solid black;
 	background-color:white;
 	border-radius:5px;
-	padding:20px;
+	padding:30px;
 	margin:40px;
+	margin-top:20px;
 	margin-right:0px;
 
 }
@@ -77,5 +79,10 @@ div#routine.exRoutine{
 }
 
 div.content a{ float:right;
+margin-right:30px;
 	
+}
+
+div#stretch.exstretch{
+	margin-bottom:50px;
 }
