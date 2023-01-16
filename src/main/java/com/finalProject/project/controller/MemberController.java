@@ -90,10 +90,9 @@ public class MemberController {
 	// 회원가입
 	@RequestMapping("/member/insert")
 	public String insert(MemberVO vo,
-									  @RequestParam("memHp1") String memHp1,
-									  @RequestParam("memHp2") String memHp2,
-									  @RequestParam("memHp3") String memHp3) {
-		vo.setMemHp(memHp1 + "-" + memHp2 + "-" + memHp3);
+									  @RequestParam("memHp1") String memHp1)
+									  {
+		vo.setMemHp(memHp1);
 		service.insertMember(vo);
 		return "member/loginForm"; // 회원 가입 후 로그인 폼으로 이동
 	}
