@@ -111,7 +111,15 @@ public class MemberController {
 		return result;
 	}
 	
-
+	@RequestMapping("/member/myPage")
+	public String myPage() { 	
+		return "member/myPage";
+	}
+	
+	@RequestMapping("/member/myPagehealth")
+	public String myPagehealth() {
+		return "member/myPagehealth";
+	}
 }
 
 

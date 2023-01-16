@@ -44,7 +44,7 @@
 							<label class="label">아이디<br />
 							<input type="text" id="id" name="id" class="input"></label> <label
 								class="label">비밀번호<br />
-							<input type="text" id="pwd" name="pwd" class="input"></label>
+							<input type="password" id="pwd" name="pwd" class="input"></label>
 							<div class="group">
 								<label><input type="checkbox" name="check"
 									value="memory"> 아이디 저장</label>

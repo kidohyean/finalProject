@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<title>마이페이지/개인정보변경</title>
-<!--   <base href=""> -->
+<meta charset="UTF-8">
+<title>건강알리미</title>
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/member/myPage.css'/>">
+	href="<c:url value='/css/member/myPagehealth.css'/>">
 <c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
 </head>
 <body>
@@ -25,7 +24,7 @@
 					<div class="myPage-Inf">이름 나이</div>
 
 					<div class="button-box">
-						<input class="myPage-button" type="button" value="개인정보변경">
+						<input class="myPage-button" type="button" onClick="location.href='<c:url value='myPage'/>'" value="개인정보변경">
 						<input class="myPage-button" type="button" onClick="location.href='<c:url value='myPagehealth'/>'" value="건강알리미"> <input
 							class="myPage-button" type="button" value="---"> <input
 							class="myPage-button" type="button" value="---">
@@ -37,7 +36,7 @@
 			<section class="myPage-main">
 				<div class="myPage-main-contain">
 					<div class="myPage-main-contain-header">
-					<h3>개인정보변경</h3>
+					<h3>건강알리미</h3>
 					</div>
 				</div>
 			</section>
@@ -46,4 +45,6 @@
 		<!-- footer -->
 		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 	</div>
+
 </body>
+</html>

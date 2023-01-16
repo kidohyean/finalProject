@@ -59,7 +59,7 @@
 					<div class="id">
 						<h3>아이디</h3>
 						<input type="text" class="form-control" id="memId" name="memId"
-							placeholder="아이디을 입력해주세요." value="아이디을 입력해주세요." required>
+							placeholder="아이디을 입력해주세요." required>
 						<input class="button" type="button" id="memIdCheckBtn"
 							value="ID 중복 체크">
 
@@ -84,16 +84,6 @@
 						<h3>핸드폰 번호</h3>
 						<input type="text" class="form-control" id="memHp1" name="memHp1"
 							placeholder="010 - 0000 - 0000" size="3" required>
-					</div>
-					<div class="number">
-						<label for="memHp2"></label> <input type="text"
-							class="form-control" id="memHp2" name="memHp2"
-							placeholder="0000  번호을 입력해주세요." size="4" required>
-					</div>
-					<div class="number">
-						<label for="memHp3"></label> <input type="text"
-							class="form-control" id="memHp3" name="memHp3"
-							placeholder="0000  번호을 입력해주세요." size="4" required>
 					</div>
 
 
