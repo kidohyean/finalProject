@@ -23,43 +23,46 @@
 
 	<div id="wrap-routine">
 		<div id="wrap-container">
-			<div class="routine-box">
-				<a id="kaka"
-					href="<c:url value='/exercise/detailViewRoutineInfo/${routine.routineNo}'/>"></a>
-			</div>
+			<article>
 			<div class="routine-info">
 				<div class="detail-routine">
-
 					<h2>${routine.routineName}</h2>
-					<hr>
+					
 					<p>운동정보 : ${routine.routineInfo }</p>
 					<p>카테고리 : ${routine.routineCategory }</p>
 					<p>주의사항 : ${routine.routineWarn }</p>
 					<p>추천 영양제 : ${routine.recSupplements }</p>
 				</div>
+			</div>
+			</article>
 
-				<div class="info-box">
 
 					<div class="tab">
 						<div class="flex1">
-							<a href="#" class="panel1 active">운동방법</a> <a href="#"
-								class="panel1">기간별 루틴</a> <a href="#" class="panel1">같이하면 좋은
-								운동</a>
+							<a href="#" class="panel1 active">운동방법</a> 
+							<a href="#" class="panel1">기간별 루틴</a> 
+							<a href="#" class="panel1">다른 운동</a>
 						</div>
+					</div>
+					<article>
 
 						<div id="contents1-1" class="content1 on">
-							<p>운동방법 : ${routine.useMachine }</p>
+							<h3>운동방법 : </h3>
+							${routine.useMachine}
+							<div class="useVideo">
 							${routine.useVideo}
+							</div>
 						</div>
-						<div id="contents2-1" class="content1">
-							<p>기간별 추천루틴 :</p>
-							<p>1주차 : ${routine.routineDate1 }</p>
-							<p>2주차 : ${routine.routineDate2 }</p>
-							<p>3주차 : ${routine.routineDate3 }</p>
-							<p>4주차 : ${routine.routineDate4 }</p>
+						<div id="contents1-2" class="content1">
+							<h3>기간별 추천루틴</h3>
+							<p>${routine.routineDate1 }</p>
+							<p>${routine.routineDate2 }</p>
+							<p>${routine.routineDate3 }</p>
+							<p>${routine.routineDate4 }</p>
 							<p>이후는 본인이 가능한 만큼만 횟수를 천천히 늘려가며 진행해주세요</p>
 						</div>
-						<div id="contents3-1" class="content1">
+						<div id="contents1-3" class="content1">
+							<h3>다른 추천 운동</h3>
 							<form>
 								<input type="submit" id="recExercise1" class="routineBtn"
 									value="#${routine.recExercise1}"
@@ -73,15 +76,10 @@
 
 							</form>
 						</div>
-					</div>
+					</article>
 				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
+					
+				</div>
 
 	<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 </body>

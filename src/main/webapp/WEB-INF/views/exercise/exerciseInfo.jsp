@@ -39,21 +39,20 @@
 		<div id="routine" class="exRoutine">
     	<h3>추천 운동 루틴</h3>
     	<form>
-        <input type="submit" id="routine1" class="routineBtn" value="#숄더프레스 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/R001">
-        <input type="submit" id="routine1-1" class="routineBtn" value="#덤벨로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/R002">
-        <input type="submit" id="routine1-2" class="routineBtn" value="#시티드로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/R003">
-        <input type="submit" id="routine1-3" class="routineBtn" value="#원암로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/R004">
-    </form>
-   </div>
+        <input type="submit" id="routine1" class="routineBtn" value="#등 조이기 운동" formaction="/exercise/detailViewRoutineInfo/R001">
+        <input type="submit" id="routine1-1" class="routineBtn" value="#덤벨 로우" formaction="/exercise/detailViewRoutineInfo/R002">
+        <input type="submit" id="routine1-2" class="routineBtn" value="#라잉 덤벨 프레스" formaction="/exercise/detailViewRoutineInfo/R003">
+        <input type="submit" id="routine1-3" class="routineBtn" value="#케어링 오버헤드 프레스" formaction="/exercise/detailViewRoutineInfo/R004">
+  		 </form>
+   		</div>
    
-   <div id="stretch" class="exstretch">
+   		<div id="stretch" class="exstretch">
    			<h3>추천 스트레칭 영상</h3>
    			<iframe width="380" height="245" src="https://www.youtube.com/embed/xW3JI2eI7nM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
    			<iframe width="380" height="245" src="https://www.youtube.com/embed/pCyT7MWC_H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
    			<iframe width="380" height="245" src="https://www.youtube.com/embed/4TwQwVFLi4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
    			<a href="<c:url value='/exercise/exerciseVideo'/>">더보기</a>
-   		</div>
-		
+   		</div>	
     </div>
 
     <div id="contents2" class="content">
@@ -66,11 +65,12 @@
 		<div id="routine" class="exRoutine">
     	<h3>추천 운동 루틴</h3>
     	<form>
-        <input type="submit" id="routine1" class="routineBtn" value="#숄더프레스 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/1">
-        <input type="submit" id="routine1-1" class="routineBtn" value="#덤벨로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/2">
-        <input type="submit" id="routine1-2" class="routineBtn" value="#시티드로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/3">
-        <input type="submit" id="routine1-3" class="routineBtn" value="#원암로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/4">
-    </form>
+        <input type="submit" id="routine1" class="routineBtn" value="#숄더프레스" formaction="/exercise/detailViewRoutineInfo/1">
+        <input type="submit" id="routine1-1" class="routineBtn" value="#덤벨로우 formaction="/exercise/detailViewRoutineInfo/2">
+        <input type="submit" id="routine1-2" class="routineBtn" value="#시티드로우" formaction="/exercise/detailViewRoutineInfo/3">
+        <input type="submit" id="routine1-3" class="routineBtn" value="#원암로우" formaction="/exercise/detailViewRoutineInfo/4">
+    	</form>
+    	</div>
     	
     	<div id="stretch" class="exstretch">
    			<h3>추천 스트레칭 영상</h3>
@@ -79,7 +79,6 @@
    			<iframe width="380" height="245" src="https://www.youtube.com/embed/4TwQwVFLi4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
    			<a href="<c:url value='/exercise/exerciseVideo'/>">더보기</a>
    		</div>
-   
    		
     </div>
     
@@ -97,8 +96,8 @@
         <input type="submit" id="routine1-1" class="routineBtn" value="#덤벨로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/2">
         <input type="submit" id="routine1-2" class="routineBtn" value="#시티드로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/3">
         <input type="submit" id="routine1-3" class="routineBtn" value="#원암로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/4">
-    </form>
-   </div>
+ 	   </form>
+  		 </div>
    		<div id="stretch" class="exstretch">
    			<h3>추천 스트레칭 영상</h3>
    			<iframe width="380" height="245" src="https://www.youtube.com/embed/xW3JI2eI7nM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -122,8 +121,8 @@
         <input type="submit" id="routine1-1" class="routineBtn" value="#덤벨로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/2">
         <input type="submit" id="routine1-2" class="routineBtn" value="#시티드로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/3">
         <input type="submit" id="routine1-3" class="routineBtn" value="#원암로우 15개씩 4세트" formaction="/exercise/detailViewRoutineInfo/4">
-    </form>
-   </div>
+   		 </form>
+ 		  </div>
    		<div id="stretch" class="exstretch">
    			<h3>추천 스트레칭 영상</h3>
    			<iframe width="380" height="245" src="https://www.youtube.com/embed/xW3JI2eI7nM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
