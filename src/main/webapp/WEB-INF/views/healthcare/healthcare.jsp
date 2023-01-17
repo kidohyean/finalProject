@@ -8,34 +8,150 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>건강알리미</title>
-		 <link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcare.css'/>">
+		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcare.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/naverMap.css'/>">
+		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/healthcare.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
 	</head>
 	<body>
 		<div id="wrap">
-		<form id=insertreserve></form>  
+			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		    <section id="reserve">
+				<div class="divName">
+					<p class="reserveName">메세지 예약(지우고 싶다)</p>
+					<hr class="healHr"/>
+				</div>
 		        <article id="reservetext">
-                  <div id=text>
-                    <div>날짜 적는 법:yyyy-mm-dd</div>
-                    <div>시간 적는 법:오전 일때:09:00</div>
-                    <div>시간 적는 법:오후 일때:13:00</div>
-                    <div>예약내용 적는법 :운동 ,약,병원</div>
-                  </div>
- 				
-		         <div id=position>
-		            <input id=date name=date placeholder="날짜"><br>
-		            <input id=time name=time placeholder="시간"><br>
-		            <input id=reserve1 name=reserve1 placeholder="예약내용"><br>
-		            <button id=pushed name=reservation>예약</button>
-		        </div>
-		        
-		        <div id=afterreserve>
-		             <div id=afterdate>날짜</div>
-		             <div id=aftertime>시간</div>
-		             <div id=afterreserve2>예약내용</div>  
-		        </div> 
+					
+					<div id=text>
+						<br>
+						<div>날짜 적는 법:yyyy-mm-dd</div><br>
+						<div>시간 적는 법:오전 일때:09:00</div>
+						<div>시간 적는 법:오후 일때:13:00</div><br>
+						<div>예약내용 적는법 :운동 ,약,병원</div>
+					</div>
+					<form id=insertreserve>  
+						<div id=position>
+							<input id=date name=date placeholder="날짜"><br>
+							<input id=time name=time placeholder="시간"><br>
+							<input id=reserve1 name=reserve1 placeholder="예약내용"><br>
+							<button id=pushed name=reservation>예약</button>
+						</div>
+		        	</form>
+					<div id=afterreserve>
+						<div id=afterdate>날짜</div>
+						<div id=aftertime>시간</div>
+						<div id=afterreserve2>예약내용</div>  
+					</div> 
+					
 		        </article>
-		</section>
+				<div class="divName">
+					<p class="diseaseName">현재 상태</p>
+					<hr class="healHr"/>
+				</div>
+				<article id="disease">
+					<div>
+						
+					</div>
+				</article>
+				<div class="divName">
+					<p class="graphName">신체 상태</p>
+					<hr class="healHr"/>
+				</div>
+				<article id="graph1" class="graph">
+					<div id="graphWeight" class="graphDiv">
+						<div id="imgHiddenDiv1" class="imgHiddenDiv">
+							<img src="<c:url value='/image/healthcare/weight.png'/>">
+							<p>체중</p>
+						</div>
+						<div id="graphWeightHiddenDiv" class="graphHiddenDiv">
+							<img class="graphImg" src="<c:url value='/image/healthcare/weight.png'/>">
+							<p id="graphName1" class="graphName">체중</p>
+							<hr id="healHr1" class="healHr"/>
+							<div id="graphMath1" class="graphMath"></div>
+						</div>
+					</div>
+
+					<div id="graphBMI" class="graphDiv">
+						<div id="imgHiddenDiv2" class="imgHiddenDiv">
+							<img src="<c:url value='/image/healthcare/bmi.png'/>">
+							<p>체질량지수</p>
+						</div>
+						<div id="graphBMIHiddenDiv" class="graphHiddenDiv">
+							<img class="graphImg" src="<c:url value='/image/healthcare/bmi.png'/>">
+							<p id="graphName2" class="graphName">체질량지수</p>
+							<hr id="healHr2" class="healHr"/>
+							<div id="graphMath2" class="graphMath"></div>
+						</div>
+					</div>
+					<div id="graphBloodPressure" class="graphDiv">
+						<div id="imgHiddenDiv3" class="imgHiddenDiv">
+							<img src="<c:url value='/image/healthcare/blood.png'/>">
+							<p>혈압</p>
+						</div>
+						<div id="graphBloodPressureHiddenDiv" class="graphHiddenDiv">
+							<img class="graphImg" src="<c:url value='/image/healthcare/blood.png'/>">
+							<p id="graphName3" class="graphName">혈압</p>
+							<hr id="healHr3" class="healHr"/>
+							<div id="graphMath3" class="graphMath"></div>
+						</div>
+					</div>
+					<div id="graphBloodSugar" class="graphDiv">
+						<div id="imgHiddenDiv4" class="imgHiddenDiv">
+							<img src="<c:url value='/image/healthcare/sugarblood.png'/>">
+							<p>혈당</p>
+						</div>
+						<div id="graphBloodSugarHiddenDiv" class="graphHiddenDiv">
+							<img class="graphImg" src="<c:url value='/image/healthcare/sugarblood.png'/>">
+							<p id="graphName4" class="graphName">혈당</p>
+							<hr id="healHr4" class="healHr"/>
+							<div id="graphMath4" class="graphMath"></div>
+						</div>
+					</div>
+				</article>
+				<div class="divName">
+					<p class="mapName">주변 약국 정보</p>
+					<hr class="healHr"/>
+				</div>
+				<article class="naverMap">
+					<div id="mapAddress" class="mapDiv">
+						<p id="mapSearchFont1" class="mapSearchFont">지역 검색:</p>
+						<form id="mapSearchForm1" class="mapSearchForm">
+							<input type="text" id="mapSearch1" class="mapSearch" name="mapSearch">
+							<input type="submit" id="mapSearchBt1" class="mapSearchBt" value="검색">
+						</form>
+					</div>
+					<div id="pharmacyMap1" class="pharmacyMap">
+						<div id="pharmacy" class="pharmacySlider">
+							<div class="trigger trigger-left">
+								<img class="slideMapImg" src="<c:url value='/image/healthcare/up.png'/>">
+							</div>
+							<div class="viewport">
+								<ul class="slides-list">
+									<li class="slide">1</li>
+									<li class="slide">2</li>
+									<li class="slide">3</li>
+									<li class="slide">4</li>
+									<li class="slide">5</li>
+									<li class="slide">6</li>
+									<li class="slide">7</li>
+								</ul>
+							</div>
+							<div class="trigger trigger-right">
+								<img class="slideMapImg" src="<c:url value='/image/healthcare/down.png'/>">
+							</div>
+						</div>
+						<div id="Map" class="mapDivDiv">
+							맵
+						</div>
+						
+					</div>
+					
+				</article>
+			</section>
+			<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
 	</body>
 </html>
