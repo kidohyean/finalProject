@@ -23,7 +23,13 @@
      <select id="memIdCheck" parameterType="String"  resultType="string">
 	SELECT memId FROM member where memId = #{memId}
 	</select>
+	<!-- 회원정보  -->
 	
+	<select id="memberInfo" parameterType="String" resultType="com.finalProject.project.model.MemberVO">
+		
+		SELECT * FROM member
+		where memId = #{memId}
+	</select>
 
 
    

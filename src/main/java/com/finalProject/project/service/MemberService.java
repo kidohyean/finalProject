@@ -21,6 +21,8 @@ public class MemberService implements IMemberService {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+
+	private MemberService mapper;
 	
 	// 비밀번호 암호화하기 이전의 로그인 처리 방식
 //	@Override
@@ -77,6 +79,26 @@ public class MemberService implements IMemberService {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	@Override //회원 정보 조회
+	public MemberVO memberInfo(String memId) {
+	
+		return dao.memberInfo(memId);
+	}
+	
+	
+	
+
+
+
+
+
+
+
+
+
 
 
 

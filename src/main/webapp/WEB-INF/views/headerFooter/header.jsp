@@ -30,6 +30,7 @@
 					class="logOut"><input type="submit" id="button" class="header-button" value="로그아웃"></a>
 				<a href="<c:url value='/member/myPage'/>" id="headerMenuA"
 					class="myPage"><input type="submit" id="button" class="header-button" value="마이페이지"></a>
+		
 			</c:if>
 		</div>
 	</div>

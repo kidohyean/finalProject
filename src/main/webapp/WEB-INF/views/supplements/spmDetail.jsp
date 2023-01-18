@@ -7,15 +7,20 @@
 		<meta charset="UTF-8">
 		<title>영양제</title>
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/supplements/spmA.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/supplements/spmNav.css'/>">
+		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+		<script src="<c:url value='/js/exercise/exerciseInfo.js'/>"></script>
 	</head>
 	<body>
 		<!-- header -->
+		<div class="pageSize">
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
+		</div>
 		<!-- spmMenu -->
 		<c:import url="/WEB-INF/views/supplements/spmNav.jsp" />
 		
+		<div class="spmA" style="padding: 50px;">
 
 			<table width="800">
 					<tr><td rowspan="9"><img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="250"></td></tr>
@@ -30,8 +35,10 @@
 					<tr><td>${spm.spmIngredient }</td></tr>
 				</table>
 		
-		
+			</div>
 		<!-- footer -->
+		<div class="pageSize">
 		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
+		</div>
 	</body>
 </html>
