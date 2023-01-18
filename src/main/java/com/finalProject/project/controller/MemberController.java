@@ -1,6 +1,7 @@
 package com.finalProject.project.controller;
 
-import java.lang.reflect.Member;
+
+
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,11 +9,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.finalProject.project.model.MemberVO;
 import com.finalProject.project.service.MemberService;
@@ -23,6 +25,7 @@ import com.finalProject.project.service.MemberService;
 public class MemberController {
 	@Autowired
 	 MemberService service;
+	private Object log;
 	
 	
 	// 로그인 폼 열기
@@ -109,17 +112,54 @@ public class MemberController {
 		
 		return result;
 	}
+	//마이페이지
 	
 	@RequestMapping("/member/myPage")
-	public String myPage() { 	
-		return "member/myPage";
+	public String myPage(Model model, HttpSession session) { 
+		String memId = (String)session.getAttribute ("sid");
+		MemberVO memberVO = service.memberInfo(memId);
+		
+		if(memberVO == null) {
+			return "redirect:/mainHome";
+		}
+		
+		
+	
+		model.addAttribute("info", memberVO);
+		return "/member/myPage";
+			
+		
+		
 	}
 	
 	@RequestMapping("/member/myPagehealth")
 	public String myPagehealth() {
 		return "member/myPagehealth";
 	}
-}
+	
+	@GetMapping("/myPage")
+	public String infoGet(Model model, HttpSession session) {
+		String memId = (String)session.getAttribute ("sid");
+		MemberVO memberVO = service.memberInfo(memId);
+		
+		if(memberVO == null) {
+			return "redirect:/mainHome";
+		}
+		System.out.println(memId);
+		
+	
+		model.addAttribute("info", memberVO);
+		return "/member/myPage";
+			
+			
+		}
+
+		
+	}
+
+		
+	
+
 
 
 

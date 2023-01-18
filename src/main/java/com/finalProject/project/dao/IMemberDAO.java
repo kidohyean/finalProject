@@ -1,6 +1,8 @@
 package com.finalProject.project.dao;
 
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.finalProject.project.model.MemberVO;
 
 public interface IMemberDAO {
@@ -11,9 +13,10 @@ public interface IMemberDAO {
 	public String loginCheck(String id);
 	public void insertMember(MemberVO vo);
 	public String memIdCheck(String memId);// 아이디 중복 확인
-	// 회원정보 수정
-	public void memberUpdate(MemberVO vo)throws Exception;
+	public MemberVO memberInfo(String memId); //회원 정보 조회
+	
 
 
-
+		
+	
 }

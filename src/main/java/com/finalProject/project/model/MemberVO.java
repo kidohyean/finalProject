@@ -103,6 +103,7 @@ public String getMemSalt() {
 public void setMemSalt(String memSalt) {
 	this.memSalt = memSalt;
 }
+
    
    
 

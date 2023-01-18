@@ -38,6 +38,34 @@
 					<div class="myPage-main-contain-header">
 					<h3>건강알리미</h3>
 					</div>
+					 <div class="col-md-6 mb-3">
+                                    	<small>키</small>
+                                        <input type="text" class="form-control" id="txtName" value="cm" placeholder="키 입력">
+                                    </div>
+                                     <div class="col-md-6 mb-3">
+                                    	<small>몸무게</small>
+                                        <input type="text" class="form-control" id="txtName" value="kg" placeholder="몸무게 입력">
+                                    </div>
+                                     <div class="col-md-6 mb-3">
+                                    	<small>혈당</small>
+                                        <input type="text" class="form-control" id="txtName" value="" placeholder="혈당 입력">
+                                    </div>
+                                     <div class="col-md-6 mb-3">
+                                    	<small>체지방량</small>
+                                        <input type="text" class="form-control" id="txtName" value="" placeholder="체지방량 입력">
+                                    </div>
+                                     <div class="col-md-6 mb-3">
+                                    	<small>혈압</small>
+                                        <input type="text" class="form-control" id="txtName" value="" placeholder="혈압 입력">
+                                    </div>
+                                     <div class="col-md-6 mb-3">
+                                    	<small>질병</small>
+                                        <input type="text" class="form-control" id="txtName" value="" placeholder="질병 입력">
+                                    </div>
+                                    
+										<input type="submit" id="button" class="button-end" value="건강알리미 수정완료">
+			                            </div>
+                                    </div>
 				</div>
 			</section>
 		</form>
