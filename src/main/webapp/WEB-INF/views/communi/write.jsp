@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/communi/detailView.css' />">
 <script src="<c:url value='/js/communi/write.js' />"></script>
 <script src="<c:url value='/js/communi/edit.js' />"></script>
 

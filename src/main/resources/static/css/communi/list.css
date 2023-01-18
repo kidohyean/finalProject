@@ -1,6 +1,8 @@
 .board_wrap {
     margin: 0 auto;
 }
+
+
 .board_wrap a{
     text-decoration: none;
     color: inherit;
@@ -26,10 +28,11 @@
 
 
 .btWrap{
-    margin: 15px;
+	width:1440px;
+    margin-bottom: 15px;
     font-size: 30px;
     text-align: right;
-    margin-right: 50px;
+  
 
 }
 
@@ -37,6 +40,7 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px 15px;
+   
 }
 
 .on:hover{
@@ -68,7 +72,7 @@
 
 
 #selectBox{
-	margin-left:50px;
+	
 	height:30px;
 	width:150px;
 	font-size:20px;
@@ -77,16 +81,24 @@
 	background-color: rgb(240,240,240);
 }
 .num, .count{
-    width: 150px;
+    width: 100px;
 }
 .title{
-    width: 350px;
+    width: 550px;
+    
 }
+
+#listItem.title{
+	color: lightblue;
+}
+
+
+
 .writer{
     width: 200px;
 }
 .date{
-    width: 300px;
+    width: 200px;
 }
 .boardPage{
     margin-top: 30px;
@@ -127,7 +139,7 @@
     border: 1px solid black;
 }
 .formBox .title{
-    
+    margin-left: 30px;
     float: left;
     width: 60%;
 }
@@ -142,10 +154,11 @@
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
+    
 }
 .formBox .info{
     float: left;
-    width: 40%;
+    width: 35%;
 }
 .formBox .info p{
     margin-top: 20px;
@@ -154,7 +167,7 @@
     font-size: 25px;
 }
 .agMemId{
-    width: 60%;
+    
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
@@ -164,7 +177,7 @@
 }
 .agText{
     font-size: 25px;
-    width: 90%;
+    width: 99%;
     height: 500px;
     margin-bottom: 25px;
 }
@@ -194,4 +207,19 @@
 }
 .agCancel:hover{
 	background-color: rgb(224,255,224);
+}
+
+
+.agUpdateBt{
+	padding:4px 17px;
+    font-size: 30px;
+    border:2px solid black;
+    border-radius: 10px; 
+    background-color:white;  
+}
+
+.agUpdateBt:hover{
+	background-color: rgb(224,255,224);
+
+	}
 }
