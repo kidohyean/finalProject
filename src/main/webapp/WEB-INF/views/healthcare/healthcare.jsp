@@ -14,39 +14,13 @@
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcare.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		    <section id="reserve">
-				<div class="divName">
-					<p class="reserveName">메세지 예약(지우고 싶다)</p>
-					<hr class="healHr"/>
-				</div>
-		        <article id="reservetext">
-					
-					<div id=text>
-						<br>
-						<div>날짜 적는 법:yyyy-mm-dd</div><br>
-						<div>시간 적는 법:오전 일때:09:00</div>
-						<div>시간 적는 법:오후 일때:13:00</div><br>
-						<div>예약내용 적는법 :운동 ,약,병원</div>
-					</div>
-					<form id=insertreserve>  
-						<div id=position>
-							<input id=date name=date placeholder="날짜"><br>
-							<input id=time name=time placeholder="시간"><br>
-							<input id=reserve1 name=reserve1 placeholder="예약내용"><br>
-							<button id=pushed name=reservation>예약</button>
-						</div>
-		        	</form>
-					<div id=afterreserve>
-						<div id=afterdate>날짜</div>
-						<div id=aftertime>시간</div>
-						<div id=afterreserve2>예약내용</div>  
-					</div> 
-					
-		        </article>
 				<div class="divName">
 					<p class="diseaseName">현재 상태</p>
 					<hr class="healHr"/>
@@ -70,7 +44,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/weight.png'/>">
 							<p id="graphName1" class="graphName">체중</p>
 							<hr id="healHr1" class="healHr"/>
-							<div id="graphMath1" class="graphMath"></div>
+							<canvas id="graphMath1" class="graphMath"></canvas>
 						</div>
 					</div>
 
@@ -83,7 +57,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/bmi.png'/>">
 							<p id="graphName2" class="graphName">체질량지수</p>
 							<hr id="healHr2" class="healHr"/>
-							<div id="graphMath2" class="graphMath"></div>
+							<canvas id="graphMath2" class="graphMath"></canvas>
 						</div>
 					</div>
 					<div id="graphBloodPressure" class="graphDiv">
@@ -95,7 +69,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/blood.png'/>">
 							<p id="graphName3" class="graphName">혈압</p>
 							<hr id="healHr3" class="healHr"/>
-							<div id="graphMath3" class="graphMath"></div>
+							<canvas id="graphMath3" class="graphMath"></canvas>
 						</div>
 					</div>
 					<div id="graphBloodSugar" class="graphDiv">
@@ -107,7 +81,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/sugarblood.png'/>">
 							<p id="graphName4" class="graphName">혈당</p>
 							<hr id="healHr4" class="healHr"/>
-							<div id="graphMath4" class="graphMath"></div>
+							<canvas id="graphMath4" class="graphMath"></canvas>
 						</div>
 					</div>
 				</article>
