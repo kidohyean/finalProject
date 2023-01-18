@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.board_wrap{
+	width:1280px;
+}
+
 table {
     width: 100%;
     margin-bottom:20px;
