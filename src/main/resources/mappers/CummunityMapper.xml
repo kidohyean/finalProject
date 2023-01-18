@@ -30,4 +30,9 @@
     DELETE FROM aggregation WHERE agNum=#{agNum}
 
   </delete>
+
+  <delete id="deleteAggComment" parameterType="int">
+    DELETE FROM commenttable WHERE agNum=#{agNum}
+
+  </delete>
   </mapper>

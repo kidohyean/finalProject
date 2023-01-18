@@ -13,6 +13,7 @@ public interface ICommunityService {
 	public void updateAggregation(HashMap<String,Object> map); // 리뷰 수정
 	public void viewsAggregation(int agNum); // 조회수 카운트
 	public void deleteAggregation(int agNum); //리뷰 삭제
+	public void deleteAggComment(int agNum); //리뷰 삭제 시 댓글 삭제
 	public AggregationVO detailViewAggre(int agNum); // 영양제 리뷰 조회
 	public void insertComment(commentVO cVo);
 	public ArrayList<commentVO> listAllComment(int agNum); 

@@ -121,6 +121,7 @@ public class CommunityController {
    @RequestMapping("/community/delete/{agNum}")
    public String deleteAggregation(@PathVariable("agNum") int agNum) { 
 		System.out.println(agNum);
+		service.deleteAggComment(agNum);
 		service.deleteAggregation(agNum);
 		return "redirect:/community/list/1";
    }

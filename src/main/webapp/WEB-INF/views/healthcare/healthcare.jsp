@@ -15,7 +15,7 @@
 		<script src="<c:url value='/js/healthcare/healthcare.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -44,7 +44,9 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/weight.png'/>">
 							<p id="graphName1" class="graphName">체중</p>
 							<hr id="healHr1" class="healHr"/>
-							<canvas id="graphMath1" class="graphMath"></canvas>
+							<div class="graphSize">
+								<canvas id="graphMath1" class="graphMath" ></canvas>
+							</div>
 						</div>
 					</div>
 

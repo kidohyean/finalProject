@@ -7,38 +7,66 @@ $(document).ready(function(){
 });
 
 function barChart(){
-
-	var data = {
-            //기입 날짜 별
-			labels: ["09시~10시", "10시", "11시", "12시", "13시", "14시", "15시", "16시", "17시", "18시", "19시", "20시", "21시", "22시"],
-
-			datasets: [
-
-				{
-
-					label: "",
-
-					fillColor: "rgba(150,200,250,0.5)",
-
-					strokeColor: "rgba(150,200,250,0.8)",
-
-					highlightFill: "rgba(150,200,250,0.75)",
-
-					highlightStroke: "rgba(150,200,250,1)",
-
-					data: [65, 59, 80, 81, 56, 55, 30, 100, 120, 50, 11, 40, 70, 120]
-
-				}
-
-			]
-
-		};
-
     var ctx = document.getElementById("graphMath1").getContext("2d");
-
-    var options = { };
-
-    var barChart = new Chart(ctx).Bar(data, options);
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+            label: '# of Votes',
+            data: [70, 80, 76, 58, 64, 75],
+            backgroundColor: [
+                "rgba(54, 162, 235, 0.6)"
+            ],
+            borderColor: [
+                "rgba(255,99,132,1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)"
+            ],
+            borderWidth: 1
+          }],
+          datasets: [{
+            label: '# of Votes',
+            data: [70, 80, 76, 58, 64, 75],
+            backgroundColor: [
+                "rgba(54, 162, 235, 0.6)"
+            ],
+            borderColor: [
+                "rgba(255,99,132,1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)"
+            ],
+            borderWidth: 1
+          }]
+          
+        },
+       
+        options: {
+            plugins:{
+                legend: {
+                    display: false
+                }
+            },
+            x: {
+                type: 'time',
+                time: {
+                  // Luxon format string
+                  tooltipFormat: 'DD T'
+                },
+                title: {
+                  display: true,
+                  text: 'Date'
+                }
+              },
+            scales: {
+                y: {
+                  min: 40,
+                  max: 130,
+                }
+            },
+            maintainAspectRatio :false
+        }
+      });
 
 };
 

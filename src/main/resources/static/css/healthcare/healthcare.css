@@ -125,8 +125,6 @@ body{
 
 .graphMath{
 	margin-left: 2%;
-	width: 950px;
-	height: 400px;
 	border: 2px solid olivedrab;
 	border-radius: 10px;
 	margin-bottom: 20px;
@@ -162,5 +160,10 @@ body{
 #graphName1, #graphName2,#graphName3,#graphName4{
 	margin-left: 100px;
 	font-size: 30px;
+}
+
+.graphSize{
+	width: 980px;
+	height: 430px;
 }
 

@@ -80,4 +80,10 @@ public class CommunityService implements ICommunityService {
 		return dao.listAllComment(agNum);
 	}
 
+	@Override
+	public void deleteAggComment(int agNum) {
+		dao.deleteAggComment(agNum);
+		
+	}
+
 }
