@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
 
-* {box-sizing: border-box;max-width: 100%;}
+* {box-sizing: border-box;}
 
 .spmmenu {
-	width: 100%;
-	overflow:hidden;
+	margin:0 auto;
+	width: 1280px;
 	display: flex;
+	text-align:center;
+	padding-bottom:9px;
 	}
 
 .menu-con {
