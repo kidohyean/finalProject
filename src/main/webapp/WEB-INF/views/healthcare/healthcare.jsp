@@ -59,7 +59,9 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/bmi.png'/>">
 							<p id="graphName2" class="graphName">체질량지수</p>
 							<hr id="healHr2" class="healHr"/>
-							<canvas id="graphMath2" class="graphMath"></canvas>
+							<div class="graphSize">
+								<canvas id="graphMath2" class="graphMath"></canvas>
+							</div>
 						</div>
 					</div>
 					<div id="graphBloodPressure" class="graphDiv">
@@ -71,7 +73,9 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/blood.png'/>">
 							<p id="graphName3" class="graphName">혈압</p>
 							<hr id="healHr3" class="healHr"/>
-							<canvas id="graphMath3" class="graphMath"></canvas>
+							<div class="graphSize">
+								<canvas id="graphMath3" class="graphMath"></canvas>
+							</div>
 						</div>
 					</div>
 					<div id="graphBloodSugar" class="graphDiv">
@@ -83,7 +87,9 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/sugarblood.png'/>">
 							<p id="graphName4" class="graphName">혈당</p>
 							<hr id="healHr4" class="healHr"/>
-							<canvas id="graphMath4" class="graphMath"></canvas>
+							<div class="graphSize">
+								<canvas id="graphMath4" class="graphMath"></canvas>
+							</div>
 						</div>
 					</div>
 				</article>
