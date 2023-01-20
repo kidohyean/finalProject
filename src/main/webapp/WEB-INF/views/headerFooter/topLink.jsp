@@ -8,3 +8,4 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/headerFooter/topMenu.css'/>">
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 <script src="<c:url value='/js/topMenu.js'/>"></script>
+<script src="https://kit.fontawesome.com/bb34e32cb3.js" crossorigin="anonymous"></script>
