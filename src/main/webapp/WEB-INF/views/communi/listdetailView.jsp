@@ -51,35 +51,13 @@ document.addEventListener('keydown', function(event){
         </table>
     </form>
     <div>
-        <form action="/community/insertComment" method="post" id="commentInsertForm">
-            <p id="commentInsertTag">댓글:</p>
-            <input type="hidden" name="agNum" value="${Aggre.agNum}">
-            <input type="text" name="cContent" id="cmText" class="cmText">
-            <input type="submit" id="cmInsertBt">
-        </form>
-        <c:forEach var='cvoList' items="${cvoList}">
+    <c:forEach var='cvoList' items="${cvoList}">
             <c:if test="${cvoList.cDepth eq '0'}">
                 <div id="commentDiv">
                     <p id="commentMemId">${cvoList.memId}</p>
-                    <p>${cvoList.updateDate}</p>
-                    <p>${cvoList.cContent}</p>
-                    <div>
-                        
-                        <c:if test="${not empty sessionScope.sid }">
-                            
-                                <c:if test="${Aggre.memId eq sessionScope.sid }">
-                                    <button>수정</button>
-                                </c:if>
-                                <input type="hidden" name="agNum" value="${Aggre.agNum}">
-                                <input type="hidden" name="cId" value="${cvoList.cId}">
-                                <button id="${cvoList.cId}" class="replyHiddenBt" >답글</button>
-                            <form method="post" id="'c' +${cvoList.cId}" class="replyCommentForm">
-                                <input id="'c' + ${cvoList.cId}" class="replyText" type="text" name="replyCmt">
-                                <input id="'c' + ${cvoList.cId}" class="replyBt" type="submit" value="답글" formaction="/community/replyComment">
-                            </form>
-                        </c:if>
-                        
-                    </div>
+                    <p id="commentContent">${cvoList.cContent}</p>
+                    <p id="commentDate">${cvoList.updateDate}</p>
+               
                 </div>
             </c:if>
             <c:if test="${cvoList.cDepth eq '1'}">
@@ -91,6 +69,26 @@ document.addEventListener('keydown', function(event){
             </c:if>
             
         </c:forEach>
+    
+    <div class="thatgle">
+    
+        <c:if test="${empty sessionScope.sid }">
+            <a class="in">로그인 하셔야 댓글작성가능합니다.</a>
+        </c:if>
+    </div>    
+       
+        <c:if test="${not empty sessionScope.sid }">
+             <form action="/community/insertComment" method="post" id="commentInsertForm">
+            <p id="commentInsertTag">댓글:</p>
+            <input type="hidden" name="agNum" value="${Aggre.agNum}">
+            <input type="text" name="cContent" id="cmText" class="cmText">
+            <input type="submit" value="등록" id="cmInsertBt">
+        </form>
+        </c:if>
+     
+           
+        
+        
     </div>
     
    </div>     
