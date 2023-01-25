@@ -109,9 +109,8 @@
 						<input type="text" class="user_box" name="memAddress2"
 							value="${info.memAddress2 }">
 					</div>
-
+					
 					<input type="submit" id="button" class="btn btn-info updateBtn" value="수정완료">
-					<input type="submit" id="button" class="btn btn-warning modifyBtn" value="정보수정">
 					<input type="submit" id="button" class="btn btn-danger deleteBtn" value="회원 탈퇴">
 			
 						type="hidden" name="memId" value="${member.memId }">
@@ -123,6 +122,18 @@
 
 			</section>
 		</form>
+		<div class="pwDiv">
+			<form id="pwCheckForm" style="visibility: hidden;">
+				비밀번호 확인 : <input type="password" name="pwCheck" id="pwCheck" class="pwCheck">
+				<input type="submit" id="pwChBt" class="pwChBt" value="비밀번호확인">
+			</form>
+			<div id="testDiv" style="visibility: hidden;">
+				비밀번호 맞음
+			</div>
+		</div>
+		
+		<input type="button" id="bt" class="btn btn-warning modifyBtn" value="정보수정">
+		<input type="button" id="btc" class="btn btn-warning modifyBtn" value="수정취소">
 	</div>
 
 

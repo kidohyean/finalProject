@@ -160,10 +160,17 @@ public class MemberController {
 		
 		
 	}
+	@ResponseBody
+	@RequestMapping("/myPage/pwCheck")
+	public String pwCheck() {
+
+		String resuit = "fail";
+		//if() 비밀번호가 맞으면 success 전송
+		return resuit;
+	}
 	
 
-			
-		}
+}
 
 		
 	
