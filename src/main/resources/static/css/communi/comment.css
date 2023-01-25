@@ -2,6 +2,7 @@
 #commentInsertForm{
     margin-top:20px;
     margin-bottom:20px;
+    display: inline-flex;
 }
 #cmText{
 	margin-left:200px;
