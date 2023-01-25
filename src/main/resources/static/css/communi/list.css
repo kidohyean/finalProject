@@ -1,11 +1,16 @@
 .board_wrap {
     margin: 0 auto;
+ 
     
 }
 
-.top{
-	
+.header-item i{
+	width:40px;
+	height:40px;
+    text-align:center;
+    font-size:30px;
 }
+
 
 .board_wrap a{
     text-decoration: none;
@@ -33,7 +38,7 @@
 
 .btWrap{
 	width: 1280px;
-    margin-bottom: 15px;
+    margin-top: 15px;
     font-size: 30px;
     text-align: right;
   

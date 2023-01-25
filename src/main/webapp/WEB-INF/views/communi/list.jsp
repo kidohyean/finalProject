@@ -5,11 +5,13 @@
     $(document).ready(function(){
     console.log("start");
     $(".boardList").on('click',function(){
-        var dtNum = $(this)[0].firstChild.nextElementSibling.innerHTML;
+        /*  var dtNum = $(this)[0].firstChild.nextElementSibling.innerHTML;  */
+         var dtNum = $(this).find('input[class="num1"]').val(); 
         location.href="/community/detailViewAggre/"+dtNum;
     })
 })
 </script>
+
 <div class="board_wrap">
 <div class="board_title">
     <strong>커뮤니티</strong>
@@ -29,17 +31,7 @@
         </c:if>
       </select>
   </div>
-<div class="btWrap">
-    
-        <c:if test="${empty sessionScope.sid }">
-            <a class="on">로그인 해야 등록이 됩니다.</a>
-        </c:if>
-        
-       
-        <c:if test="${not empty sessionScope.sid }">
-            <a href="/community/insertPage" class="on">등록</a>
-        </c:if>
-</div>
+ 			<button type="submit" class=" header-item "><i class="fa fa-search"></i></button>
 <div class="boardListWrap">
     <div class="boardLists">
         <div class="top">
@@ -50,14 +42,29 @@
             <div id="topList" class="count">조회</div>
         </div>
         <c:forEach var='comList' items="${comList}">
+           <c:set var="i" value="${i+1}"/>
             <div class="boardList">
-                <div id="listItem" class="num">${comList.agNum}</div>
+                <div id="listItem" class="num">${i + page.displayPost}</div>
+                <input type="hidden" class="num1" value="${comList.agNum}">
                 <div id="listItem" class="title">${comList.agName}</div>
                 <div id="listItem" class="writer">${comList.memId}</div>
                 <div id="listItem" class="date">${comList.agDate}</div>
                 <div id="listItem" class="count">${comList.agCount}</div>
             </div>
         </c:forEach>
+        
+        <div class="btWrap">
+    
+        <c:if test="${empty sessionScope.sid }">
+            <a class="on">로그인시 글작성 가능합니다.</a>
+        </c:if>
+        
+       
+        <c:if test="${not empty sessionScope.sid }">
+            <a href="/community/insertPage" class="on">글쓰기</a>
+        </c:if>
+</div>
+        
         <div class="boardPage">
             <c:if test="${page.prev}">
                 <a href="/community/${listPage}/1" class="btFirst">처음</a>
