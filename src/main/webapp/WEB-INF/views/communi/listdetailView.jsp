@@ -20,36 +20,39 @@ document.addEventListener('keydown', function(event){
         <strong>커뮤니티</strong>
         <p>자유게시판입니다.</p>
     </div>
+    
+    <div class=contentarticle>
     <form>
-        <table border="1">
-            <tr>
-                <th>제목</th>
-                <td>${Aggre.agName}</td>
-            </tr>
-            <tr>
-                <th>글쓴이</th>
-                <td>${Aggre.memId}</td>
-            </tr>
-            <tr>
-                <th>내용</th>
-                <td class="td-1">${Aggre.agText}</td>
-            </tr>
-            <tr>
-                <th>작성일</th>
-                <td>${Aggre.agDate }</td>
-            </tr>
-            
-            <c:if test="${Aggre.memId eq sessionScope.sid }">
-                <tr class="tr-1">
-                    <td colspan="2" class="td-2">
-                        <input type="hidden" value="${Aggre.agNum}" id="deletePageNum" >
-                        <input type="button" value="삭제" id="delete">
-                        <input type="submit" value="수정" id="update" formaction="/community/${'edit'}/${Aggre.agNum}">
-                    </td>
-                </tr>
-            </c:if>
-        </table>
+      <div class="article_header">
+       <div class="title_area">
+        <h3 class="title_text">${Aggre.agName}</h3>
+       </div>
+    <div class="title_id">
+    <div class="title_date">
+         <img src="<c:url value='/image/user.png'/>" class="userImg">
+         <h3 class="text_memid">${Aggre.memId}</h3> 
+         <span class="date">${Aggre.agDate }</span>
+         <span class="count">조회 ${Aggre.agCount }</span>
+   </div>
+   </div>
+   
+        <div class="title-text">
+           <div class= "text">
+              <p>${Aggre.agText}</p>
+           </div>
+        </div>
+   
+        <c:if test="${Aggre.memId eq sessionScope.sid }">
+         <!--   <div class="update_delete"> -->
+           <input type="hidden" value="${Aggre.agNum}" id="deletePageNum">
+           <input type="button" value="삭제" id="delete">
+           <input type="submit" value="수정" id="update" formaction="/community/${'edit'}/${Aggre.agNum}">
+       <!--    </div> -->
+        
+        </c:if>
+   </div>
     </form>
+    
     <div>
     <c:forEach var='cvoList' items="${cvoList}">
             <c:if test="${cvoList.cDepth eq '0'}">
@@ -69,6 +72,8 @@ document.addEventListener('keydown', function(event){
             </c:if>
             
         </c:forEach>
+        
+      </div>
     
     <div class="thatgle">
     
@@ -79,15 +84,16 @@ document.addEventListener('keydown', function(event){
        
         <c:if test="${not empty sessionScope.sid }">
              <form action="/community/insertComment" method="post" id="commentInsertForm">
-            <p id="commentInsertTag">댓글:</p>
+             <div class=CommentWriter>
+             <div class="comment_inbox">
             <input type="hidden" name="agNum" value="${Aggre.agNum}">
             <input type="text" name="cContent" id="cmText" class="cmText">
             <input type="submit" value="등록" id="cmInsertBt">
-        </form>
+            </div>
+            </div>
+             </form>
         </c:if>
-     
-           
-        
+   
         
     </div>
     
