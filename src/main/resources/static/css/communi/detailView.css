@@ -16,6 +16,7 @@ h3{
 .contentarticle{
 	border:2px solid #ebecef;
 	padding: 29px 29px 0;
+	border-radius: 10px;
 }
 
 .userImg{
@@ -62,6 +63,10 @@ h3{
 .date{
 	font-size:20px;
 	color:#979797;
+}
+
+.btWrap{
+	margin-bottom:30px;
 }
 
 .count{

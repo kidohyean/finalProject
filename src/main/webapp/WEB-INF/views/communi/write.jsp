@@ -8,7 +8,7 @@
 
 <div class="board_wrap">
     <div class="board_title">
-        <strong>커뮤니티</strong>
+         <a href="/community/list/${num=1}"><strong>커뮤니티</strong></a>
         <p>자유게시판입니다.</p>
     </div>
 
