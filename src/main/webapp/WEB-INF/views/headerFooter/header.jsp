@@ -9,7 +9,7 @@
 			<img src="<c:url value='/image/chatBot.png'/>" id="chatBot">
 		</div>
 		<div>
-			<img src="<c:url value='/image/logo.png'/>" id="logoImg">
+			<a href="<c:url value='/' />" class="header-logo"><img src="<c:url value='/image/logo.png'/>" id="logoImg"></a>
 		</div>
 		<!-- 로그인 하기 전에 보여줄 메뉴 항목 -->
 		<div>
