@@ -38,7 +38,7 @@ document.addEventListener('keydown', function(event){
    
         <div class="title-text">
            <div class= "text">
-              <p>${Aggre.agText}</p>
+              <p class="agtext">${Aggre.agText}</p>
            </div>
         </div>
    
@@ -84,13 +84,11 @@ document.addEventListener('keydown', function(event){
        
         <c:if test="${not empty sessionScope.sid }">
              <form action="/community/insertComment" method="post" id="commentInsertForm">
-             <div class=CommentWriter>
-             <div class="comment_inbox">
+              <p id="commentInsertTag">댓글:</p>
             <input type="hidden" name="agNum" value="${Aggre.agNum}">
             <input type="text" name="cContent" id="cmText" class="cmText">
             <input type="submit" value="등록" id="cmInsertBt">
-            </div>
-            </div>
+           
              </form>
         </c:if>
    
