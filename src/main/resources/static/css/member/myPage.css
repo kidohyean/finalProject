@@ -25,7 +25,8 @@ form {
 }
 
 .myPage-userImg {
-	margin: 10px 70px 10px 70px; height : 100px;
+	margin: 10px 70px 10px 70px;
+	height: 100px;
 	width: 100px;
 	height: 100px;
 }
@@ -55,18 +56,90 @@ form {
 }
 
 .myPage-main {
-	margin-left:20%;
+	margin-left: 20%;
 	width: 80%;
 	min-height: 500px;
 }
 
-.myPage-main-contain{
+.myPage-main-contain {
 	margin: 10px;
 	min-height: 500px;
+	margin-bottom: 10px;
 }
 
-h3{
+h3 {
 	font: 1000 175% 'Helvetica Neue', Helvetica, Arial;
-	text-align:center;
-	margin 10px 0;
+	text-align: center;
+	margin: 10px 0 30px;
 }
+
+.left_container {
+	float: left;
+	width: 40%;
+	min-height: 300px;
+	padding-left: 5%;
+	padding-right:4%;
+	text-align:center;
+}
+
+.right_container {
+	float: right;
+	width: 40%;
+	min-height: 300px;
+	padding-right: 5%;
+	padding-left:4%;
+	text-align:center;
+}
+
+.container {
+	margin-bottom: 10px;
+}
+
+.user_label {
+	margin-left:45px;
+	margin-bottom: 5px;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: left;
+}
+
+.user_box {
+	padding: 10px;
+	width: 300px;
+	text-align: left;
+	border: 1px solid #21825B;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.button {
+	margin-right: 40px; width : 100px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
+	margin-top: 5px;
+	float: right;
+}
+
+.button.button:hover {
+	background: #00AE68;
+}
+
+.button_1 {
+	width: 100px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
+	margin-top: 5px;
+}
+
+.button_1.button_1:hover {
+	background: #00AE68;
+}
+

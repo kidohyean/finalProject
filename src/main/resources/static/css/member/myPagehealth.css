@@ -67,6 +67,38 @@ form {
 
 h3{
 	font: 1000 175% 'Helvetica Neue', Helvetica, Arial;
-	text-align:center;
-	margin 10px 0;
+	text-align: center;
+	margin: 10px 0 50px;
+}
+
+.health_text{
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom:15px;
+}
+
+.health_box{
+	padding: 10px;
+	width: 300px;
+	text-align: left;
+	border: 1px solid #21825B;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.button_end{
+	width: 200px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
+	margin-top: 5px;
+	margin-left:41%;
+}
+
+.button_end.button_end:hover{
+	background: #00AE68;
 }

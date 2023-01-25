@@ -24,10 +24,13 @@
 					<div class="myPage-Inf">이름 나이</div>
 
 					<div class="button-box">
-						<input class="myPage-button" type="button" onClick="location.href='<c:url value='myPage'/>'" value="개인정보변경">
-						<input class="myPage-button" type="button" onClick="location.href='<c:url value='myPagehealth'/>'" value="건강알리미"> <input
-							class="myPage-button" type="button" value="---"> <input
-							class="myPage-button" type="button" value="---">
+						<input class="myPage-button" type="button"
+							onClick="location.href='<c:url value='myPage'/>'" value="개인정보변경">
+						<input class="myPage-button" type="button"
+							onClick="location.href='<c:url value='myPagehealth'/>'"
+							value="건강알리미"> <input class="myPage-button" type="button"
+							value="---"> <input class="myPage-button" type="button"
+							value="---">
 					</div>
 				</div>
 			</nav>
@@ -36,43 +39,55 @@
 			<section class="myPage-main">
 				<div class="myPage-main-contain">
 					<div class="myPage-main-contain-header">
-					<h3>건강알리미</h3>
+						<h3>건강알리미</h3>
 					</div>
-					 <div class="col-md-6 mb-3">
-                                    	<small>키</small>
-                                        <input type="text" class="form-control" id="txtName" value="cm" placeholder="키 입력">
-                                    </div>
-                                     <div class="col-md-6 mb-3">
-                                    	<small>몸무게</small>
-                                        <input type="text" class="form-control" id="txtName" value="kg" placeholder="몸무게 입력">
-                                    </div>
-                                     <div class="col-md-6 mb-3">
-                                    	<small>혈당</small>
-                                        <input type="text" class="form-control" id="txtName" value="" placeholder="혈당 입력">
-                                    </div>
-                                     <div class="col-md-6 mb-3">
-                                    	<small>체지방량</small>
-                                        <input type="text" class="form-control" id="txtName" value="" placeholder="체지방량 입력">
-                                    </div>
-                                     <div class="col-md-6 mb-3">
-                                    	<small>혈압</small>
-                                        <input type="text" class="form-control" id="txtName" value="" placeholder="혈압 입력">
-                                    </div>
-                                     <div class="col-md-6 mb-3">
-                                    	<small>질병</small>
-                                        <input type="text" class="form-control" id="txtName" value="" placeholder="질병 입력">
-                                    </div>
-                                    
-										<input type="submit" id="button" class="button-end" value="건강알리미 수정완료">
-			                            </div>
-                                    </div>
+					<div class="container">
+						<div class="health_text">
+							<small>키</small> <input type="text" class="health_box"
+								id="txtName" value="" placeholder="키 입력">
+						</div>
+						<div class="health_text">
+							<small>몸무게</small> <input type="text" class="health_box"
+								style="margin-right: 20px" id="txtName" value=""
+								placeholder="몸무게 입력">
+						</div>
+						<div class="health_text">
+							<small>혈당</small> <input type="text" class="health_box"
+								style="margin-right: 10px" id="txtName" value=""
+								placeholder="혈당 입력">
+						</div>
+						<div class="health_text">
+							<small>체지방량</small> <input type="text" class="health_box"
+								style="margin-right: 35px" id="txtName" value=""
+								placeholder="체지방량 입력">
+						</div>
+						<div class="health_text">
+							<small>혈압</small> <input type="text" class="health_box"
+								style="margin-right: 10px" id="txtName" value=""
+								placeholder="혈압 입력">
+						</div>
+						<div class="health_text">
+							<small>질병</small> <input type="text" class="health_box"
+								style="margin-right: 10px" id="txtName" value=""
+								placeholder="질병 입력">
+						</div>
+
+						<input type="submit" id="button" class="button_end"
+							value="건강알리미 수정완료">
+					</div>
 				</div>
 			</section>
 		</form>
 
-		<!-- footer -->
-		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 	</div>
 
+
+	<!-- footer -->
+
 </body>
+<footer>
+	<div class="pageSize">
+		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
+	</div>
+</footer>
 </html>
