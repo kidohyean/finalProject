@@ -140,7 +140,13 @@
 
 
 	<!-- footer -->
-	<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
-
+	
 
 </body>
+
+<footer>
+<div class="pageSize">
+	<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
+	
+</div>
+</footer>
