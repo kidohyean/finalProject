@@ -22,8 +22,8 @@
 		
 <div class="tab">
         <div class="flex">
-            <a href="#" class="panel active">등/어깨</a>
-            <a href="#" class="panel">목</a>
+            <a href="#" class="panel active">등</a>
+            <a href="#" class="panel">어깨/목</a>
             <a href="#" class="panel">팔/다리</a>
             <a href="#" class="panel">허리</a>
         </div>

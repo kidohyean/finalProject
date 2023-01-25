@@ -6,7 +6,8 @@
   <mapper namespace="com.finalProject.project.dao.IHealthcareDAO">
 
   <select id="graphView" parameterType="hashmap" resultType="com.finalProject.project.model.HealthcareGraphVO">
-    SELECT * FROM healthcaregrapth WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT 7
+    SELECT * FROM healthcaregrapth WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT #{count}
   </select>
+
 
   </mapper>

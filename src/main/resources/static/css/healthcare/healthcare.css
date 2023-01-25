@@ -114,6 +114,7 @@ body{
 	visibility: hidden;
 }
 
+
 .hiddenName{
 	margin: auto;
 	width: 20px;
@@ -163,7 +164,11 @@ body{
 }
 
 .graphSize{
-	width: 980px;
+	width: 0px;
 	height: 430px;
 }
 
+#graphSize1{
+	width: 980px;
+	height: 430px;
+}

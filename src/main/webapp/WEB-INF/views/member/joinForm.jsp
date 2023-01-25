@@ -33,8 +33,7 @@
 	<div class="pageSize">
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 
-		<form class="form" id="joinForm" name="joinForm" method="post"
-			novalidate action="<c:url value='/member/insert'/>">
+
 			<!--  회원 가입 폼  -->
 			<div class="container">
 				<h4>회 원 가 입</h4>
@@ -158,7 +157,6 @@
   </script>
 			<!--bottom  -->
 
-		</form>
 		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 	</div>
 

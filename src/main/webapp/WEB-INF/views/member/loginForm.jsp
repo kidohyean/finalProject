@@ -31,7 +31,7 @@
 			<div class="left">
 				<div class="form">
 					<div class="container">
-						<div class="label-login">뭐라 쓰지...</div>
+						<div class="label-login"></div>
 
 						<div class="image-left">
 							<div class="image-L"></div>

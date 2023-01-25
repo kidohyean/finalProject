@@ -8,13 +8,19 @@ body{
     width: 1280px;
 }
 
-
+header{
+	position:sticky;
+	z-index:3;
+	top:0;
+}
 
 #headerMenuBox{
     padding-top: 50px;
     justify-content: space-between;
     align-items: center;
     display: flex;
+    background-color:white;
+    
 }
 #headerMenuBox div a{
     text-decoration: none;
@@ -58,8 +64,8 @@ body{
   .top-line{
 	height:4px;
 	background:black;
-	margin: 8px 0 8px;
-	background: rgb(57, 105, 73)
+
+	background: rgb(57, 105, 73);
 }
 
 .header-button{

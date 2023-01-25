@@ -11,9 +11,11 @@
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcare.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/naverMap.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcareList.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
-		<script src="<c:url value='/js/healthcare/healthcare.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/healthcareList.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
@@ -22,12 +24,28 @@
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		    <section id="reserve">
 				<div class="divName">
-					<p class="diseaseName">현재 상태</p>
+					<p class="diseaseName">선택 목록</p>
 					<hr class="healHr"/>
 				</div>
 				<article id="disease">
-					<div>
-						
+					<div id="listSlider1" class="listSlider">
+						<div class="triggerList trigger-left">
+							<img class="slideListImg" src="<c:url value='/image/healthcare/up.png'/>">
+						</div>
+						<div class="viewportList">
+							<ul class="slidesList-list">
+								<li class="slideList">1</li>
+								<li class="slideList">2</li>
+								<li class="slideList">3</li>
+								<li class="slideList">4</li>
+								<li class="slideList">5</li>
+								<li class="slideList">6</li>
+								<li class="slideList">7</li>
+							</ul>
+						</div>
+						<div class="triggerList trigger-right">
+							<img class="slideListImg" src="<c:url value='/image/healthcare/down.png'/>">
+						</div>
 					</div>
 				</article>
 				<div class="divName">
@@ -44,7 +62,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/weight.png'/>">
 							<p id="graphName1" class="graphName">체중</p>
 							<hr id="healHr1" class="healHr"/>
-							<div class="graphSize">
+							<div id="graphSize1" class="graphSize">
 								<canvas id="graphMath1" class="graphMath" ></canvas>
 							</div>
 						</div>
@@ -59,7 +77,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/bmi.png'/>">
 							<p id="graphName2" class="graphName">체질량지수</p>
 							<hr id="healHr2" class="healHr"/>
-							<div class="graphSize">
+							<div id="graphSize2" class="graphSize">
 								<canvas id="graphMath2" class="graphMath"></canvas>
 							</div>
 						</div>
@@ -73,7 +91,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/blood.png'/>">
 							<p id="graphName3" class="graphName">혈압</p>
 							<hr id="healHr3" class="healHr"/>
-							<div class="graphSize">
+							<div id="graphSize3" class="graphSize">
 								<canvas id="graphMath3" class="graphMath"></canvas>
 							</div>
 						</div>
@@ -87,7 +105,7 @@
 							<img class="graphImg" src="<c:url value='/image/healthcare/sugarblood.png'/>">
 							<p id="graphName4" class="graphName">혈당</p>
 							<hr id="healHr4" class="healHr"/>
-							<div class="graphSize">
+							<div id="graphSize4" class="graphSize">
 								<canvas id="graphMath4" class="graphMath"></canvas>
 							</div>
 						</div>
@@ -107,7 +125,7 @@
 					</div>
 					<div id="pharmacyMap1" class="pharmacyMap">
 						<div id="pharmacy" class="pharmacySlider">
-							<div class="trigger trigger-left">
+							<div class="trigger trigger-up">
 								<img class="slideMapImg" src="<c:url value='/image/healthcare/up.png'/>">
 							</div>
 							<div class="viewport">
@@ -121,7 +139,7 @@
 									<li class="slide">7</li>
 								</ul>
 							</div>
-							<div class="trigger trigger-right">
+							<div class="trigger trigger-down">
 								<img class="slideMapImg" src="<c:url value='/image/healthcare/down.png'/>">
 							</div>
 						</div>

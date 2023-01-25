@@ -9,7 +9,7 @@ public class HealthcareGraphVO {
     private int hcdNo;
     private String memId;
     private String hcdName;
-    private int hcdValue;
+    private String hcdValue;
 
     
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -40,11 +40,11 @@ public class HealthcareGraphVO {
         this.hcdName = hcdName;
     }
 
-    public int getHcdValue() {
+    public String getHcdValue() {
         return this.hcdValue;
     }
 
-    public void setHcdValue(int hcdValue) {
+    public void setHcdValue(String hcdValue) {
         this.hcdValue = hcdValue;
     }
 

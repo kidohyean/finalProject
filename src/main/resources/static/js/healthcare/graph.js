@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
-    
-    graphMath3();
     ajax(1);
     ajax(2);
+    ajax(3);
+    ajax(4);
 });
 
 function graphMath1(labels,myData){
-    var ctx = document.getElementById("graphMath1").getContext("2d");
-    new Chart(ctx, {
+    var ctx1 = document.getElementById("graphMath1").getContext("2d");
+    new Chart(ctx1, {
         type: 'bar',
         data: {
           labels: labels,
@@ -57,8 +57,8 @@ function graphMath1(labels,myData){
 
 function graphMath2(labels,myData){
 
-  var ctx = document.getElementById("graphMath2").getContext("2d");
-  new Chart(ctx, {
+  var ctx2 = document.getElementById("graphMath2").getContext("2d");
+  new Chart(ctx2, {
       type: 'line',
       data: {
         labels: labels,
@@ -103,19 +103,18 @@ function graphMath2(labels,myData){
           maintainAspectRatio :false
       }
     });
-
 }
 
-function graphMath3(){
+function graphMath3(labels,myData,myData2){
 
-  var ctx = document.getElementById("graphMath3").getContext("2d");
-  new Chart(ctx, {
+  var ctx3 = document.getElementById("graphMath3").getContext("2d");
+  new Chart(ctx3, {
       type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labels,
         datasets: [{
-          label: '최저 혈압',
-          data: [70, 80, 76, 58, 64, 75],
+          label: '최저 혈압(이완기)',
+          data: myData2,
           backgroundColor: [
               "rgba(54, 162, 235, 0.6)"
           ],
@@ -126,8 +125,8 @@ function graphMath3(){
           fill: true
         },
         {
-          label: '최고 혈압',
-          data: [110, 120, 136, 124, 113, 110],
+          label: '최고 혈압(수축기)',
+          data: myData,
           backgroundColor: [
               "rgba(231, 76, 60, 0.75)"
           ],
@@ -141,7 +140,44 @@ function graphMath3(){
       },
      
       options: {
-          
+          scales: {
+              y: {
+                min: 40,
+                max: 130,
+              }
+          },
+          maintainAspectRatio :false
+      }
+    });
+}
+function graphMath4(labels,myData){
+
+  var ctx4 = document.getElementById("graphMath4").getContext("2d");
+  new Chart(ctx4, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '혈당',
+          data: myData,
+          backgroundColor: [
+              "rgba(54, 162, 235, 0.6)"
+          ],
+          borderColor: [
+              "rgba(54, 162, 235, 1)"
+          ],
+          borderWidth: 1,
+          fill: true
+        }],
+        
+      },
+     
+      options: {
+          plugins:{
+              legend: {
+                  display: false
+              }
+          },
           x: {
               type: 'time',
               time: {
@@ -155,23 +191,29 @@ function graphMath3(){
             },
           scales: {
               y: {
-                min: 40,
-                max: 130,
+                min: 0,
+                max: 400,
               }
           },
           maintainAspectRatio :false
       }
     });
-
 }
-
-function dateformat(myDate){
+function dateformat(myDate,num){
   var date = new Date(myDate);
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
   var day = date.getDate();
-
-  return month +"월" + day +"일"
+  var hs = date.getHours();
+  var mn = date.getMinutes();
+  console.log(num===4);
+  if(num==4){
+    return month +"/" + day +"/"+hs+"/"+mn;
+  }
+  else{
+    return month +"월" + day +"일";
+  }
+  
 }
 
 function ajax(num){
@@ -182,14 +224,15 @@ function ajax(num){
     dataType:'json',
     success:function(result){
       
-      console.log(result.voList[0]);
+      //console.log(result.voList[0]);
 					
 					
 					var labels = [];
 					var myData = [];
+          var myData2 = [];
         if(num==1){
           $.each(result.voList,function (k,v){
-						labels.push(dateformat(v.hcdJoinDate));
+						labels.push(dateformat(v.hcdJoinDate,0));
 						myData.push(v.hcdValue);
 					});
           graphMath1(labels,myData);
@@ -198,19 +241,29 @@ function ajax(num){
 
         else if(num==2){
           $.each(result.voList,function (k,v){
-						labels.push(dateformat(v.hcdJoinDate));
+						labels.push(dateformat(v.hcdJoinDate,0));
 						myData.push(v.hcdValue);
 					});
           graphMath2(labels,myData);
           
         }
-
+        
         else if(num==3){
           $.each(result.voList,function (k,v){
-						labels.push(dateformat(v.hcdJoinDate));
+						labels.push(dateformat(v.hcdJoinDate1,0));
+						myData.push(v.hcdValue1);
+            myData2.push(v.hcdValue2);
+					});
+          graphMath3(labels,myData,myData2);
+          
+        }
+
+        else if(num==4){
+          $.each(result.voList,function (k,v){
+						labels.push(dateformat(v.hcdJoinDate,4));
 						myData.push(v.hcdValue);
 					});
-          graphMath3(labels,myData);
+          graphMath4(labels,myData);
           
         }
         
@@ -219,43 +272,4 @@ function ajax(num){
       alert("실패");
     }
   }); // ajax 종료 	
-}
-
-
-
-function ajax2(){
-  $.ajax({
-    type:"post",
-    url:"/healthcare/WeightGraph",
-    data: {"hcdName":"체중"},
-    dataType:'json',
-    success:function(result){
-      
-      console.log(result.voList[0]);
-					
-					
-					var labels = [];
-					var myData = [];
-    
-          $.each(result.voList,function (k,v){
-						labels.push(dateformat(v.hcdJoinDate));
-						myData.push(v.hcdValue);
-					});
-          
-          console.log(myData[0]);
-          graphMath1(labels,myData);
-    },
-    error:function(){
-      alert("실패");
-    }
-  }); // ajax 종료 	
-}
-
-function dateformat(myDate){
-  var date = new Date(myDate);
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-
-  return month +"월" + day +"일"
 }

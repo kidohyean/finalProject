@@ -26,6 +26,9 @@
 			<article>
 			<div class="routine-info">
 				<div class="detail-routine">
+				<div class="box-image">
+						<img src="<c:url value='/image/${routine.routineNo}.png'/>">
+				</div>
 					<h2>${routine.routineName}</h2>
 					
 					<p>운동정보 : ${routine.routineInfo }</p>
