@@ -13,13 +13,16 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="<c:url value='/js/searchZip.js' />"></script>
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+<script src="<c:url value='/js/modify.js' />"></script>
 </head>
 <body>
 	<div class="pageSize">
 		<!-- 헤더 -->
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 
-		<form>
+		<form class="form" id="modifyForm" name="modifyForm" method="post"
+			novalidate action="<c:url value='/modify'/>">
+
 
 			<!-- 마이페이지 메뉴 -->
 			<nav class="myPage-nav">
@@ -63,11 +66,7 @@
 							value="${info.memId }" readonly="readonly">
 					</div>
 
-					<div class="container">
-						<div class="user_label">회원 비밀번호</div>
-						<input type="text" class="user_box" name="memPw"
-							value="${info.memPw }">
-					</div>
+				
 
 					<div class="container">
 						<div class="user_label">회원 닉네임</div>
@@ -111,9 +110,10 @@
 							value="${info.memAddress2 }">
 					</div>
 
-					<input type="button" value="정보 수정" class="button_1"> <input
-						type="button" value="회원 탈퇴" class="button_1"> <input
-						type="button" value="수정 완료" class="button_1"> <input
+					<input type="submit" id="button" class="btn btn-info updateBtn" value="수정완료">
+					<input type="submit" id="button" class="btn btn-warning modifyBtn" value="정보수정">
+					<input type="submit" id="button" class="btn btn-danger deleteBtn" value="회원 탈퇴">
+			
 						type="hidden" name="memId" value="${member.memId }">
 				</div>
 				
