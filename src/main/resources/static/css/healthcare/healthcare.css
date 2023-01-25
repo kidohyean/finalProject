@@ -43,7 +43,7 @@ body{
 	display:inline-block;
 	border: 1px solid green;
 	justify-content:space-between;
-	float:right;
+	float: right;
 	
 }
 
@@ -107,6 +107,7 @@ body{
 	height: 550px;
 	border: 2px solid olivedrab;
 	border-radius: 30px;
+	cursor: pointer;
 }
 
 #graphBloodPressureHiddenDiv,#graphBMIHiddenDiv,
@@ -171,4 +172,54 @@ body{
 #graphSize1{
 	width: 980px;
 	height: 430px;
+}
+
+#healthTextForm{
+	margin-top: 0;
+	margin-left: 70px;
+}
+
+#healthTextForm img{
+	float: left;
+	width: 30px;
+	height: 30px;
+	
+}
+
+.healthText{
+	font-size: 20px;
+	float: left;
+	width: 45%;
+}
+
+.healthTextDiv{
+	float: left;
+	width: 400px;
+	margin-top: 0px;
+	margin-bottom: 30px;
+	align-items:center;
+}
+
+.healthInput{
+	width: 25%;
+	height: 25px;
+	font-size: 20px;
+	text-align: center;
+	border: 1px solid #00AE68;
+	border-radius: 5px;
+}
+
+.healthBt{
+	width: 15%;
+	height: 30px;
+	font-size: 15px;
+	background-color: #00AE68;
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#bloodPDiv2{
+	margin-left: -50px;
+	margin-right: 50px;
 }

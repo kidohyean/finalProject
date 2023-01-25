@@ -16,4 +16,10 @@ public class MainController {
 	public String exerciseInfo(Model model) {
 		return "/exercise/exerciseInfo";
 	}
+
+	@RequestMapping("/chatBotModal")
+	public String chatBotModal(){
+		return "/chatbot/chatBot";
+	}
 }
+

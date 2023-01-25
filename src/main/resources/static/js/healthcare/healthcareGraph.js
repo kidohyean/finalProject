@@ -40,6 +40,8 @@
         
         $(notDiv).css("width","5%")
         $(thisDiv).css("width","88%");
+        $(notDiv).css("cursor","pointer")
+        $(thisDiv).css("cursor","default");
         //애니메이션 처럼 나옴
         $(thisDiv).css("transition-duration","500ms")
         $(notDiv).css("transition-duration","500ms")
@@ -52,5 +54,6 @@
         $(thisImg).css("visibility","hidden")
         $(notGraphSize).css("width","0px")
         $(thisGraphSize).css("width","980px");
+        
     }
  });

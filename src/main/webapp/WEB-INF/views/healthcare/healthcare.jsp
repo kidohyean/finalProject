@@ -24,9 +24,53 @@
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		    <section id="reserve">
 				<div class="divName">
-					<p class="diseaseName">선택 목록</p>
+					<p class="diseaseName">신체 상태 입력</p>
 					<hr class="healHr"/>
 				</div>
+				<div>
+					<form id="healthTextForm">
+						<div class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/weightIp.png'/>">
+							<div class="healthText">키(cm)</div>
+							<input type="text" name="height" id="heightInput" class="healthInput" value="180">
+							<input type="submit" class="healthBt" value="입력">
+						</div>
+						<div class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/scale.png'/>">
+							<div class="healthText">몸무게(kg)</div>
+							<input type="text" name="weight" id="weightInput" class="healthInput" value="180">
+							<input type="submit" class="healthBt" value="입력">
+						</div>
+						<div class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/bloodS.png'/>">
+							<div class="healthText">혈당(mg/dl)</div>
+							<input type="text" name="bloodS" id="bloodSInput" class="healthInput" value="180">
+							<input type="submit" class="healthBt" value="입력">
+						</div>
+						<div id="bloodPDiv1" class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/bloodP.png'/>">
+							<div class="healthText">수축기혈압(mmHg)</div>
+							<input type="text" name="bloodP1" id="bloodPInput1" class="healthInput" value="180">
+						</div>
+						<div id="bloodPDiv2" class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/bloodP.png'/>">
+							<div class="healthText">이완기혈압(mmHg)</div>
+							<input type="text" name="bloodP2" id="bloodPInput2" class="healthInput" value="180">
+							<input type="submit" class="healthBt" value="입력">
+						</div>
+						<div class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/disease.png'/>">
+							<div class="healthText">질병</div>
+							<input type="text" name="disease" id="diseaseInput" class="healthInput" value="180">
+							<input type="submit" class="healthBt" value="입력">
+						</div>
+					</form>
+				</div>
+				<div class="diseaseList">
+					<div class="diseaseDiv">질병</div>
+					<div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div>
+				</div>
+				<!--
 				<article id="disease">
 					<div id="listSlider1" class="listSlider">
 						<div class="triggerList trigger-left">
@@ -48,6 +92,7 @@
 						</div>
 					</div>
 				</article>
+				-->
 				<div class="divName">
 					<p class="graphName">신체 상태</p>
 					<hr class="healHr"/>
@@ -111,6 +156,7 @@
 						</div>
 					</div>
 				</article>
+				<!--
 				<div class="divName">
 					<p class="mapName">주변 약국 정보</p>
 					<hr class="healHr"/>
@@ -150,6 +196,8 @@
 					</div>
 					
 				</article>
+				-->
+				<br>
 			</section>
 			<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
