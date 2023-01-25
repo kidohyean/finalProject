@@ -29,7 +29,23 @@
 		
 		SELECT * FROM member
 		where memId = #{memId}
+	
+	
 	</select>
+<!-- 회원 정보 수정  -->
+	<update id ="memberModify" parameterType="com.finalProject.project.model.MemberVO">
+	update member
+	set
+	memName=#{memName},
+	memPw=#{memPw},
+	memNickname=#{memNickname},
+	memHp=#{memHp},
+	memZipcode=#{memZipcode},
+	memAddress1=#{memAddress1},
+	memAddress2=#{memAddress2}
+	
+
+	</update>
 
 
    

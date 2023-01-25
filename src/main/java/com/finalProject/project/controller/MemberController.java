@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +25,11 @@ import com.finalProject.project.service.MemberService;
 @Controller
 public class MemberController {
 	@Autowired
+	
 	 MemberService service;
 	private Object log;
-	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	// 로그인 폼 열기
 	@RequestMapping("/member/loginForm")
@@ -112,7 +115,7 @@ public class MemberController {
 		
 		return result;
 	}
-	//마이페이지
+	//마이페이지 회원 정보 띄우기
 	
 	@RequestMapping("/member/myPage")
 	public String myPage(Model model, HttpSession session) { 
@@ -120,7 +123,7 @@ public class MemberController {
 		MemberVO memberVO = service.memberInfo(memId);
 		
 		if(memberVO == null) {
-			return "redirect:/mainHome";
+			return "index";
 		}
 		
 		
@@ -137,25 +140,31 @@ public class MemberController {
 		return "member/myPagehealth";
 	}
 	
-	@GetMapping("/myPage")
-	public String infoGet(Model model, HttpSession session) {
-		String memId = (String)session.getAttribute ("sid");
-		MemberVO memberVO = service.memberInfo(memId);
+	@PostMapping("/modify")
+	public String modifyPost(MemberVO member, HttpServletRequest request ) {
 		
-		if(memberVO == null) {
-			return "redirect:/mainHome";
-		}
-		System.out.println(memId);
+		String beforePw = "";
+		String encodePw = "";
 		
+		beforePw=member.getMemPw();
+		System.out.println(beforePw);
+		encodePw=passwordEncoder.encode(beforePw);
+		member.setMemPw(encodePw);
+		
+		service.memberModify(member);
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "index";
+		
+		
+	}
 	
-		model.addAttribute("info", memberVO);
-		return "/member/myPage";
-			
+
 			
 		}
 
 		
-	}
+	
 
 		
 	
