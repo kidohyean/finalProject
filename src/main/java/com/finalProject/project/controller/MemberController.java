@@ -148,12 +148,14 @@ public class MemberController {
 		
 		beforePw=member.getMemPw();
 		System.out.println(beforePw);
+		
+		/* 
 		encodePw=passwordEncoder.encode(beforePw);
 		member.setMemPw(encodePw);
-		
+		System.out.println(member.toString());
 		service.memberModify(member);
 		HttpSession session = request.getSession();
-		session.invalidate();
+		session.invalidate();*/
 		return "index";
 		
 		

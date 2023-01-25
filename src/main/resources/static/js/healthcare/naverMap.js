@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.pharmacySlider .trigger').on('click', function() {
-        if ($(this).hasClass('trigger-left')) {
+        if ($(this).hasClass('trigger-up')) {
           
           var $slide = $('.slides-list .slide').last()
                                                .clone()

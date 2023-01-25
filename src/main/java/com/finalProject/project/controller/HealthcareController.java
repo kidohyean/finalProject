@@ -33,12 +33,14 @@ public class HealthcareController {
 		String memId = (String)session.getAttribute("sid");
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		ArrayList<HealthcareGraphVO> voList = new ArrayList<HealthcareGraphVO>();
+		ArrayList<HealthcareGraphVO> voList2 = new ArrayList<HealthcareGraphVO>();
 		ArrayList<HashMap<String,Object>> hashMaps = new ArrayList<HashMap<String,Object>>();
 		JSONObject obj = new JSONObject();
 		
 		map.put("memId", memId);
 		if(num == 1){
 			map.put("hcdName", "체중");
+			map.put("count", 7);
 			voList =service.graphListView(map);
 			obj.put("voList", voList);
 			
@@ -46,15 +48,17 @@ public class HealthcareController {
 		
 		else if(num == 2){
 			map.put("hcdName", "체중");
+			map.put("count", 7);
 			int height = 180;
 			float heightM = (float)height /100;
-			for(int i= 0; i <service.graphListView(map).size(); i++){
-				int weight = service.graphListView(map).get(i).getHcdValue();
+			voList =service.graphListView(map);
+			for(int i= 0; i <voList.size(); i++){
+				int weight = Integer.valueOf(voList.get(i).getHcdValue());
 				float BMI = weight /(heightM * heightM);
 				HashMap<String,Object> BMIMap = new HashMap<String,Object>();
 				BMIMap.put("hcdName", "BMI");
 				BMIMap.put("hcdValue", BMI);
-				BMIMap.put("hcdJoinDate", service.graphListView(map).get(i).getHcdJoinDate());
+				BMIMap.put("hcdJoinDate", voList.get(i).getHcdJoinDate());
 				hashMaps.add(BMIMap);
 				
 			}
@@ -62,7 +66,32 @@ public class HealthcareController {
 			obj.put("voList", hashMaps);
 		}
 		else if(num ==3){
+			map.put("count", 7);
+			map.put("hcdName", "최고혈압");
+			voList =service.graphListView(map);
+			map.put("hcdName", "최저혈압");
+			voList2 =service.graphListView(map);
+			for(int i= 0; i <voList.size(); i++){
+				HashMap<String,Object> BMIMap = new HashMap<String,Object>();
+				BMIMap.put("hcdName1", "최고혈압");
+				BMIMap.put("hcdValue1", Integer.valueOf(voList.get(i).getHcdValue()));
+				BMIMap.put("hcdJoinDate1", voList.get(i).getHcdJoinDate());
 
+				BMIMap.put("hcdName2", "최저혈압");
+				BMIMap.put("hcdValue2", Integer.valueOf(voList2.get(i).getHcdValue()));
+				BMIMap.put("hcdJoinDate2", voList2.get(i).getHcdJoinDate());
+				hashMaps.add(BMIMap);
+				
+			}
+			obj.put("voList", hashMaps);
+		}
+
+		if(num == 4){
+			map.put("hcdName", "혈당");
+			map.put("count", 24);
+			voList =service.graphListView(map);
+			obj.put("voList", voList);
+			
 		}
 		System.out.println(obj.toString());
 		return obj.toString();
