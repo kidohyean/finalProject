@@ -16,17 +16,30 @@
 		<!--header.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		<div class="container">
-			<div class="index_image">웃는 사진</div>
-			<div class="index_picture_container">
-				<div class="index_left_bodymodel">인체모형도</div>
-
-				<div class="index_right_chatbot">챗봇</div>
-			</div>
+			<div class="index_image"></div>
+			
 			<div class="index_health_menu">
 				<div class="health_button">유산소버튼</div>
 				<div class="health_button">근력강화버튼</div>
 				<div class="health_button">체형교정버튼</div>
 			</div>
+			<div class="index_textbox">
+				<div class="index_text">부위별 운동</div>
+				<div class="index_text">영양제 추천</div>
+			</div>
+			
+			<div class="index_picture_container">
+				<div class="index_left_bodymodel">
+					<div class="model-button01"></div>
+					<div class="model-button02"></div>
+					<div class="model-button03"></div>
+					<div class="model-button04"></div>
+					<div class="model-button05"></div>
+				</div>
+
+				<div class="index_right_bodymodel"></div>
+			</div>
+			
 
 
 
