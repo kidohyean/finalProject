@@ -9,6 +9,7 @@
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/supplements/supplementMenu.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/supplements/agespm.css'/>">
 	</head>
 	<body>
 		<!-- header -->
@@ -17,7 +18,6 @@
 		</div>
 		<div id="agespm">
 			<h3>추천 영양제 조합</h3>
-			
 			
 		</div>
 		<div class="spmmenu">
