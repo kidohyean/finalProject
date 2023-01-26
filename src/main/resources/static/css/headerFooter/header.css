@@ -27,24 +27,23 @@ header{
     color: #333;
 }
 #chatBotDiv{
-    margin-left: -300px;
-    width: 50px;
-    height: 50px;
-   
+   margin-left: -300px;
+    width: 80px;
+    height: 80px;
     background-color: aqua;
     border-radius: 50%;
 }
 #chatBot{
-    margin-top: 10px;
-    width: 30px;
-    margin-left: 10px;
-    height: 30px;
+    margin-top: 11px;
+    width: 55px;
+    margin-left: 11px;
+    height: 55px;
 }
 
 #logoImg{
-    width: 200px;
-    height: 60px;
-    margin-left:100px
+   width: 300px;
+    height: 100px;
+    margin-left: 50px;
 }
 
 #headerMenuA{
@@ -70,11 +69,14 @@ header{
 
 .header-button{
 	font: 600 'Open Sans', sans-serif;
-	width: 100px;
-	padding: 0;
-	line-height: 30px;
-	color: #FFF;
-	border-radius: 5px;
-	border: none;
-	background: #21825B;
+	width: 130px;
+    height: 55px;
+    padding: 0;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #FFF;
+    border-radius: 5px;
+    border: none;
+    background: #21825B;
 }
