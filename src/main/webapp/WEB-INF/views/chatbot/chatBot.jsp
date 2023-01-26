@@ -18,11 +18,12 @@
 			
   <form id="chatbotForm">
       <input type="text" id="message" name="message" size="30" placeholder="질문을 입력하세요">
-      <input type="submit" value="전송">
+      <input type="submit" value="전송" id="chatInput">
   </form>
   
-  음성 메시지 : <button id="recordBtn">녹음</button>
-                     <button id="stopBtn">정지</button>
+    <div id="boiceMS">음성 메시지 : </div>
+    <button id="recordBtn">녹음</button>
+    <button id="stopBtn">정지</button>
                      
  <div>
     <audio id="audio" preload="auto" controls></audio>

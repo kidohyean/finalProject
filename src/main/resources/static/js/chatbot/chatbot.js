@@ -33,8 +33,9 @@ $(document).ready(function(){
                  // [녹음] 버튼 눌렀을 때
                  recordBtn.onclick = () => {
                      mediaRecorder.start(); // 녹음 시작
-                     recordBtn.style.background = "red"; // [녹음] 버튼 배경색
+                     recordBtn.style.background = "#ff00009e"; // [녹음] 버튼 배경색
                      recordBtn.style.color = "black";
+                     recordBtn.style.borderColor = "red";
                  }
                  
                  // [정지] 버튼 눌렀을 때
@@ -42,6 +43,7 @@ $(document).ready(function(){
                      mediaRecorder.stop(); // 녹음 정지
                      recordBtn.style.background = ""; // [녹음] 버튼 배경색 설정한 것 삭제
                      recordBtn.style.color = "";
+                     recordBtn.style.borderColor = "";
                  }
                  
                  // chunks에 저장된 녹음 데이터를 audio 양식으로 설정
@@ -148,7 +150,7 @@ $(document).ready(function(){
                for(var b in bubbles){
                    if(bubbles[b].type == 'text'){ // 기본 답변인 경우
                        /* chatBox에 받은 메시지 추가 */
-                           $('#chatBox').append('<div class="msgBox receive"><span id="in"><span>챗봇</span><br><span>' + 
+                           $('#chatBox').append('<div class="msgBox receive"><span id="in"><span><img src="../../image/chatbot/chatbot.png"></span><br><span>' + 
                                                               bubbles[b].data.description +'</span></span></div><br><br>'); 
                                                               
                        // 챗봇으로 부터 받은 텍스트 답변을 음성으로 변환하기 위해 TTS 호출									   

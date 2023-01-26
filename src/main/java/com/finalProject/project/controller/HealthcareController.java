@@ -28,6 +28,13 @@ public class HealthcareController {
 	}
 
 	@ResponseBody
+	@RequestMapping("/healthcare/HealthInput")
+	public String HealthInput(@RequestParam("num") int num,Model model, HttpSession session) {
+	
+		return "";
+	}
+
+	@ResponseBody
 	@RequestMapping("/healthcare/WeightGraph")
 	public String WeightGraph(@RequestParam("num") int num,Model model, HttpSession session) {
 		String memId = (String)session.getAttribute("sid");
