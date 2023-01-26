@@ -9,5 +9,17 @@
     SELECT * FROM healthcaregrapth WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT #{count}
   </select>
 
+  <insert id="hcdInput" parameterType="hashmap">
+    INSERT INTO healthcaregrapth(hcdNo,memId,hcdName,hcdValue,hcdJoinDate)
+    VALUES (DEFAULT,#{memId},#{hcdName},#{hcdValue},DEFAULT);
+  </insert>
+
+  <select id="hcdOutput" parameterType="hashmap" resultType="com.finalProject.project.model.HealthcareGraphVO">
+    SELECT * FROM healthcaregrapth WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT 1
+  </select>
+
+  <select id="heightOutput" parameterType="string" resultType="string">
+    SELECT hcdValue FROM healthcaregrapth WHERE hcdName="키" AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT 1
+  </select>
 
   </mapper>

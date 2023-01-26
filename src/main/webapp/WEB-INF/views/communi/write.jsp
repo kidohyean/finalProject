@@ -17,11 +17,11 @@
             <div class="board_write_wrap">
                 <div class="board_write">
                     <div class="title">
-                        <p>제목</p>
+                        <p>제목 :</p>
                         <input class="agName" type="text" name="agName" placeholder="제목 입력">
                     </div>
                     <div class="info">
-                        <p>글쓴이</p>
+                        <p id="agUserName">글쓴이</p>
                         <p class="agMemId">${sessionScope.sid}</p>
                     </div>
                     <div class="agTextBox">
