@@ -27,33 +27,30 @@
 		        <li><a id="len2" class="hoverable" href="<c:url value='/spm/spmCtg/${2}'/>">심혈관계</a></li>
 		        <li><a id="len3" class="hoverable" href="<c:url value='/spm/spmCtg/${3}'/>">뼈 & 관절</a></li>
 		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${4}'/>">눈 & 시력</a></li>
-		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${5}'/>">간</a></li>
-		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${6}'/>">소화기관</a></li>
+		        <li><a id="len5" class="hoverable" href="<c:url value='/spm/spmCtg/${5}'/>">간</a></li>
+		        <li><a id="len6" class="hoverable" href="<c:url value='/spm/spmCtg/${6}'/>">소화기관</a></li>
 		      </ul>
 		    </div>
 		</div>
-		<div id="emptySpace">
+		<div id="recommendSpm">
 		</div>
 		<!-- spm -->
-		<div class="spmA" style="padding-top: 20px;">
+		<div class="spmA" style="padding-top: 20px; text-align:center;">
 		<section >
-			<table width="800">
+			<table width="1280">
 					<c:forEach var="spm" items="${spmList }">
 			            <tr>
-			               <td >
-			               <a href="<c:url value='/supplements/spmDetail/${spm.spmName}'/>" >
-			               <img src="<c:url value='/image/${spm.spmImg}' />" width="180" height="180" >
+			            	<td rowspan="2">
+			            	<a href="<c:url value='/supplements/spmDetail/${spm.spmName}'/>" >
+			               <img src="<c:url value='/images/${spm.spmImg}' />" width="180" height="180" >
 			               </a>
 			               </td>
-			               <td><ul>
-			               <li><a href="<c:url value='/supplements/spmDetail/${spm.spmName}'/>" >
-			                      ${spm.spmName }</a></li>
-			               <li>${spm.spmEffect }</li>
-			               <li>${spm.spmCtgN }</li>
-			               </ul></td>
-			               	               
+			            	<td><a href="<c:url value='/supplements/spmDetail/${spm.spmName}'/>" > ${spm.spmName }</a></td>
+			            	<td rowspan="2" width="300">${spm.spmCtgN }</td>
 			            </tr>
+			            <tr><td>${spm.spmEffect }</td></tr>
 			         </c:forEach>
+			         <br>
 				</table><br>
 		</section>
 		</div>
