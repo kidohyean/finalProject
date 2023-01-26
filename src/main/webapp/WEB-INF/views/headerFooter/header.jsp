@@ -5,8 +5,10 @@
 <!--header 코드 입니다.-->
 <header>
 	<div id="headerMenuBox">
+		<c:import url="/WEB-INF/views/chatbot/chatModal.jsp" />
+		
 		<div id="chatBotDiv">
-			<img src="<c:url value='/image/chatBot.png'/>" id="chatBot">
+			<a data-toggle="modal" data-target="#modal" role="button" class="btn btn-big openmodale"><img src="<c:url value='/image/chatBot.png'/>" id="chatBot"></a>
 		</div>
 		<div>
 			<a href="<c:url value='/' />" class="header-logo"><img src="<c:url value='/image/logo.png'/>" id="logoImg"></a>
@@ -34,7 +36,9 @@
 			</c:if>
 		</div>
 	</div>
+	
 <div class="top-line"></div>
 	<c:import url="/WEB-INF/views/headerFooter/topMenu.jsp" />
 
 </header>
+

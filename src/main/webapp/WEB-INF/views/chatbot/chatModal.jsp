@@ -20,4 +20,4 @@
 </div>
 </div>
   
-    <p><a data-toggle="modal" data-target="#modal" role="button" class="btn btn-big openmodale">챗봇</a></p>
+  
