@@ -57,12 +57,19 @@
 	margin-bottom:30px;
 	}
 	
-
+div.routine-info{
+	display:inline;
+}
+div.box-image{
+	width:263px;
+	height:191px;
+}
 
 div.detail-routine{
-	width:1280px;
+	width:980px;
 	margin:0 auto;
 	margin-top:30px;
+	display:inline-block;
 }
 
 p{margin-bottom:10px;
@@ -80,3 +87,6 @@ input.routineBtn {
 }
 
 .useVideo{margin-top:20px;}
+
+
+
