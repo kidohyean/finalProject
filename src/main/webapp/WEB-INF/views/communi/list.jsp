@@ -30,8 +30,9 @@
             <option value="/community/myList/1" <c:if test="${listPage eq 'myList'}">selected</c:if> id="myList">내가쓴글</option>
         </c:if>
       </select>
+     
   </div>
- 			<button type="submit" class=" header-item "><i class="fa fa-search"></i></button>
+  
 <div class="boardListWrap">
     <div class="boardLists">
         <div class="top">
@@ -91,8 +92,17 @@
             </c:if>
 
         </div>
-    </div>
+    </div>      
     
-    
-</div>
+            <div id="wrap1">
+                <form id="fruSearchFrm">
+					 <input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
+		            <button type="submit" class="header-item">검색</button>
+				</form>
+			</div>	
+        
+</div>			
+				
+				
+		
 </div>
