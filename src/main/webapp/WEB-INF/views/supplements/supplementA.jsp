@@ -57,8 +57,7 @@
 				</table><br>
 		</section>
 		</div>
-		
-			
+
 		
 		<!-- footer -->
 		<div class="pageSize" style="margin-top: 0;">
