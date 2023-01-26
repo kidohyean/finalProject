@@ -58,41 +58,8 @@
 							<input type="text" name="bloodP2" id="bloodPInput2" class="healthInput" value="180">
 							<input type="submit" class="healthBt" value="입력">
 						</div>
-						<div class="healthTextDiv">
-							<img src="<c:url value='/image/healthcare/disease.png'/>">
-							<div class="healthText">질병</div>
-							<input type="text" name="disease" id="diseaseInput" class="healthInput" value="180">
-							<input type="submit" class="healthBt" value="입력">
-						</div>
 					</form>
 				</div>
-				<div class="diseaseList">
-					<div class="diseaseDiv">질병</div>
-					<div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div>
-				</div>
-				<!--
-				<article id="disease">
-					<div id="listSlider1" class="listSlider">
-						<div class="triggerList trigger-left">
-							<img class="slideListImg" src="<c:url value='/image/healthcare/up.png'/>">
-						</div>
-						<div class="viewportList">
-							<ul class="slidesList-list">
-								<li class="slideList">1</li>
-								<li class="slideList">2</li>
-								<li class="slideList">3</li>
-								<li class="slideList">4</li>
-								<li class="slideList">5</li>
-								<li class="slideList">6</li>
-								<li class="slideList">7</li>
-							</ul>
-						</div>
-						<div class="triggerList trigger-right">
-							<img class="slideListImg" src="<c:url value='/image/healthcare/down.png'/>">
-						</div>
-					</div>
-				</article>
-				-->
 				<div class="divName">
 					<p class="graphName">신체 상태</p>
 					<hr class="healHr"/>
@@ -203,3 +170,41 @@
 		</div>
 	</body>
 </html>
+
+
+<!--
+						<div class="healthTextDiv">
+							<img src="<c:url value='/image/healthcare/disease.png'/>">
+							<div class="healthText">아픈부위</div>
+							<input type="text" name="disease" id="diseaseInput" class="healthInput" value="180">
+							<input type="submit" class="healthBt" value="입력">
+						</div>
+					
+				<div class="diseaseList">
+					<div class="diseaseDiv">질병</div>
+					<div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div>
+				</div>
+				-->
+				<!--
+				<article id="disease">
+					<div id="listSlider1" class="listSlider">
+						<div class="triggerList trigger-left">
+							<img class="slideListImg" src="<c:url value='/image/healthcare/up.png'/>">
+						</div>
+						<div class="viewportList">
+							<ul class="slidesList-list">
+								<li class="slideList">1</li>
+								<li class="slideList">2</li>
+								<li class="slideList">3</li>
+								<li class="slideList">4</li>
+								<li class="slideList">5</li>
+								<li class="slideList">6</li>
+								<li class="slideList">7</li>
+							</ul>
+						</div>
+						<div class="triggerList trigger-right">
+							<img class="slideListImg" src="<c:url value='/image/healthcare/down.png'/>">
+						</div>
+					</div>
+				</article>
+				-->
