@@ -17,7 +17,7 @@ document.addEventListener('keydown', function(event){
 </script>
 <div class="board_wrap">
     <div class="board_title">
-       <a href="/community/list/${num=1}">커뮤니티<strong>커뮤니티</strong></a>
+       <a href="/community/list/${num=1}"><strong>커뮤니티</strong></a>
         <p>자유게시판입니다.</p>
     </div>
     
