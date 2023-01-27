@@ -2,17 +2,16 @@ package com.finalProject.project.controller;
 
 
 
+
+
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,12 +23,10 @@ import com.finalProject.project.service.MemberService;
 
 @Controller
 public class MemberController {
-	@Autowired
 	
-	 MemberService service;
-	private Object log;
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+	 MemberService service;
+
 	
 	// 로그인 폼 열기
 	@RequestMapping("/member/loginForm")
@@ -126,58 +123,43 @@ public class MemberController {
 			return "index";
 		}
 		
-		
-	
 		model.addAttribute("info", memberVO);
 		return "/member/myPage";
 			
 		
 		
 	}
-	
-	@RequestMapping("/member/myPagehealth")
-	public String myPagehealth() {
-		return "member/myPagehealth";
-	}
-	
-	@PostMapping("/modify")
-	public String modifyPost(MemberVO member, HttpServletRequest request ) {
-		
-		String beforePw = "";
-		String encodePw = "";
-		
-		beforePw=member.getMemPw();
-		System.out.println(beforePw);
-		
-		/* 
-		encodePw=passwordEncoder.encode(beforePw);
-		member.setMemPw(encodePw);
-		System.out.println(member.toString());
-		service.memberModify(member);
-		HttpSession session = request.getSession();
-		session.invalidate();*/
-		return "index";
-		
-		
-	}
-	@ResponseBody
-	@RequestMapping("/myPage/pwCheck")
-	public String pwCheck() {
 
-		String resuit = "fail";
-		//if() 비밀번호가 맞으면 success 전송
-		return resuit;
-	}
-	
-
+	// 회원 정보 수정 폼 열기
+		// (수정할 데이터를 미리 출력하기 위해 회원 상세 정보 결과 출력)
+		@RequestMapping("/member/memberUpdateForm")
+		public String memberUpdateForm(HttpSession session, Model model) {
+			// 서비스에게 받아오기?
+			String memId = (String)session.getAttribute ("sid");
+			MemberVO vo = service.memberInfo(memId);
+			model.addAttribute("info", vo);
+			
+			return "member/memberUpdateForm";
+		}
+		
+		
+		// 회원 정보 수정 폼 열기
+				// (수정할 데이터를 미리 출력하기 위해 회원 상세 정보 결과 출력)
+				@RequestMapping("/member/memberUpdate")
+				public String memberUpdate(HttpSession session, MemberVO vo) {
+					// 서비스에게 받아오기?
+					vo.setMemId((String)session.getAttribute ("sid"));
+					service.updatemember(vo);
+				
+				System.out.println(vo.toString());
+					return "redirect:/member/myPage";
+				}
 }
+	
+
 
 		
 	
-
-		
-	
-
 
 
 
