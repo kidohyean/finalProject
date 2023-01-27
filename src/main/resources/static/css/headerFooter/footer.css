@@ -3,13 +3,15 @@
 #footerBox {
 	display:inline-block;
 	width:1280px;
-	padding: 5px 0;
+	height: 85px;
+    padding: 10px 0;
 	line-height:25px;
-	font-size:10px;
+	color:#fffaf2;
+	font-size:20px;
 	font-weight:900;
-	background:rgb(57, 105, 73);
+	background:#005b00;
 	text-align:center;
-	text-align:center;
+	
 	
 }
 

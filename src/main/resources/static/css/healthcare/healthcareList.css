@@ -2,14 +2,14 @@
 
 #disease{
 	display: flex;
-	margin: 0 3%;
+	margin-left: 3%;
 	width: 94%;
 }
 
 #listSlider1{
 	width: 100%;
-    height: 300px;
-	border: 2px solid rgb(75, 77, 80);
+  border-left: 2px dashed darkblue;
+  border-right: 2px dashed darkblue;
 	border-radius: 10px;
 }
 
@@ -19,44 +19,35 @@
 }
 
 .viewportList {
-    margin: 1%;
+    margin: 1% 0px;
     height: 92%;
-    width: 98%;
+    width: 100%;
     overflow: hidden;
   }
 
   .slidesList-list {
     width: 10000px;
     height: 100%;
-    margin-left: 9%;
     list-style: none;
     white-space: nowrap;
   }
 
   .slideList {
     float: left;
-    width: 300px;
-    margin-left: 10px;
-    height: 99%;
+    width: 160px;
+    margin-left: 13px;
+    height: 80%;
     border: 2px solid black;
     border-radius: 20px;
   }
 
   .triggerList {
-    position: absolute;
-    left: 0px;
-    height: 100%;
-    width: 10%;
     cursor: pointer;
-    background: rgb(96, 144, 255);
   }
-  .trigger-right {
-    left: auto;
-    right: 0px;
-    top: 0px;
+  .trigger-left{
+    margin-right: 10px;
   }
   .slideListImg{
-    margin-left: 40%;
     width: 50px;
-    height: 50px;
+    height: 100%;
   }

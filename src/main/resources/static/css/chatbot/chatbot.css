@@ -2,13 +2,14 @@
 #chatHeader {padding: 10px 15px; border-bottom: 1px solid #95a6b4;}
 #btnClose {border: none; background: none; float: right;}
  
-#chatBox {height: 300px; width: 330px; overflow-y:scroll; padding:10px 15px; background:#9bbbd4;} 	
+#chatBox {height: 300px; width: 330px; overflow-y:scroll; padding:10px 15px;
+	 background-image: url("../../image/chatbot/erwewr.png");} 	
 
 #message {width: 300px;}
 
 #btnSubmit {float: right; background:#eeeeee; height: 28px; padding-right:0;}
 
-.msgBox  span {padding:3px 5px; word-break:break-all; display:block; 
+.msgBox  span {padding:3px 5px; word-break:break-all; display:block;
 							 max-width:300px; margin-bottom: 10px; border-radius: 10px;}
 
 /* 
@@ -19,7 +20,60 @@
 		keep-all : 단어 기준으로 줄바꿈
  */
 						 
-.msgBox.send  span {background:#fef01b; float:right; }
+.msgBox.send  span {background:#ffffff; float:right; }
 
-.msgBox #in {width:100%; background:#9bbbd4;}
-.msgBox.receive  span {background:#ffffff; float:left; }
+.msgBox #in {width:100%; background: none;}
+.msgBox.receive  span {background:#b3f8ff; float:left;  }
+
+.msgBox  span img{
+	width: 30px;
+	height: 30px;
+}
+
+#message{
+	margin-top: 10px;
+	width: 270px;
+	height: 30px;
+	border-color: rgb(127, 189, 255);
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+#chatInput{
+	width: 50px;
+    height: 35px;
+    border-radius: 10px;
+    border-color: #b3f8ff;
+    background-color: #b3f8ff;
+}
+
+#boiceMS{
+	margin: 10px 0px;
+	font-size: large;
+	float: left;
+    margin-left: 50px;
+	border-top: 5px solid;
+    border-bottom: 5px solid;
+	border-color: #b3f8ff;
+}
+
+#recordBtn{
+	margin: 10px 0px;
+	font-size: large;
+	float: left;
+    margin-left: 20px;
+	border-radius: 10px;
+	border-color: #b7ffb3;
+    background-color: #b3ffcc;
+	
+}
+
+#stopBtn{
+	margin: 10px 0px;
+	font-size: large;
+	float: left;
+    margin-left: 20px;
+	border-radius: 10px;
+    border-color: #f5ff75;
+    background-color: #f5ffb3;
+}
