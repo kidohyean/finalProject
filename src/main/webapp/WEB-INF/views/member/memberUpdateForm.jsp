@@ -34,7 +34,7 @@
 					<input class="myPage-button" type="button" value="나의 개인정보">
 					<input class="myPage-button" type="button"
 						onClick="location.href='<c:url value='myPagehealth'/>'"
-						value="건강알리미"> <input class="myPage-button" type="button"
+						value="나의 찜 목록"> <input class="myPage-button" type="button"
 						value="---"> <input class="myPage-button" type="button"
 						value="---">
 				</div>
@@ -69,7 +69,7 @@
 							<div class="container">
 								<div class="user_label">회원 비밀번호</div>
 								<input type="text" class="user_box" name="memPw"
-									value="${info.memPw }">
+									value="">
 							</div>
 
 
