@@ -32,17 +32,17 @@
 		
 		<div class="spmA" style="padding-top: 20px; ">
 
-			<table width="800">
-					<tr><td rowspan="9"><img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="250"></td></tr>
-					<tr><td>품명 </td><td> ${spm.spmName }</td></tr>
-					<tr><td>상세설명 </td><td>${spm.spmExplain }</td></tr>
-					<tr><td>효과 </td><td>${spm.spmEffect } </td></tr>
-					<tr><td>카테고리 </td><td>${spm.spmCtgN } </td></tr>
+			<table width="1280">
+					<tr><td rowspan="9" style=" text-align:center;"><img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="300"></td></tr>
+					<tr><td>품명 </td><td style=" text-align:center;"> ${spm.spmName }</td></tr>
+					<tr><td>상세설명 </td><td style=" text-align:center;">${spm.spmExplain }</td></tr>
+					<tr><td>효과 </td><td style=" text-align:center;">${spm.spmEffect } </td></tr>
+					<tr><td>카테고리 </td><td style=" text-align:center;">${spm.spmCtgN } </td></tr>
 				</table>
-
-				<table width="800">
+				<br>
+				<table width="1280">
 					<tr><td>※주의사항 : ${spm.spmNotIngredient}</td></tr>
-					<tr><td>${spm.spmIngredient }</td></tr>
+					<tr><td style=" text-align:center;"><img src="<c:url value='/images/${spm.spmIngredient }'/>" width="800" ></td></tr>
 				</table>
 		
 			</div>
