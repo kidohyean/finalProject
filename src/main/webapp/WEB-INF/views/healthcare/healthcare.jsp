@@ -13,11 +13,13 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/naverMap.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcareList.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/healthcareInput.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareList.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		
 	</head>
 	<body>
 		<div id="wrap">
@@ -33,15 +35,17 @@
 							<div class="healthTextDiv">
 								<img src="<c:url value='/image/healthcare/weightIp.png'/>">
 								<div class="healthText">키(cm)</div>
-								<input type="text" name="height" id="heightInput" class="healthInput" value="180">
-								<input type="submit" class="healthBt" value="입력">
+								<input type="text" name="hcdValue" id="heightInput" class="healthInput" value="${voList[0].hcdValue}">
+								<input type="hidden" id="heightInputName" name="hcdName" value="키" id="heightInputName">
+								<input type="submit" class="healthBt" value="수정">
 							</div>
 						</form>
 						<form id="healthTextForm2" class="healthTextForm">
 							<div class="healthTextDiv">
 								<img src="<c:url value='/image/healthcare/scale.png'/>">
 								<div class="healthText">몸무게(kg)</div>
-								<input type="text" name="weight" id="weightInput" class="healthInput" value="180">
+								<input type="text" name="hcdValue" id="weightInput" class="healthInput">
+								<input type="hidden" id="weightInputName" name="hcdName" value="몸무게">
 								<input type="submit" class="healthBt" value="입력">
 							</div>
 						</form>
@@ -49,7 +53,8 @@
 							<div class="healthTextDiv">
 								<img src="<c:url value='/image/healthcare/bloodS.png'/>">
 								<div class="healthText">혈당(mg/dl)</div>
-								<input type="text" name="bloodS" id="bloodSInput" class="healthInput" value="180">
+								<input type="text" name="hcdValue" id="bloodSInput" class="healthInput">
+								<input type="hidden" id="bloodSInputName" name="hcdName" value="혈당">
 								<input type="submit" class="healthBt" value="입력">
 							</div>
 						</form>
@@ -57,20 +62,23 @@
 							<div id="bloodPDiv1" class="healthTextDiv">
 								<img src="<c:url value='/image/healthcare/bloodP.png'/>">
 								<div class="healthText">수축기혈압(mmHg)</div>
-								<input type="text" name="bloodP1" id="bloodPInput1" class="healthInput" value="180">
+								<input type="text" name="hcdValue1" id="bloodPInput1" class="healthInput">
+								<input type="hidden" id="bloodPName1" name="hcdName1" value="수축기혈압">
 							</div>
 							<div id="bloodPDiv2" class="healthTextDiv">
 								<img src="<c:url value='/image/healthcare/bar.png'/>">
 								<div class="healthText">이완기혈압(mmHg)</div>
-								<input type="text" name="bloodP2" id="bloodPInput2" class="healthInput" value="180">
+								<input type="text" name="hcdValue2" id="bloodPInput2" class="healthInput">
+								<input type="hidden" id="bloodPName2" name="hcdName" value="이완기혈압">
 								<input type="submit" class="healthBt" value="입력">
 							</div>
 						</form>
 						<form id="healthTextForm5" class="healthTextForm">
 							<div class="healthTextDiv">
 								<img src="<c:url value='/image/healthcare/disease.png'/>">
-								<div class="healthText">아픈부위</div>
-								<input type="text" name="disease" id="diseaseInput" class="healthInput" value="180">
+								<div class="healthText">질병</div>
+								<input type="text" name="hcdValue" id="diseaseInput" class="healthInput">
+								<input type="hidden" id="diseaseInputName" name="hcdName" value="질병">
 								<input type="submit" class="healthBt" value="입력">
 							</div>
 						</form>

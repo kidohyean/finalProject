@@ -13,15 +13,15 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="<c:url value='/js/searchZip.js' />"></script>
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
-<script src="<c:url value='/js/modify.js' />"></script>
+
 </head>
+
 <body>
 	<div class="pageSize">
 		<!-- 헤더 -->
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 
-		<form class="form" id="modifyForm" name="modifyForm" method="post"
-			novalidate action="<c:url value='/modify'/>">
+		
 
 
 			<!-- 마이페이지 메뉴 -->
@@ -34,9 +34,9 @@
 						<input class="myPage-button" type="button" value="나의 개인정보">
 						<input class="myPage-button" type="button"
 							onClick="location.href='<c:url value='myPagehealth'/>'"
-							value="건강알리미"> <input class="myPage-button" type="button"
+							value="나의 찜 목록"> <input class="myPage-button" type="button"
 							value="---"> <input class="myPage-button" type="button"
-							value="---">
+							value="---"> 
 					</div>
 				</div>
 
@@ -110,10 +110,10 @@
 							value="${info.memAddress2 }">
 					</div>
 					
-					<input type="submit" id="button" class="btn btn-info updateBtn" value="수정완료">
-					<input type="submit" id="button" class="btn btn-danger deleteBtn" value="회원 탈퇴">
+					<a href="<c:url value='/member/memberUpdateForm/'/>" class="button2">회원정보 수정</a><br><br>
+					
 			
-						type="hidden" name="memId" value="${member.memId }">
+					
 				</div>
 				
 
@@ -121,22 +121,8 @@
 
 
 			</section>
-		</form>
-		<div class="pwDiv">
-			<form id="pwCheckForm" style="visibility: hidden;">
-				비밀번호 확인 : <input type="password" name="pwCheck" id="pwCheck" class="pwCheck">
-				<input type="submit" id="pwChBt" class="pwChBt" value="비밀번호확인">
-			</form>
-			<div id="testDiv" style="visibility: hidden;">
-				비밀번호 맞음
-			</div>
-		</div>
 		
-		<input type="button" id="bt" class="btn btn-warning modifyBtn" value="정보수정">
-		<input type="button" id="btc" class="btn btn-warning modifyBtn" value="수정취소">
-	</div>
-
-
+	
 
 
 	<!-- footer -->

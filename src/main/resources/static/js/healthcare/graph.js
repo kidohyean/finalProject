@@ -269,7 +269,6 @@ function ajax(num){
         
     },
     error:function(){
-      alert("실패");
     }
   }); // ajax 종료 	
 }

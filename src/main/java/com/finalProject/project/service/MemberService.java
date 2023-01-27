@@ -88,13 +88,20 @@ public class MemberService implements IMemberService {
 		return dao.memberInfo(memId);
 	}
 	
+
+
+
 	@Override
-	public void memberModify(MemberVO member) {
-		mapper.memberModify(member);
+	public void updatemember(MemberVO memId) {
+		dao.updatemember(memId);
+
 	}
 
+	@Override
+	public void deletemember(String memId) {
+		dao.deletemember(memId);
 
-
+	}
 
 
 

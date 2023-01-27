@@ -37,7 +37,8 @@
 			<!--  회원 가입 폼  -->
 			<div class="container">
 				<h4>회 원 가 입</h4>
-
+				<form class="form" id="joinForm" name="joinForm" method="post"
+			novalidate action="<c:url value='/member/insert'/>">
 
 
 				<!-- 왼쪽 -->
@@ -63,7 +64,7 @@
 							value="ID 중복 체크">
 
 					</div>
-					</hr>
+					
 
 					<div class="pwd">
 						<h3>비밀번호</h3>
@@ -137,7 +138,7 @@
 					<br> <br> <br>
 
 				</div>
-
+</form>
 			</div>
 			<script>
     window.addEventListener('load', () => {

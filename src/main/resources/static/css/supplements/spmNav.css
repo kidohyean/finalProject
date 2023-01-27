@@ -13,9 +13,10 @@
 	width:1280px;
 	text-align:left;
 	position:relative;
-	background-color: #FFC681;
+	background-color: white;
 	border-top:1px;
 }
+/* #FFC681 */
 .spmA a{
 	color:black;
 }
