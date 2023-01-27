@@ -34,9 +34,9 @@
 						<input class="myPage-button" type="button" value="나의 개인정보">
 						<input class="myPage-button" type="button"
 							onClick="location.href='<c:url value='myPagehealth'/>'"
-							value="나의 찜 목록"> <input class="myPage-button" type="button"
+							value="건강알리미"> <input class="myPage-button" type="button"
 							value="---"> <input class="myPage-button" type="button"
-							value="---"> 
+							value="---">
 					</div>
 				</div>
 
@@ -46,7 +46,9 @@
 			<section class="myPage-main">
 				<div class="myPage-main-container">
 					<div class="myPage-main-container-header">
-						<h3>나의 개인정보</h3>
+						<h3>개인정보 수정</h3>
+			<hr>
+			<form method="post" action="<c:url value='/member/memberUpdate'/>">
 					</div>
 				</div>
 
@@ -64,6 +66,12 @@
 						<div class="user_label">회원 아이디</div>
 						<input type="text" class="user_box" name="memId"
 							value="${info.memId }" readonly="readonly">
+					</div>
+					
+					<div class="container">
+						<div class="user_label">회원 비밀번호</div>
+						<input type="text" class="user_box" name="memPw"
+							value="${info.memPw }" >
 					</div>
 
 				
@@ -108,21 +116,33 @@
 						<div class="user_label">상세주소</div>
 						<input type="text" class="user_box" name="memAddress2"
 							value="${info.memAddress2 }">
+							<br><td colspan="2"><input type="submit" value="수정완료"> 
+										<input type="reset" value="되돌리기"></td>
+										<a href="javascript:deleteCheck();">회원탈퇴</a><br><br>
+					</div>
 					</div>
 					
-					<a href="<c:url value='/member/memberUpdateForm/'/>">회원정보 수정</a><br><br>
-					
-			
-					
-				</div>
 				
+				
+							</section>
+							<!-- 삭제 확인 메시지 출력 -->
+			<script>
+				function deleteCheck() {
+					var answer = confirm("회원 탈퇴 하시겠습니까?");
+					
+					if (answer) {
+						location.href="/member/deletemember/${info.memId}";
+					}
+				}
+			</script>
+				</div>
+					</form>
 
 
 
 
-			</section>
-		
 	
+		
 
 
 	<!-- footer -->

@@ -33,7 +33,7 @@
 	
 	</select>
 <!-- 회원 정보 수정  -->
-	<update id ="memberModify" parameterType="com.finalProject.project.model.MemberVO">
+	<update id ="updatemember" parameterType="com.finalProject.project.model.MemberVO">
 	update member
 	set
 	memName=#{memName},
@@ -46,7 +46,10 @@
 	
 
 	</update>
-
+<!-- 회원 정보 삭제 -->
+	<delete id="deletemember" parameterType="string">
+		DELETE FROM member WHERE memId=#{memId}
+	</delete>
 
    
   </mapper>
