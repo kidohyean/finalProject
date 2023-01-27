@@ -20,7 +20,7 @@
 .flex1{
 	display: flex; 
 	height: 50px; 
-	width: 90%; 
+	width: 1280px; 
 	justify-content: space-around; 
 	position: relative; 
 	left: 50%; 
@@ -56,9 +56,12 @@
 	width:1280px;
 	margin-bottom:30px;
 	}
+
 	
-div.routine-info{
-	display:inline;
+.routine-info div{
+	width:1280px;
+	display:inline-block;
+	margin-left:22%;
 }
 div.box-image{
 	width:263px;

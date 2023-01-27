@@ -23,7 +23,7 @@
 
 	<div id="wrap-routine">
 		<div id="wrap-container">
-			<article>
+			
 			<div class="routine-info">
 				<div class="box-image">
 						<img src="<c:url value='/image/${routine.routineNo}.png'/>">
@@ -37,7 +37,7 @@
 					<p>추천 영양제 : ${routine.recSupplements }</p>
 				</div>
 			</div>
-			</article>
+			
 
 
 					<div class="tab">
