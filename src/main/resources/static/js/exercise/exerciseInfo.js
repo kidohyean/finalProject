@@ -9,4 +9,6 @@ $(document).ready(function(){
             $('.content').removeClass('on');
             $('#contents'+index).addClass('on');
         })
+       
 });
+

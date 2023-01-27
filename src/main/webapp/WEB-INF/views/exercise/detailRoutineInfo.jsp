@@ -23,12 +23,12 @@
 
 	<div id="wrap-routine">
 		<div id="wrap-container">
-			<article>
+			
 			<div class="routine-info">
-				<div class="detail-routine">
 				<div class="box-image">
 						<img src="<c:url value='/image/${routine.routineNo}.png'/>">
 				</div>
+				<div class="detail-routine">
 					<h2>${routine.routineName}</h2>
 					
 					<p>운동정보 : ${routine.routineInfo }</p>
@@ -37,7 +37,7 @@
 					<p>추천 영양제 : ${routine.recSupplements }</p>
 				</div>
 			</div>
-			</article>
+			
 
 
 					<div class="tab">

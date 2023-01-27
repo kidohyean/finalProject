@@ -30,6 +30,7 @@
     </div>
     <article>
     <div id="contents1" class="content on">
+    
         <h3>추천 동영상</h3>
         <iframe width="380" height="245" src="https://www.youtube.com/embed/7RC_4SyQitQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 		<iframe width="380" height="245" src="https://www.youtube.com/embed/myNjmnvI6x0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
