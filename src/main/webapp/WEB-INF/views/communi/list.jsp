@@ -68,10 +68,10 @@
         
         <div class="boardPage">
             <c:if test="${page.prev}">
-                <a href="/community/${listPage}/1" class="btFirst">처음</a>
+                <a href="/community/${listPage}/1" class="btPrev"><<</a>
             </c:if>
             <c:if test="${page.prev}">
-                <a href="/community/${listPage}/${page.startPageNum - 1}" class="btPrev">이전</a>
+                <a href="/community/${listPage}/${page.startPageNum - 1}" class="btPrev"><</a>
             </c:if>
 
             <c:forEach var ="num" begin="${page.startPageNum}" end = "${page.endPageNum}">
@@ -85,10 +85,10 @@
 
             </c:forEach>
             <c:if test="${page.next}">
-                <a href="/community/${listPage}/${page.endPageNum + 1}" class="btNext">다음</a>
+                <a href="/community/${listPage}/${page.endPageNum + 1}" class="btNext">></a>
             </c:if>
             <c:if test="${page.next}">
-                <a href="/community/${listPage}/${page.pageNum}" class="btLast">마지막</a>
+                <a href="/community/${listPage}/${page.pageNum}" class="btNext">>></a>
             </c:if>
 
         </div>
