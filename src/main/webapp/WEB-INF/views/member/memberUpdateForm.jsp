@@ -21,112 +21,115 @@
 		<!-- 헤더 -->
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 
-		
 
 
-			<!-- 마이페이지 메뉴 -->
-			<nav class="myPage-nav">
-				<div class="myPage-nav-container">
-					<img src="<c:url value='/image/user.png'/>" class="myPage-userImg">
-					<div class="myPage-Inf">이름 나이</div>
 
-					<div class="button-box">
-						<input class="myPage-button" type="button" value="나의 개인정보">
-						<input class="myPage-button" type="button"
-							onClick="location.href='<c:url value='myPagehealth'/>'"
-							value="건강알리미"> <input class="myPage-button" type="button"
-							value="---"> <input class="myPage-button" type="button"
-							value="---">
-					</div>
+		<!-- 마이페이지 메뉴 -->
+		<nav class="myPage-nav">
+			<div class="myPage-nav-container">
+				<img src="<c:url value='/image/user.png'/>" class="myPage-userImg">
+				<div class="myPage-Inf">이름 나이</div>
+
+				<div class="button-box">
+					<input class="myPage-button" type="button" value="나의 개인정보">
+					<input class="myPage-button" type="button"
+						onClick="location.href='<c:url value='myPagehealth'/>'"
+						value="건강알리미"> <input class="myPage-button" type="button"
+						value="---"> <input class="myPage-button" type="button"
+						value="---">
 				</div>
+			</div>
 
-			</nav>
+		</nav>
 
-			<!-- 나의 개인 정보 -->
-			<section class="myPage-main">
-				<div class="myPage-main-container">
-					<div class="myPage-main-container-header">
-						<h3>개인정보 수정</h3>
-			<hr>
-			<form method="post" action="<c:url value='/member/memberUpdate'/>">
-					</div>
-				</div>
+		<!-- 나의 개인 정보 -->
+		<section class="myPage-main">
+			<div class="myPage-main-container">
+				<div class="myPage-main-container-header">
+					<h3>개인정보 수정</h3>
+					<hr>
+					<form method="post" action="<c:url value='/member/memberUpdate'/>">
 
-				<div class="left_container">
-					<div class="container">
+						<div class="left_container">
+							<div class="container">
 
-						<div class="user_label">회원 이름</div>
-						<input type="text" class="user_box" name="memName"
-							value="${info.memName }">
+								<div class="user_label">회원 이름</div>
+								<input type="text" class="user_box" name="memName"
+									value="${info.memName }">
 
-					</div>
+							</div>
 
 
-					<div class="container">
-						<div class="user_label">회원 아이디</div>
-						<input type="text" class="user_box" name="memId"
-							value="${info.memId }" readonly="readonly">
-					</div>
-					
-					<div class="container">
-						<div class="user_label">회원 비밀번호</div>
-						<input type="text" class="user_box" name="memPw"
-							value="${info.memPw }" >
-					</div>
+							<div class="container">
+								<div class="user_label">회원 아이디</div>
+								<input type="text" class="user_box" name="memId"
+									value="${info.memId }" readonly="readonly">
+							</div>
 
-				
-
-					<div class="container">
-						<div class="user_label">회원 닉네임</div>
-						<input type="text" class="user_box" name="memNickname"
-							value="${info.memNickname }">
-					</div>
-
-				</div>
-
-				<div class="right_container">
-
-					<div class="container">
-						<div class="user_label">회원 전화번호</div>
-						<input type="text" class="user_box" name="memHp"
-							value="${info.memHp }">
-					</div>
+							<div class="container">
+								<div class="user_label">회원 비밀번호</div>
+								<input type="text" class="user_box" name="memPw"
+									value="${info.memPw }">
+							</div>
 
 
 
+							<div class="container">
+								<div class="user_label">회원 닉네임</div>
+								<input type="text" class="user_box" name="memNickname"
+									value="${info.memNickname }">
+							</div>
 
-					<div class="container">
-						<div class="user_label">우편번호</div>
-						<input type="text" class="user_box" name="memZipcode"
-							value="${info.memZipcode }">
-
-						<div>
-							<input type="button" class="button" id="searchZipBtn"
-								name="searchZipBtn" value="우편번호 찾기"><br>
 						</div>
-					</div>
-					<div class="container">
-						<div class="user_label">주소 입력</div>
-						<input type="text" class="user_box" name="memAddress1"
-							value="${info.memAddress1 }">
 
-					</div>
+						<div class="right_container">
 
-					<div class="container">
-						<div class="user_label">상세주소</div>
-						<input type="text" class="user_box" name="memAddress2"
-							value="${info.memAddress2 }">
-							<br><td colspan="2"><input type="submit" value="수정완료"> 
-										<input type="reset" value="되돌리기"></td>
-										<a href="javascript:deleteCheck();">회원탈퇴</a><br><br>
-					</div>
-					</div>
-					
-				
-				
-							</section>
-							<!-- 삭제 확인 메시지 출력 -->
-			<script>
+							<div class="container">
+								<div class="user_label">회원 전화번호</div>
+								<input type="text" class="user_box" name="memHp"
+									value="${info.memHp }">
+							</div>
+
+
+
+
+							<div class="container">
+								<div class="user_label">우편번호</div>
+								<input type="text" class="user_box" name="memZipcode"
+									value="${info.memZipcode }">
+
+								<div>
+									<input type="button" class="button" id="searchZipBtn"
+										name="searchZipBtn" value="우편번호 찾기"><br>
+								</div>
+							</div>
+							<div class="container">
+								<div class="user_label">주소 입력</div>
+								<input type="text" class="user_box" name="memAddress1"
+									value="${info.memAddress1 }">
+
+							</div>
+
+							<div class="container">
+								<div class="user_label">상세주소</div>
+								<input type="text" class="user_box" name="memAddress2"
+									value="${info.memAddress2 }"> <br>
+								<td colspan="2"><input type="submit" value="수정완료" class="button3">
+									<input type="reset" value="되돌리기" class="button3" ></td> <a
+									href="javascript:deleteCheck();" class="button3">회원탈퇴</a><br> <br>
+
+							</div>
+					</form>
+
+				</div>
+			</div>
+	
+
+
+
+	</section>
+	<!-- 삭제 확인 메시지 출력 -->
+	<script>
 				function deleteCheck() {
 					var answer = confirm("회원 탈퇴 하시겠습니까?");
 					
@@ -135,24 +138,25 @@
 					}
 				}
 			</script>
-				</div>
-					</form>
+
+	</div>
 
 
 
 
-	
-		
+
+
+
 
 
 	<!-- footer -->
-	
+
 
 </body>
 
 <footer>
-<div class="pageSize">
-	<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
-	
-</div>
+	<div class="pageSize">
+		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
+
+	</div>
 </footer>

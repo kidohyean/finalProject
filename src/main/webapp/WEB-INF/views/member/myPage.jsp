@@ -110,7 +110,7 @@
 							value="${info.memAddress2 }">
 					</div>
 					
-					<a href="<c:url value='/member/memberUpdateForm/'/>">회원정보 수정</a><br><br>
+					<a href="<c:url value='/member/memberUpdateForm/'/>" class="button2">회원정보 수정</a><br><br>
 					
 			
 					

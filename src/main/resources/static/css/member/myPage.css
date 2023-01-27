@@ -122,6 +122,8 @@ h3 {
 	background: #21825B;
 	margin-top: 5px;
 	float: right;
+	text-decoration-line: none;
+	font-size:12px;
 }
 
 .button.button:hover {
@@ -137,9 +139,44 @@ h3 {
 	border: none;
 	background: #21825B;
 	margin-top: 5px;
+	
 }
 
 .button_1.button_1:hover {
 	background: #00AE68;
 }
 
+.button2{
+	margin-right: 40px; width : 150px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
+	margin-top: 5px;
+	float: right;
+	text-decoration-line: none;
+}
+
+.button2.button2:hover{
+	background: #00AE68;
+}
+
+.button3{
+	width : 100px;
+	padding: 0;
+	line-height: 30px;
+	color: #FFF;
+	border-radius: 5px;
+	border: none;
+	background: #21825B;
+	margin-top: 5px;
+	float: right;
+	text-decoration-line: none;
+	margin-right:10px;
+	font-size:13px;
+}
+.button3.button3:hover{
+	background: #00AE68;
+}
