@@ -29,7 +29,7 @@ document.addEventListener('keydown', function(event){
        </div>
     <div class="title_id">
     <div class="title_date">
-         <img src="<c:url value='/image/user.png'/>" class="userImg">
+         <img src="<c:url value='/image/user.png'/>" class="userImg1">
          <h3 class="text_memid">${Aggre.memId}</h3> 
          <span class="date">${Aggre.agDate }</span>
          <span class="count">조회 ${Aggre.agCount }</span>
