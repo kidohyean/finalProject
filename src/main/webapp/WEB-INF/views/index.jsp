@@ -339,8 +339,9 @@
 
 	</div>
 	<!--footer.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
-	</div>
+	
 	<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
+</div>
 </body>
 
 

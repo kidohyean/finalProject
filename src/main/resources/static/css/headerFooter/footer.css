@@ -5,6 +5,7 @@ footer{
 	display: flex;
     justify-content: center;
 	padding: 70px 0px;
+	background-color: #6e6e6e;
 }
 
 #footerHr{

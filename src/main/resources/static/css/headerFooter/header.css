@@ -98,5 +98,6 @@ header{
     color: #FFF;
     border-radius: 5px;
     border: none;
-    background: #21825B;
+    background: none;
+    border: 1px solid #fff;
 }

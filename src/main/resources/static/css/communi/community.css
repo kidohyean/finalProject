@@ -5,5 +5,10 @@ body{
 
 .pageSize{
     margin: -10px auto;
-    width: 1280px;
+    width: 100%;
+}
+#headerMenuBox {
+    background-image: url(https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+    background-repeat: no-repeat;
+  background-size:cover;
 }

@@ -9,7 +9,7 @@ body {
 
 .pageSize {
 	margin: -10px auto;
-	width: 1280px;
+	width: 100%;
 }
 
 .a-container {
@@ -161,7 +161,7 @@ body {
 }
 
 .d-container {
-	width: 100%;
+	width: 99%;
 	height: 500px;
 	margin-bottom: 30px;
 	display: flex;
@@ -389,15 +389,17 @@ body {
 	background-image: url("../image/index1.jpg");
 }
 
-
+/*TODO 화면 비율 100% 25% 150% 조절*/
 
 
 
 body  {
-/*     background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg'); */
+	max-width: 2000px;
+     /*background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');*/
 	 background-image: url(https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+	background-repeat: no-repeat;
   background-size:cover;
-        -webkit-animation: slidein 50s;
+     /*   -webkit-animation: slidein 50s;
         animation: slidein 50s;
 
         -webkit-animation-fill-mode: forwards;
@@ -407,7 +409,7 @@ body  {
         animation-iteration-count: infinite;
 
         -webkit-animation-direction: alternate;
-        animation-direction: alternate;              
+        animation-direction: alternate;    */          
 }
 
 @-webkit-keyframes slidein {
