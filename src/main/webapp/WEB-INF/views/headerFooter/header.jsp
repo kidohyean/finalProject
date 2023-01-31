@@ -9,6 +9,7 @@
 		<div>
 			<a href="<c:url value='/' />" class="header-logo"><img src="<c:url value='/image/header/logo3.png'/>" id="logoImg"></a>
 		</div>
+		<c:import url="/WEB-INF/views/headerFooter/topMenu.jsp" />
 		<!-- 로그인 하기 전에 보여줄 메뉴 항목 -->
 		<div id="idDiv">
 			<c:if test="${empty sessionScope.sid }">
@@ -36,7 +37,7 @@
 	</div>
 	
 <div class="top-line"></div>
-	<c:import url="/WEB-INF/views/headerFooter/topMenu.jsp" />
+	
 
 </header>
 
