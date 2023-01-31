@@ -3,6 +3,8 @@
  */
 
 $(document).ready(function(){
+    $('.header-button').css("color","#ffffff")
+    $('.header-button').css("border-color","#ffffff")
     $('.health_button').on('click', function(){
         console.log("sdfsadf");
         $('#disease').css("height", "100px")

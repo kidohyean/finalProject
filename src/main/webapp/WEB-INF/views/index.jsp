@@ -21,6 +21,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/index.css'/>">
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+<script src="<c:url value='/js/index.js'/>"></script>
 
 <!-- 카카오 지도 스타일 -->
 

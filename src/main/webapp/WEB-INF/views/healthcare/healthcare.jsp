@@ -24,6 +24,12 @@
 	<body>
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
+			<div id="healthcareBN">
+				<p>
+					오늘 고생하셨습니다.<br/>
+					당신의 하루를 측정하세요.
+				</p>
+			</div>
 		    <section id="reserve">
 				<div class="divName">
 					<p class="diseaseName">신체 상태 입력</p>

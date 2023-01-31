@@ -95,9 +95,8 @@ header{
     font-size: 20px;
     font-weight: bold;
     line-height: 30px;
-    color: #FFF;
+    color: rgb(0, 0, 0);
     border-radius: 5px;
     border: none;
     background: none;
-    border: 1px solid #fff;
 }
