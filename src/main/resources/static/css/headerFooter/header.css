@@ -15,6 +15,21 @@ header{
 }
 
 #headerMenuBox{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+#logoImg{
+    width: 300px;
+    height: 150px;
+}
+
+#idDiv{
+    margin-bottom: 10px;
+}
+/*
+#headerMenuBox{
     width: 100%;
     height: 50px;
     padding-top: 80px;
@@ -51,7 +66,7 @@ header{
     height: 80px;
     margin-left: 50px;
 }
-
+*/
 #headerMenuA{
     float: right;
     margin-top: 10px;

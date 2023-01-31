@@ -5,16 +5,12 @@
 <!--header 코드 입니다.-->
 <header>
 	<div id="headerMenuBox">
-		<c:import url="/WEB-INF/views/chatbot/chatModal.jsp" />
 		
-		<div id="chatBotDiv">
-			<a data-toggle="modal" data-target="#modal" role="button" class="btn btn-big openmodale"><img src="<c:url value='/image/chatBot.png'/>" id="chatBot"></a>
-		</div>
 		<div>
-			<a href="<c:url value='/' />" class="header-logo"><img src="<c:url value='/image/logo.png'/>" id="logoImg"></a>
+			<a href="<c:url value='/' />" class="header-logo"><img src="<c:url value='/image/header/logo3.png'/>" id="logoImg"></a>
 		</div>
 		<!-- 로그인 하기 전에 보여줄 메뉴 항목 -->
-		<div>
+		<div id="idDiv">
 			<c:if test="${empty sessionScope.sid }">
 				<a href="<c:url value='/member/joinForm'/>" id="headerMenuA"
 					class="signUn"><input type="submit" id="button" class="header-button" value="회원가입"></a>

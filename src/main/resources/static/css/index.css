@@ -1,4 +1,9 @@
 body {
+	/*
+	background-image: url("../image/indexbg1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	*/
 	margin: -10px 0px;
 }
 
@@ -375,4 +380,11 @@ body {
 	font-weight: bold;
 	cursor: default;
 	color: #777;
+}
+
+#indexImg1{
+	margin-top: -245px;
+	width: 100%;
+	height: 1280px;
+	background-image: url("../image/index1.jpg");
 }

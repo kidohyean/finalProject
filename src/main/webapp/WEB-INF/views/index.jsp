@@ -28,11 +28,11 @@
 
 </head>
 <body>
-
-
+	<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
+	
 	<div class="pageSize">
 		<!--header.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
-		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
+		
 		<div class="a-container">
 
 			<div class="a-left-container"></div>
@@ -335,12 +335,11 @@
 
 
 	</div>
+	<!--footer.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
+	<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 </body>
 
-<!--footer.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
-<footer>
-	<div class="pageSize">
-		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
-	</div>
-</footer>
+
+
+	
 </html>

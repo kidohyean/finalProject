@@ -1,18 +1,65 @@
 @charset "UTF-8";
 
-#footerBox {
-	display:inline-block;
-	width:1280px;
-	height: 85px;
-    padding: 10px 0;
-	line-height:25px;
-	color:#fffaf2;
-	font-size:20px;
-	font-weight:900;
-	background:#005b00;
-	text-align:center;
-	
-	
+footer{
+	width: 100%;
+	display: flex;
+    justify-content: center;
+	padding: 70px 0px;
 }
 
-footer{ text-align:center; }
+#footerHr{
+	margin: 10px 50px;
+	
+}
+#footerABox{
+	margin-bottom: 10px;
+	font-size: 30px;
+}
+
+#footerABox a:first-child{
+	margin-right: 50px;
+	float: left;
+}
+#footerAT{
+	margin-left: 50px;
+}
+#footerABox hr{
+	float: left;
+	width: 1px;
+	height: 20px;
+	margin-top: 10px;
+}
+#footerABox a{
+	font-weight: 600;
+	text-decoration-line: none;
+	color: black;
+}
+
+#footerRightBox{
+	display: flex;
+    align-items: center;
+}
+#footerRightBox div{
+	margin-right: 30px;
+}
+
+#footerRightBox img{
+	width: 150px;
+	height: 150px;
+}
+
+.footerLeftBoxDiv{
+	font-size: 23px;
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+#callNumber{
+	font-size: 50px;
+    font-weight: 600;
+}
+
+#callDate{
+	font-size: 30px;
+    font-weight: 400;
+}
