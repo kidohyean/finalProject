@@ -18,6 +18,7 @@
 		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareList.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/healthCalendar.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		
@@ -43,14 +44,16 @@
 						</div>
 					</form>
 					
-					<div id="DateDiv">
-						<p>오늘의 운동</p>
-						<ul>
-							<li>1</li>
-							<li>1</li>
-							<li>1</li>
-							<li>1</li>
-							<li>1</li>
+					<div id="todayDiv">
+						<p id="todayDivName">오늘의 운동</p>
+						<ul id="todayList">
+							<li>
+								오늘 뭐하지 뭐하지
+							</li>
+							<li>오늘 뭐하지 뭐하지</li>
+							<li>오늘 뭐하지 뭐하지</li>
+							<li>오늘 뭐하지 뭐하지</li>
+							<li>오늘 뭐하지 뭐하지</li>
 						</ul>
 					</div>
 				</div>
@@ -144,6 +147,8 @@
 					</div>
 				</div>
 			</div>
+			
+			<!--
 		    <section id="reserve">
 				<div class="divName">
 					<p class="diseaseName">신체 상태 입력</p>
@@ -247,8 +252,9 @@
 						<img class="slideListImg" src="<c:url value='/image/healthcare/right.png'/>">
 					</div>
 				</article>
+				-->
 				<div class="divName">
-					<p class="graphName">신체 상태</p>
+					<!--<p class="graphName">신체 상태</p>-->
 					<hr class="healHr"/>
 				</div>
 				<article id="graph1" class="graph">
@@ -310,6 +316,28 @@
 						</div>
 					</div>
 				</article>
+				<div class="calendar">
+					<div id="calendarDiv">
+						<table>
+							<thead>
+								<tr><th colspan='2'><p id="prevMonth"><</p></th><th id="year-mouth" colspan='3'></th><th  colspan='2'><p id="nextMonth">></p></th></tr>
+								<tr>
+									<th id="sunday" class="dayWeek">일</th>
+									<th class="dayWeek">월</th>
+									<th class="dayWeek">화</th>
+									<th class="dayWeek">수</th>
+									<th class="dayWeek">목</th>
+									<th class="dayWeek">금</th>
+									<th id="saturday" class="dayWeek">토</th>
+								</tr>
+							</thead>
+							<tbody id="dateBody">
+
+							</tbody>
+						</table>
+					</div>
+					<div id="calendarItemList"></div>
+				</div>
 				<!--
 				<div class="divName">
 					<p class="mapName">주변 약국 정보</p>
