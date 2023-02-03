@@ -14,9 +14,22 @@
 
 <div class="board_wrap">
 <div class="board_title">
-    <strong>커뮤니티</strong>
-    <p>자유게시판입니다.</p>
+     <a href="/community/list/${num=1}"><strong>나젊이야기</strong></a>
+        <p>자유롭게 사용이 가능한 자유게시판입니다</p>
 </div>
+
+<br><br>
+    <div class="content_box">
+    <h3>자유게시판</h3>
+        <div class="location">
+        홈
+        <span></span>
+        나젊이야기
+        <span></span>
+        자유게시판
+        </div>
+    </div>
+    
 <div class="head3">
     <select id="selectBox" name="selectBox" onchange="if(this.value) location.href=(this.value);">
         <option value="/community/list/1" <c:if test="${listPage eq 'list'}">selected</c:if> id="allList">전체글</option>
@@ -57,7 +70,7 @@
         <div class="btWrap">
     
         <c:if test="${empty sessionScope.sid }">
-            <a class="on">로그인시 글작성 가능합니다.</a>
+            <a href="<c:url value='/member/loginForm'/>" class="on">로그인시 글작성 가능합니다.</a>
         </c:if>
         
        
@@ -96,13 +109,14 @@
     
             <div id="wrap1">
                 <form id="fruSearchFrm">
-					 <input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
+						<input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
+		            
 		            <button type="submit" class="header-item">검색</button>
+		           
 				</form>
 			</div>	
         
 </div>			
 				
 				
-		
 </div>

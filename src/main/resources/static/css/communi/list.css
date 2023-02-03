@@ -1,9 +1,12 @@
 .board_wrap {
     margin: 0 auto;
- 
+    
     
 }
 
+html,body {font-family:"NotoSansKRLight", sans-serif; width:100%; position:static; font-size:14px; word-break:break-all;}
+	
+	
 .board_wrap a{
     text-decoration: none;
     color: inherit;
@@ -12,24 +15,79 @@
 }
 
 .board_title{
-	text-align:center;
+	text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/image/communi1.jpg);
 }
 
+
+
 .board_title strong{
-    font-size: 35px;
+    font-size: 3em;
     text-align: center;
+    line-height: 1;
+    color: ghostwhite;
+    font-weight:normal;
 }
 
 .board_title p{
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 25px;
+    padding-top: 15px;
     font-weight:bold;
-    color:gray;
+    color: ghostwhite
 }
 
+h3{
+	margin: 0;
+    padding: 0;
+}
+
+.content_box h3{
+	font-size: 40px;
+	color: #000;
+    padding-bottom: 25px;
+    line-height: 1;
+    margin: 0;
+    font-family: "NotoSansKR", sans-serif;
+	font-weight: 800;
+}
+
+.content_box{
+	margin-left: 10%;
+	margin-right: 10%;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid;
+    border-color: #999;
+    
+}
+
+.location span {
+	display:inline-block;
+	background:url(/image/right2.png);
+	width:10px;
+	height:10px;
+}
+
+.location{
+	font-weight:bold;
+	margin-right:20px;
+	top: 55px;
+	color:#999;
+    font-size: 16px;
+    font-family: 'NotoSansKRLight', sans-serif;
+    padding-top: 20px;
+}
 
 .btWrap{
-	width: 1280px;
+	margin-right: 10%;
     margin-top: 15px;
     font-size: 30px;
     text-align: right;
@@ -49,32 +107,40 @@
 }
 
 .boardLists {
-    text-align: center;
-    width:100%;
+   text-align: center;
+    letter-spacing: 0;
+    word-spacing: 0;
+    width: 100%;
+    font-size: 0;
+    display: inline-block;
 }
 #topList{
-    font-size: 25px;
+    font-size: 20px;
     margin: 0;
+    padding: 10px 0px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     display: inline-block;
+    background: floralwhite;
 }
 
 #listItem{
     height: 40px;
-    font-size: 25px;
+    font-size: 26px;
     margin: 0;
+    padding:5px 0px;
     border-bottom: 1px solid black;
     display: inline-block;
 }
 
 .head3{
 	height:50px;
+	margin-top: 20px;
 }
 
 
 #selectBox{
-	
+	margin-left:85px;
 	height:35px;
 	width:150px;
 	font-size:20px;
@@ -83,26 +149,25 @@
 	background-color: rgb(240,240,240);
 }
 .num, .count{
-    width: 100px;
+    width: 5%;
 }
 .title{
-    width: 650px;
+    width: 40%;
     position:left;
     
 }
 
 #listItem.title{
-	color: gray;
-	font-weight:bold;
+	text-align: left;
 }
 
 
 
 .writer{
-    width: 200px;
+    width: 15%;
 }
 .date{
-    width: 200px;
+    width: 15%;
     font-size:15px;
 }
 .boardPage{
@@ -245,18 +310,16 @@
 
 .input-search-word{
 	height: 50px;
-    width: 400px;
+    width: 500px;
     border: 3px solid gray;
     padding: 3px 10px;
     border-radius: 5px;
-    
-    float: left;
     font-size:20px;
 }
 
 button.header-item{
     height: 60px;
-    width: 70px;
+    width: 80px;
     font-size: 22px;
     background-color: gray;
     color: white;
@@ -266,7 +329,8 @@ button.header-item{
 }
 
 #fruSearchFrm{
-	position:relative;
-	margin-bottom: 30px;
+	position: relative;
+    margin-bottom: 30px;
+    text-align: center;
 	
 }

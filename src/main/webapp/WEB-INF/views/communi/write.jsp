@@ -6,10 +6,11 @@
 <script src="<c:url value='/js/communi/write.js' />"></script>
 <script src="<c:url value='/js/communi/edit.js' />"></script>
 
+
 <div class="board_wrap">
     <div class="board_title">
-         <a href="/community/list/${num=1}"><strong>커뮤니티</strong></a>
-        <p>자유게시판입니다.</p>
+         <a href="/community/list/${num=1}"><strong>나젊이야기</strong></a>
+        <p>자유롭게 사용이 가능한 자유게시판입니다</p>
     </div>
 
     <c:if test="${mode eq 'insertPage'}">

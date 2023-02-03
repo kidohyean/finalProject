@@ -35,8 +35,8 @@
 	font-size:20px;
     width: 100%;
     display: flex;
-    border-top: 0.5px solid;
-    border-top-color: #dcdcdc;
+    border-bottom: 0.5px solid;
+    border-bottom-color: #dcdcdc;
 }
 
 #commentContent{

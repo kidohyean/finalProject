@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Roboto:wght@100&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/communi/detailView.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/communi/comment.css' />">
 <script src="<c:url value='/js/communi/delete.js' />"></script>
@@ -17,8 +20,19 @@ document.addEventListener('keydown', function(event){
 </script>
 <div class="board_wrap">
     <div class="board_title">
-       <a href="/community/list/${num=1}"><strong>커뮤니티</strong></a>
-        <p>자유게시판입니다.</p>
+       <a href="/community/list/${num=1}"><strong>나젊이야기</strong></a>
+        <p>자유롭게 사용이 가능한 자유게시판입니다</p>
+    </div>
+    <br><br>
+    <div class="content_box">
+    <h3>자유게시판</h3>
+        <div class="location">
+        홈
+        <span></span>
+        나젊이야기
+        <span></span>
+        자유게시판
+        </div>
     </div>
     
     <div class=contentarticle>
@@ -43,11 +57,13 @@ document.addEventListener('keydown', function(event){
         </div>
    
         <c:if test="${Aggre.memId eq sessionScope.sid }">
-         <!--   <div class="update_delete"> -->
+            <div class="update_delete"> 
            <input type="hidden" value="${Aggre.agNum}" id="deletePageNum">
+           <input type="button" value="목록" id="before" onClick="location.href='/community/list/${num=1}'">
            <input type="button" value="삭제" id="delete">
            <input type="submit" value="수정" id="update" formaction="/community/${'edit'}/${Aggre.agNum}">
-       <!--    </div> -->
+           
+           </div> 
         
         </c:if>
    </div>
@@ -78,7 +94,7 @@ document.addEventListener('keydown', function(event){
     <div class="thatgle">
     
         <c:if test="${empty sessionScope.sid }">
-            <a class="in">로그인 하셔야 댓글작성가능합니다.</a>
+            <a href="<c:url value='/member/loginForm'/>" class="in">로그인 하셔야 댓글작성가능합니다.</a>
         </c:if>
     </div>    
        
@@ -96,10 +112,6 @@ document.addEventListener('keydown', function(event){
     
     
         <div class="btWrap">
-    
-       
-        
-       
         <c:if test="${not empty sessionScope.sid }">
             <a href="/community/insertPage" class="on">글쓰기</a>
         </c:if>
@@ -108,9 +120,9 @@ document.addEventListener('keydown', function(event){
    
    </div> 
     
+  
     
-    
-   </div>   
+     
    
    
      
