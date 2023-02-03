@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
@@ -25,19 +25,16 @@
 
 
 		<!-- 마이페이지 메뉴 -->
-		<nav class="myPage-nav">
-			<div class="myPage-nav-container">
-				<img src="<c:url value='/image/user.png'/>" class="myPage-userImg">
-				<div class="myPage-Inf">이름 나이</div>
-
-				<div class="button-box">
-					<input class="myPage-button" type="button" value="나의 개인정보">
-					<input class="myPage-button" type="button"
-						onClick="location.href='<c:url value='myPagehealth'/>'"
-						value="나의 찜 목록"> <input class="myPage-button" type="button"
-						value="---"> <input class="myPage-button" type="button"
-						value="---">
-				</div>
+			<nav class="myPage-nav">
+				<div class="myPage-nav-container">
+					<img src="<c:url value='/image/user.png'/>" class="myPage-userImg">
+					<div class="myPage-Inf">마이페이지</div>
+						
+						<div class="button-box">
+						<input class="myPage-button" type="button" value="나의 개인정보"onClick="location.href='<c:url value='myPage'/>'">
+						<input class="myPage-button" type="button" value="비밀번호 변경"onClick="location.href='<c:url value='memPw'/>'">
+						<input class="myPage-button" type="button" value="나의 찜목록"> 
+					</div>
 			</div>
 
 		</nav>
@@ -66,11 +63,7 @@
 									value="${info.memId }" readonly="readonly">
 							</div>
 
-							<div class="container">
-								<div class="user_label">회원 비밀번호</div>
-								<input type="text" class="user_box" name="memPw"
-									value="">
-							</div>
+							
 
 
 
@@ -95,7 +88,7 @@
 
 							<div class="container">
 								<div class="user_label">우편번호</div>
-								<input type="text" class="user_box" name="memZipcode"
+								<input type="text" class="user_box" name="memZipcode" id="memZipcode"
 									value="${info.memZipcode }">
 
 								<div>
@@ -105,14 +98,14 @@
 							</div>
 							<div class="container">
 								<div class="user_label">주소 입력</div>
-								<input type="text" class="user_box" name="memAddress1"
+								<input type="text" class="user_box" name="memAddress1" id="memAddress1"
 									value="${info.memAddress1 }">
 
 							</div>
 
 							<div class="container">
 								<div class="user_label">상세주소</div>
-								<input type="text" class="user_box" name="memAddress2"
+								<input type="text" class="user_box" name="memAddress2"id="memAddress2"
 									value="${info.memAddress2 }"> <br>
 								<td colspan="2"><input type="submit" value="수정완료" class="button3">
 									<input type="reset" value="되돌리기" class="button3" ></td> <a
