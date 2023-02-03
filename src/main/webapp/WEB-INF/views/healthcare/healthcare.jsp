@@ -10,6 +10,7 @@
 		<title>건강알리미</title>
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcare.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/state.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/naverMap.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcareList.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
@@ -17,6 +18,7 @@
 		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareList.js'/>"></script>
+		<script src="<c:url value='/js/healthcare/healthCalendar.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		
@@ -24,6 +26,129 @@
 	<body>
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
+			<div id="healthcareBN">
+				<p>
+					오늘 고생하셨습니다.<br/>
+					당신의 하루를 측정하세요.
+				</p>
+			</div>
+			<div id="state">
+				<div id="stateDiv1">
+					<form>
+						
+						<div id="heightDiv">
+								<p id="heightName">키</p>
+								<input class="HInput" type="text" value="180cm" readonly/>
+								<input class="formHBt" type="submit" value="입력"/>
+								<input id="cancelHBt" class="formHBt" type="button" value="취소"/>
+						</div>
+					</form>
+					
+					<div id="todayDiv">
+						<p id="todayDivName">오늘의 운동</p>
+						<ul id="todayList">
+							<li>
+								오늘 뭐하지 뭐하지
+							</li>
+							<li>오늘 뭐하지 뭐하지</li>
+							<li>오늘 뭐하지 뭐하지</li>
+							<li>오늘 뭐하지 뭐하지</li>
+							<li>오늘 뭐하지 뭐하지</li>
+						</ul>
+					</div>
+				</div>
+				<div id="stateDiv2">
+					<div id="weightDiv" class="stateDiv2Item">
+						
+						<div class="lineCSS">
+							<p class="name2">체중</p>
+							
+							<button>입력</button>
+						</div>
+						
+						<p class="value2">85kg</p>
+						<div class="inputDiv">
+							<hr class="inputHr"/>
+							<form class="stateForm">
+								<input class="inputForm" type="text" placeholder="숫자입력(예:180.0)" />
+								<input class="formBt" type="submit" value="입력"/>
+								<input class="formBt" type="button" value="취소"/>
+							</form>
+						</div>
+						<div class="stateValue">체중을 입력하세요.</div>
+					</div>
+					<div id="BMIDiv" class="stateDiv2Item">
+						<div class="lineCSS">
+							<p class="name2">BMI</p>
+							<button style="visibility: hidden;">입력</button>
+						</div>
+						
+						
+						<p class="value2">23.1%</p>
+						<div class="inputDiv">
+							<hr class="inputHr"/>
+							<form class="stateForm">
+								<input class="inputForm" type="text" placeholder="숫자입력(예:180.0)" />
+								<input class="formBt" type="submit" value="입력"/>
+								<input class="formBt" type="button" value="취소"/>
+							</form>
+						</div>
+						<div class="stateValue">키를 먼저 입력하세요.</div>
+					</div>
+					<div id="BloodSDiv" class="stateDiv2Item">
+						<div class="lineCSS">
+							<p class="name2">혈당</p>
+							
+							<button>입력</button>
+						</div>
+						
+						<p class="value2">85kg</p>
+						<div class="inputDiv">
+							<hr class="inputHr"/>
+							<form id="stateFormBS" class="stateForm">
+								<input class="inputForm" type="text" placeholder="숫자입력(예:180.0)" />
+								<input class="formBt" type="submit" value="입력"/>
+								<input class="formBt" type="button" value="취소"/>
+							</form>
+						</div>
+						<div class="stateValue">혈당을 입력하세요.</div>
+					</div>
+					<div id="BloodPDiv" class="stateDiv2Item">
+						<div class="lineCSS">
+							<p class="name2">혈압</p>
+							
+							<button>입력</button>
+						</div>
+						<div class="valueLineCSS">
+							<p class="BPvalueName">수축기혈압</p>
+							<p class="BPvalueName">-</p>
+							<p class="BPvalueName">이완기혈압</p>
+						</div>
+						<div class="valueLineCSS">
+							<p id="BloodPValue1" class="value3">120</p>
+							<p class="value3">-</p>
+							<p id="BloodPValue2" class="value3">75</p>
+						</div>
+						<div class="inputDiv">
+							<hr class="inputHr2"/>
+							<form class="stateForm2">
+								<div class="stateFormDiv">
+									<input class="inputFormBP" type="text" placeholder="수축기(예:120)" />
+									<p class="BPvalueBar">-</p>
+									<input class="inputFormBP" type="text" placeholder="이완기(예:75)" />
+								</div>
+								<div id="inputBtDiv">
+									<input class="formBt" type="submit" value="입력"/>
+									<input class="formBt" type="button" value="취소"/>
+								</div>
+							</form>
+						</div>
+						<div class="stateValue2">혈압을 입력하세요.</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--
 		    <section id="reserve">
 				<div class="divName">
 					<p class="diseaseName">신체 상태 입력</p>
@@ -127,8 +252,9 @@
 						<img class="slideListImg" src="<c:url value='/image/healthcare/right.png'/>">
 					</div>
 				</article>
+				-->
 				<div class="divName">
-					<p class="graphName">신체 상태</p>
+					<!--<p class="graphName">신체 상태</p>-->
 					<hr class="healHr"/>
 				</div>
 				<article id="graph1" class="graph">
@@ -190,6 +316,28 @@
 						</div>
 					</div>
 				</article>
+				<div class="calendar">
+					<div id="calendarDiv">
+						<table>
+							<thead>
+								<tr><th colspan='2'><p id="prevMonth"><</p></th><th id="year-mouth" colspan='3'></th><th  colspan='2'><p id="nextMonth">></p></th></tr>
+								<tr>
+									<th id="sunday" class="dayWeek">일</th>
+									<th class="dayWeek">월</th>
+									<th class="dayWeek">화</th>
+									<th class="dayWeek">수</th>
+									<th class="dayWeek">목</th>
+									<th class="dayWeek">금</th>
+									<th id="saturday" class="dayWeek">토</th>
+								</tr>
+							</thead>
+							<tbody id="dateBody">
+
+							</tbody>
+						</table>
+					</div>
+					<div id="calendarItemList"></div>
+				</div>
 				<!--
 				<div class="divName">
 					<p class="mapName">주변 약국 정보</p>
