@@ -1,7 +1,7 @@
 package com.finalProject.project.dao;
 
 
-import org.springframework.transaction.annotation.Transactional;
+import org.apache.ibatis.annotations.Param;
 
 import com.finalProject.project.model.MemberVO;
 
@@ -16,6 +16,10 @@ public interface IMemberDAO {
 	public MemberVO memberInfo(String memId); //회원 정보 조회
 	public void updatemember(MemberVO memId);// 회원 정보수정
 	public void deletemember(String memId); // 회원 탈퇴
+	
+	public void modifymemPw(@Param("memPw")String memId,@Param("newmemPw") String newmemPw); // 비번 변경
+	
+	
 	
 
 	}
