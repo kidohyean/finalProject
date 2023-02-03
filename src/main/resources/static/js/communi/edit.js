@@ -5,13 +5,14 @@
 $(document).ready(function(){
 
     $('#updateFormBox').on('submit', function(){
+    var agText=$('textarea').val().replace(/\n/g,"<br>");
       event.preventDefault();
       if (confirm("저장하시겠습니까?") == true){ 
        $.ajax({
                  type:"post",
                  url:"/community/UpdateAggregation",
                  data: {"agName":$('.agName').val(),
-                             "agText":$('.agText').val(),
+                             "agText":agText,
                              "agNum":$('.agNum').val()},
     
                  success:function(result){

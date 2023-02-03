@@ -5,6 +5,8 @@
 $(document).ready(function(){
 
   $('#insertFormBox').on('submit', function(){
+    var agText=$('textarea').val().replace(/\n/g,"<br>");
+    
     if ($('.agName').val() == "") {
 				alert("제목 입력하세요");
 				$('.agName').focus();
@@ -16,7 +18,7 @@ $(document).ready(function(){
                  type:"post",
                  url:"/community/insertAggregation",
                  data: {"agName":$('.agName').val(),
-                      "agText":$('.agText').val()},
+                      "agText":agText},
     
                  success:function(result){
                      if(result == "success"){
@@ -44,6 +46,9 @@ $(document).ready(function(){
 			
     
      });
+     
+    
+     
      
 			
      })
