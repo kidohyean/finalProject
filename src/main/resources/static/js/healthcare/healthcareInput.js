@@ -18,7 +18,7 @@ $(document).ready(function(){
     $('#cancelHBt').on('click',function(){
         
         $('.HInput').attr('readonly',true);
-        $('.HInput').attr('value',HValue);
+        $('.HInput').attr('value',heightM);
         $('#HSubmitBT').attr('disabled',true);
         $('#cancelHBt').css('visibility',"hidden");
         
