@@ -9,8 +9,10 @@ import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -143,8 +145,8 @@ public class MemberController {
 		}
 		
 		
-		// 회원 정보 수정 폼 열기
-				// (수정할 데이터를 미리 출력하기 위해 회원 상세 정보 결과 출력)
+		// 회원 정보 수정 완료 후 폼 열기
+				// (수정완료후)
 				@RequestMapping("/member/memberUpdate")
 				public String memberUpdate(HttpSession session, MemberVO vo) {
 					// 서비스에게 받아오기?
@@ -154,6 +156,88 @@ public class MemberController {
 				System.out.println(vo.toString());
 					return "redirect:/member/myPage";
 				}
+				
+				//회원탈퇴
+				@GetMapping("/member/deletemember/{memId}")
+				public String deletemember(@PathVariable String memId, HttpSession session) {
+					service.deletemember(memId);
+					
+					//세션 무효화
+					// 데이터 삭제 후 메인 홈으로
+					// 로그아웃
+					session.invalidate();		
+					return "redirect:/"; // index로 포워딩 -> ProductController에 있는 @RequestMapping("/") 
+					
+					
+				}
+				
+				
+				//비번 변경
+				@GetMapping("/member/memPw")
+				public String memPwForm() {
+					
+					return "member/memPw";
+				}
+				@RequestMapping("/member/memPw")
+				public String passwd(String memPw, String newmemPw, String newmemPwConfirm, HttpSession session, 
+						HashMap<String, Object> param){
+					
+					//현재 비밀번호 맞는지 체크
+					String memId = (String)session.getAttribute ("sid");
+					MemberVO vo = service.memberInfo(memId);
+					
+					 boolean ismemPwRight = BCrypt.checkpw(memPw, vo.getMemPw());
+					 
+					 if(ismemPwRight == false) {
+						 String result = service.loginCheck(param); // result : "success" 또는 "fail"
+							
+							
+							// 아이디와 비밀번호 일치하면 (로그인 성공하면)
+							// 서비스에서 "success" 반환받았으면
+							if(result.equals("success")) {
+								//로그인 성공하면 세션 변수 지정
+								session.setAttribute("sid", param.get("id"));			
+							}
+							
+							return result;
+					 }
+					//새 비번, 새 비번 확인 맞는지 체크
+					
+					 
+					 if(newmemPw.equals(newmemPwConfirm) == false) { //새 비번, 새 비번 확인이 서로 다름
+						 String result = service.loginCheck(param); // result : "success" 또는 "fail"
+							
+							
+							// 아이디와 비밀번호 일치하면 (로그인 성공하면)
+							// 서비스에서 "success" 반환받았으면
+							if(result.equals("success")) {
+								//로그인 성공하면 세션 변수 지정
+								session.setAttribute("sid", param.get("id"));			
+							}
+							
+							return result;
+						 
+					 }
+					
+					MemberService memberService = new MemberService();
+					//db비번 변경
+					//비번 암호화
+					BCrypt.hashpw(newmemPw, BCrypt.gensalt());
+					 memberService.modifymemPw(memId, newmemPw);
+					 
+					 
+					//비번 완료 메시지 띄우고 로그아웃 처리
+					 	
+							vo.setMemPw((String)session.getAttribute ("sid"));
+							service.modifymemPw(memId, newmemPw);
+						
+						System.out.println(vo.toString());
+							return "redirect:/member/logout";
+						}
+				
+				
+				
+				
 }
 	
 

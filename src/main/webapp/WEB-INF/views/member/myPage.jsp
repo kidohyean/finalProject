@@ -28,15 +28,12 @@
 			<nav class="myPage-nav">
 				<div class="myPage-nav-container">
 					<img src="<c:url value='/image/user.png'/>" class="myPage-userImg">
-					<div class="myPage-Inf">이름 나이</div>
+					<div class="myPage-Inf">마이페이지</div>
 
 					<div class="button-box">
-						<input class="myPage-button" type="button" value="나의 개인정보">
-						<input class="myPage-button" type="button"
-							onClick="location.href='<c:url value='myPagehealth'/>'"
-							value="나의 찜 목록"> <input class="myPage-button" type="button"
-							value="---"> <input class="myPage-button" type="button"
-							value="---"> 
+						<input class="myPage-button" type="button" value="나의 개인정보"onClick="location.href='<c:url value='myPage'/>'">
+						<input class="myPage-button" type="button" value="비밀번호 변경"onClick="location.href='<c:url value='memPw'/>'">
+						<input class="myPage-button" type="button" value="나의 찜목록"> 
 					</div>
 				</div>
 
@@ -55,7 +52,7 @@
 
 						<div class="user_label">회원 이름</div>
 						<input type="text" class="user_box" name="memName"
-							value="${info.memName }">
+							value="${info.memName }"readonly="readonly">
 
 					</div>
 
@@ -71,7 +68,7 @@
 					<div class="container">
 						<div class="user_label">회원 닉네임</div>
 						<input type="text" class="user_box" name="memNickname"
-							value="${info.memNickname }">
+							value="${info.memNickname }"readonly="readonly">
 					</div>
 
 				</div>
@@ -81,7 +78,7 @@
 					<div class="container">
 						<div class="user_label">회원 전화번호</div>
 						<input type="text" class="user_box" name="memHp"
-							value="${info.memHp }">
+							value="${info.memHp }"readonly="readonly">
 					</div>
 
 
@@ -90,24 +87,24 @@
 					<div class="container">
 						<div class="user_label">우편번호</div>
 						<input type="text" class="user_box" name="memZipcode"
-							value="${info.memZipcode }">
+							value="${info.memZipcode }"readonly="readonly">
 
 						<div>
 							<input type="button" class="button" id="searchZipBtn"
-								name="searchZipBtn" value="우편번호 찾기"><br>
+								name="searchZipBtn" value="우편번호 찾기"readonly="readonly"><br>
 						</div>
 					</div>
 					<div class="container">
 						<div class="user_label">주소 입력</div>
 						<input type="text" class="user_box" name="memAddress1"
-							value="${info.memAddress1 }">
+							value="${info.memAddress1 }"readonly="readonly">
 
 					</div>
 
 					<div class="container">
 						<div class="user_label">상세주소</div>
 						<input type="text" class="user_box" name="memAddress2"
-							value="${info.memAddress2 }">
+							value="${info.memAddress2 }"readonly="readonly">
 					</div>
 					
 					<a href="<c:url value='/member/memberUpdateForm/'/>" class="button2">회원정보 수정</a><br><br>

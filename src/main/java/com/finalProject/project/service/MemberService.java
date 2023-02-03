@@ -102,6 +102,9 @@ public class MemberService implements IMemberService {
 		dao.deletemember(memId);
 
 	}
+	public void modifymemPw(String memId, String newmemPw) {
+		dao.modifymemPw(memId, newmemPw);
+	}
 
 
 
