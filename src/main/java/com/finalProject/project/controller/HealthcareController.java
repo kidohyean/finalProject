@@ -29,7 +29,10 @@ public class HealthcareController {
 		ArrayList<HealthcareGraphVO> voList = new ArrayList<HealthcareGraphVO>();
 		voList = service.hcdOutput(memId);
 		model.addAttribute("voList",voList);
-		System.out.println(voList.toString());
+		for(int i = 0; i < voList.size(); i++){
+			System.out.println("enjdsfnkdjfn : "+ voList.get(i).getHcdName());
+		}
+		
 		return "/healthcare/healthcare";
 	}
 	@ResponseBody
@@ -64,7 +67,7 @@ public class HealthcareController {
 
 	@ResponseBody
 	@RequestMapping("/healthcare/WeightGraph")
-	public String WeightGraph(@RequestParam("num") int num,Model model, HttpSession session) {
+	public String healthGraph(@RequestParam("num") int num,Model model, HttpSession session) {
 		String memId = (String)session.getAttribute("sid");
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		ArrayList<HealthcareGraphVO> voList = new ArrayList<HealthcareGraphVO>();
@@ -74,7 +77,7 @@ public class HealthcareController {
 		
 		map.put("memId", memId);
 		if(num == 1){
-			map.put("hcdName", "몸무게");
+			map.put("hcdName", "체중");
 			map.put("count", 7);
 			voList =service.graphListView(map);
 			obj.put("voList", voList);
@@ -82,15 +85,15 @@ public class HealthcareController {
 		}
 		
 		else if(num == 2){
-			int height =Integer.parseInt(service.heightOutput(memId));
-			map.put("hcdName", "몸무게");
+			Double height =Double.parseDouble(service.heightOutput(memId));
+			map.put("hcdName", "체중");
 			map.put("count", 7);
 			
-			float heightM = (float)height /100;
+			Double heightM = height /100;
 			voList =service.graphListView(map);
 			for(int i= 0; i <voList.size(); i++){
-				int weight = Integer.valueOf(voList.get(i).getHcdValue());
-				float BMI = weight /(heightM * heightM);
+				Double weight = Double.parseDouble(voList.get(i).getHcdValue());
+				Double BMI = weight /(heightM * heightM);
 				System.out.println(service.heightOutput(memId));
 				HashMap<String,Object> BMIMap = new HashMap<String,Object>();
 				BMIMap.put("hcdName", "BMI");
@@ -111,11 +114,11 @@ public class HealthcareController {
 			for(int i= 0; i <voList.size(); i++){
 				HashMap<String,Object> BMIMap = new HashMap<String,Object>();
 				BMIMap.put("hcdName1", "수축기혈압");
-				BMIMap.put("hcdValue1", Integer.valueOf(voList.get(i).getHcdValue()));
+				BMIMap.put("hcdValue1", Double.parseDouble(voList.get(i).getHcdValue()));
 				BMIMap.put("hcdJoinDate1", voList.get(i).getHcdJoinDate());
 
 				BMIMap.put("hcdName2", "이완기혈압");
-				BMIMap.put("hcdValue2", Integer.valueOf(voList2.get(i).getHcdValue()));
+				BMIMap.put("hcdValue2", Double.parseDouble(voList2.get(i).getHcdValue()));
 				BMIMap.put("hcdJoinDate2", voList2.get(i).getHcdJoinDate());
 				hashMaps.add(BMIMap);
 				

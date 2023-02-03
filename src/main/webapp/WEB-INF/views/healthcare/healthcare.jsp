@@ -21,7 +21,37 @@
 		<script src="<c:url value='/js/healthcare/healthCalendar.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		
+		<script type="text/javascript">
+			function isNumberKey(evt) {
+			var charCode = (evt.which) ? evt.which : event.keyCode;
+			if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+				return false;
+			// Textbox value       
+			var _value = event.srcElement.value;       
+			// 소수점(.)이 두번 이상 나오지 못하게
+			var _pattern0 = /^\d*[.]\d*$/; // 현재 value값에 소수점(.) 이 있으면 . 입력불가
+			if (_pattern0.test(_value)) {
+				if (charCode == 46) {
+					return false;
+				}
+			}
+			// 1000 이하의 숫자만 입력가능
+			var _pattern1 = /^\d{3}$/; // 현재 value값이 3자리 숫자이면 . 만 입력가능
+			if (_pattern1.test(_value)) {
+				if (charCode != 46) {
+					alert("1000 이하의 숫자만 입력가능합니다");
+					return false;
+				}
+			}
+			// 소수점 첫째자리까지만 입력가능
+			var _pattern2 = /^\d*[.]\d{1}$/; // 현재 value값이 소수점 첫째자리 숫자이면 더이상 입력 불가
+			if (_pattern2.test(_value)) {
+				alert("소수점 첫째자리까지만 입력가능합니다.");
+				return false;
+			}     
+			return true;
+			}
+		</script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -34,12 +64,12 @@
 			</div>
 			<div id="state">
 				<div id="stateDiv1">
-					<form>
+					<form id="stateFormH">
 						
 						<div id="heightDiv">
 								<p id="heightName">키</p>
-								<input class="HInput" type="text" value="180cm" readonly/>
-								<input class="formHBt" type="submit" value="입력"/>
+								<input class="HInput" type="text" value="${voList[0].hcdValue}cm" onkeypress="return isNumberKey(event)" placeholder="ex)180.0" readonly/>
+								<input id="HSubmitBT" class="formHBt" type="submit" value="입력" disabled/>
 								<input id="cancelHBt" class="formHBt" type="button" value="취소"/>
 						</div>
 					</form>
@@ -63,19 +93,18 @@
 						<div class="lineCSS">
 							<p class="name2">체중</p>
 							
-							<button>입력</button>
+							<button id="wInputDiv" class="IDHiddenBT">입력</button>
 						</div>
 						
-						<p class="value2">85kg</p>
-						<div class="inputDiv">
-							<hr class="inputHr"/>
-							<form class="stateForm">
-								<input class="inputForm" type="text" placeholder="숫자입력(예:180.0)" />
-								<input class="formBt" type="submit" value="입력"/>
-								<input class="formBt" type="button" value="취소"/>
+						<p id="weightText" class="value2">${voList[1].hcdValue}kg</p>
+						<div class="wInputDiv">
+							<hr class="inputHrW"/>
+							<form id="stateFormW" class="stateForm">
+								<input id="weightInput" class="inputForm" type="text" onkeypress="return isNumberKey(event)" placeholder="숫자입력 예)180.0"/>
+								<input id="wSubmitBT" class="formBt" type="submit" value="입력"/>
 							</form>
 						</div>
-						<div class="stateValue">체중을 입력하세요.</div>
+						<div id="wStateValue" class="stateValue">체중을 입력하세요.</div>
 					</div>
 					<div id="BMIDiv" class="stateDiv2Item">
 						<div class="lineCSS">
@@ -84,40 +113,32 @@
 						</div>
 						
 						
-						<p class="value2">23.1%</p>
-						<div class="inputDiv">
-							<hr class="inputHr"/>
-							<form class="stateForm">
-								<input class="inputForm" type="text" placeholder="숫자입력(예:180.0)" />
-								<input class="formBt" type="submit" value="입력"/>
-								<input class="formBt" type="button" value="취소"/>
-							</form>
-						</div>
-						<div class="stateValue">키를 먼저 입력하세요.</div>
+						<p id="BMIText" class="value2"></p>
+						<div id="BMIStateValue" class="stateValue">키를 먼저 입력하세요.</div>
 					</div>
 					<div id="BloodSDiv" class="stateDiv2Item">
 						<div class="lineCSS">
 							<p class="name2">혈당</p>
 							
-							<button>입력</button>
+							<button id="BSInputDiv" class="IDHiddenBT">입력</button>
 						</div>
 						
-						<p class="value2">85kg</p>
-						<div class="inputDiv">
-							<hr class="inputHr"/>
+						<p id="BSText" class="value2">${voList[2].hcdValue}mg/dL</p>
+						<p id="BSHelp">8시간 이상 공복 후 측정</p>
+						<div class="BSInputDiv">
+							<hr class="inputHrBS"/>
 							<form id="stateFormBS" class="stateForm">
-								<input class="inputForm" type="text" placeholder="숫자입력(예:180.0)" />
-								<input class="formBt" type="submit" value="입력"/>
-								<input class="formBt" type="button" value="취소"/>
+								<input id="bloodSInput" class="inputForm" type="text" onkeypress="return isNumberKey(event)" placeholder="숫자입력 예)180.0" />
+								<input class="formBt" type="submit" value="입력">
 							</form>
 						</div>
-						<div class="stateValue">혈당을 입력하세요.</div>
+						<div id="BSStateValue" class="stateValue">혈당을 입력하세요.</div>
 					</div>
 					<div id="BloodPDiv" class="stateDiv2Item">
 						<div class="lineCSS">
 							<p class="name2">혈압</p>
 							
-							<button>입력</button>
+							<button id="BPInputDiv" class="IDHiddenBT">입력</button>
 						</div>
 						<div class="valueLineCSS">
 							<p class="BPvalueName">수축기혈압</p>
@@ -125,25 +146,24 @@
 							<p class="BPvalueName">이완기혈압</p>
 						</div>
 						<div class="valueLineCSS">
-							<p id="BloodPValue1" class="value3">120</p>
+							<p id="BloodPValue1" class="value3">${voList[3].hcdValue}</p>
 							<p class="value3">-</p>
-							<p id="BloodPValue2" class="value3">75</p>
+							<p id="BloodPValue2" class="value3">${voList[4].hcdValue}</p>
 						</div>
-						<div class="inputDiv">
-							<hr class="inputHr2"/>
-							<form class="stateForm2">
+						<div class="BPInputDiv">
+							<hr class="inputHrBP"/>
+							<form id="stateFormBF" class="stateForm2">
 								<div class="stateFormDiv">
-									<input class="inputFormBP" type="text" placeholder="수축기(예:120)" />
+									<input id="bloodPInput1" class="inputFormBP" type="text" onkeypress="return isNumberKey(event)" placeholder="수축기(예:120)" />
 									<p class="BPvalueBar">-</p>
-									<input class="inputFormBP" type="text" placeholder="이완기(예:75)" />
+									<input id="bloodPInput2" class="inputFormBP" type="text" onkeypress="return isNumberKey(event)" placeholder="이완기(예:75)" />
 								</div>
 								<div id="inputBtDiv">
-									<input class="formBt" type="submit" value="입력"/>
-									<input class="formBt" type="button" value="취소"/>
+									<input class="formBt" type="submit" value="입력">
 								</div>
 							</form>
 						</div>
-						<div class="stateValue2">혈압을 입력하세요.</div>
+						<div id="BPStateValue" class="stateValue">혈압을 입력하세요.</div>
 					</div>
 				</div>
 			</div>

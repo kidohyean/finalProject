@@ -37,7 +37,7 @@ public class HealthcareService implements IHealthcareService {
         inputMap.put("hcdName", "키");
         voList.add(dao.hcdOutput(inputMap));
         inputMap.put("memId", memId);
-        inputMap.put("hcdName", "몸무게");
+        inputMap.put("hcdName", "체중");
         voList.add(dao.hcdOutput(inputMap));
         inputMap.put("memId", memId);
         inputMap.put("hcdName", "혈당");
