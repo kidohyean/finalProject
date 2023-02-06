@@ -20,7 +20,12 @@
 		<!--footer.jsp 에서 html가지고 오는 코드 자세한 내용은 headerFooter 파일에서-->
 
 	</div>
-
+<section class="bgTop bgSub5 pc">
+	<div class="slogan">
+		<p class="a">운동정보</p>
+		<p class="b">부위별 추천 운동과 루틴을 통한 건강 관리!</p>
+	</div>
+</section>
 	<div id="wrap-routine">
 		<div id="wrap-container">
 			
@@ -29,7 +34,7 @@
 						<img src="<c:url value='/image/${routine.routineNo}.png'/>">
 				</div>
 				<div class="detail-routine">
-					<h2>${routine.routineName}</h2>
+					<h2>#${routine.routineName}&nbsp&nbsp<button class=like>찜하기</button></h2> 
 					
 					<p>운동정보 : ${routine.routineInfo }</p>
 					<p>카테고리 : ${routine.routineCategory }</p>
