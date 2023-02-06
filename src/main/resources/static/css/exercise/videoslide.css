@@ -1,0 +1,48 @@
+
+
+#exVideo{
+	display: flex;
+	margin-left: 3%;
+	width: 94%;
+}
+
+#listSlider1{
+	width: 60%;
+}
+
+.listSlider {
+    overflow: hidden;
+    position: relative;
+}
+
+.viewportList {
+    margin: 1% 0px;
+    height: 92%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slidesList-list {
+    width: 10000px;
+    height: 100%;
+    list-style: none;
+    white-space: nowrap;
+  }
+
+  .slideList {
+    float: left;
+    width: 380px;
+    margin-right: 13px;
+    height: 245px;
+  }
+
+  .triggerList {
+    cursor: pointer;
+  }
+  .trigger-right{
+  	margin-left:13px;
+  }
+  .slideListImg{
+    width: 50px;
+    height: 100%;
+  }
