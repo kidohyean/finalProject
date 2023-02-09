@@ -8,6 +8,23 @@ $(document).ready(function(){
     wMatch(weightM);
     BSMatch(bsM);
     BPMatch(bpM1, bpM2);
+    // 체중, bmi
+    let wAjaxRt = graphWeightAjax();
+    
+    let wLabels = wAjaxRt[0];
+    let wMyData = wAjaxRt[1];
+    
+    // 혈당
+    let BSReturn =graphBSAjax();
+    let BSLabels = BSReturn[0];
+    let BSData = BSReturn[1];
+
+    //혈압
+    let BPReturn = graphBPAjax();
+    let BPLabels = BPReturn[0];
+    let BPData1 = BPReturn[1];
+    let BPData2 = BPReturn[2];
+
     $('.HInput').on('click',function(){
         
         $('.HInput').attr('readonly',false);
@@ -51,7 +68,16 @@ $(document).ready(function(){
         inputAjax(hcdValue,"키");
         $('#cancelHBt').css("visibility","hidden");
         heightM = $('.HInput').val();
+        $('.HInput').attr('readonly',true);
+        $('.HInput').attr('value',heightM);
+        $('#HSubmitBT').attr('disabled',true);
+        $('#cancelHBt').css('visibility',"hidden");
         BMIMatch(heightM, weightM);
+        let bmiData = graphBMIMatch(wMyData);
+        console.log(myChart2);
+        myChart2.data.datasets[0].data = bmiData;
+        myChart2.update();
+        
        }
     });
     $('#stateFormW').on('submit', function(){
@@ -124,11 +150,13 @@ function wMatch(weight){
 };
 
 function BMIMatch(height, weight){
-    if(height === "" || (height === "" && weight === "")){
+    if(height === "cm" || (height === "cm" && weight === "kg")){
+        $('#BMIText').html("%");
         $('#BMIStateValue').html("키를 입력하세요.");
     }
-    else if(weight === ""){
+    else if(weight === "kg"){
         $('#BMIStateValue').html("체중을 입력하세요.");
+        $('#BMIText').html("%");
     }
     else{
         let heightStr = height.split('cm',1);
@@ -160,85 +188,385 @@ function BMIMatch(height, weight){
     };
 }
     function BSMatch(bsM){
-        let bsStr = bsM.split('mg/dL',1);
-        let bsMF = parseFloat(bsStr);
-        if(bsMF < 100){
-            $('#BSStateValue').html("정상");
-            $('#BSStateValue').css('background-color','#4c91f9')
+        if(bsM != "mg/dL"){
+            let bsStr = bsM.split('mg/dL',1);
+            let bsMF = parseFloat(bsStr);
+            if(bsMF < 100){
+                $('#BSStateValue').html("정상");
+                $('#BSStateValue').css('background-color','#4c91f9')
+            }
+            else if(bsMF >= 100 && bsMF <=125){
+                $('#BSStateValue').html("공복혈당장애");
+                $('#BSStateValue').css('background-color','#67f94c')
+            }
+            else{
+                $('#BSStateValue').html("당뇨병");
+                $('#BSStateValue').css('background-color','#f9a44c')
+            }
         }
-        else if(bsMF >= 100 && bsMF <=125){
-            $('#BSStateValue').html("공복혈당장애");
-            $('#BSStateValue').css('background-color','#67f94c')
-        }
-        else{
-            $('#BSStateValue').html("당뇨병");
-            $('#BSStateValue').css('background-color','#f9a44c')
-        }
+       
     };
 
     function BPMatch(bpM1, bpM2){
-        let bpMF1 = parseFloat(bpM1);
-        let bpMF2 = parseFloat(bpM2);
-
-        if(bpMF1 < 120 && bpMF2 < 80){
-            $('#BPStateValue').html("정상");
-            $('#BPStateValue').css('background-color','#f9a44c')
+        if(bpM1 !="" && bpM2 !=""){
+            let bpMF1 = parseFloat(bpM1);
+            let bpMF2 = parseFloat(bpM2);
+    
+            if(bpMF1 < 120 && bpMF2 < 80){
+                $('#BPStateValue').html("정상");
+                $('#BPStateValue').css('background-color','#f9a44c')
+            }
+            else if((bpMF1 >= 120 && bpMF1 <= 129) && (bpMF2 < 80)){
+                $('#BPStateValue').html("주의혈압");
+                $('#BPStateValue').css('background-color','#67f94c')
+            }
+            else if((bpMF1 >= 130 && bpMF1 <= 139) || (bpMF2 >=80 && bpMF2 <= 89)){
+                $('#BPStateValue').html("고혈압 전 단계");
+                $('#BPStateValue').css('background-color','#67f94c')
+            }
+            else if((bpMF1 >= 140 && bpMF1 <= 159) || (bpMF2 >=90 && bpMF2 <= 99)){
+                $('#BPStateValue').html("고혈압 1기");
+                $('#BPStateValue').css('background-color','#67f94c')
+            }
+            else if(bpMF1 >= 160  || bpMF2 >=100 ){
+                $('#BPStateValue').html("고혈압 2기");
+                $('#BPStateValue').css('background-color','#67f94c')
+            }
+            else if(bpMF1 >= 140 && bpMF2 < 90){
+                $('#BPStateValue').html("수축기단독고혈압");
+                $('#BPStateValue').css('background-color','#67f94c')
+            }
+            else{
+    
+            }
         }
-        else if((bpMF1 >= 120 && bpMF1 <= 129) && (bpMF2 < 80)){
-            $('#BPStateValue').html("주의혈압");
-            $('#BPStateValue').css('background-color','#67f94c')
-        }
-        else if((bpMF1 >= 130 && bpMF1 <= 139) || (bpMF2 >=80 && bpMF2 <= 89)){
-            $('#BPStateValue').html("고혈압 전 단계");
-            $('#BPStateValue').css('background-color','#67f94c')
-        }
-        else if((bpMF1 >= 140 && bpMF1 <= 159) || (bpMF2 >=90 && bpMF2 <= 99)){
-            $('#BPStateValue').html("고혈압 1기");
-            $('#BPStateValue').css('background-color','#67f94c')
-        }
-        else if(bpMF1 >= 160  || bpMF2 >=100 ){
-            $('#BPStateValue').html("고혈압 2기");
-            $('#BPStateValue').css('background-color','#67f94c')
-        }
-        else if(bpMF1 >= 140 && bpMF2 < 90){
-            $('#BPStateValue').html("수축기단독고혈압");
-            $('#BPStateValue').css('background-color','#67f94c')
-        }
-        else{
-
-        }
-    }
-
-function inputAjax(hcdValue, hcdName){
-    $.ajax({
-        type:"post",
-        url:"/healthcare/healthInput",
-        data: {"hcdValue":hcdValue,
-                "hcdName":hcdName},
-        dataType:'text',
-        success:function(result){
         
+    };
+
+    function inputAjax(hcdValue, hcdName){
+        $.ajax({
+            type:"post",
+            url:"/healthcare/healthInput",
+            data: {"hcdValue":hcdValue,
+                    "hcdName":hcdName},
+            dataType:'text',
+            success:function(result){
+            
+            },
+            error:function(){
+                alert("실패");
+            }
+        }); // ajax 종료 	
+    };
+
+    function inputAjax2(hcdValue1, hcdName1,hcdValue2, hcdName2){
+        $.ajax({
+            type:"post",
+            url:"/healthcare/healthInput2",
+            data: {"hcdValue1":hcdValue1,
+                    "hcdName1":hcdName1,
+                    "hcdValue2":hcdValue2,
+                    "hcdName2":hcdName2},
+            dataType:'text',
+            success:function(result){
+            
+            },
+            error:function(){
+                alert("실패");
+            }
+        }); // ajax 종료 	
+    };
+
+    function graphMath1(labels,myData){
+        let ctx1 =document.getElementById("graphMath1").getContext("2d");
+        
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+            labels: labels,
+            datasets: [{
+                label: "체중",
+                data: myData,
+                backgroundColor: [
+                    "rgba(54, 162, 235, 0.6)"
+                ],
+                borderColor: [
+                    "rgba(54, 162, 235, 1)"
+                ],
+                borderWidth: 1
+            }]
+            },
+            /*빨간색
+            background: rgba(255,0,0,0.5);*/
+            /*초록색
+            background: rgba(0,255,0,1);*/
+            /*노란색
+            background: rgba(255,255,0,1);*/
+            options: {
+                plugins:{
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                backgroundColor: 'rgba(255,0,0,0.5)',
+                
+                },
+                
+                },
+                scales: {
+                
+                    y: {
+                    min: 40,
+                    max: 130,
+                    }
+                },
+                
+                maintainAspectRatio :false
+            }
+        });
+
+    };
+    let myChart2;
+    function graphMath2(labels,myData){
+        let ctx2 = document.getElementById("graphMath2").getContext("2d");
+        console.log(myData)
+        myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+            labels: labels,
+            datasets: [{
+                label: "BMI",
+                data: myData,
+                backgroundColor: [
+                    "rgba(54, 162, 235, 0.6)"
+                ],
+                borderColor: [
+                    "rgba(54, 162, 235, 1)"
+                ],
+                borderWidth: 1
+            }]
+            },
+            /*빨간색
+            background: rgba(255,0,0,0.5);*/
+            /*초록색
+            background: rgba(0,255,0,1);*/
+            /*노란색
+            background: rgba(255,255,0,1);*/
+            options: {
+                plugins:{
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                backgroundColor: 'rgba(255,0,0,0.5)',
+                
+                },
+                
+                },
+                scales: {
+                
+                    y: {
+                    min: 10,
+                    max: 30,
+                    }
+                },
+                
+                maintainAspectRatio :false
+            }
+        });
+
+    };
+
+function graphMath3(labels,myData,myData2){
+
+  var ctx3 = document.getElementById("graphMath3").getContext("2d");
+  new Chart(ctx3, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '최저 혈압(이완기)',
+          data: myData2,
+          backgroundColor: [
+              "rgba(54, 162, 235, 0.6)"
+          ],
+          borderColor: [
+              "rgba(54, 162, 235, 1)"
+          ],
+          borderWidth: 1,
+          fill: true
         },
-        error:function(){
-            alert("실패");
-        }
-    }); // ajax 종료 	
+        {
+          label: '최고 혈압(수축기)',
+          data: myData,
+          backgroundColor: [
+              "rgba(231, 76, 60, 0.75)"
+          ],
+          borderColor: [
+              "rgba(231, 76, 60, 0.75)"
+          ],
+          borderWidth: 1,
+          fill: true
+        }],
+        
+      },
+     
+      options: {
+          scales: {
+              y: {
+                min: 40,
+                max: 130,
+              }
+          },
+          maintainAspectRatio :false
+      }
+    });
+}
+function graphMath4(labels,myData){
+
+  var ctx4 = document.getElementById("graphMath4").getContext("2d");
+  new Chart(ctx4, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "혈당",
+          data: myData,
+          backgroundColor: [
+              "rgba(54, 162, 235, 0.6)"
+          ],
+          borderColor: [
+              "rgba(54, 162, 235, 1)"
+          ],
+          borderWidth: 1,
+          fill: true
+        }],
+        
+      },
+     
+      options: {
+          plugins:{
+              legend: {
+                  display: false
+              }
+          },
+          x: {
+              type: 'time',
+              time: {
+                // Luxon format string
+                tooltipFormat: 'DD T'
+              },
+              title: {
+                display: true,
+                text: 'Date'
+              }
+            },
+          scales: {
+              y: {
+                min: 0,
+                max: 400,
+              }
+          },
+          maintainAspectRatio :false
+      }
+    });
+}
+function dateformat(myDate,num){
+  var date = new Date(myDate);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hs = date.getHours();
+  var mn = date.getMinutes();
+  console.log(num===4);
+  if(num==4){
+    return month +"/" + day +"/"+hs+"/"+mn;
+  }
+  else{
+    return month +"월" + day +"일";
+  }
+  
 }
 
-function inputAjax2(hcdValue1, hcdName1,hcdValue2, hcdName2){
+function graphWeightAjax(){
+    let wLabels =[];
+    let wMyData =[];
+  $.ajax({
+    type:"post",
+    url:"/healthcare/weightGraph",
+    dataType:'json',
+    success:function(result){
+      //console.log(result.voList[0]);
+        $.each(result.voList,function (k,v){
+            wLabels.push(dateformat(v.hcdJoinDate,0));
+            wMyData.push(v.hcdValue);
+		});
+        graphMath1(wLabels,wMyData);
+        let bmiData = graphBMIMatch(wMyData);
+        graphMath2(wLabels,bmiData);
+        
+    },
+    error:function(){
+    }
+  }); // ajax 종료 	
+  
+  
+  return [wLabels,wMyData]
+}
+function graphBPAjax(){
+    let BPLabels =[];
+    let BPData1 =[];
+    let BPData2 = [];
     $.ajax({
         type:"post",
-        url:"/healthcare/healthInput2",
-        data: {"hcdValue1":hcdValue1,
-                "hcdName1":hcdName1,
-                "hcdValue2":hcdValue2,
-                "hcdName2":hcdName2},
-        dataType:'text',
+        url:"/healthcare/bloodPGraph",
+        dataType:'json',
         success:function(result){
-        
+            //console.log(result.voList[0]);
+            $.each(result.voList,function (k,v){
+                BPLabels.push(dateformat(v.hcdJoinDate1,0));
+                BPData1.push(v.hcdValue1);
+                BPData2.push(v.hcdValue2);
+            });
+            graphMath3(BPLabels,BPData1,BPData2);
         },
         error:function(){
-            alert("실패");
         }
-    }); // ajax 종료 	
+      }); // ajax 종료 	
+      return[BPLabels,BPData1,BPData2]
+}
+
+function graphBSAjax(){
+    let BSLabels = [];
+    let BSData = [];
+    $.ajax({
+        type:"post",
+        url:"/healthcare/bloodSGraph",
+        dataType:'json',
+        success:function(result){
+            //console.log(result.voList[0]);
+            $.each(result.voList,function (k,v){
+                BSLabels.push(dateformat(v.hcdJoinDate,4));
+                BSData.push(v.hcdValue);
+            });
+            graphMath4(BSLabels,BSData);
+        },
+        error:function(){
+        }
+      }); // ajax 종료 	
+      return[BSLabels,BSData]
+}
+function graphBMIMatch(wMyData){
+        let height = $('.HInput').val();
+        
+        let heightStr = height.split('cm',1);
+        let heightM = parseFloat(heightStr) /100;
+        let bmiRound =[];
+        for(let i=0; i <wMyData.length; i++){
+            let weightM = parseFloat(wMyData[i]);
+            let bmiM = weightM/(heightM * heightM);
+            bmiRound[i] = Math.round(bmiM * 10)/10;
+        }
+        console.log(bmiRound);
+        return bmiRound;
 }

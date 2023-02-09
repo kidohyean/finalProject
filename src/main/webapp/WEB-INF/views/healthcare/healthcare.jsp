@@ -9,11 +9,14 @@
 		<meta charset="UTF-8">
 		<title>건강알리미</title>
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/jquery-ui.min.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcare.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/state.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/calendar.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/naverMap.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcareList.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
+		<script src="<c:url value='/js/jquery-ui.min.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareInput.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
@@ -22,6 +25,7 @@
 		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script type="text/javascript">
+
 			function isNumberKey(evt) {
 			var charCode = (evt.which) ? evt.which : event.keyCode;
 			if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
@@ -244,35 +248,8 @@
 					<div>질병</div>
 					<div>질병</div>
 					<div>질병</div>
-				</div>
-				<article id="disease">
-					<div class="triggerList trigger-left">
-						<img class="slideListImg" src="<c:url value='/image/healthcare/left.png'/>">
-					</div>
-					<div id="listSlider1" class="listSlider">
-						
-						<div class="viewportList">
-							<ul class="slidesList-list">
-								<li class="slideList">
-									<div>
-										<a>추천링크</a>
-										<p>이름</p>
-									</div>
-								</li>
-								<li class="slideList">2</li>
-								<li class="slideList">3</li>
-								<li class="slideList">4</li>
-								<li class="slideList">5</li>
-								<li class="slideList">6</li>
-								<li class="slideList">7</li>
-							</ul>
-						</div>
-					</div>
-					<div class="triggerList trigger-right">
-						<img class="slideListImg" src="<c:url value='/image/healthcare/right.png'/>">
-					</div>
-				</article>
-				-->
+				</div>-->
+				<!---->
 				<div class="divName">
 					<!--<p class="graphName">신체 상태</p>-->
 					<hr class="healHr"/>
@@ -356,7 +333,103 @@
 							</tbody>
 						</table>
 					</div>
-					<div id="calendarItemList"></div>
+					<div id="calendarItemList">
+						<div id="calendarListDate">오늘</div>
+						<div id="itemListName">
+							<div id="topItemBt" class="itemBt"></div>
+							<div id="topItemName" class="itemName">운동이름</div>
+							<div id="topItemTime" class="itemTime">운동시간</div>
+							<div id="topItemRoutine" class="itemRoutine">운동루틴</div>
+						</div>
+						<div id="listItem">
+							<ul class="listItemUl">
+								<li class="listItemLi">
+									<div class="routineItemBt">
+										<img src="<c:url value='/image/healthcare/checkX.png'/>">
+									</div>
+									<div id="routineItemName" class="itemName">운동이름운동이름운동이름운동이름운동이름운동이름</div>
+									<div id="routineItemTime" class="itemTime">오후 18:54</div>
+									<div id="routineItemRoutine" class="itemRoutine"></div>
+								</li>
+								<li>
+									<div class="routineItemBt">
+										<img src="<c:url value='/image/healthcare/checkX.png'/>">
+									</div>
+									<div id="routineItemName" class="itemName">운동이름운동이름운동이름운동이름운동이름운동이름</div>
+									<div id="routineItemTime" class="itemTime">오후 18:54</div>
+									<div id="routineItemRoutine" class="itemRoutine"></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+				<div id="exerciseRecommend">
+					<div id="topExerciseMenu">
+						<form>
+							<input class="radioBt" type="radio" name='choice' value="save" checked/>찜
+							<input class="radioBt" type="radio" name='choice' value="recommend"/>추천
+						</form>
+						<div id="exerciseTag">
+							<p class="tagItem">유산소</p>
+							<p class="tagItem">근육강화</p>
+						</div>
+							
+					</div>
+					<div id="exerciseList">
+						<div id="listBt">
+							<div class="trigger trigger-up">
+								<img class="slideImg" src="<c:url value='/image/healthcare/up.png'/>">
+							</div>
+							<div class="trigger trigger-down">
+								<img class="slideImg" src="<c:url value='/image/healthcare/down.png'/>">
+							</div>
+						</div>
+						<div class="exerciseListSlide">
+							<div class="viewport">
+								<ul class="slides-list">
+									<li class="slide">
+										<div class="slideListDivView">
+											<div class="listItemName">name</div>
+											<div class="listItemType">type</div>
+											<div class="listItemBtDiv">
+												<button class="listItemInputBt">운동예약</button>
+												<button class="listItemRemoveBt">삭제</button>
+											</div>
+										</div>
+										<div class="slideListDivInput">
+											<form id="listSubmitForm" class="listSubmitForm">
+												<div class="datepicker">
+													<input type="text" class="routineDate" name="trip-start">
+													<input type="time" class="routineTime" name="routineTime" required>
+												</div>
+												<input type="text" id="routineInput" name="routineInput" placeholder="운동루틴을 입력하세요.">
+												<input type="submit" id="routineInputBt" class="routineInputBt" value="예약">
+												<input type="button" id="routineCancelBt" class="routineCancelBt" value="취소">
+											</form>
+											<div class="exRoutine">
+												<div class="exRoutineNameDiv">
+													<p class="exRoutineText">운동루틴 ex)</p>
+												</div>
+												<div class="exRoutineTextDiv">
+													<p class="exRoutineText">1번: 운동루틴운동루틴운동루틴운동루틴</p>
+													<p class="exRoutineText">1번: 운동루틴운동루틴운동루틴운동루틴</p>
+													<p class="exRoutineText">1번: 운동루틴운동루틴운동루틴운동루틴</p>
+													<p class="exRoutineText">1번: 운동루틴운동루틴운동루틴운동루틴</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="slide">2</li>
+									<li class="slide">3</li>
+									<li class="slide">4</li>
+									<li class="slide">5</li>
+									<li class="slide">6</li>
+									<li class="slide">7</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 				<!--
 				<div class="divName">

@@ -7,7 +7,7 @@ $(document).ready(function(){
                                                .css('margin-left','-160px');
           if(!$('.slidesList-list .slideList').eq(0).is(':animated')) {
             $('.slidesList-list').prepend($slideList);
-            $('.slidesList-list .slideList').eq(0).animate({'margin-left':'13px'}, 500, function(){
+            $('.slidesList-list .slideList').eq(0).animate({'margin-left':'0px'}, 500, function(){
               $('.slidesList-list .slideList').last().remove();
             });
           };
@@ -20,4 +20,7 @@ $(document).ready(function(){
             });
         };
       });
+
+
+      
 });

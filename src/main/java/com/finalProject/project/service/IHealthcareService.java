@@ -10,4 +10,10 @@ public interface IHealthcareService {
     public void hcdInput(HashMap<String,Object> map);
     public ArrayList<HealthcareGraphVO> hcdOutput(String memId);
     public String heightOutput(String memId);
+    public ArrayList<HashMap<String, Object>> calendarMyList(HashMap<String, Object> map);
+    public ArrayList<HashMap<String, Object>> exerciseMyList(String memId);
+    public ArrayList<HashMap<String, Object>> exerciseRecommendList(ArrayList<String> arrItem);
+    public void createMyList(HashMap<String,Object> map);
+    public void deleteMyList(HashMap<String,Object> map);
+    public void deleteList(HashMap<String,Object> map);
 }
