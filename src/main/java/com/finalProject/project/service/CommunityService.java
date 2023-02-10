@@ -46,9 +46,9 @@ public class CommunityService implements ICommunityService {
 	}
 
 	@Override
-	public int dataCount() {
-		// TODO Auto-generated method stub
-		return dao.dataCount();
+	public int dataCount(HashMap<String, Object> map) {
+		
+		return dao.dataCount(map);
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class CommunityService implements ICommunityService {
 
 	@Override
 	public void viewsAggregation(int agNum) {
-		// TODO Auto-generated method stub
+		
 		dao.viewsAggregation(agNum);
 	}
 
@@ -85,5 +85,13 @@ public class CommunityService implements ICommunityService {
 		dao.deleteAggComment(agNum);
 		
 	}
+
+	@Override
+	public ArrayList<AggregationVO> SearchlistAllAggre(HashMap<String, Object> map) {
+		
+		return dao.SearchlistAllAggre(map);
+	}
+
+	
 
 }

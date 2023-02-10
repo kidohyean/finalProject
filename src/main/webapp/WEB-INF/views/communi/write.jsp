@@ -12,18 +12,34 @@
          <a href="/community/list/${num=1}"><strong>나젊이야기</strong></a>
         <p>자유롭게 사용이 가능한 자유게시판입니다</p>
     </div>
+    
+    <br><br>
+    <div class="content_box">
+    <h3>자유게시판</h3>
+        <div class="location">
+        홈
+        <span></span>
+        나젊이야기
+        <span></span>
+        자유게시판
+        </div>
+    </div>
 
     <c:if test="${mode eq 'insertPage'}">
         <form class="formBox" id="insertFormBox">
             <div class="board_write_wrap">
                 <div class="board_write">
                     <div class="title">
-                        <p>제목 :</p>
-                        <input class="agName" type="text" name="agName" placeholder="제목 입력">
+                       <dl>
+                           <dt>제목</dt>
+                           <dd><input type="text" class="agName" placeholder="제목 입력"></dd>
+                       </dl>
                     </div>
                     <div class="info">
-                        <p id="agUserName">글쓴이</p>
-                        <p class="agMemId">${sessionScope.sid}</p>
+                         <dl>
+                           <dt>글쓴이</dt>
+                           <dd>${sessionScope.sid}</dd>
+                       </dl>
                     </div>
                     <div class="agTextBox">
                         <textarea class="agText" placeholder="내용 입력"></textarea>
@@ -43,12 +59,16 @@
                 <div class="board_write">
                         <input class="agNum" type="hidden" name="agNum" value="${agNum}">
                     <div class="title">
-                        <p>제목</p>
-                        <input class="agName" type="text" name="agName" value="${vo.agName}">
+                         <dl>
+                           <dt>제목</dt>
+                           <dd><input class="agName" type="text" name="agName" value="${vo.agName}" ></dd>
+                       </dl>
                     </div>
                     <div class="info">
-                        <p>글쓴이</p>
-                        <p class="agMemId">${vo.memId}</p>
+                         <dl>
+                           <dt>글쓴이</dt>
+                           <dd>${vo.memId}</dd>
+                       </dl>
                     </div>
                     <div class="agTextBox">
                         <textarea class="agText">${vo.agText}</textarea>
