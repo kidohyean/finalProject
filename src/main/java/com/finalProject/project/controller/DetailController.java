@@ -3,6 +3,9 @@ package com.finalProject.project.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,21 +37,63 @@ private CommunityService service;
 	}
      
      
-	@RequestMapping("/community/detailViewAggre/{agNum}")
-	public String detailViewAggre(@PathVariable("agNum") int agNum, Model model) {
-		
-		AggregationVO Aggre = service.detailViewAggre(agNum);
-		service.viewsAggregation(agNum);
-		String url ="/WEB-INF/views/communi/listdetailView.jsp";
-		model.addAttribute("Aggre", Aggre);
-		model.addAttribute("url", url);
+	/*
+	 * @RequestMapping("/community/detailViewAggre/{agNum}") public String
+	 * detailViewAggre(@PathVariable("agNum") int agNum, Model model) {
+	 * 
+	 * AggregationVO Aggre = service.detailViewAggre(agNum);
+	 * service.viewsAggregation(agNum); String url
+	 * ="/WEB-INF/views/communi/listdetailView.jsp"; model.addAttribute("Aggre",
+	 * Aggre); model.addAttribute("url", url);
+	 * 
+	 * //comment ArrayList<commentVO> cvoList = service.listAllComment(agNum);
+	 * model.addAttribute("cvoList",cvoList);
+	 * 
+	 * return "communi/community"; }
+	 */
+     
+     @RequestMapping("/community/detailViewAggre/{agNum}")
+ 	public String detailViewAggre(@PathVariable("agNum") int agNum, Model model,HttpServletRequest request, HttpServletResponse response) {
+ 		
+ 		Cookie oldCookie = null;
+ 		Cookie[] cookies = request.getCookies();
+ 		if (cookies != null) {
+ 			for (Cookie cookie : cookies) {
+ 				if (cookie.getName().equals("postView")) {
+ 					oldCookie = cookie;
+ 				}
+ 			}
+ 		}
 
-		//comment
-		ArrayList<commentVO> cvoList = service.listAllComment(agNum);
-		model.addAttribute("cvoList",cvoList);
+ 		if (oldCookie != null) {
+ 			if (!oldCookie.getValue().contains("[" + agNum + "]")) {
+ 				service.viewsAggregation(agNum);
+ 				oldCookie.setValue(oldCookie.getValue() + "_[" + agNum + "]");
+ 				oldCookie.setPath("/");
+ 				oldCookie.setMaxAge(60 * 60 * 24);
+ 				response.addCookie(oldCookie);
+ 			}
+ 		} else {
+ 			service.viewsAggregation(agNum);
+ 			Cookie newCookie = new Cookie("postView","[" + agNum + "]");
+ 			newCookie.setPath("/");
+ 			newCookie.setMaxAge(60 * 60 * 24);
+ 			response.addCookie(newCookie);
+ 		}
+ 		AggregationVO Aggre = service.detailViewAggre(agNum);
+ 		
+ 		String url ="/WEB-INF/views/communi/listdetailView.jsp";
+ 		model.addAttribute("Aggre", Aggre);
+ 		model.addAttribute("url", url);
 
-		return "communi/community";
-	}
+ 		//comment
+ 		ArrayList<commentVO> cvoList = service.listAllComment(agNum);
+ 		model.addAttribute("cvoList",cvoList);
+
+ 		return "communi/community";
+ 	}
+     
+     
 	@RequestMapping("/community/insertComment")
 	public String insertComment(@RequestParam("agNum") int agNum,
 								@RequestParam("cContent") String cContent,

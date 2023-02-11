@@ -4,8 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   <mapper namespace="com.finalProject.project.dao.ICommunityDAO">
-  <select id="dataCount" resultType="int">
+  <select id="dataCount" parameterType="hashmap" resultType="int">
       select count(agNum) from aggregation
+      
+      <choose>
+        <when test="type!=null and type.equals('ALL')">
+          ;
+        </when>
+        <when test="type!=null and type.equals('memId')">
+          WHERE memId Like CONCAT('%',#{keyword},'%');
+        </when>
+        <when test="type!=null and type.equals('agName')">
+          WHERE agName Like CONCAT('%',#{keyword},'%');
+        </when>
+      </choose>
+      
+      
   </select>
 
   <select id="myDataCount" parameterType="string"  resultType="int">
@@ -19,6 +33,19 @@
   <select id="myListAllAggre" parameterType="hashmap" resultType="com.finalProject.project.model.AggregationVO">
     SELECT * FROM aggregation WHERE memId=#{memId} ORDER BY agNum DESC LIMIT #{displayPost}, #{postNum};
   </select>
+  
+    <select id="SearchlistAllAggre" parameterType="hashmap" resultType="com.finalProject.project.model.AggregationVO">
+		  	SELECT * FROM aggregation WHERE
+			  <choose>
+				  <when test="type!=null and type.equals('agName')">
+				  	agName Like CONCAT('%',#{keyword},'%')
+				  </when>
+				 <when test="type!=null and type.equals('memId')">
+				 	 memId Like CONCAT('%',#{keyword},'%')
+				  </when>
+			  </choose>
+			  ORDER BY agNum DESC LIMIT #{displayPost}, #{postNum};
+		  </select>
 
   <update id="updateAggregation" parameterType="hashMap">
     UPDATE aggregation
