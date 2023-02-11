@@ -24,14 +24,12 @@ $(document).ready(function(){
     let BPLabels = BPReturn[0];
     let BPData1 = BPReturn[1];
     let BPData2 = BPReturn[2];
-
-    $('.HInput').on('click',function(){
-        
+    $(document).on('click','.HInput',function(){
         $('.HInput').attr('readonly',false);
         $('.HInput').attr('value',"");
         $('#HSubmitBT').attr('disabled',false);
         $('#cancelHBt').css('visibility',"visible");
-    });
+    })
     $('#cancelHBt').on('click',function(){
         
         $('.HInput').attr('readonly',true);
@@ -55,8 +53,7 @@ $(document).ready(function(){
         
         
     });
-
-    $('#stateFormH').on('submit', function(){
+    $(document).on('submit','#stateFormH',function(){
     //폼이 submit 되지 않도록 기본 기능 중단
        event.preventDefault();
        var hcdValue = $('.HInput').val();
@@ -96,6 +93,15 @@ $(document).ready(function(){
         weightM = $('#weightText').html();
         BMIMatch(heightM, weightM);
         wMatch(weightM);
+        let wDataSet = graphWMatch(hcdValue,wLabels,wMyData);
+        myChart1.data.labels = wDataSet[0];
+        myChart1.data.datasets[0].data = wDataSet[1];
+        myChart1.update();
+
+        let bmiData = graphBMIMatch(wMyData);
+        console.log(myChart2);
+        myChart2.data.datasets[0].data = bmiData;
+        myChart2.update();
        }
     });
     $('#stateFormBS').on('submit', function(){
@@ -113,6 +119,10 @@ $(document).ready(function(){
         $('#bloodSInput').val("");
         bsM = $('#BSText').html();
         BSMatch(bsM);
+        let bsDataSet = graphBSMatch(hcdValue,BSLabels,BSData);
+        myChart4.data.labels = bsDataSet[0];
+        myChart4.data.datasets[0].data = bsDataSet[1];
+        myChart4.update();
        }
     });
     $('#stateFormBF').on('submit', function(){
@@ -134,6 +144,12 @@ $(document).ready(function(){
         bpM1 =  $('#BloodPValue1').html();
         bpM2 =  $('#BloodPValue2').html();
         BPMatch(bpM1, bpM2);
+
+        let bpDataSet = graphBPMatch(hcdValue1,hcdValue2,BPLabels,BPData1,BPData2);
+        myChart3.data.labels = bpDataSet[0];
+        myChart3.data.datasets[0].data = bpDataSet[2];
+        myChart3.data.datasets[1].data = bpDataSet[1];
+        myChart3.update();
        }
     });
     
@@ -276,11 +292,11 @@ function BMIMatch(height, weight){
             }
         }); // ajax 종료 	
     };
-
+    let myChart1;
     function graphMath1(labels,myData){
         let ctx1 =document.getElementById("graphMath1").getContext("2d");
         
-        new Chart(ctx1, {
+        myChart1 = new Chart(ctx1, {
             type: 'bar',
             data: {
             labels: labels,
@@ -376,197 +392,272 @@ function BMIMatch(height, weight){
         });
 
     };
+    let myChart3;
+    function graphMath3(labels,myData,myData2){
 
-function graphMath3(labels,myData,myData2){
-
-  var ctx3 = document.getElementById("graphMath3").getContext("2d");
-  new Chart(ctx3, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: '최저 혈압(이완기)',
-          data: myData2,
-          backgroundColor: [
-              "rgba(54, 162, 235, 0.6)"
-          ],
-          borderColor: [
-              "rgba(54, 162, 235, 1)"
-          ],
-          borderWidth: 1,
-          fill: true
-        },
-        {
-          label: '최고 혈압(수축기)',
-          data: myData,
-          backgroundColor: [
-              "rgba(231, 76, 60, 0.75)"
-          ],
-          borderColor: [
-              "rgba(231, 76, 60, 0.75)"
-          ],
-          borderWidth: 1,
-          fill: true
-        }],
-        
-      },
-     
-      options: {
-          scales: {
-              y: {
-                min: 40,
-                max: 130,
-              }
-          },
-          maintainAspectRatio :false
-      }
-    });
-}
-function graphMath4(labels,myData){
-
-  var ctx4 = document.getElementById("graphMath4").getContext("2d");
-  new Chart(ctx4, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: "혈당",
-          data: myData,
-          backgroundColor: [
-              "rgba(54, 162, 235, 0.6)"
-          ],
-          borderColor: [
-              "rgba(54, 162, 235, 1)"
-          ],
-          borderWidth: 1,
-          fill: true
-        }],
-        
-      },
-     
-      options: {
-          plugins:{
-              legend: {
-                  display: false
-              }
-          },
-          x: {
-              type: 'time',
-              time: {
-                // Luxon format string
-                tooltipFormat: 'DD T'
-              },
-              title: {
-                display: true,
-                text: 'Date'
-              }
+    var ctx3 = document.getElementById("graphMath3").getContext("2d");
+    myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+            label: '최저 혈압(이완기)',
+            data: myData2,
+            backgroundColor: [
+                "rgba(54, 162, 235, 0.6)"
+            ],
+            borderColor: [
+                "rgba(54, 162, 235, 1)"
+            ],
+            borderWidth: 1,
+            fill: true
             },
-          scales: {
-              y: {
-                min: 0,
-                max: 400,
-              }
-          },
-          maintainAspectRatio :false
-      }
-    });
-}
-function dateformat(myDate,num){
-  var date = new Date(myDate);
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var hs = date.getHours();
-  var mn = date.getMinutes();
-  console.log(num===4);
-  if(num==4){
-    return month +"/" + day +"/"+hs+"/"+mn;
-  }
-  else{
-    return month +"월" + day +"일";
-  }
-  
-}
-
-function graphWeightAjax(){
-    let wLabels =[];
-    let wMyData =[];
-  $.ajax({
-    type:"post",
-    url:"/healthcare/weightGraph",
-    dataType:'json',
-    success:function(result){
-      //console.log(result.voList[0]);
-        $.each(result.voList,function (k,v){
-            wLabels.push(dateformat(v.hcdJoinDate,0));
-            wMyData.push(v.hcdValue);
-		});
-        graphMath1(wLabels,wMyData);
-        let bmiData = graphBMIMatch(wMyData);
-        graphMath2(wLabels,bmiData);
+            {
+            label: '최고 혈압(수축기)',
+            data: myData,
+            backgroundColor: [
+                "rgba(231, 76, 60, 0.75)"
+            ],
+            borderColor: [
+                "rgba(231, 76, 60, 0.75)"
+            ],
+            borderWidth: 1,
+            fill: true
+            }],
+            
+        },
         
-    },
-    error:function(){
+        options: {
+            scales: {
+                y: {
+                    min: 40,
+                    max: 130,
+                }
+            },
+            maintainAspectRatio :false
+        }
+        });
     }
-  }); // ajax 종료 	
-  
-  
-  return [wLabels,wMyData]
-}
-function graphBPAjax(){
-    let BPLabels =[];
-    let BPData1 =[];
-    let BPData2 = [];
-    $.ajax({
-        type:"post",
-        url:"/healthcare/bloodPGraph",
-        dataType:'json',
-        success:function(result){
-            //console.log(result.voList[0]);
-            $.each(result.voList,function (k,v){
-                BPLabels.push(dateformat(v.hcdJoinDate1,0));
-                BPData1.push(v.hcdValue1);
-                BPData2.push(v.hcdValue2);
-            });
-            graphMath3(BPLabels,BPData1,BPData2);
-        },
-        error:function(){
-        }
-      }); // ajax 종료 	
-      return[BPLabels,BPData1,BPData2]
-}
 
-function graphBSAjax(){
-    let BSLabels = [];
-    let BSData = [];
+    let myChart4;
+    function graphMath4(labels,myData){
+
+    var ctx4 = document.getElementById("graphMath4").getContext("2d");
+    myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+            label: "혈당",
+            data: myData,
+            backgroundColor: [
+                "rgba(54, 162, 235, 0.6)"
+            ],
+            borderColor: [
+                "rgba(54, 162, 235, 1)"
+            ],
+            borderWidth: 1,
+            fill: true
+            }],
+            
+        },
+        
+        options: {
+            plugins:{
+                legend: {
+                    display: false
+                }
+            },
+            x: {
+                type: 'time',
+                time: {
+                    // Luxon format string
+                    tooltipFormat: 'DD T'
+                },
+                title: {
+                    display: true,
+                    text: 'Date'
+                }
+                },
+            scales: {
+                y: {
+                    min: 0,
+                    max: 400,
+                }
+            },
+            maintainAspectRatio :false
+        }
+        });
+    }
+    function dateformat(myDate,num){
+    var date = new Date(myDate);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hs = date.getHours();
+    var mn = date.getMinutes();
+    console.log(num===4);
+    if(num==4){
+        return month +"/" + day +"/"+hs+"/"+mn;
+    }
+    else{
+        return month +"월" + day +"일";
+    }
+    
+    }
+
+    function graphWeightAjax(){
+        let wLabels =[];
+        let wMyData =[];
     $.ajax({
         type:"post",
-        url:"/healthcare/bloodSGraph",
+        url:"/healthcare/weightGraph",
         dataType:'json',
         success:function(result){
-            //console.log(result.voList[0]);
+        //console.log(result.voList[0]);
             $.each(result.voList,function (k,v){
-                BSLabels.push(dateformat(v.hcdJoinDate,4));
-                BSData.push(v.hcdValue);
+                wLabels.push(dateformat(v.hcdJoinDate,0));
+                wMyData.push(v.hcdValue);
             });
-            graphMath4(BSLabels,BSData);
+            graphMath1(wLabels,wMyData);
+            let bmiData = graphBMIMatch(wMyData);
+            graphMath2(wLabels,bmiData);
+            
         },
         error:function(){
         }
-      }); // ajax 종료 	
-      return[BSLabels,BSData]
-}
-function graphBMIMatch(wMyData){
-        let height = $('.HInput').val();
-        
-        let heightStr = height.split('cm',1);
-        let heightM = parseFloat(heightStr) /100;
-        let bmiRound =[];
-        for(let i=0; i <wMyData.length; i++){
-            let weightM = parseFloat(wMyData[i]);
-            let bmiM = weightM/(heightM * heightM);
-            bmiRound[i] = Math.round(bmiM * 10)/10;
+    }); // ajax 종료 	
+    
+    
+    return [wLabels,wMyData]
+    }
+    function graphBPAjax(){
+        let BPLabels =[];
+        let BPData1 =[];
+        let BPData2 = [];
+        $.ajax({
+            type:"post",
+            url:"/healthcare/bloodPGraph",
+            dataType:'json',
+            success:function(result){
+                //console.log(result.voList[0]);
+                $.each(result.voList,function (k,v){
+                    BPLabels.push(dateformat(v.hcdJoinDate1,0));
+                    BPData1.push(v.hcdValue1);
+                    BPData2.push(v.hcdValue2);
+                });
+                graphMath3(BPLabels,BPData1,BPData2);
+            },
+            error:function(){
+            }
+        }); // ajax 종료 	
+        return[BPLabels,BPData1,BPData2]
+    }
+
+    function graphBSAjax(){
+        let BSLabels = [];
+        let BSData = [];
+        $.ajax({
+            type:"post",
+            url:"/healthcare/bloodSGraph",
+            dataType:'json',
+            success:function(result){
+                //console.log(result.voList[0]);
+                $.each(result.voList,function (k,v){
+                    BSLabels.push(dateformat(v.hcdJoinDate,4));
+                    BSData.push(v.hcdValue);
+                });
+                graphMath4(BSLabels,BSData);
+            },
+            error:function(){
+            }
+        }); // ajax 종료 	
+        return[BSLabels,BSData]
+    }
+    function graphBMIMatch(wMyData){
+            let height = $('.HInput').val();
+            
+            let heightStr = height.split('cm',1);
+            let heightM = parseFloat(heightStr) /100;
+            let bmiRound =[];
+            for(let i=0; i <wMyData.length; i++){
+                let weightM = parseFloat(wMyData[i]);
+                let bmiM = weightM/(heightM * heightM);
+                bmiRound[i] = Math.round(bmiM * 10)/10;
+            }
+            console.log(bmiRound);
+            return bmiRound;
+    }
+
+    function graphWMatch(hcdValue,wLabels,wMyData){
+        let date = new Date();
+        let label = dateformat(date,1);
+        if(wLabels.length < 7){
+            wLabels.push(label);
         }
-        console.log(bmiRound);
-        return bmiRound;
-}
+        else{
+            wLabels.shift();
+            wLabels.push(label);
+        }
+
+        if(wMyData.length < 7){
+            wMyData.push(hcdValue);
+        }
+        else{
+            wMyData.shift();
+            wMyData.push(hcdValue);
+        }
+
+        return [wLabels, wMyData];
+    }
+
+    function graphBSMatch(hcdValue,BSLabels,BSData){
+        let date = new Date();
+        let label = dateformat(date,4);
+        if(BSLabels.length < 7){
+            BSLabels.push(label);
+        }
+        else{
+            BSLabels.shift();
+            BSLabels.push(label);
+        }
+
+        if(BSData.length < 7){
+            BSData.push(hcdValue);
+        }
+        else{
+            BSData.shift();
+            BSData.push(hcdValue);
+        }
+
+        return [BSLabels, BSData];
+    }
+    function graphBPMatch(hcdValue1,hcdValue2,BPLabels,BPData1,BPData2){
+        let date = new Date();
+        let label = dateformat(date,1);
+        if(BPLabels.length < 7){
+            BPLabels.push(label);
+        }
+        else{
+            BPLabels.shift();
+            BPLabels.push(label);
+        }
+
+        if(BPData1.length < 7){
+            BPData1.push(hcdValue1);
+        }
+        else{
+            BPData1.shift();
+            BPData1.push(hcdValue1);
+        }
+
+        if(BPData2.length < 7){
+            BPData2.push(hcdValue2);
+        }
+        else{
+            BPData2.shift();
+            BPData2.push(hcdValue2);
+        }
+
+        return [BPLabels, BPData1, BPData2];
+    }

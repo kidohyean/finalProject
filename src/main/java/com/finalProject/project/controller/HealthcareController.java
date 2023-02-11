@@ -144,6 +144,36 @@ public class HealthcareController {
 	}
 
 	@ResponseBody
+	@RequestMapping("/healthcare/topTodayList")
+	public String topTodayList(@RequestParam String date, HttpSession session) {
+
+		String memId = (String)session.getAttribute("sid");
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		map.put("date", date);
+		map.put("memId", memId);
+		ArrayList<HashMap<String,Object>> todayList = service.topTodayList(map);
+		JSONObject obj = new JSONObject();
+
+		obj.put("todayList", todayList);
+		return obj.toString();
+	}
+
+	@ResponseBody
+	@RequestMapping("/healthcare/dateCount")
+	public String dateCount(@RequestParam String date, HttpSession session) {
+
+		String memId = (String)session.getAttribute("sid");
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		map.put("date", date);
+		map.put("memId", memId);
+		ArrayList<HashMap<String,Object>> dateCountList = service.dateCount(map);
+		JSONObject obj = new JSONObject();
+
+		obj.put("dateCountList", dateCountList);
+		return obj.toString();
+	}
+
+	@ResponseBody
 	@RequestMapping("/healthcare/calendarMyList")
 	public String calendarMyList(@RequestParam String date,HttpSession session) {
 		String memId = (String)session.getAttribute("sid");
@@ -156,7 +186,22 @@ public class HealthcareController {
 		JSONObject obj = new JSONObject();
 
 		obj.put("myList", myList);
+		
 		return obj.toString();
+	}
+
+	@ResponseBody
+	@RequestMapping("/healthcare/myListItemCheck")
+	public String myListItemCheck(@RequestParam("itemNo") int itemNo,@RequestParam("changeNum") int changeNum,HttpSession session) {
+		String memId = (String)session.getAttribute("sid");
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		map.put("memId", memId);
+		map.put("itemNo", itemNo);
+		map.put("changeNum", changeNum);
+		System.out.println(map);
+		service.itemCheck(map);
+		
+		return "success";
 	}
 
 	@ResponseBody
@@ -201,6 +246,19 @@ public class HealthcareController {
 		map.put("elNo", elNo);
 		map.put("memId", memId);
 		service.deleteList(map);
+
+		return"success";
+	}
+
+	@ResponseBody
+	@RequestMapping("/healthcare/deleteMyList")
+	public String deleteMyList(@RequestParam HashMap<String,Object> map, HttpSession session) {
+		String memId = (String)session.getAttribute("sid");
+		System.out.println(map.get("elMyNo"));
+		int elMyNo = Integer.parseInt((String)map.get("elMyNo"));
+		map.put("elMyNo", elMyNo);
+		map.put("memId", memId);
+		service.deleteMyList(map);
 
 		return"success";
 	}

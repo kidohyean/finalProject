@@ -1,26 +1,41 @@
 $(document).ready(function(){
-    $('.triggerList').on('click', function() {
-        if ($(this).hasClass('trigger-left')) {
-          
-          var $slideList = $('.slidesList-list .slideList').last()
-                                               .clone()
-                                               .css('margin-left','-160px');
-          if(!$('.slidesList-list .slideList').eq(0).is(':animated')) {
-            $('.slidesList-list').prepend($slideList);
-            $('.slidesList-list .slideList').eq(0).animate({'margin-left':'0px'}, 500, function(){
-              $('.slidesList-list .slideList').last().remove();
-            });
-          };
-        } else {
-          var $slideList = $('.slidesList-list .slideList').eq(0)
-                                               .clone();
-            $('.slidesList-list .slideList').eq(0).animate({'margin-left':'-160px'}, 500, function(){
-              $('.slidesList-list').append($slideList);
-              $(this).remove();
-            });
-        };
-      });
-
+  $(document).on('click','#listBt .trigger',function(){
+    if ($(this).hasClass('triggerUp')) {
+      if($('.slideList .slide').length > 5){
+        let $slideLists = $('.slideList .slide').first();
+        $('.slideList').append($slideLists);
+      }
+      
+    }else{
+      if($('.slideList .slide').length > 5){
+        let $slideLists = $('.slideList .slide').last();
+        $('.slideList').prepend($slideLists);
+      }
+      
+    }
+  })
 
       
 });
+
+/*
+ if ($(this).hasClass('trigger-up')) {
+          
+      var $slideLists = $('.slideList .slide').last()
+                                           .clone()
+                                           .css('margin-up','300px');
+      if(!$('.slideList .slide').eq(0).is(':animated')) {
+        $('.slideList').prepend($slideLists);
+        $('.slideList .slide').eq(0).animate({'margin-up':'-10px'}, 500, function(){
+          $('.slideList .slide').last().remove();
+        });
+      };
+    } else {
+      var $slideLists = $('.slideList .slide').eq(0)
+                                           .clone();
+        $('.slideList .slide').eq(0).animate({'margin-up':'-160px'}, 500, function(){
+          $('.slideList').append($slideLists);
+          $(this).remove();
+        });
+    };
+*/ 

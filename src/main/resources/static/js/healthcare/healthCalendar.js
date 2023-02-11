@@ -1,6 +1,17 @@
 $(document).ready(function(){
-    console.log("dnfjs");
+    
     let date = new Date();
+    let year = date.getFullYear();
+    let mouth = date.getMonth() + 1;
+    let day = date.getDate();
+    let mouthStr = "";
+    let mouthInt = Number(mouth);
+    if(mouthInt < 10){
+        mouthStr = "0"+mouth;
+    }
+    let dateResult = year + '-' + mouthStr +'-' + day;
+
+    topTodayList(dateResult);
     renderCalendar(date);
     dateMyListAjax(date.getFullYear(), date.getMonth()+1, date.getDate());
     $('#prevMonth').on('click',function(){
@@ -28,7 +39,7 @@ $(document).ready(function(){
    })*/
    //동적으로 생성된 요소는 동적이벤트 처리
     $(document).on('mouseover','#dateBody tr #dayTD',function(){
-        $(this).css('background-color','#adadad');
+        $(this).css('background-color','#e1d8f9');
         $(this).css('opacity','0.3');
     })
 
@@ -142,13 +153,31 @@ $(document).ready(function(){
         dateListDeleteAjax(elNo)
         $('li').remove('#li'+thisId);
     })
+    $(document).on('click','.routineItemBt',function(){
+        let itemNo = $(this).children('#itemNo').attr('value');
+        let ckNum = $(this).children('#ckNum').attr('value');
+        let changeNum;
+        if(ckNum == 0){
+            changeNum =1;
+        }
+        else{
+            changeNum =0;
+        }
+        myListCheck(itemNo, changeNum);
+    })
+
+    $(document).on('click','.myListDeleteBt',function(){
+        let myListNoStr = $(this).attr('id');
+        let myListNo = myListNoStr.split("listItem");
+        myListDeleteAjax(myListNo[1]);
+    })
+    
 
 });
 
 function renderCalendar(date){
     const viewYear = date.getFullYear();
     const viewMonth = date.getMonth();
-       console.log(date.getDate()) ;
     $('#year-mouth').html(viewYear+'년 '+(viewMonth + 1)+'월');
 
     const prevLast = new Date(viewYear, viewMonth, 0);
@@ -156,14 +185,9 @@ function renderCalendar(date){
     
     const PLDay = prevLast.getDay();
     const TLDate = thisLast.getDate();
-    console.log(prevLast);
-    console.log(thisLast);
-    console.log(PLDay);
-    console.log(TLDate);
     var html = '';
     let DateCount = 1;
     const today = new Date();
-    console.log(today.getDate());
     for(let i =0; i <6; i++){
         html += '<tr>';
         if(i==0){
@@ -177,11 +201,11 @@ function renderCalendar(date){
                 if (viewMonth === today.getMonth() && 
                     viewYear === today.getFullYear() &&
                     DateCount === today.getDate()){
-                        html += '<td id="dayTD"><p id="today">'+DateCount+'</p></td>';
+                        html += '<td id="dayTD"><div id="day'+DateCount+'" class="dayCount"></div><p id="today" class="days">'+DateCount+'</p></td>';
                     }
                     
                 else{
-                    html += '<td id="dayTD"><p id="dayId">'+DateCount+'</p></td>';
+                    html += '<td id="dayTD"><div id="day'+DateCount+'" class="dayCount"></div><p id="dayId" class="days">'+DateCount+'</p></td>';
                 }
                 DateCount++;
             }
@@ -198,11 +222,11 @@ function renderCalendar(date){
                     if (viewMonth === today.getMonth() && 
                     viewYear === today.getFullYear() &&
                     DateCount === today.getDate()){
-                        html += '<td id="dayTD"><p id="today">'+DateCount+'</p></td>';
+                        html += '<td id="dayTD"><div id="day'+DateCount+'" class="dayCount"></div><p id="today" class="days">'+DateCount+'</p></td>';
                     }
                     
                 else{
-                    html += '<td id="dayTD"><p id="dayId">'+DateCount+'</p></td>';
+                    html += '<td id="dayTD"><div id="day'+DateCount+'" class="dayCount"></div><p id="dayId" class="days">'+DateCount+'</p></td>';
                 }
                     DateCount++;
                 }
@@ -212,10 +236,47 @@ function renderCalendar(date){
         html += '<tr/>';
         
     }
-    console.log(html);
     $('#dateBody').empty();
     $('#dateBody').append(html);
 
+    dateCount(viewYear, viewMonth+1);
+
+}
+
+function dateCount(viewYear, viewMonth){
+    
+    let mouthStr = "" + viewMonth;
+    let mouthInt = Number(mouthStr);
+    if(mouthInt < 10 && mouthStr != ("0"+mouthStr)){
+        mouthStr = "0"+mouthStr;
+    }
+    let dateTime = viewYear+'-'+mouthStr;
+    $.ajax({
+        type:"post",
+        url:"/healthcare/dateCount",
+        data: {"date":dateTime,},
+        dataType:'json',
+        success:function(result){
+            console.log(result);
+            
+            $.each(result.dateCountList, function(k,v){
+                let dayStr ="";
+                let dayInt = Number(v.myDate);
+                if(dayInt < 10){
+                    dayStr = v.myDate.split("0");
+                    $('#day'+dayStr[1]).html(v.count);
+                    
+                }
+                else{
+                    $('#day'+v.myDate).html(v.count);
+                }
+            })
+
+        },
+        error:function(){
+        }
+    }); // ajax 종료 	
+    
 }
 
 function dateMyListAjax(year, mouth, day){
@@ -228,7 +289,6 @@ function dateMyListAjax(year, mouth, day){
         $('#calendarListDate').html(clickDate);
     }
     let mouthInt = Number(mouth);
-
     if(mouthInt < 10 && mouth != ("0"+mouth)){
         mouth = "0"+mouth;
     }
@@ -239,24 +299,28 @@ function dateMyListAjax(year, mouth, day){
         
     }
     let dateTime = year+'-'+mouth +'-'+ day;
-    console.log(dateTime);
     $.ajax({
         type:"post",
         url:"/healthcare/calendarMyList",
         data: {"date":dateTime,},
         dataType:'json',
         success:function(result){
-            console.log(result);
             $('.listItemUl').empty();
             let html = "";
             $.each(result.myList, function(k,v){
-                html+='<li class="listItemLi">';
-                html+='  <div class="routineItemBt">';
-                html+='    <img src="/image/healthcare/checkX.png">';
+                html+='<li id="listItemLi'+v.elMyNo+'" class="listItemLi">';
+                html+='  <div id="myListCk' +v.elMyNo+ '" class="routineItemBt">';
+                if(v.routineCK === 0){
+                    html+='    <input id="itemNo" type="hidden" value="'+v.elMyNo+'"><input id="ckNum" type="hidden" value="'+v.routineCK+'"><img src="/image/healthcare/checkX.png">';
+                }
+                else{
+                    html+='    <input id="itemNo" type="hidden" value="'+v.elMyNo+'"><input id="ckNum" type="hidden" value="'+v.routineCK+'"><img src="/image/healthcare/checkO.png">';
+                }
+                
                 html+='  </div>';
                 html+='  <div id="routineItemName" class="itemName"><a href="/exercise/detailViewRoutineInfo/'+v.routineNo+'">'+v.routineName+'</a></div>';
                 html+='  <div id="routineItemTime" class="itemTime">'+timeMyListText(v.myRoutineDate)+'</div>';
-                html+='  <div id="routineItemRoutine" class="itemRoutine">'+v.myRoutine+'</div>';
+                html+='  <div id="routineItemRoutine" class="itemRoutine">'+v.myRoutine+'<button id="listItem'+v.elMyNo+'" class="myListDeleteBt">삭제</button></div>';
                 html+='</li>';
             })
             $('.listItemUl').append(html);
@@ -291,7 +355,7 @@ function recommendListAjax(arr){
         traditional:true,
         success:function(result){
             console.log(result);
-            $('.slides-list').empty();
+            $('.slideList').empty();
             let html = "";
             $.each(result.aList, function(k,v){
                 html+='<li class="slide">';
@@ -319,7 +383,7 @@ function recommendListAjax(arr){
                 html+='           <p id="exRoutineText'+v.routineNo+'" class="exRoutineText">'+v.recExercise3+'</p>';
                 html+='    </div></div></div></li>';
             });
-            $('.slides-list').append(html);
+            $('.slideList').append(html);
             $(".ui-datepicker-trigger").remove();
             $(".routineDate").removeClass('hasDatepicker').datepicker({
                 dateFormat: 'yy-mm-dd', //달력 날짜 형태
@@ -348,7 +412,7 @@ function dateListAjax(){
         url:"/healthcare/exerciseMyList",
         dataType:'json',
         success:function(result){
-            $('.slides-list').empty();
+            $('.slideList').empty();
             let html = "";
             $.each(result.aList, function(k,v){
                 html+='<li id="linum' +v.elNo+ '" class="slide">';
@@ -376,7 +440,7 @@ function dateListAjax(){
                 html+='           <p id="exRoutineTextnum'+v.elNo+'" class="exRoutineText">'+v.recExercise3+'</p>';
                 html+='    </div></div></div></li>';
             });
-            $('.slides-list').append(html);
+            $('.slideList').append(html);
             $(".ui-datepicker-trigger").remove();
             $(".routineDate").removeClass('hasDatepicker').datepicker({
                 dateFormat: 'yy-mm-dd', //달력 날짜 형태
@@ -400,7 +464,52 @@ function dateListAjax(){
 }
 
 function dateMyListCreateAjax(date, routine, routineNo){
+    let thisDate = date.split(' ')[0];
+    let thisDateArr = thisDate.split('-');
+    let thisYear = thisDateArr[0];
+    let thisMonth = thisDateArr[1];
+    let thisDay = thisDateArr[2];
+    console.log("thisDay" + Number(thisDay));
+    let myListDate;
+    let myListYear;
+    let myListMonth;
+    let myListDay;
 
+    let CountDay = Number(thisDay);;
+    let Count = Number($('#day'+CountDay).html())
+
+    let calendarStr = $('#year-mouth').html();
+    let calendarDate = calendarStr.split(" ");
+    let calendarYear = calendarDate[0].split("년")[0];
+    let calendarMonth = calendarDate[1].split("월")[0];
+    let cMouthInt = Number(calendarMonth);
+        if(cMouthInt < 10){
+            calendarMonth = "0"+calendarMonth;
+        }
+    if($('#calendarListDate').html() == "오늘"){
+        myListDate = new Date();
+        myListYear = myListDate.getFullYear();
+        myListMonth = myListDate.getMonth() +1;
+        myListDay = myListDate.getDate();
+    }
+    else{
+        let dateStr = $('#calendarListDate').html();
+        myListDate = dateStr.split(" ");
+        myListYear = myListDate[0].split("년")[0];
+        myListMonth = myListDate[1].split("월")[0];
+        myListDay = myListDate[2].split("일")[0];
+        let mouthInt = Number(myListMonth);
+        if(mouthInt < 10){
+            myListMonth = "0"+myListMonth;
+        }
+
+        let dayInt = Number(myListDay);
+        if(dayInt < 10){
+            myListDay = "0"+myListDay;
+            
+        }
+    }
+    
     $.ajax({
         type:"post",
         url:"/healthcare/createMyList",
@@ -409,7 +518,19 @@ function dateMyListCreateAjax(date, routine, routineNo){
                 "routineNo":routineNo},
         dataType:'text',
         success:function(result){
-            
+            if(thisYear == myListYear && thisMonth == myListMonth && thisDay == myListDay){
+                dateMyListAjax(thisYear, thisMonth, thisDay);
+                
+            }
+            if(thisYear == calendarYear && thisMonth == calendarMonth){
+                if(Count == ""){
+                    $('#day'+CountDay).html(1);
+                }
+                else{
+                    $('#day'+CountDay).html(Count + 1);
+                }
+                
+            }
         },
         error:function(){
         }
@@ -417,7 +538,7 @@ function dateMyListCreateAjax(date, routine, routineNo){
 }
 
 function dateListDeleteAjax(elNo){
-
+    
     $.ajax({
         type:"post",
         url:"/healthcare/deleteList",
@@ -480,4 +601,118 @@ function tagItem(){
     }
     $('#exerciseTag').append(html);
     
+}
+
+function topTodayList(date){
+    
+    $.ajax({
+        type:"post",
+        url:"/healthcare/topTodayList",
+        data: {"date":date},
+        dataType:'json',
+        success:function(result){
+            console.log(result);
+            $('#todayList').empty();
+            let html = "";
+            $.each(result.todayList, function(k,v){
+                html+='<li id="topListNo'+v.elMyNo+'">';
+                html+='<div>'+v.myTime+'</div>';
+                html+='<div>'+v.myRoutine+'</div>';
+                if(v.routineCK === 0){
+                    html+='<div id="topMyListCk'+v.elMyNo + '" style="color: rgb(100 100 100);">X</div>';
+                }
+                else{
+                    html+='<div id="topMyListCk'+v.elMyNo + '" style="color: rgb(91, 125, 238);">O</div>';
+                }
+                html+='</li>';
+            })
+            $('#todayList').append(html);
+        },
+        error:function(){
+        }
+    }); // ajax 종료 	
+}
+
+function myListCheck(itemNo, changeNum){
+    
+    $.ajax({
+        type:"post",
+        url:"/healthcare/myListItemCheck",
+        data: {"itemNo":itemNo,
+                "changeNum":changeNum},
+        dataType:'text',
+        success:function(result){
+            if(result === "success"){
+                let toDay = $('#calendarListDate').html();
+                if(changeNum === 1){
+                    $('#myListCk'+itemNo).children('#ckNum').attr('value',1)
+                    $('#myListCk'+itemNo).children('img').attr('src','/image/healthcare/checkO.png')
+
+                    
+                    if(toDay == "오늘"){
+                        $('#topMyListCk'+itemNo).html('O');
+                        $('#topMyListCk'+itemNo).css('color','rgb(91, 125, 238)');
+                    }
+                }
+                else{
+                    $('#myListCk'+itemNo).children('#ckNum').attr('value',0)
+                    $('#myListCk'+itemNo).children('img').attr('src','/image/healthcare/checkX.png')
+                    if(toDay == "오늘"){
+                        $('#topMyListCk'+itemNo).html('X');
+                        $('#topMyListCk'+itemNo).css('color','rgb(100 100 100)');
+                    }
+                }
+            }
+            else{
+
+            }
+           
+        },
+        error:function(){
+        }
+    }); // ajax 종료 	
+}
+
+function myListDeleteAjax(elMyNo){
+    let dateStr;
+    let dayStr;
+    let day;
+    let dayCount;
+    
+    if($('#calendarListDate').html() == "오늘"){
+        dateStr = new Date();
+        dayStr = dateStr.getDate();
+        dayCount = Number($('#day'+dayStr).html());
+        if(dayCount ==1){
+            $('#day'+dayStr).html("");
+        }
+        else{
+            $('#day'+dayStr).html(dayCount-1);
+        }
+    }
+    else{
+        dateStr = $('#calendarListDate').html().split(" ");
+        dayStr = dateStr[2].split("일");
+        day = dayStr[0];
+        dayCount = Number($('#day'+day).html());
+        if(dayCount ==1){
+            $('#day'+day).html("");
+        }
+        else{
+            $('#day'+day).html(dayCount-1);
+        }
+    }
+    $.ajax({
+        type:"post",
+        url:"/healthcare/deleteMyList",
+        data: {"elMyNo":elMyNo},
+        dataType:'text',
+        success:function(result){
+            $('#listItemLi'+elMyNo).remove();
+            $('#topListNo'+elMyNo).remove();
+
+        },
+        error:function(){
+        }
+    }); // ajax 종료 	
 }

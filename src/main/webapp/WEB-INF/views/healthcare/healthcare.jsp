@@ -13,16 +13,12 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcare.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/state.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/calendar.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/naverMap.css'/>">
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/healthcareList.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 		<script src="<c:url value='/js/jquery-ui.min.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareInput.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
-		<script src="<c:url value='/js/healthcare/naverMap.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareList.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthCalendar.js'/>"></script>
-		<script src="<c:url value='/js/healthcare/graph.js'/>"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script type="text/javascript">
 
@@ -62,9 +58,9 @@
 			<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 			<div id="healthcareBN">
 				<p>
-					오늘 고생하셨습니다.<br/>
-					당신의 하루를 측정하세요.
+					건강알리미
 				</p>
+				<p><당신의 건강을 알려주세요.></p>
 			</div>
 			<div id="state">
 				<div id="stateDiv1">
@@ -82,7 +78,9 @@
 						<p id="todayDivName">오늘의 운동</p>
 						<ul id="todayList">
 							<li>
-								오늘 뭐하지 뭐하지
+								<div>08:56</div>
+								<div>내용내용내용내용내용</div>
+								<div style="color: rgb(91, 125, 238);">X</div>
 							</li>
 							<li>오늘 뭐하지 뭐하지</li>
 							<li>오늘 뭐하지 뭐하지</li>
@@ -337,15 +335,15 @@
 						<div id="calendarListDate">오늘</div>
 						<div id="itemListName">
 							<div id="topItemBt" class="itemBt"></div>
-							<div id="topItemName" class="itemName">운동이름</div>
-							<div id="topItemTime" class="itemTime">운동시간</div>
-							<div id="topItemRoutine" class="itemRoutine">운동루틴</div>
+							<div id="topItemName" class="itemTopName">운동이름</div>
+							<div id="topItemTime" class="itemTopTime">운동시간</div>
+							<div id="topItemRoutine" class="itemTopRoutine">운동루틴</div>
 						</div>
 						<div id="listItem">
 							<ul class="listItemUl">
 								<li class="listItemLi">
 									<div class="routineItemBt">
-										<img src="<c:url value='/image/healthcare/checkX.png'/>">
+										<a><img src="<c:url value='/image/healthcare/checkX.png'/>"></a>
 									</div>
 									<div id="routineItemName" class="itemName">운동이름운동이름운동이름운동이름운동이름운동이름</div>
 									<div id="routineItemTime" class="itemTime">오후 18:54</div>
@@ -378,16 +376,16 @@
 					</div>
 					<div id="exerciseList">
 						<div id="listBt">
-							<div class="trigger trigger-up">
+							<div class="trigger triggerUp">
 								<img class="slideImg" src="<c:url value='/image/healthcare/up.png'/>">
 							</div>
-							<div class="trigger trigger-down">
+							<div class="trigger triggerDown">
 								<img class="slideImg" src="<c:url value='/image/healthcare/down.png'/>">
 							</div>
 						</div>
 						<div class="exerciseListSlide">
 							<div class="viewport">
-								<ul class="slides-list">
+								<ul class="slideList">
 									<li class="slide">
 										<div class="slideListDivView">
 											<div class="listItemName">name</div>

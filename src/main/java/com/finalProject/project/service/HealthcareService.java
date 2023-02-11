@@ -116,5 +116,23 @@ public class HealthcareService implements IHealthcareService {
         // TODO Auto-generated method stub
         dao.deleteList(map);
     }
+
+    @Override
+    public ArrayList<HashMap<String, Object>> dateCount(HashMap<String, Object> map) {
+        // TODO Auto-generated method stub
+        return dao.dateCount(map);
+    }
+
+    @Override
+    public ArrayList<HashMap<String, Object>> topTodayList(HashMap<String, Object> map) {
+        // TODO Auto-generated method stub
+        return dao.topTodayList(map);
+    }
+
+    @Override
+    public void itemCheck(HashMap<String, Object> map) {
+        // TODO Auto-generated method stub
+        dao.itemCheck(map);
+    }
     
 }

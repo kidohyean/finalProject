@@ -6,7 +6,11 @@
   <mapper namespace="com.finalProject.project.dao.IHealthcareDAO">
 
   <select id="graphView" parameterType="hashmap" resultType="com.finalProject.project.model.HealthcareGraphVO">
-    SELECT * FROM healthcaregraph WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT #{count}
+    SELECT * FROM
+    (SELECT * FROM healthcaregraph 
+    WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT #{count}
+    ) AS A ORDER BY hcdJoinDate ASC;
+
   </select>
 
   <insert id="hcdInput" parameterType="hashmap">
@@ -22,8 +26,28 @@
     SELECT hcdValue FROM healthcaregraph WHERE hcdName="키" AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT 1
   </select>
 
+  <update id="itemCheck" parameterType="hashmap">
+    UPDATE exercisemylist
+    SET routineCK = #{changeNum}, routineUpdateDate = DEFAULT
+    WHERE memId = #{memId} AND elMyNo = #{itemNo}
+  </update>
+
+  <select id="dateCount" parameterType="hashmap" resultType="hashmap">
+    SELECT DATE_FORMAT(myRoutineDate,'%d') myDate, count(myRoutineDate) count
+    FROM exercisemylist
+    WHERE memId = #{memId} and
+    Date(myRoutineDate) like CONCAT(#{date},'%')
+    GROUP BY myDate;
+  </select>
+
+  <select id="topTodayList" parameterType="hashmap" resultType="hashmap">
+    SELECT DATE_FORMAT(myRoutineDate,'%h:%i') myTime, myRoutine, routineCK, elMyNo
+    FROM exercisemylist
+    WHERE memId = #{memId} and Date(myRoutineDate) like CONCAT(#{date},'%')
+  </select>
+
   <select id="calendarMyList" parameterType="hashmap" resultType="hashmap">
-    SELECT eml.elMyNo, eml.myRoutine, eml.routineNo, eml.routineCK, eml.myRoutineDate, eml.routineUpdateDate, einfo.routineName
+    SELECT eml.elMyNo, eml.myRoutine, eml.routineNo, eml.routineCK, eml.myRoutineDate, einfo.routineName
     FROM exercisemylist eml
     INNER JOIN exerciseinfo einfo
     ON eml.routineNo = einfo.routineNo
@@ -63,6 +87,11 @@
 
   <delete id="deleteList" parameterType="int">
     DELETE FROM exerciselist WHERE elNo=#{elNo}
+
+  </delete>
+
+  <delete id="deleteMyList" parameterType="int">
+    DELETE FROM exercisemylist WHERE elMyNo=#{elMyNo}
 
   </delete>
   </mapper>

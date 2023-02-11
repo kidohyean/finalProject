@@ -32,13 +32,27 @@ body{
 	width: 100%;
 	height: 300px;
 	margin-top: 70px;
-	background-image: url("../../image/healthcare/bn2.jpg");
+	background-image: url("../../image/healthcare/bn4.jpg");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
-#healthcareBN p{
+#healthcareBN :first-child{
 	position: relative;
+	margin-bottom: 5px;
+	top: 100px;
+	text-align: center;
 	font-family: 'Hanna', sans-serif;
+	font-size: 40px;
+}
+
+#healthcareBN :last-child{
+	margin-top: 0px;
+	position: relative;
+	top: 100px;
+	text-align: center;
+	font-family: 'Hanna', sans-serif;
+	font-size: 30px;
+	color: #262626d9;
 }
 #position{
 	border: 1px solid green;
