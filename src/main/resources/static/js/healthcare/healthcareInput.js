@@ -71,9 +71,19 @@ $(document).ready(function(){
         $('#cancelHBt').css('visibility',"hidden");
         BMIMatch(heightM, weightM);
         let bmiData = graphBMIMatch(wMyData);
-        console.log(myChart2);
-        myChart2.data.datasets[0].data = bmiData;
-        myChart2.update();
+        if(weightM == "kg"){
+
+        }
+        else{
+            if(myChart2){
+                myChart2.data.datasets[0].data = bmiData;
+                myChart2.update();
+            }
+            else{
+                graphWeightAjax();
+            }
+            
+        }
         
        }
     });
@@ -93,15 +103,27 @@ $(document).ready(function(){
         weightM = $('#weightText').html();
         BMIMatch(heightM, weightM);
         wMatch(weightM);
-        let wDataSet = graphWMatch(hcdValue,wLabels,wMyData);
-        myChart1.data.labels = wDataSet[0];
-        myChart1.data.datasets[0].data = wDataSet[1];
-        myChart1.update();
+        if(heightM == "cm"){
+            alert("키를 입력해주세요.");
+        }
+        else{
 
-        let bmiData = graphBMIMatch(wMyData);
-        console.log(myChart2);
-        myChart2.data.datasets[0].data = bmiData;
-        myChart2.update();
+            if(myChart1 && myChart2){
+                let wDataSet = graphWMatch(hcdValue,wLabels,wMyData);
+                myChart1.data.labels = wDataSet[0];
+                myChart1.data.datasets[0].data = wDataSet[1];
+                myChart1.update();
+        
+                let bmiData = graphBMIMatch(wMyData);
+                myChart2.data.datasets[0].data = bmiData;
+                myChart2.update();
+            }
+            else{
+                graphWeightAjax();
+            }
+            
+        }
+        
        }
     });
     $('#stateFormBS').on('submit', function(){
@@ -120,9 +142,15 @@ $(document).ready(function(){
         bsM = $('#BSText').html();
         BSMatch(bsM);
         let bsDataSet = graphBSMatch(hcdValue,BSLabels,BSData);
-        myChart4.data.labels = bsDataSet[0];
-        myChart4.data.datasets[0].data = bsDataSet[1];
-        myChart4.update();
+        if(myChart4){
+            myChart4.data.labels = bsDataSet[0];
+            myChart4.data.datasets[0].data = bsDataSet[1];
+            myChart4.update();
+        }
+        else{
+            graphBSAjax();
+        }
+        
        }
     });
     $('#stateFormBF').on('submit', function(){
@@ -146,10 +174,15 @@ $(document).ready(function(){
         BPMatch(bpM1, bpM2);
 
         let bpDataSet = graphBPMatch(hcdValue1,hcdValue2,BPLabels,BPData1,BPData2);
-        myChart3.data.labels = bpDataSet[0];
-        myChart3.data.datasets[0].data = bpDataSet[2];
-        myChart3.data.datasets[1].data = bpDataSet[1];
-        myChart3.update();
+        if(myChart3){
+            myChart3.data.labels = bpDataSet[0];
+            myChart3.data.datasets[0].data = bpDataSet[2];
+            myChart3.data.datasets[1].data = bpDataSet[1];
+            myChart3.update();
+        }
+        else{
+            graphBPAjax();
+        }
        }
     });
     
@@ -181,9 +214,6 @@ function BMIMatch(height, weight){
         let weightM = parseFloat(weightStr);
         let bmiM = weightM/(heightM * heightM);
         let bmiRound = Math.round(bmiM * 10)/10;
-        console.log(heightStr);
-        console.log(weightStr);
-        console.log(bmiRound);
         $('#BMIText').html(bmiRound+"%");
         if(bmiRound < 20){
             $('#BMIStateValue').html("저체중");
@@ -345,7 +375,6 @@ function BMIMatch(height, weight){
     let myChart2;
     function graphMath2(labels,myData){
         let ctx2 = document.getElementById("graphMath2").getContext("2d");
-        console.log(myData)
         myChart2 = new Chart(ctx2, {
             type: 'bar',
             data: {
@@ -496,7 +525,6 @@ function BMIMatch(height, weight){
     var day = date.getDate();
     var hs = date.getHours();
     var mn = date.getMinutes();
-    console.log(num===4);
     if(num==4){
         return month +"/" + day +"/"+hs+"/"+mn;
     }
@@ -514,7 +542,10 @@ function BMIMatch(height, weight){
         url:"/healthcare/weightGraph",
         dataType:'json',
         success:function(result){
-        //console.log(result.voList[0]);
+        if(result.voList == "noData"){
+            
+        }
+        else{
             $.each(result.voList,function (k,v){
                 wLabels.push(dateformat(v.hcdJoinDate,0));
                 wMyData.push(v.hcdValue);
@@ -522,6 +553,8 @@ function BMIMatch(height, weight){
             graphMath1(wLabels,wMyData);
             let bmiData = graphBMIMatch(wMyData);
             graphMath2(wLabels,bmiData);
+        }
+            
             
         },
         error:function(){
@@ -540,13 +573,18 @@ function BMIMatch(height, weight){
             url:"/healthcare/bloodPGraph",
             dataType:'json',
             success:function(result){
-                //console.log(result.voList[0]);
-                $.each(result.voList,function (k,v){
-                    BPLabels.push(dateformat(v.hcdJoinDate1,0));
-                    BPData1.push(v.hcdValue1);
-                    BPData2.push(v.hcdValue2);
-                });
-                graphMath3(BPLabels,BPData1,BPData2);
+                if(result.voList == "noData"){
+
+                }
+                else{
+                    $.each(result.voList,function (k,v){
+                        BPLabels.push(dateformat(v.hcdJoinDate1,0));
+                        BPData1.push(v.hcdValue1);
+                        BPData2.push(v.hcdValue2);
+                    });
+                    graphMath3(BPLabels,BPData1,BPData2);
+                }
+                
             },
             error:function(){
             }
@@ -562,12 +600,17 @@ function BMIMatch(height, weight){
             url:"/healthcare/bloodSGraph",
             dataType:'json',
             success:function(result){
-                //console.log(result.voList[0]);
-                $.each(result.voList,function (k,v){
-                    BSLabels.push(dateformat(v.hcdJoinDate,4));
-                    BSData.push(v.hcdValue);
-                });
-                graphMath4(BSLabels,BSData);
+                if(result.voList == "noData"){
+
+                }
+                else{
+                    $.each(result.voList,function (k,v){
+                        BSLabels.push(dateformat(v.hcdJoinDate,4));
+                        BSData.push(v.hcdValue);
+                    });
+                    graphMath4(BSLabels,BSData);
+                }
+                
             },
             error:function(){
             }
@@ -585,7 +628,6 @@ function BMIMatch(height, weight){
                 let bmiM = weightM/(heightM * heightM);
                 bmiRound[i] = Math.round(bmiM * 10)/10;
             }
-            console.log(bmiRound);
             return bmiRound;
     }
 

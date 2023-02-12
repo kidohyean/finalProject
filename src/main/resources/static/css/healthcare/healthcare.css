@@ -54,6 +54,27 @@ body{
 	font-size: 30px;
 	color: #262626d9;
 }
+
+.emptySid{
+	text-align: center;
+	height: 300px;
+	background-color: #aab9db;
+	padding-top: 50px;
+	
+}
+
+.emptySid div:first-child{
+	
+	font-size: 30px;
+	font-family: 'TTTtangsbudaejjigaeB', serif;
+}
+
+.loginPage{
+	
+	font-size: 20px;
+	font-family: 'TTTtangsbudaejjigaeB', serif;
+	color: #b3841a;
+}
 #position{
 	border: 1px solid green;
 	width:180px;

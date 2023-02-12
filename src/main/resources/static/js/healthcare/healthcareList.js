@@ -17,25 +17,3 @@ $(document).ready(function(){
 
       
 });
-
-/*
- if ($(this).hasClass('trigger-up')) {
-          
-      var $slideLists = $('.slideList .slide').last()
-                                           .clone()
-                                           .css('margin-up','300px');
-      if(!$('.slideList .slide').eq(0).is(':animated')) {
-        $('.slideList').prepend($slideLists);
-        $('.slideList .slide').eq(0).animate({'margin-up':'-10px'}, 500, function(){
-          $('.slideList .slide').last().remove();
-        });
-      };
-    } else {
-      var $slideLists = $('.slideList .slide').eq(0)
-                                           .clone();
-        $('.slideList .slide').eq(0).animate({'margin-up':'-160px'}, 500, function(){
-          $('.slideList').append($slideLists);
-          $(this).remove();
-        });
-    };
-*/ 

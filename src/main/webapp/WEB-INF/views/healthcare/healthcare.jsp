@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/healthcare/calendar.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 		<script src="<c:url value='/js/jquery-ui.min.js'/>"></script>
+		<c:if test="${not empty sessionScope.sid }">
 		<script src="<c:url value='/js/healthcare/healthcareInput.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareGraph.js'/>"></script>
 		<script src="<c:url value='/js/healthcare/healthcareList.js'/>"></script>
@@ -52,6 +53,7 @@
 			return true;
 			}
 		</script>
+		</c:if>
 	</head>
 	<body>
 		<div id="wrap">
@@ -62,6 +64,16 @@
 				</p>
 				<p><당신의 건강을 알려주세요.></p>
 			</div>
+			<c:if test="${empty sessionScope.sid }">
+				<div class="emptySid">
+					<div>로그인을 해야 사용이 가능합니다.</div>
+					<a href="<c:url value='/member/loginForm'/>" class="loginPage"><로그인 창으로 이동></a>
+				</div>
+			</c:if>
+
+			<!-- 로그인 성공 후 보여줄 메뉴 항목 -->
+			<c:if test="${not empty sessionScope.sid }">
+				
 			<div id="state">
 				<div id="stateDiv1">
 					<form id="stateFormH">
@@ -169,87 +181,7 @@
 					</div>
 				</div>
 			</div>
-			
-			<!--
-		    <section id="reserve">
 				<div class="divName">
-					<p class="diseaseName">신체 상태 입력</p>
-					<hr class="healHr"/>
-				</div>
-				<div>
-					<div class="healthTextBigDiv">
-						<form id="healthTextForm1" class="healthTextForm">
-							<div class="healthTextDiv">
-								<img src="<c:url value='/image/healthcare/weightIp.png'/>">
-								<div class="healthText">키(cm)</div>
-								<input type="text" name="hcdValue" id="heightInput" class="healthInput" value="${voList[0].hcdValue}">
-								<input type="hidden" id="heightInputName" name="hcdName" value="키" id="heightInputName">
-								<input type="submit" class="healthBt" value="수정">
-							</div>
-						</form>
-						<form id="healthTextForm2" class="healthTextForm">
-							<div class="healthTextDiv">
-								<img src="<c:url value='/image/healthcare/scale.png'/>">
-								<div class="healthText">몸무게(kg)</div>
-								<input type="text" name="hcdValue" id="weightInput" class="healthInput">
-								<input type="hidden" id="weightInputName" name="hcdName" value="몸무게">
-								<input type="submit" class="healthBt" value="입력">
-							</div>
-						</form>
-						<form id="healthTextForm3" class="healthTextForm">
-							<div class="healthTextDiv">
-								<img src="<c:url value='/image/healthcare/bloodS.png'/>">
-								<div class="healthText">혈당(mg/dl)</div>
-								<input type="text" name="hcdValue" id="bloodSInput" class="healthInput">
-								<input type="hidden" id="bloodSInputName" name="hcdName" value="혈당">
-								<input type="submit" class="healthBt" value="입력">
-							</div>
-						</form>
-						<form id="healthTextForm4" class="healthTextForm">
-							<div id="bloodPDiv1" class="healthTextDiv">
-								<img src="<c:url value='/image/healthcare/bloodP.png'/>">
-								<div class="healthText">수축기혈압(mmHg)</div>
-								<input type="text" name="hcdValue1" id="bloodPInput1" class="healthInput">
-								<input type="hidden" id="bloodPName1" name="hcdName1" value="수축기혈압">
-							</div>
-							<div id="bloodPDiv2" class="healthTextDiv">
-								<img src="<c:url value='/image/healthcare/bar.png'/>">
-								<div class="healthText">이완기혈압(mmHg)</div>
-								<input type="text" name="hcdValue2" id="bloodPInput2" class="healthInput">
-								<input type="hidden" id="bloodPName2" name="hcdName" value="이완기혈압">
-								<input type="submit" class="healthBt" value="입력">
-							</div>
-						</form>
-						<form id="healthTextForm5" class="healthTextForm">
-							<div class="healthTextDiv">
-								<img src="<c:url value='/image/healthcare/disease.png'/>">
-								<div class="healthText">질병</div>
-								<input type="text" name="hcdValue" id="diseaseInput" class="healthInput">
-								<input type="hidden" id="diseaseInputName" name="hcdName" value="질병">
-								<input type="submit" class="healthBt" value="입력">
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="divName">
-					<p class="diseaseName">현재 질병 10개 (제한 10개)</p>
-					<hr class="healHr"/>
-				</div>
-				<div class="diseaseDivList">
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-					<div>질병</div>
-				</div>-->
-				<!---->
-				<div class="divName">
-					<!--<p class="graphName">신체 상태</p>-->
 					<hr class="healHr"/>
 				</div>
 				<article id="graph1" class="graph">
@@ -429,68 +361,10 @@
 						</div>
 					</div>
 				</div>
-				<!--
-				<div class="divName">
-					<p class="mapName">주변 약국 정보</p>
-					<hr class="healHr"/>
-				</div>
-				<article class="naverMap">
-					<div id="mapAddress" class="mapDiv">
-						<p id="mapSearchFont1" class="mapSearchFont">지역 검색:</p>
-						<form id="mapSearchForm1" class="mapSearchForm">
-							<input type="text" id="mapSearch1" class="mapSearch" name="mapSearch">
-							<input type="submit" id="mapSearchBt1" class="mapSearchBt" value="검색">
-						</form>
-					</div>
-					<div id="pharmacyMap1" class="pharmacyMap">
-						<div id="pharmacy" class="pharmacySlider">
-							<div class="trigger trigger-up">
-								<img class="slideMapImg" src="<c:url value='/image/healthcare/up.png'/>">
-							</div>
-							<div class="viewport">
-								<ul class="slides-list">
-									<li class="slide">1</li>
-									<li class="slide">2</li>
-									<li class="slide">3</li>
-									<li class="slide">4</li>
-									<li class="slide">5</li>
-									<li class="slide">6</li>
-									<li class="slide">7</li>
-								</ul>
-							</div>
-							<div class="trigger trigger-down">
-								<img class="slideMapImg" src="<c:url value='/image/healthcare/down.png'/>">
-							</div>
-						</div>
-						<div id="Map" class="mapDivDiv">
-							맵
-						</div>
-						
-					</div>
-					
-				</article>
-				-->
 				<br>
 			</section>
+		</c:if>
 			<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
 	</body>
 </html>
-
-
-<!--
-						<div class="healthTextDiv">
-							<img src="<c:url value='/image/healthcare/disease.png'/>">
-							<div class="healthText">아픈부위</div>
-							<input type="text" name="disease" id="diseaseInput" class="healthInput" value="180">
-							<input type="submit" class="healthBt" value="입력">
-						</div>
-					
-				<div class="diseaseList">
-					<div class="diseaseDiv">질병</div>
-					<div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div><div class="diseaseDiv">질병</div>
-				</div>
-				-->
-				<!--
-				
-				-->

@@ -111,7 +111,6 @@ $(document).ready(function(){
         let time = $('#time'+thisId).val();
         let routineNo = $('#routineNo'+thisId).val();
         let dateTime = date + " " + time +":00";
-        console.log(routineNo);
         let routineStr = $('#routineText'+thisId).val();
 	    try {
 	    let dateRegex = /([0-2][0-9]{3})-([0-1][0-9])-([0-3][0-9]) ([0-5][0-9]):([0-5][0-9]):([0-5][0-9])(([\-\+]([0-1][0-9])\:00))?/; 
@@ -122,7 +121,6 @@ $(document).ready(function(){
         if(dateResult && routineStr !=""){
             dateMyListCreateAjax(dateTime, routineStr,routineNo);
             let thisId = $(this).attr('id');
-            console.log(thisId)
             $('#slideListDiv'+thisId).css('height','0px');
             $('#slideListDiv'+thisId).children().children().css('height','0px');
             $('#slideListDiv'+thisId).children().children().css('visibility','hidden');
@@ -149,7 +147,6 @@ $(document).ready(function(){
     $(document).on('click','.listItemRemoveBt',function(){
         let thisId = $(this).attr('id');
         let elNo = thisId.split('num')[1];
-        console.log(elNo);
         dateListDeleteAjax(elNo)
         $('li').remove('#li'+thisId);
     })
@@ -257,7 +254,6 @@ function dateCount(viewYear, viewMonth){
         data: {"date":dateTime,},
         dataType:'json',
         success:function(result){
-            console.log(result);
             
             $.each(result.dateCountList, function(k,v){
                 let dayStr ="";
@@ -346,7 +342,6 @@ function timeMyListText(dateStr){
     return result;
 }
 function recommendListAjax(arr){
-    console.log(arr.length);
     $.ajax({
         type:"post",
         url:"/healthcare/exerciseRecommendList",
@@ -354,7 +349,6 @@ function recommendListAjax(arr){
         dataType:'json',
         traditional:true,
         success:function(result){
-            console.log(result);
             $('.slideList').empty();
             let html = "";
             $.each(result.aList, function(k,v){
@@ -469,7 +463,6 @@ function dateMyListCreateAjax(date, routine, routineNo){
     let thisYear = thisDateArr[0];
     let thisMonth = thisDateArr[1];
     let thisDay = thisDateArr[2];
-    console.log("thisDay" + Number(thisDay));
     let myListDate;
     let myListYear;
     let myListMonth;
@@ -611,7 +604,6 @@ function topTodayList(date){
         data: {"date":date},
         dataType:'json',
         success:function(result){
-            console.log(result);
             $('#todayList').empty();
             let html = "";
             $.each(result.todayList, function(k,v){

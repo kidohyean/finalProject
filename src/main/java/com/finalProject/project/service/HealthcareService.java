@@ -31,7 +31,6 @@ public class HealthcareService implements IHealthcareService {
     public ArrayList<HealthcareGraphVO> hcdOutput(String memId) {
         ArrayList<HealthcareGraphVO> voList = new ArrayList<HealthcareGraphVO>();
         HashMap<String, Object> inputMap = new HashMap<String,Object>();
-        HashMap<String, Object> outputMap = new HashMap<String,Object>();
 
         inputMap.put("memId", memId);
         inputMap.put("hcdName", "키");

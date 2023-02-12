@@ -48,7 +48,6 @@ public class HealthcareController {
 							Model model, HttpSession session) {
 		String memId = (String)session.getAttribute("sid");
 		HashMap<String,Object> map = new HashMap<String,Object>();
-		System.out.println(param.get("hcdName1"));
 		map.put("memId", memId);
 		map.put("hcdName", param.get("hcdName1"));
 		map.put("hcdValue", param.get("hcdValue1"));
@@ -179,7 +178,6 @@ public class HealthcareController {
 		String memId = (String)session.getAttribute("sid");
 		
 		HashMap<String,Object> map = new HashMap<String,Object>();
-		System.out.println(date);
 		map.put("memId", memId);
 		map.put("date", date);
 		ArrayList<HashMap<String,Object>> myList = service.calendarMyList(map);
@@ -198,7 +196,6 @@ public class HealthcareController {
 		map.put("memId", memId);
 		map.put("itemNo", itemNo);
 		map.put("changeNum", changeNum);
-		System.out.println(map);
 		service.itemCheck(map);
 		
 		return "success";
@@ -241,7 +238,6 @@ public class HealthcareController {
 	@RequestMapping("/healthcare/deleteList")
 	public String deleteList(@RequestParam HashMap<String,Object> map, HttpSession session) {
 		String memId = (String)session.getAttribute("sid");
-		System.out.println(map.get("elNo"));
 		int elNo = Integer.parseInt((String)map.get("elNo"));
 		map.put("elNo", elNo);
 		map.put("memId", memId);
@@ -254,7 +250,6 @@ public class HealthcareController {
 	@RequestMapping("/healthcare/deleteMyList")
 	public String deleteMyList(@RequestParam HashMap<String,Object> map, HttpSession session) {
 		String memId = (String)session.getAttribute("sid");
-		System.out.println(map.get("elMyNo"));
 		int elMyNo = Integer.parseInt((String)map.get("elMyNo"));
 		map.put("elMyNo", elMyNo);
 		map.put("memId", memId);
