@@ -63,10 +63,7 @@
 						</div>
 						<div id="contents1_2" class="content1">
 							<h3>기간별 추천루틴</h3>
-							<p>${routine.routineDate1 }</p>
-							<p>${routine.routineDate2 }</p>
-							<p>${routine.routineDate3 }</p>
-							<p>${routine.routineDate4 }</p>
+							<p>${routine.routineDate }</p>
 							<p>이후는 본인이 가능한 만큼만 횟수를 천천히 늘려가며 진행해주세요</p>
 						</div>
 						<div id="contents1_3" class="content1">

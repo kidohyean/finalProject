@@ -4,6 +4,7 @@ $(document).ready(function(){
 	let indexListP = 1;
 	exerciseRankList(index);
 	exerciseItemList(index,indexListP);
+	exVideoList(index);
 	$('.flex li').click(function(){
 		index = $(this).index();
 		
@@ -15,6 +16,7 @@ $(document).ready(function(){
 		$('#contents'+index).addClass('on');
 		exerciseRankList(index);
 		exerciseItemList(index,indexListP);
+		exVideoList(index);
 	})
 $('.triggerList').on('click', function() {
 	if ($(this).hasClass('trigger-left')) {
@@ -72,9 +74,32 @@ function exerciseItemList(pNum,num){
                 html += '<div class="exItem">';
 				html += '<img src="../../image/'+v.routineNo+'.png">';
 				html += '<p>'+v.routineName+'</p>';
+				html += '<hr/>';
 				html += '</div>'
             })
             $('.itemListBox').append(html);
+        },
+        error:function(){
+        }
+    }); // ajax 종료 	
+}
+
+function exVideoList(pNum){
+	$.ajax({
+        type:"post",
+        url:"/exercise/exVideoList/"+pNum,
+        dataType:'json',
+        success:function(result){
+			
+            $('.slidesList-list').empty();
+            let html = "";
+            $.each(result.exVideoList, function(k,v){
+                html += '<li class="slideList">';
+				html += '<iframe width="380" height="245" src="'+v.exStretchlink+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+				html += '<p>'+v.exStretchName+'</p>';
+				html += '</li>'
+            })
+            $('.slidesList-list').append(html);
         },
         error:function(){
         }

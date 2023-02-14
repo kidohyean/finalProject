@@ -2,8 +2,8 @@
 
 .exVideoList{
 	display: flex;
-	margin-left: 3%;
-	width:112%;
+	width:100%;
+  height: 300px;
 	justify-content: space-evenly;
 }
 
@@ -19,7 +19,7 @@
 .viewportList {
     margin: 1% 0px;
     height: 92%;
-    width: 100%;
+    width: 90%;
     overflow: hidden;
   }
 

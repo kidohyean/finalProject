@@ -38,6 +38,17 @@ public class ExerciseInfoService implements IExerciseInfoService {
 		
 		return dao.itemListCount(pNum);
 	}
+
+	@Override
+	public ArrayList<HashMap<String, Object>> exVideoList(int pNum) {
+		return dao.exVideoList(pNum);
+	}
+
+	@Override
+	public void viewsExercise(String routineNo) {
+		dao.viewsExercise(routineNo);
+		
+	}
 	
 	
 

@@ -3,6 +3,10 @@ package com.finalProject.project.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,10 +59,48 @@ public class ExerciseController {
 		System.out.println(obj.toString());
 		return obj.toString();
 	}
+
+	@ResponseBody
+	@RequestMapping("/exercise/exVideoList/{pNum}")
+	public String exVideoList(@PathVariable int pNum, Model model) {
+
+		ArrayList<HashMap<String,Object>> exVideoList = service.exVideoList(pNum);
+		JSONObject obj = new JSONObject();
+
+		obj.put("exVideoList", exVideoList);
+		System.out.println(obj.toString());
+		return obj.toString();
+	}
 	@RequestMapping("/exercise/detailViewRoutineInfo/{routineNo}")
 	public String detailViewRoutineInfo(@PathVariable ("routineNo") String routineNo,
-														  Model model) {
+										Model model,
+										HttpServletRequest request, HttpServletResponse response) {
 		ExerciseInfoVO routine = service.detailViewRoutineInfo(routineNo);
+		
+		Cookie oldCookie = null;
+ 		Cookie[] cookies = request.getCookies();
+ 		if (cookies != null) {
+ 			for (Cookie cookie : cookies) {
+ 				if (cookie.getName().equals("postView")) {
+ 					oldCookie = cookie;
+ 				}
+ 			}
+ 		}
+		 if (oldCookie != null) {
+			if (!oldCookie.getValue().contains("[" + routineNo + "]")) {
+				service.viewsExercise(routineNo);
+				oldCookie.setValue(oldCookie.getValue() + "_[" + routineNo + "]");
+				oldCookie.setPath("/");
+				oldCookie.setMaxAge(60 * 60 * 24);
+				response.addCookie(oldCookie);
+			}
+		} else {
+			service.viewsExercise(routineNo);
+			Cookie newCookie = new Cookie("postView","[" + routineNo + "]");
+			newCookie.setPath("/");
+			newCookie.setMaxAge(60 * 60 * 24);
+			response.addCookie(newCookie);
+		}
 		model.addAttribute("routine", routine);
 		return "exercise/detailRoutineInfo";
 	}
