@@ -13,6 +13,8 @@
 	</head>
 	<body>
 		<!-- header -->
+		<div class="blur"></div>
+    <div class="main" id="main">
 		<div class="pageSize">
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		</div>
@@ -45,5 +47,7 @@
 		<div class="pageSize">
 		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
+		</div>
+    <div class="particles" id="particles"></div>
 	</body>
 </html>
