@@ -30,21 +30,21 @@
 			<div class="tab">
 				<div class="flex">
 					<ul class="list">
-					<li><a href="/exercise/exerciseInfo/1" class="panel active">등</a></li>
-					<li><a href="/exercise/exerciseInfo/2" class="panel">어깨/목</a></li>
-					<li><a href="/exercise/exerciseInfo/3" class="panel">팔/다리</a></li>
-					<li><a href="/exercise/exerciseInfo/4" class="panel">허리</a></li>
+					<li><a class="panel active">등</a></li>
+					<li><a class="panel">어깨/목</a></li>
+					<li><a class="panel">팔/다리</a></li>
+					<li><a class="panel">허리</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="rank">
 				<p class="weekRank">이번주 등 운동루틴 순위</p>
-				<div class="rank_list">
-					<ol type="1">
+				<div class="rank_list_div">
+					<ul class="rank_list">
 						<li>등 조이기 운동 </li>
 						<li>덤벨 로우 </li>
 						<li>라잉 덤벨 프레스 </li>
-					</ol>
+					</ul>
 				</div>
 			</div>
 			<div>
