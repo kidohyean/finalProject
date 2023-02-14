@@ -1,7 +1,9 @@
 
 $(document).ready(function(){
 	let index = 1;
-	firstList(index);
+	let indexListP = 1;
+	exerciseRankList(index);
+	exerciseItemList(index,indexListP);
 	$('.flex li').click(function(){
 		index = $(this).index();
 		
@@ -11,7 +13,8 @@ $(document).ready(function(){
 
 		$('.content').removeClass('on');
 		$('#contents'+index).addClass('on');
-		firstList(index);
+		exerciseRankList(index);
+		exerciseItemList(index,indexListP);
 	})
 $('.triggerList').on('click', function() {
 	if ($(this).hasClass('trigger-left')) {
@@ -37,19 +40,41 @@ $('.triggerList').on('click', function() {
   });
 });
 
-function firstList(pNum){
+function exerciseRankList(pNum){
 	$.ajax({
         type:"post",
-        url:"/exercise/exerciseFirstList/"+pNum,
+        url:"/exercise/exerciseRankList/"+pNum,
         dataType:'json',
         success:function(result){
 			
-            $('.rank_list').empty();
+            $('.rank_list ul').empty();
             let html = "";
-            $.each(result.exList1, function(k,v){
+            $.each(result.exListR, function(k,v){
                 html += '<li><a href="/exercise/detailViewRoutineInfo/'+v.routineNo+'">'+v.routineName+'</a></li>'
             })
-            $('.rank_list').append(html);
+            $('.rank_list ul').append(html);
+        },
+        error:function(){
+        }
+    }); // ajax 종료 	
+}
+
+function exerciseItemList(pNum,num){
+	$.ajax({
+        type:"post",
+        url:"/exercise/exerciseItemList/"+pNum+"/"+num,
+        dataType:'json',
+        success:function(result){
+			
+            $('.itemListBox').empty();
+            let html = "";
+            $.each(result.exListI, function(k,v){
+                html += '<div class="exItem">';
+				html += '<img src="../../image/'+v.routineNo+'.png">';
+				html += '<p>'+v.routineName+'</p>';
+				html += '</div>'
+            })
+            $('.itemListBox').append(html);
         },
         error:function(){
         }
