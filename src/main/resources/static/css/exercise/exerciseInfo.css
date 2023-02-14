@@ -73,14 +73,20 @@ div.slogan {
 
 .rank_list{
 	font-size:30px;
-	
-	width:560px;
-	height:315px;
-	
+	width:760px;
+	height:505px;
 	padding:0;
-	
 	margin:0 auto;
+
 }
+
+
+.updown {
+		margin-top:30px;
+    	border: 0.5px solid black;
+        width: 0.1px;
+        height: 500px;
+    }
 
 p{
 	padding:10px;
@@ -102,6 +108,15 @@ p{
 	font-weight:normal;
 }
 
+
+.exItem{
+	display:flex;
+}
+
+.exItem p{
+	font-size:20px;
+	font-weight:normal;
+}
 /*#eventprevnext { position:relative; z-index:10;}
 #prevButton2 {
 	position:absolute;

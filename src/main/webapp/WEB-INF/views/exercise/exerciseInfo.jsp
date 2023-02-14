@@ -42,27 +42,49 @@
 				<p class="weekRank">이번주 등 운동루틴 Top5</p>
 				<div class="rank_list">
 					<ul>
-						<li>1 &nbsp 등 조이기 운동 </li>
-						<li>2 &nbsp 덤벨 로우 </li>
-						<li>3 &nbsp 라잉 덤벨 프레스 </li>
-						<li>4 &nbsp 레니게이드 로우 </li>
+						
 					</ul>
 				</div>
 			</div>
+			<div class="updown"></div>
 			<div class="exVideo">
 				<p>오늘의 추천 영상</p>
 				<div class="exVideo_1">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/I4ovzV-BLDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<iframe width="660" height="400" src="https://www.youtube.com/embed/I4ovzV-BLDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					<p>건강 노인 운동 따라해보기!</p>
 				</div>
 			</div>
 		</div>
-		<div class="itemListBox">
-			<div class="exItem">
-				<img>
-				<p>name</p>
+		<div class="ListBox">
+		<p>운동 루틴 목록</p>
+			<div class="itemListBox">
+		
+				<div class="exItem">
+				
+				</div>
 			</div>
 		</div>
+		
+		<article class="exVideoList">
+						<div class="triggerList trigger-left">
+							<img class="slideListImg" src="<c:url value='/image/healthcare/left.png'/>">
+						</div>
+						<div id="listSlider1" class="listSlider">
+							<div class="viewportList">
+								<ul class="slidesList-list">
+								<c:forEach var='exVideolist' items="${list}">
+									<li class="slideList"><iframe width="380" height="245" src="${exVideolist.exVideolink }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+										<p>${exVideolist.exVideoName }</p>
+									</li>
+									</c:forEach>
+								</ul>
+							</div>
+						</div>
+						<div class="triggerList trigger-right">
+							<img class="slideListImg" src="<c:url value='/image/healthcare/right.png'/>">
+						</div>
+					</article>
+		
 			<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
 	</body>
