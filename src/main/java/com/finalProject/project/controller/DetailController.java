@@ -38,8 +38,8 @@ private CommunityService service;
      
      
 	/*
-	 * @RequestMapping("/community/detailViewAggre/{agNum}") public String
-	 * detailViewAggre(@PathVariable("agNum") int agNum, Model model) {
+	 * @RequestMapping("/community/detailViewAggre/{agNum}") 
+	 * public String detailViewAggre(@PathVariable("agNum") int agNum, Model model) {
 	 * 
 	 * AggregationVO Aggre = service.detailViewAggre(agNum);
 	 * service.viewsAggregation(agNum); String url
