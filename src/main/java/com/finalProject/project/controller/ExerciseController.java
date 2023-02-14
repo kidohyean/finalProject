@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.finalProject.project.model.PagerVO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finalProject.project.model.ExerciseInfoVO;
 import com.finalProject.project.service.ExerciseInfoService;
 
@@ -54,8 +55,13 @@ public class ExerciseController {
 		map.put("pNum", pNum);
 		ArrayList<ExerciseInfoVO> exList = service.itemListInfo(map);
 		JSONObject obj = new JSONObject();
-
+		
 		obj.put("exListI", exList);
+		obj.put("next", page.getNext());
+		obj.put("select", num);
+		obj.put("prev", page.getPrev());
+		obj.put("startPageNum", page.getStartPageNum());
+		obj.put("endPageNum", page.getEndPageNum());
 		System.out.println(obj.toString());
 		return obj.toString();
 	}

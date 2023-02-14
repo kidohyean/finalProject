@@ -63,6 +63,9 @@
 				
 				</div>
 			</div>
+			<div class="itemPageCount">
+				
+			</div>
 		</div>
 		
 		<article class="exVideoList">

@@ -1,7 +1,9 @@
-
+let startPageNum = 1;
+let endPageNum = 10;
 $(document).ready(function(){
 	let index = 1;
 	let indexListP = 1;
+	
 	exerciseRankList(index);
 	exerciseItemList(index,indexListP);
 	exVideoList(index);
@@ -17,6 +19,18 @@ $(document).ready(function(){
 		exerciseRankList(index);
 		exerciseItemList(index,indexListP);
 		exVideoList(index);
+	})
+	$(document).on('click','.itemPageCount a',function(){
+		let indexListP = $(this).html()
+		exerciseItemList(index,indexListP);
+	})
+
+	$(document).on('click','.btPrev',function(){
+		exerciseItemList(index,startPageNum-1);
+	})
+
+	$(document).on('click','.btNext',function(){
+		exerciseItemList(index,endPageNum+1);
 	})
 $('.triggerList').on('click', function() {
 	if ($(this).hasClass('trigger-left')) {
@@ -69,15 +83,42 @@ function exerciseItemList(pNum,num){
         success:function(result){
 			
             $('.itemListBox').empty();
+			$('.itemPageCount').empty();
             let html = "";
+			let pageHtml = "";
             $.each(result.exListI, function(k,v){
                 html += '<div class="exItem">';
 				html += '<img src="../../image/'+v.routineNo+'.png">';
 				html += '<p>'+v.routineName+'</p>';
 				html += '<hr/>';
-				html += '</div>'
+				html += '</div>';
+
+				
             })
+			if(result.prev){
+				startPageNum = result.startPageNum;
+				pageHtml +='<a class="btPrev"><</a>';
+			}
+			for(let pageNum = result.startPageNum; pageNum <= result.endPageNum; pageNum++){
+				if(pageNum != result.select){
+					pageHtml +='<a>'+pageNum+'</a>';
+				}
+				else{
+					pageHtml +='<b>'+pageNum+'</b>';
+				}
+				
+			}
+			if(result.next){
+				endPageNum = result.endPageNum;
+				pageHtml +='<a class="btNext">></a>';
+			}
+			console.log(result.prev);
+			console.log(result.startPageNum);
+			console.log(result.endPageNum);
+			console.log(result.next);
+			console.log(result.select);
             $('.itemListBox').append(html);
+			$('.itemPageCount').append(pageHtml);
         },
         error:function(){
         }
