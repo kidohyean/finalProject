@@ -31,7 +31,7 @@ div.slogan {
  
 .tab{
 	text-align:center;
-	padding-top:50px;
+	padding:50px;
 
 	}
 	
@@ -56,8 +56,8 @@ div.slogan {
 	}
 	
 .active{
-	color: #fff !important;
-    background: #bbbbbb !important;
+	color: #ffffff!important;
+    background: #2b5580!important;
 	}
 	
 .content{
@@ -96,11 +96,12 @@ p{
 
 .rank_list li{
 	line-height:80px;
-	border:1px solid gray;
+	border:none;
 	border-radius:20px;
 	box-shadow:5px 5px gray;
 	margin:15px;
 	padding:0px 0px 0px 30px;
+	border:0.5px solid gray;
 }
 
 .exVideo_1 p{
@@ -111,36 +112,16 @@ p{
 
 .exItem{
 	display:flex;
+	padding:20px;
+	padding-top:40px;
 }
 
 .exItem p{
 	font-size:20px;
 	font-weight:normal;
 }
-/*#eventprevnext { position:relative; z-index:10;}
-#prevButton2 {
-	position:absolute;
-	top:700px;
-	left:1px;
-	opacity:0.3;
-	cursor:pointer;
-}
-#nextButton2 {
-	position:absolute;
-	top:700px;
-	right:1px;
-	opacity:0.3;
-	cursor:pointer;
+
+.ListBox{
+	margin-left:8%;
 }
 
-#prevButton2:hover { opacity:1;}
-#nextButton2:hover { opacity:1;}
-
-#header{
-	 visibility: hidden;
-}
-
-#header ul li{
-	margin-top:35px;
-	margin-bottom:20px;
-}*/
