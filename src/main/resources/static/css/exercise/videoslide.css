@@ -3,7 +3,8 @@
 #exVideo{
 	display: flex;
 	margin-left: 3%;
-	width: 94%;
+	width:112%;
+	justify-content: space-evenly;
 }
 
 #listSlider1{
@@ -23,7 +24,7 @@
   }
 
   .slidesList-list {
-    width: 10000px;
+    width: 5000px;
     height: 100%;
     list-style: none;
     white-space: nowrap;

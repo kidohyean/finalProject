@@ -54,14 +54,14 @@
 					</div>
 					<article>
 
-						<div id="contents1-1" class="content1 on">
+						<div id="contents1_1" class="content1 on">
 							<h3>운동방법 : </h3>
 							${routine.useMachine}
 							<div class="useVideo">
 							${routine.useVideo}
 							</div>
 						</div>
-						<div id="contents1-2" class="content1">
+						<div id="contents1_2" class="content1">
 							<h3>기간별 추천루틴</h3>
 							<p>${routine.routineDate1 }</p>
 							<p>${routine.routineDate2 }</p>
@@ -69,7 +69,7 @@
 							<p>${routine.routineDate4 }</p>
 							<p>이후는 본인이 가능한 만큼만 횟수를 천천히 늘려가며 진행해주세요</p>
 						</div>
-						<div id="contents1-3" class="content1">
+						<div id="contents1_3" class="content1">
 							<h3>다른 추천 운동</h3>
 							<form>
 								<input type="submit" id="recExercise1" class="routineBtn"

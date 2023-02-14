@@ -89,11 +89,13 @@ button{
 	padding:20px;
 	}
 
-	
+.routine-info{
+    text-align: center;
+}
 .routine-info div{
-	width:100%;
-	display:inline-block;
-	margin-left:25%;
+    width:100%;
+    display:inline-block;
+    text-align: left;
 }
 div.box-image{
 	width:263px;
