@@ -2,6 +2,44 @@ package com.finalProject.project.model;
 
 public class ExerciseInfoVO {
 
+	public String getExVideoNo() {
+		return exVideoNo;
+	}
+	public void setExVideoNo(String exVideoNo) {
+		this.exVideoNo = exVideoNo;
+	}
+	public String getExVideolink() {
+		return exVideolink;
+	}
+	public void setExVideolink(String exVideolink) {
+		this.exVideolink = exVideolink;
+	}
+	public String getExVideoName() {
+		return exVideoName;
+	}
+	public void setExVideoName(String exVideoName) {
+		this.exVideoName = exVideoName;
+	}
+	public String getExStretchlink() {
+		return exStretchlink;
+	}
+	public void setExStretchlink(String exStretchlink) {
+		this.exStretchlink = exStretchlink;
+	}
+	public String getExStretchName() {
+		return exStretchName;
+	}
+	public void setExStretchName(String exStretchName) {
+		this.exStretchName = exStretchName;
+	}
+
+	private String exVideoNo;
+	private String exVideolink;
+	private String exVideoName;
+	private String exStretchlink;
+	private String exStretchName;
+
+	
 	private String routineNo;
 	private String routineName;
 	private String routineInfo;
@@ -10,10 +48,7 @@ public class ExerciseInfoVO {
 	private String recSupplements;
 	private String useMachine;
 	private String useVideo;
-	private String routineDate1;
-	private String routineDate2;
-	private String routineDate3;
-	private String routineDate4;
+	private String routineDate;
 	private String recExercise1;
 	private String recExercise2;
 	private String recExercise3;
@@ -66,28 +101,10 @@ public class ExerciseInfoVO {
 		this.useVideo = useVideo;
 	}
 	public String getRoutineDate1() {
-		return routineDate1;
+		return routineDate;
 	}
 	public void setRoutineDate1(String routineDate1) {
-		this.routineDate1 = routineDate1;
-	}
-	public String getRoutineDate2() {
-		return routineDate2;
-	}
-	public void setRoutineDate2(String routineDate2) {
-		this.routineDate2 = routineDate2;
-	}
-	public String getRoutineDate3() {
-		return routineDate3;
-	}
-	public void setRoutineDate3(String routineDate3) {
-		this.routineDate3 = routineDate3;
-	}
-	public String getRoutineDate4() {
-		return routineDate4;
-	}
-	public void setRoutineDate4(String routineDate4) {
-		this.routineDate4 = routineDate4;
+		this.routineDate = routineDate1;
 	}
 	public String getRecExercise1() {
 		return recExercise1;

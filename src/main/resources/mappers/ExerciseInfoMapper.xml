@@ -7,8 +7,9 @@
 
   <select id="detailViewRoutineInfo" parameterType="string"
   								resultType="com.finalProject.project.model.ExerciseInfoVO">
-  	SELECT * FROM exerciseInfo	WHERE routineNo = #{routineNo}
+  	SELECT * FROM detailInfo	WHERE routineNo = #{routineNo}
   </select>
   
+    
 
  </mapper>

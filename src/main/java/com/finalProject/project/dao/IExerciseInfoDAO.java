@@ -9,5 +9,6 @@ import com.finalProject.project.model.ExerciseInfoVO;
 public interface IExerciseInfoDAO {
 	public ExerciseInfoVO detailViewRoutineInfo(String routineNo);
 
+
 }
 

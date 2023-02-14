@@ -1,5 +1,7 @@
 package com.finalProject.project.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -18,5 +20,8 @@ public class ExerciseInfoService implements IExerciseInfoService {
 	public ExerciseInfoVO detailViewRoutineInfo(String routineNo) {		
 		return dao.detailViewRoutineInfo(routineNo);
 	}
+	
+	
+
 
 }

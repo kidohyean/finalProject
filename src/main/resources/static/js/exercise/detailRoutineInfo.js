@@ -6,7 +6,7 @@ $(document).ready(function(){
             $(this).addClass('active');
 
             $('.content1').removeClass('on');
-            $('#contents1-'+index).addClass('on');
+            $('#contents1_'+index).addClass('on');
         })
         
 });
