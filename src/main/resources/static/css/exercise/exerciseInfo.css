@@ -21,7 +21,7 @@ div.slogan {
 	margin-top:20px;
 }
 
-p{
+.b{
 	color:white;
 	text-align:center;
 	font-size:25px;
@@ -64,11 +64,43 @@ p{
 	display: none;
 	}
 	
+.rank_box{
+	display:flex;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	padding:30px;
+}
 
+.rank_list{
+	font-size:30px;
+	
+	width:560px;
+	height:315px;
+	
+	padding:0;
+	
+	margin:0 auto;
+}
 
+p{
+	padding:10px;
+	font-weight:bold;
+	font-size:30px;
+}
 
+.rank_list li{
+	line-height:80px;
+	border:1px solid gray;
+	border-radius:20px;
+	box-shadow:5px 5px gray;
+	margin:15px;
+	padding:0px 0px 0px 30px;
+}
 
-
+.exVideo_1 p{
+	font-size:20px;
+	font-weight:normal;
+}
 
 /*#eventprevnext { position:relative; z-index:10;}
 #prevButton2 {
