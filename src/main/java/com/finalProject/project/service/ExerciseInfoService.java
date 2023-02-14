@@ -20,6 +20,12 @@ public class ExerciseInfoService implements IExerciseInfoService {
 	public ExerciseInfoVO detailViewRoutineInfo(String routineNo) {		
 		return dao.detailViewRoutineInfo(routineNo);
 	}
+
+	@Override
+	public ArrayList<ExerciseInfoVO> firstListInfo(int pNum){
+
+		return dao.firstListInfo(pNum);
+	}
 	
 	
 

@@ -1,16 +1,17 @@
 
 $(document).ready(function(){
- 
+	let index = 1;
+	firstList(index);
 	$('.flex li').click(function(){
-		let index = $(this).index();
+		index = $(this).index();
+		
 		index++;
 		$('.flex a').removeClass('active');
 		$(this).children('a').addClass('active');
 
 		$('.content').removeClass('on');
 		$('#contents'+index).addClass('on');
-		console.log(index);
-		///exercise/exerciseInfo/1
+		firstList(index);
 	})
 $('.triggerList').on('click', function() {
 	if ($(this).hasClass('trigger-left')) {
@@ -39,16 +40,16 @@ $('.triggerList').on('click', function() {
 function firstList(pNum){
 	$.ajax({
         type:"post",
-        url:"/healthcare/calendarMyList",
-        data: {"date":dateTime,},
+        url:"/exercise/exerciseFirstList/"+pNum,
         dataType:'json',
         success:function(result){
-            $('.listItemUl').empty();
+			
+            $('.rank_list').empty();
             let html = "";
-            $.each(result.myList, function(k,v){
-                
+            $.each(result.exList1, function(k,v){
+                html += '<li><a href="/exercise/detailViewRoutineInfo/'+v.routineNo+'">'+v.routineName+'</a></li>'
             })
-            $('.listItemUl').append(html);
+            $('.rank_list').append(html);
         },
         error:function(){
         }
