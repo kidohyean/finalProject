@@ -1,192 +1,225 @@
-body {
-	/*
-	background-image: url("../image/indexbg1.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	*/
-	margin: -10px 0px;
+@font-face {
+	font-family: 'InkLipquid';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.pageSize {
-	margin: -10px auto;
+div {
 	width: 100%;
-}
-
-.a-container {
-	width: 100%;
-	height: 500px;
-	margin-bottom: 30px;
-}
-
-.a-left-container {
-	float: left;
-	width: 60%;
-	height: 100%;
-	background-image: url('../../image/indexpicture.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	opacity: 0.9;
-	width: 60%;
-	border-radius: 10px;
-}
-
-.a-right-container {
-	display: flex;
-	float: right;
-	width: 40%;
-	height: 100%;
-	align-items: center;
-	justify-content: center;
-}
-
-.a-text {
-	font-family: 'Nanum Brush Script', cursive;
-	font-size: 50px;
-}
-
-.simple-box {
-	text-align: center;
-	line-height: 50px;
-	width: 300px;
-	height: 50px;
-	background-color: #21825B;
-	border-radius: 10px 10px 0 0;
-	font-family: 'Jua', sans-serif;
-	font-size: 20px;
-	color: white;
-}
-
-.b-container {
-	width: 99%;
-	height: 500px;
-	margin-bottom: 30px;
-	border-radius: 0 10px 10px 10px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border: 5px solid #21825B;
-}
-
-.b-container-box {
-	width: 300px;
-	height: 400px;
-	background-color: #21825B;
-	margin: 50px 50px;
-	border-radius: 10px;
-	box-shadow: 0 2px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0
-		rgba(0, 0, 0, .19);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column
-}
-
-.b-container-box.b-container-box:hover {
-	background-color: #00AE68;
-	color: white;
-}
-
-.b-container-box-img1 {
-	width: 150px;
-	height: 150px;
-	background-image: url(../../image/treadmill.png);
-	background-size: 100%;
-	margin: 30px 0;
-}
-
-.b-container-box-img2 {
-	width: 150px;
-	height: 150px;
-	background-image: url(../../image/pharmacy.png);
-	background-size: 100%;
-	margin: 30px 0;
-}
-
-.b-container-box-img3 {
-	width: 150px;
-	height: 150px;
-	background-image: url(../../image/hospital.png);
-	background-size: 100%;
-	margin: 30px 0;
-}
-
-.b-text {
-	margin: 30px 0;
-	text-align: center;
-	font-family: 'Jua', sans-serif;
-	font-size: 25px;
-}
-
-.c-container {
-	width: 100%;
-	height: 150px;
-	margin-bottom: 30px;
-	background-color: white;
-	border-radius: 10px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.c-container-box {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 400px;
-	height: 100px;
-	background-color: white;
-	border-radius: 10px;
-	width: 400px;
-	border: 5px solid #21825B;
-	margin: 0 100px;
-}
-
-.c-img {
-	width: 50px;
-	height: 50px;
-	background-image: url(../../image/love.png);
-	background-size: 100%;
-}
-
-.c-img1 {
-	width: 50px;
-	height: 50px;
-	background-image: url(../../image/vest.png);
-	background-size: 100%;
-}
-
-.c-text {
-	font-family: 'Jua', sans-serif;
-	font-size: 20px;
-}
-
-.d-container {
-	width: 99%;
-	height: 500px;
-	margin-bottom: 30px;
-	display: flex;
-	align-imtes: center;
-	justify-content: center;
-	font-size: 100px;
-	border: 5px solid #21825B;
-	border-radius: 0 10px 10px 10px;
-}
-
-.d-map {
-	float: right;
-	width: 79%;
-	height: 100%;
+	height: 100vh;
 	position: relative;
-	overflow: hidden;
+	
 }
 
+.image1 {
+	background: url('../image/indexbg1.png') no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	opacity: 0.8;
+}
 
+.image2 {
+	background: url('../image/indexpicture.png') no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 
+.image3 {
+	background: url(
+'../image/index1.jpg') no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.main_text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 100px;
+	font-weight:bold;
+	height: 200px;
+	font-family: 'InkLipquid';
+}
+
+.sub_text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 50px;
+	font-family: 'InkLipquid';
+	font-size: 30px;
+}
+
+.member_button {
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 150px;
+}
+
+.button {
+	width: 150px;
+	height: 50px;
+	margin: 0 10px;
+	font-size: 30px;
+	font-family: 'InkLipquid';
+	border: 0;
+}
+
+.button.button:hover {
+	background-color: #F3CF98;
+}
+
+.user_logIn_img {
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 150px;
+}
+
+.userImg {
+	width: 100px;
+	height: 100px;
+}
+
+.user_logIn_name {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user_logIn_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px
+}
+
+.text {
+	text-align: center;
+	font-family: 'InkLipquid';
+	font-size: 30px;
+}
+
+.map_box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.map {
+	width: 500px;
+	height: 400px;
+}
+
+.menu{
+	background-color: #F3CF98;
+}
+
+.menu_text{
+	text-align: center;
+	font-family: 'InkLipquid';
+	font-size: 100px;
+	font-weight:bold;
+	height:200px;
+	background-color: #F3CF98;
+}
+
+.left_menu_box{
+	width:50%;
+	float:left;
+}
+
+.right_menu_box {
+	width:50%;
+	height:70%;
+	float:right;
+}
+
+.button_box_top{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+	height:50%;
+}
+
+.button_box_bottom{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+	height:50%;
+}
+
+.right_menu_box_top{
+	
+	height:100%;
+}
+
+.right_menu_box_bottom{
+	height:100%;
+}
+
+.map_box_left {
+	background-color: #F3CF98;
+	float: left;
+	width: 50%;
+	
+}
+
+.map {
+	width: 100%;
+	height: 969px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.map_box_right {
+	background-color: #F3CF98;
+	float: right;
+	width: 50%;
+}
+
+.box {
+	width: 250px;
+	height: 250px;
+	border: 3px solid;
+	margin:0 50px;
+	border:0;
+	font-family: 'InkLipquid';
+	font-size:50px;
+}
+
+.box.box:hover{
+	background-color: #F3CF98;
+}
+
+.footer_box {
+	height: 80px;
+	position: absolute;
+	bottom: 0;
+	background-color: #F3CF98;
+	text-align: center;
+	font-size: 12px;
+}
+
+/* 지도 css*/
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;
-	font-family: 'Jua', sans-serif;
-	font-size: 15px;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 12px;
 }
 
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active {
@@ -206,13 +239,8 @@ body {
 	left: 0;
 	bottom: 0;
 	width: 250px;
+	margin: 10px 0 30px 10px;
 	padding: 5px;
-	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
-	z-index: 1;
-	font-size: 12px;
-	border-radius: 10px;
-	border-radius: 10px;
 	overflow-y: auto;
 	background: rgba(255, 255, 255, 0.7);
 	z-index: 1;
@@ -228,7 +256,7 @@ body {
 	display: block;
 	height: 1px;
 	border: 0;
-	border-top: 2px solid #21825B;
+	border-top: 2px solid #5F5F5F;
 	margin: 3px 0;
 }
 
@@ -242,16 +270,7 @@ body {
 
 #menu_wrap .option button {
 	margin-left: 5px;
-	margin-top: 5px;
-	width: 70px;
-	height: 30px;
-	background: #21825B;
-	text-align: center;
-	border: 0px;
-	border-radius: 5px;
-	color:white;
 }
-
 
 #placesList li {
 	list-style: none;
@@ -381,68 +400,3 @@ body {
 	cursor: default;
 	color: #777;
 }
-
-#indexImg1{
-	margin-top: -245px;
-	width: 100%;
-	height: 1280px;
-	background-image: url("../image/index1.jpg");
-}
-
-/*TODO 화면 비율 100% 25% 150% 조절*/
-
-
-
-body  {
-	max-width: 2000px;
-     /*background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');*/
-	 background-image: url(https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
-	background-repeat: no-repeat;
-  background-size:cover;
-     /*   -webkit-animation: slidein 50s;
-        animation: slidein 50s;
-
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-
-        -webkit-animation-direction: alternate;
-        animation-direction: alternate;    */          
-}
-
-@-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
-}
-
-@keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
-
-}
-
-
-
-/* .center */
-/* { */
-/*   display: flex; */
-/*   align-items: center; */
-/*   justify-content: center; */
-/*   position: absolute; */
-/*   margin: auto; */
-/*   top: 0; */
-/*   right: 0; */
-/*   bottom: 0; */
-/*   left: 0; */
-/*   background: rgba(75, 75, 250, 0.3); */
-/*   border-radius: 3px; */
-/* } */
-/* .center h1{ */
-/*   text-align:center; */
-/*   color:white; */
-/*   font-family: 'Source Code Pro', monospace; */
-/*   text-transform:uppercase; */
-/* } */
-
