@@ -50,7 +50,7 @@
 			<div class="exVideo">
 				<p>오늘의 추천 영상</p>
 				<div class="exVideo_1">
-					<iframe width="660" height="400" src="https://www.youtube.com/embed/I4ovzV-BLDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<iframe width="760" height="480" src="https://www.youtube.com/embed/I4ovzV-BLDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					<p>건강 노인 운동 따라해보기!</p>
 				</div>
 			</div>

@@ -41,6 +41,12 @@
 					<p>주의사항 : ${routine.routineWarn }</p>
 					<p>추천 영양제 : ${routine.recSupplements }</p>
 				</div>
+				<div class="Like">
+				<!-- 작은 메뉴상자 -->
+					<!-- 회원 이름 -->
+					<!-- 마이페이지 버튼 -->
+					<!-- 찜한 운동 -->
+				</div>
 			</div>
 			
 
