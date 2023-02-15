@@ -69,20 +69,19 @@
 	<div class="menu">
 		<div class="menu_text">Contents</div>
 
-		<div class="left_menu_box"></div>
 		<div class="right_menu_box">
 
 			<div class="button_box_top">
-				<input type="button" class="box" value="운동"
+				<input type="button" class="box1" value="운동"
 					onClick="location.href='<c:url value='/exercise/exerciseInfo'/>'">
-				<input type="button" class="box" value="영양제"
+				<input type="button" class="box2" value="영양제"
 					onClick="location.href='<c:url value='/spm/listSupplement'/>'">
 			</div>
 
 			<div class="button_box_bottom">
-				<input type="button" class="box" value="건강 알리미"
+				<input type="button" class="box3" value="건강 알리미"
 				onClick="location.href='<c:url value='/community/healthcare'/>'">
-			<input type="button" class="box" value="커뮤니티"
+			<input type="button" class="box4" value="커뮤니티"
 				onClick="location.href='<c:url value='/community/list/${num=1}'/>'">
 			</div>
 
