@@ -17,8 +17,7 @@ public class SpmService implements ISpmService {
 
 	@Override
 	public ArrayList<spmVO> listSupplement() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listSupplement();
 	}
 
 	@Override
@@ -27,8 +26,8 @@ public class SpmService implements ISpmService {
 	}
 
 	@Override
-	public ArrayList<spmVO> ctgListSpm(String spmCtg) {
-		return dao.ctgListSpm(spmCtg);
+	public ArrayList<spmVO> ctgListSpm(String spmTotalCtg) {
+		return dao.ctgListSpm(spmTotalCtg);
 	}
 
 }

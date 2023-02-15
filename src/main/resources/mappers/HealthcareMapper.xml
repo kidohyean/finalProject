@@ -6,7 +6,11 @@
   <mapper namespace="com.finalProject.project.dao.IHealthcareDAO">
 
   <select id="graphView" parameterType="hashmap" resultType="com.finalProject.project.model.HealthcareGraphVO">
-    SELECT * FROM healthcaregraph WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT #{count}
+    SELECT * FROM
+    (SELECT * FROM healthcaregraph 
+    WHERE hcdName=#{hcdName} AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT #{count}
+    ) AS A ORDER BY hcdJoinDate ASC;
+
   </select>
 
   <insert id="hcdInput" parameterType="hashmap">
@@ -22,4 +26,72 @@
     SELECT hcdValue FROM healthcaregraph WHERE hcdName="키" AND memId=#{memId} ORDER BY hcdJoinDate DESC LIMIT 1
   </select>
 
+  <update id="itemCheck" parameterType="hashmap">
+    UPDATE exercisemylist
+    SET routineCK = #{changeNum}, routineUpdateDate = DEFAULT
+    WHERE memId = #{memId} AND elMyNo = #{itemNo}
+  </update>
+
+  <select id="dateCount" parameterType="hashmap" resultType="hashmap">
+    SELECT DATE_FORMAT(myRoutineDate,'%d') myDate, count(myRoutineDate) count
+    FROM exercisemylist
+    WHERE memId = #{memId} and
+    Date(myRoutineDate) like CONCAT(#{date},'%')
+    GROUP BY myDate;
+  </select>
+
+  <select id="topTodayList" parameterType="hashmap" resultType="hashmap">
+    SELECT DATE_FORMAT(myRoutineDate,'%h:%i') myTime, myRoutine, routineCK, elMyNo
+    FROM exercisemylist
+    WHERE memId = #{memId} and Date(myRoutineDate) like CONCAT(#{date},'%')
+  </select>
+
+  <select id="calendarMyList" parameterType="hashmap" resultType="hashmap">
+    SELECT eml.elMyNo, eml.myRoutine, eml.routineNo, eml.routineCK, eml.myRoutineDate, einfo.routineName
+    FROM exercisemylist eml
+    INNER JOIN exerciseinfo einfo
+    ON eml.routineNo = einfo.routineNo
+    WHERE memId = #{memId} and
+    Date(myRoutineDate) = #{date};
+  </select>
+
+  <select id="exerciseMyList" parameterType="string" resultType="hashmap">
+    SELECT elist.elNo, elist.routineNo, eInfo.routineName, eInfo.routineCategory, eInfo.recExercise1, eInfo.recExercise2, eInfo.recExercise3
+    FROM exerciselist elist
+    INNER JOIN exerciseInfo eInfo
+    ON elist.routineNo = eInfo.routineNo
+    WHERE elist.memId = #{memId};
+  </select>
+
+  <select id="exerciseRecommendList" parameterType="hashmap" resultType="hashmap">
+    SELECT routineNo, routineName, routineCategory, recExercise1, recExercise2, recExercise3
+    FROM exerciseinfo
+    <choose>
+      
+      <when test="oxy != null and (oxy == 0 and mus ==1)">
+        WHERE routineOxy =0 AND routineMus =1;
+      </when>
+      <when test="oxy != null and (oxy == 1 and mus ==0)">
+        WHERE routineOxy =1 AND routineMus =0;
+      </when>
+      <otherwise>
+        ;
+      </otherwise>
+    </choose>
+    
+  </select>
+  <insert id="createMyList" parameterType="hashmap">
+    INSERT INTO exercisemylist (memId, routineNo, routineCreateDate, routineUpdateDate, routineCK, myRoutineDate, myRoutine)
+    VALUES (#{memId}, #{routineNo}, DEFAULT,  DEFAULT, 0, #{date}, #{routine});
+  </insert>
+
+  <delete id="deleteList" parameterType="int">
+    DELETE FROM exerciselist WHERE elNo=#{elNo}
+
+  </delete>
+
+  <delete id="deleteMyList" parameterType="int">
+    DELETE FROM exercisemylist WHERE elMyNo=#{elMyNo}
+
+  </delete>
   </mapper>

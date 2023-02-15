@@ -68,7 +68,7 @@ document.addEventListener('keydown', function(event){
         </c:if>
    </div>
     </form>
-    
+    <p class="thatgle1">댓글</p>
     <div>
     <c:forEach var='cvoList' items="${cvoList}">
             <c:if test="${cvoList.cDepth eq '0'}">
@@ -90,6 +90,8 @@ document.addEventListener('keydown', function(event){
         </c:forEach>
         
       </div>
+    
+    
     
     <div class="thatgle">
     

@@ -140,4 +140,5 @@ private boolean next;
         displayPost = (num - 1) * postNum;
         setPageNum(endPageNum_tmp);
        }
+
     }

@@ -2,6 +2,13 @@ package com.finalProject.project.model;
 
 public class ExerciseInfoVO {
 
+	private String exVideoNo;
+	private String exVideolink;
+	private String exVideoName;
+	private String exStretchlink;
+	private String exStretchName;
+
+	
 	private String routineNo;
 	private String routineName;
 	private String routineInfo;
@@ -10,104 +17,146 @@ public class ExerciseInfoVO {
 	private String recSupplements;
 	private String useMachine;
 	private String useVideo;
-	private String routineDate1;
-	private String routineDate2;
-	private String routineDate3;
-	private String routineDate4;
+	private String routineDate;
 	private String recExercise1;
 	private String recExercise2;
 	private String recExercise3;
-	public String getRoutineNo() {
-		return routineNo;
+
+
+	public String getExVideoNo() {
+		return this.exVideoNo;
 	}
+
+	public void setExVideoNo(String exVideoNo) {
+		this.exVideoNo = exVideoNo;
+	}
+
+	public String getExVideolink() {
+		return this.exVideolink;
+	}
+
+	public void setExVideolink(String exVideolink) {
+		this.exVideolink = exVideolink;
+	}
+
+	public String getExVideoName() {
+		return this.exVideoName;
+	}
+
+	public void setExVideoName(String exVideoName) {
+		this.exVideoName = exVideoName;
+	}
+
+	public String getExStretchlink() {
+		return this.exStretchlink;
+	}
+
+	public void setExStretchlink(String exStretchlink) {
+		this.exStretchlink = exStretchlink;
+	}
+
+	public String getExStretchName() {
+		return this.exStretchName;
+	}
+
+	public void setExStretchName(String exStretchName) {
+		this.exStretchName = exStretchName;
+	}
+
+	public String getRoutineNo() {
+		return this.routineNo;
+	}
+
 	public void setRoutineNo(String routineNo) {
 		this.routineNo = routineNo;
 	}
+
 	public String getRoutineName() {
-		return routineName;
+		return this.routineName;
 	}
+
 	public void setRoutineName(String routineName) {
 		this.routineName = routineName;
 	}
+
 	public String getRoutineInfo() {
-		return routineInfo;
+		return this.routineInfo;
 	}
+
 	public void setRoutineInfo(String routineInfo) {
 		this.routineInfo = routineInfo;
 	}
+
 	public String getRoutineCategory() {
-		return routineCategory;
+		return this.routineCategory;
 	}
+
 	public void setRoutineCategory(String routineCategory) {
 		this.routineCategory = routineCategory;
 	}
+
 	public String getRoutineWarn() {
-		return routineWarn;
+		return this.routineWarn;
 	}
+
 	public void setRoutineWarn(String routineWarn) {
 		this.routineWarn = routineWarn;
 	}
+
 	public String getRecSupplements() {
-		return recSupplements;
+		return this.recSupplements;
 	}
+
 	public void setRecSupplements(String recSupplements) {
 		this.recSupplements = recSupplements;
 	}
+
 	public String getUseMachine() {
-		return useMachine;
+		return this.useMachine;
 	}
+
 	public void setUseMachine(String useMachine) {
 		this.useMachine = useMachine;
 	}
+
 	public String getUseVideo() {
-		return useVideo;
+		return this.useVideo;
 	}
+
 	public void setUseVideo(String useVideo) {
 		this.useVideo = useVideo;
 	}
-	public String getRoutineDate1() {
-		return routineDate1;
+
+	public String getRoutineDate() {
+		return this.routineDate;
 	}
-	public void setRoutineDate1(String routineDate1) {
-		this.routineDate1 = routineDate1;
+
+	public void setRoutineDate(String routineDate) {
+		this.routineDate = routineDate;
 	}
-	public String getRoutineDate2() {
-		return routineDate2;
-	}
-	public void setRoutineDate2(String routineDate2) {
-		this.routineDate2 = routineDate2;
-	}
-	public String getRoutineDate3() {
-		return routineDate3;
-	}
-	public void setRoutineDate3(String routineDate3) {
-		this.routineDate3 = routineDate3;
-	}
-	public String getRoutineDate4() {
-		return routineDate4;
-	}
-	public void setRoutineDate4(String routineDate4) {
-		this.routineDate4 = routineDate4;
-	}
+
 	public String getRecExercise1() {
-		return recExercise1;
+		return this.recExercise1;
 	}
+
 	public void setRecExercise1(String recExercise1) {
 		this.recExercise1 = recExercise1;
 	}
+
 	public String getRecExercise2() {
-		return recExercise2;
+		return this.recExercise2;
 	}
+
 	public void setRecExercise2(String recExercise2) {
 		this.recExercise2 = recExercise2;
 	}
+
 	public String getRecExercise3() {
-		return recExercise3;
+		return this.recExercise3;
 	}
+
 	public void setRecExercise3(String recExercise3) {
 		this.recExercise3 = recExercise3;
 	}
-	
-
 	
 }

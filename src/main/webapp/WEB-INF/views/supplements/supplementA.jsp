@@ -8,6 +8,7 @@
 		<title>SupplementMenu</title>
 		<c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/supplements/spmNav.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/supplements/spmback.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 		<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
 		<script src="<c:url value='/js/supplement.js'/>"></script>
@@ -18,47 +19,56 @@
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		</div>
 		
-		<!-- spmMenu -->
-	
-		<div class="container-fluid">
-		    <div class="container-fluid">
-		      <ul class="nav navbar-nav">
-		        <li><a id="len1" class="hoverable" href="<c:url value='/spm/spmCtg/${1}'/>">공통 & 필수</a></li>
-		        <li><a id="len2" class="hoverable" href="<c:url value='/spm/spmCtg/${2}'/>">심혈관계</a></li>
-		        <li><a id="len3" class="hoverable" href="<c:url value='/spm/spmCtg/${3}'/>">뼈 & 관절</a></li>
-		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${4}'/>">눈 & 시력</a></li>
-		        <li><a id="len5" class="hoverable" href="<c:url value='/spm/spmCtg/${5}'/>">간</a></li>
-		        <li><a id="len6" class="hoverable" href="<c:url value='/spm/spmCtg/${6}'/>">소화기관</a></li>
-		      </ul>
-		    </div>
-		</div>
-		<div id="recommendSpm">
-		</div>
-		<!-- spm -->
-		<div class="spmA" style="padding-top: 20px; text-align:center;">
-		<section >
-			<table width="1280">
-					<c:forEach var="spm" items="${spmList }">
-			            <tr>
-			            	<td rowspan="2">
-			            	<a href="<c:url value='/supplements/spmDetail/${spm.spmName}'/>" >
-			               <img src="<c:url value='/images/${spm.spmImg}' />" width="180" height="180" >
-			               </a>
-			               </td>
-			            	<td><a href="<c:url value='/supplements/spmDetail/${spm.spmName}'/>" > ${spm.spmName }</a></td>
-			            	<td rowspan="2" width="300">${spm.spmCtgN }</td>
-			            </tr>
-			            <tr><td>${spm.spmEffect }</td></tr>
-			         </c:forEach>
-			         <br>
-				</table><br>
-		</section>
+		<div class="subtitle">
+			<h1>영양 더하기</h1>
+			<h2>나에게 필요한 영양을 채워주세요</h2>
 		</div>
 
+		<article class="spm-Main">
+		
+		<div class="spmMenu">
+		
+			<div id="left">
+				<ul class="sidebar-menu">
+				    <li><span class="nav-section-title"></span></li>
+				    <li ><a href="<c:url value='/spm/listSupplement'/>"><span class="fa fa-university"></span>전체 영양제</a></li>
+				    <li class="have-children"><a href="#"><span class="fa fa-tags"></span>영양제 카테고리</a>
+				      <ul>
+				        <li><a  href="<c:url value='/spm/condition'/>" >건강조건별</a></li>
+				        <li><a href="<c:url value='/spm/effect'/>" >효능별</a></li>
+				      </ul>
+				    </li>
+				  </ul>
+			</div>
+			
+			<div class="spmprd">
+				<div class="totalSpm" style="margin-top:20px; margin-right:50px; color:black; font-size:25px;">
+					<h1>전체 영양제</h1>
+				</div>
+				<br>
+				<hr>
+				<br>
+			   <c:forEach var="spm" items="${spmList }">
+			   	<a href="<c:url value='/supplements/spmDetail/{spmName}' />">
+				   <div class="product-card">
+				   		<div class="product-tumb">
+				   			<img src="<c:url value='/images/${spm.spmImg }'/>">
+				   		</div>
+				   		<div class="product-details">
+				   			<h4><a href="<c:url value='/supplements/spmDetail/{spmName}' />">${spm.spmName }</a></h4>
+				   			<p>${spm.spmEffect }</p>
+				   		</div>
+				   	</div>
+			   </c:forEach>
+			   	</a>
+			   </div>
+   
+			   
+			   </div>
+		</article>
 		
 		<!-- footer -->
-		<div class="pageSize" style="margin-top: 0;">
 		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
-		</div>
+		
 	</body>
 </html>

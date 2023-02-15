@@ -32,13 +32,48 @@ body{
 	width: 100%;
 	height: 300px;
 	margin-top: 70px;
-	background-image: url("../../image/healthcare/bn2.jpg");
+	background-image: url("../../image/healthcare/bn4.jpg");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
-#healthcareBN p{
+#healthcareBN :first-child{
 	position: relative;
+	margin-bottom: 5px;
+	top: 100px;
+	text-align: center;
 	font-family: 'Hanna', sans-serif;
+	font-size: 40px;
+}
+
+#healthcareBN :last-child{
+	margin-top: 0px;
+	position: relative;
+	top: 100px;
+	text-align: center;
+	font-family: 'Hanna', sans-serif;
+	font-size: 30px;
+	color: #262626d9;
+}
+
+.emptySid{
+	text-align: center;
+	height: 300px;
+	background-color: #aab9db;
+	padding-top: 50px;
+	
+}
+
+.emptySid div:first-child{
+	
+	font-size: 30px;
+	font-family: 'TTTtangsbudaejjigaeB', serif;
+}
+
+.loginPage{
+	
+	font-size: 20px;
+	font-family: 'TTTtangsbudaejjigaeB', serif;
+	color: #b3841a;
 }
 #position{
 	border: 1px solid green;

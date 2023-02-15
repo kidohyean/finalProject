@@ -16,23 +16,22 @@ $(document).ready(function(){
 });
 */
 
-$(function(){
-  var str = '#len'; //increment by 1 up to 1-nelemnts
-  $(document).ready(function(){
-    var i, stop;
-    i = 1;
-    stop = 6; //num elements
-    setInterval(function(){
-      if (i > stop){
-        return;
-      }
-      $('#len'+(i++)).toggleClass('bounce');
-    }, 500)
-  });
-});
+ 
+ $(document).ready(function(){
 
- 
- 
+  $(".sidebar-menu > li.have-children a").on("click", function(i){
+    if( ! $(this).parent().hasClass("active") ){
+      $(".sidebar-menu li ul").slideUp();
+      $(this).next().slideToggle();
+      $(".sidebar-menu li").removeClass("active");
+      $(this).parent().addClass("active");
+    }
+    else{
+      $(this).next().slideToggle();
+      $(".sidebar-menu li").removeClass("active");
+        }
+    });
+});
  
  
  

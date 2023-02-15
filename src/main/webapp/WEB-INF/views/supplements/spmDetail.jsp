@@ -13,6 +13,7 @@
 	</head>
 	<body>
 		<!-- header -->
+		
 		<div class="pageSize">
 		<c:import url="/WEB-INF/views/headerFooter/header.jsp" />
 		</div>
@@ -24,7 +25,7 @@
 		        <li><a id="len2" class="hoverable" href="<c:url value='/spm/spmCtg/${2}'/>">심혈관계</a></li>
 		        <li><a id="len3" class="hoverable" href="<c:url value='/spm/spmCtg/${3}'/>">뼈 & 관절</a></li>
 		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${4}'/>">눈 & 시력</a></li>
-		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${5}'/>">간</a></li>
+		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${5}'/>">피로</a></li>
 		        <li><a id="len4" class="hoverable" href="<c:url value='/spm/spmCtg/${6}'/>">소화기관</a></li>
 		      </ul>
 		    </div>
@@ -42,7 +43,7 @@
 				<br>
 				<table width="1280">
 					<tr><td>※주의사항 : ${spm.spmNotIngredient}</td></tr>
-					<tr><td style=" text-align:center;"><img src="<c:url value='/images/${spm.spmIngredient }'/>" width="800" ></td></tr>
+					<tr><td style=" text-align:center;"><img src="<c:url value='/images/${spm.spmIngredient }'/>" width="500" ></td></tr>
 				</table>
 		
 			</div>

@@ -6,19 +6,28 @@
    <mapper namespace="com.finalProject.project.dao.ISpmDAO">
    		<resultMap id="spmResult" type="com.finalProject.project.model.spmVO" >
    			<result property="spmName" column="spmName" />
-   			<result property="spmIngredient" column="spmIngredient" />
+   			<result property="spmIngred" column="spmIngred" />
    			<result property="spmEffect" column="spmEffect" />
    			<result property="spmExplain" column="spmExplain" />
-   			<result property="spmNotIngredient" column="spmNotIngredient" />
-   			<result property="spmCompany" column="spmCompany" />
-   			<result property="spmCtg" column="spmCtg" />
-   			<result property="spmCtgN" column="spmCtgN" />
+   			<result property="spmNotIngred" column="spmNotIngred" />
+   			<result property="spmTotalCtg" column="spmTotalCtg" />
+   			<result property="spmIngCtg" column="spmIngCtg" />
+   			<result property="spmEffCtg" column="spmEffCtg" />
    		</resultMap>
+   	
+   	<!--    total spm page	 -->
+   	<select id="listSupplement" resultMap="spmResult">
+   		SELECT*FROM supplements ORDER BY spmName
+   	</select>
+   	
+   	
+
 	<select id="ctgListSpm" parameterType="string" resultMap="spmResult">
-		SELECT*FROM supplements WHERE spmCtg=#{spmCtg}
+		SELECT*FROM supplements WHERE spmTotalCtg=#{spmTotalCtg}
 		ORDER BY spmName
 	</select>
-   
+	
+<!--  detail page   -->
    <select id="spmDetail" parameterType="string" resultType="com.finalProject.project.model.spmVO">
 		SELECT*FROM supplements WHERE spmName=#{spmName}
 	</select>

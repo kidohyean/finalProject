@@ -11,6 +11,7 @@ import com.finalProject.project.model.commentVO;
 public interface ICommunityDAO {
 	public ArrayList<AggregationVO> listAllAggre(HashMap<String,Object> map); // 전체 리뷰 조회
 	public ArrayList<AggregationVO> myListAllAggre(HashMap<String,Object> map); // 내가 쓴글
+	public ArrayList<AggregationVO> SearchlistAllAggre(HashMap<String,Object>map);//리스트검색
 	public void insertAggregation(AggregationVO Aggre); // 리뷰 추가
 	public void updateAggregation(HashMap<String,Object> map); // 리뷰 수정
 	public void viewsAggregation(int agNum); // 조회수 카운트
@@ -19,7 +20,7 @@ public interface ICommunityDAO {
 	public AggregationVO detailViewAggre(int agNum); // 영양제 리뷰 조회
 	public void insertComment(commentVO cVo);
 	public ArrayList<commentVO> listAllComment(int agNum); 
-	public int dataCount();
+	public int dataCount(HashMap<String,Object> map);
 	public int myDataCount(String memId);
 }
 

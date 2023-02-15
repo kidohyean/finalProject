@@ -50,7 +50,7 @@
     <div class="boardLists">
         <div class="top">
             <div id="topList" class="num">번호</div>
-            <div id="topList" class="title">제목</div>
+            <div id="topList" class="title1">제목</div>
             <div id="topList"class="writer">글쓴이</div>
             <div id="topList" class="date">작성일</div>
             <div id="topList" class="count">조회</div>
@@ -60,7 +60,7 @@
             <div class="boardList">
                 <div id="listItem" class="num">${i + page.displayPost}</div>
                 <input type="hidden" class="num1" value="${comList.agNum}">
-                <div id="listItem" class="title">${comList.agName}</div>
+                <div id="listItem" class="title1">${comList.agName}</div>
                 <div id="listItem" class="writer">${comList.memId}</div>
                 <div id="listItem" class="date">${comList.agDate}</div>
                 <div id="listItem" class="count">${comList.agCount}</div>
@@ -108,11 +108,13 @@
     </div>      
     
             <div id="wrap1">
-                <form id="fruSearchFrm">
-						<input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
-		            
-		            <button type="submit" class="header-item">검색</button>
-		           
+                <form id="listSearchFrm" action="/community/Searchlist/1">
+                <select id="type" name="type">
+						<option value="agName">제목</option>
+						<option value="memId">글쓴이</option>
+					</select>
+				 <input type="text" name="keyword" class="input-search-word" placeholder="검색어 입력">
+		            <input type="submit" class="header-item" value="검색">
 				</form>
 			</div>	
         
