@@ -43,7 +43,7 @@ h3{
 	display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .location span {
