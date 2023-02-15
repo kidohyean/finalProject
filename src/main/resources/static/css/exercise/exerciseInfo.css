@@ -48,11 +48,13 @@ div.slogan {
 }
 
 .panel{
-	border:1px solid black;
+	border:1.5px solid #2b5580;
 	padding:15px;
 	padding-left:40px;
 	padding-right:40px;
-
+	cursor:pointer;
+	color:#2b5580;
+	transition:all 1s;
 	}
 	
 .active{
@@ -72,7 +74,7 @@ div.slogan {
 }
 
 .rank_list{
-	font-size:30px;
+	font-size:25px;
 	width:760px;
 	height:505px;
 	padding:0;
@@ -82,26 +84,29 @@ div.slogan {
 
 
 .updown {
-		margin-top:30px;
+		margin-top:60px;
     	border: 0.5px solid black;
         width: 0.1px;
         height: 500px;
+        background-color:#2b5580;
+        border-color:#2b5580;
     }
 
 p{
 	padding:10px;
 	font-weight:bold;
 	font-size:30px;
+	color:#2b5580;
 }
 
 .rank_list li{
 	line-height:80px;
 	border:none;
-	border-radius:20px;
+	border-radius:10px;
 	box-shadow:5px 5px gray;
 	margin:15px;
 	padding:0px 0px 0px 30px;
-	border:0.5px solid gray;
+	border:0.5px solid #2b5580;
 }
 
 .exVideo_1 p{
@@ -124,4 +129,55 @@ p{
 .ListBox{
 	margin-left:8%;
 }
+
+
+.list a {
+  position: relative;
+  //display:block;
+  height: 80px;
+  width: 200px;
+  margin: 10px 7px;
+  padding:20px;
+	padding-left:50px;
+	padding-right:50px;
+	color:#2b5580;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+
+  border: 1.5px #2b5580 solid;
+  border-radius: 4px;
+  text-transform: uppercase;
+  outline: 0;
+  overflow:hidden;
+  background: none;
+  z-index: 1;
+  cursor: pointer;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+}
+
+.panel:hover {
+  color: whitesmoke;
+}
+
+.panel:before {
+  content: "";
+  position: absolute;
+  background: #2b5580;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  -webkit-transition: top 0.09s ease-in;
+}
+
+.panel:hover:before {
+  top: 0;
+}
+
 
