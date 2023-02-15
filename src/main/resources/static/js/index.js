@@ -13,3 +13,4 @@ $(document).ready(function(){
         $('#listSlider1').css("transition-duration","500ms")
     });
 });
+
