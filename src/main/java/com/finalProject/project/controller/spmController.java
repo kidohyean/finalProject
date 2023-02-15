@@ -18,7 +18,7 @@ public class spmController {
 	
 	@RequestMapping("/spm/condition")
 	public String spmCondition() {
-		return "supplements/spmCondtion";
+		return "supplements/spmCondition";
 	}
 	
 	@RequestMapping("/spm/effect")
@@ -35,12 +35,13 @@ public class spmController {
 	
 	
 	
-	// spmprd
-	@RequestMapping("/spm/spmCtg/{spmTotalCtg}")
-	public String supplementA(@PathVariable String spmTotalCtg, Model model) {
-		ArrayList<spmVO>spmList=service.ctgListSpm(spmTotalCtg);
-		model.addAttribute("spmList",spmList);
-		return "supplements/supplementA";
+	// Effspmprd
+	@RequestMapping("/spm/spmlist/{spmEffCtg}")
+	public String spmEffCtgList(@PathVariable String spmEffCtg, Model model) {
+		ArrayList<spmVO>spmEffList=service.efflistSpm(spmEffCtg);
+		model.addAttribute("spmEffList",spmEffList);
+//		System.out.print(spmEffCtg);
+		return "supplements/supplementEff";
 	}
 
 	// detail	

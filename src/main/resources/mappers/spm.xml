@@ -20,10 +20,9 @@
    		SELECT*FROM supplements ORDER BY spmName
    	</select>
    	
-   	
-
-	<select id="ctgListSpm" parameterType="string" resultMap="spmResult">
-		SELECT*FROM supplements WHERE spmTotalCtg=#{spmTotalCtg}
+   	<!--    Eff spm page -->
+	<select id="efflistSpm" parameterType="string" resultMap="spmResult">
+		SELECT*FROM supplements WHERE spmEffCtg=#{spmEffCtg}
 		ORDER BY spmName
 	</select>
 	

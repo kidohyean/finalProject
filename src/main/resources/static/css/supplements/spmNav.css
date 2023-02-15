@@ -160,8 +160,8 @@ li.active.have-children span::after {
 }    
 
 .health-wrap .health-one {
-    width: calc(20% - 20px);
-    height: 150px;
+    width: calc(15% - 20px);
+    height: 250px;
     margin: 0px 20px 20px 0px;
     float: left;
     border-radius: 20px;
@@ -184,18 +184,71 @@ li.active.have-children span::after {
 }
 
 .health-wrap .health-one .itxt .icon {
-    width: 45px;
-    height: 45px;
+    width: 105px;
+    height: 105px;
     display: block;
     margin: 0 auto 20px;
 }
 
-.health-wrap .eyes .itxt .icon {
+.health-wrap .eye .itxt .icon {
     background: url(/image/spm/spmeye.png) center no-repeat;
-    background-size: 45px 45px;
+    background-size: 105px 105px;
 }
 
+.health-wrap .fat .itxt .icon {
+    background: url(/image/spm/spmfat.png) center no-repeat;
+    background-size: 105px 105px;
+}
 
+.health-wrap .blood .itxt .icon {
+    background: url(/image/spm/spmblood.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .liver .itxt .icon {
+    background: url(/image/spm/spmliver.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .gut .itxt .icon {
+    background: url(/image/spm/spmgut.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .stress .itxt .icon {
+    background: url(/image/spm/spmstress.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .imm .itxt .icon {
+    background: url(/image/spm/spmimm.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .bone .itxt .icon {
+    background: url(/image/spm/spmbone.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .aging .itxt .icon {
+    background: url(/image/spm/spmaging.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .bp .itxt .icon {
+    background: url(/image/spm/spmbp.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .bs .itxt .icon {
+    background: url(/image/spm/spmbs.png) center no-repeat;
+    background-size: 105px 105px;
+}
+
+.health-wrap .joint .itxt .icon {
+    background: url(/image/spm/spmjoint.png) center no-repeat;
+    background-size: 105px 105px;
+}
 
 
 
