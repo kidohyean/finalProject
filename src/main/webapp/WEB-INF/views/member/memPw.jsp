@@ -15,6 +15,7 @@
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 <script src="<c:url value='/js/login.js'/>"></script>
 <script src="<c:url value='/js/memIdCheck.js'/>"></script>
+<script src="<c:url value='/js/pwCheck.js'/>"></script>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
 					<div class="button-box">
 						<input class="myPage-button" type="button" value="나의 개인정보"onClick="location.href='<c:url value='myPage'/>'">
 						<input class="myPage-button" type="button" value="비밀번호 변경"onClick="location.href='<c:url value='memPw'/>'">
-						<input class="myPage-button" type="button" value="나의 찜목록"> 
+						<input class="myPage-button" type="button" value="나의 찜목록" onClick="location.href='<c:url value='likes'/>'">
 					</div>
 			</div>
 
@@ -46,21 +47,21 @@
 				<div class="myPage-main-container-header">
 					<h3>비밀번호 변경</h3>
 					<hr>
-					<form method="post" action="<c:url value='/member/memPw'/>">
+					<form id = "form-change-password" method="post">
 
 						<div class="left_container">
 							<div class="container">
 
 								<div class="user_label">현재 비밀번호</div>
-								<input class="user_box" id=memPw type=password name="memPw" 
+								<input class="user_box" id="memPw" type="password" name="memPw" 
 								data-sb-balidations="required">
 									
 								<div class="user_label">새 비밀번호</div>
-								<input class="user_box" id=memPw type=password name="newmemPw" 
+								<input class="user_box" id="newmemPw" type="password" name="newmemPw" 
 								data-sb-balidations="required">
 									
 								<div class="user_label">새 비밀번호 확인</div>
-								<input class="user_box" id=memPw type=password name="newmemPwConfirm" 
+								<input class="user_box" id="newmemPwConfirm" type="password" name="newmemPwConfirm" 
 								data-sb-balidations="required">
 									
 									
@@ -96,7 +97,6 @@
 
 
 
-	<!-- footer -->
 
 
 </body>

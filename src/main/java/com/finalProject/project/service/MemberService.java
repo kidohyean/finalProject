@@ -102,9 +102,11 @@ public class MemberService implements IMemberService {
 		dao.deletemember(memId);
 
 	}
-	public void modifymemPw(String memId, String newmemPw) {
-		dao.modifymemPw(memId, newmemPw);
+	@Override
+	public void modifymemPw(HashMap<String,Object>map) {
+		dao.modifymemPw(map);
 	}
+
 
 
 

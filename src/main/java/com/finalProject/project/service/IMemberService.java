@@ -15,7 +15,8 @@ public interface IMemberService {
 	public void updatemember(MemberVO memId); // 회원 정보수정
 	
 	public void deletemember(String memId); // 회원 탈퇴
-	public void modifymemPw(String memId, String newmemPw); //비번 변경
+	public void modifymemPw(HashMap<String,Object>map); // 비번 변경
+	
 	
 
 	
