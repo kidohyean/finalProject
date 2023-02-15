@@ -30,7 +30,7 @@
 			<div class="tab">
 				<div class="flex">
 					<ul class="list">
-					<li><a class="panel active">등</a></li>
+					<li><a class="panel active">등/가슴</a></li>
 					<li><a class="panel">어깨/목</a></li>
 					<li><a class="panel">팔/다리</a></li>
 					<li><a class="panel">허리</a></li>
