@@ -33,7 +33,7 @@
 						<div class="button-box">
 						<input class="myPage-button" type="button" value="나의 개인정보"onClick="location.href='<c:url value='myPage'/>'">
 						<input class="myPage-button" type="button" value="비밀번호 변경"onClick="location.href='<c:url value='memPw'/>'">
-						<input class="myPage-button" type="button" value="나의 찜목록"> 
+						<input class="myPage-button" type="button" value="나의 찜목록" onClick="location.href='<c:url value='likes'/>'">
 					</div>
 			</div>
 

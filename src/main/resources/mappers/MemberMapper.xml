@@ -51,7 +51,7 @@
 	</delete>
 
    <!-- 비밀번호 변경 -->
-   <update id="ModifymemPw" parameterType="string">
+   <update id="modifymemPw" parameterType="hashmap">
    update member
    set memPw=#{newmemPw}
    WHERE memId = #{memId}
