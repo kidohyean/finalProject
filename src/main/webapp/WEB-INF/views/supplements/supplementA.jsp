@@ -34,8 +34,8 @@
 				    <li ><a href="<c:url value='/spm/listSupplement'/>"><span class="fa fa-university"></span>전체 영양제</a></li>
 				    <li class="have-children"><a href="#"><span class="fa fa-tags"></span>영양제 카테고리</a>
 				      <ul>
-				        <li><a  href="<c:url value='/spm/condition'/>" >건강조건별</a></li>
-				        <li><a href="<c:url value='/spm/effect'/>" >효능별</a></li>
+				        <li><a  href="<c:url value='/spm/condition'/>" >성분별</a></li>
+				        <li><a href="<c:url value='/spm/effect'/>" >건강고민별</a></li>
 				      </ul>
 				    </li>
 				  </ul>

@@ -26,8 +26,10 @@ public class SpmService implements ISpmService {
 	}
 
 	@Override
-	public ArrayList<spmVO> ctgListSpm(String spmTotalCtg) {
-		return dao.ctgListSpm(spmTotalCtg);
+	public ArrayList<spmVO> efflistSpm(String spmEffCtg) {
+		return dao.efflistSpm(spmEffCtg);
 	}
 
-}
+
+	}
+

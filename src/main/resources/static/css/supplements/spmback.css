@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.subtitle  {
+	max-width: 100%;
+	height: 230px;
+     background-image: url(https://images.pexels.com/photos/7521481/pexels-photo-7521481.jpeg?auto=compress&cs=tinysrgb&w=1600);
+ 	 background-size:cover;
+}
+.subtitle h1{
+	padding-top:70px;
+	padding-bottom:10px;
+	font-size:40px;
+	color: black;
+}
+
+.subtitle h2{
+	color: #82D580;
+}
+
+
+
