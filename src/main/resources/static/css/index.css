@@ -107,6 +107,7 @@ div {
 	text-align: center;
 	font-family: 'InkLipquid';
 	font-size: 30px;
+	height:100px;
 }
 
 .map_box {
@@ -245,6 +246,14 @@ background-size:cover;
 	background-color: #F3CF98;
 	text-align: center;
 	font-size: 12px;
+}
+
+img{
+	background:url('../image/chatBot.png') no-repeat;
+	background-size:cover;
+	width:100px;
+	height:100px;
+	float:right;
 }
 
 /* 지도 css*/
