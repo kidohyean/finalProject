@@ -57,9 +57,9 @@
 				   			<h4><a href="<c:url value='/supplements/spmDetail/${spm.spmName}' />">${spm.spmName }</a></h4>
 				   			<p>${spm.spmEffect }</p>
 				   		</div>
-				   	</div>
+				   	</div></a>
 			   </c:forEach>
-			   	</a>
+			   	
 			   </div>
    
 			   
