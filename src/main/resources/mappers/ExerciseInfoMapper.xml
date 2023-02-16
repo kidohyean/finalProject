@@ -97,4 +97,15 @@
     SET routineVisit = routineVisit+1
     WHERE routineNo = #{routineNo}
   </update>
+  
+  <update id="saveMyList" parameterType="hashmap" >
+    INSERT IGNORE INTO exerciselist(memId, routineNo)
+    VALUES(#{memId},#{routineNo}); 
+  </update>
+  
+  <update id="saveListCount" parameterType="string">
+    UPDATE detailInfo
+    SET routineCount = routineCount+1
+    WHERE routineNo = #{routineNo}
+  </update>
  </mapper>

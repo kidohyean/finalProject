@@ -34,8 +34,8 @@
 						<img src="<c:url value='/image/${routine.routineNo}.png'/>">
 				</div>
 				<div class="detail-routine">
-					<h2>#${routine.routineName}&nbsp&nbsp<button class=like>찜하기</button></h2> 
-					
+					<h2>#${routine.routineName}&nbsp&nbsp<button id="likeBt" class="like">찜하기</button></h2> 
+					<input id="routineNo" type="hidden" value="${routine.routineNo}">
 					<p>운동정보 : ${routine.routineInfo }</p>
 					<p>카테고리 : ${routine.routineCategory }</p>
 					<p>주의사항 : ${routine.routineWarn }</p>
@@ -64,7 +64,7 @@
 							<h3>운동방법 : </h3>
 							${routine.useMachine}
 							<div class="useVideo">
-							${routine.useVideo}
+							<iframe width="560" height="380" src="${routine.useVideo}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							</div>
 						</div>
 						<div id="contents1_2" class="content1">
