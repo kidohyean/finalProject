@@ -180,3 +180,52 @@ h3 {
 .button3.button3:hover{
 	background: #00AE68;
 }
+
+.saveListDiv{
+	
+	display: flex;
+	justify-content: center;
+	
+}
+.saveExerciseList{
+	width: 46%;
+	height: 300px;
+	padding: 20px 2%;
+	margin: 20px 2%;
+	border: 1px solid black;
+	overflow: hidden;
+	
+    position: relative;
+	
+}
+
+.saveExerciseList ul li{
+	padding-left: 1%;
+	border: 3px solid black;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+.saveExerciseList ul li img{
+	width: 50px;
+	height: 50px;
+}
+
+.exListImgName{
+	display: flex;
+	align-items: center;
+}
+
+.exListImgName div{
+	margin-left: 5%;
+	font-size: 20px;
+}
+.saveListDiv ul{
+	list-style: none;
+}
+.saveSupplementsList{
+	width: 46%;
+	padding-top: 20px;
+	padding-left: 3%;
+	margin: 20px 2%;
+	border: 1px solid black;
+}

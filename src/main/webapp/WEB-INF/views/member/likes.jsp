@@ -10,10 +10,19 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/member/myPage.css'/>">
 <c:import url="/WEB-INF/views/headerFooter/topLink.jsp" />
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="<c:url value='/js/searchZip.js' />"></script>
 <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 
+<script type="text/javascript">
+	window.scrollTo(0, 0);
+	 $(document).ready(function(){
+
+		$(".saveExerciseList").click(function() {
+  		$("html, body").animate({ scrollTop: 0 }, "slow");
+  		return false;
+	 })
+		
+});
+</script>
 </head>
 
 <body>
@@ -45,29 +54,59 @@
 				<div class="myPage-main-container-header">
 					<h3>나의 찜 목록</h3>
 					<hr>
-					<div class="saveExerciseList">
-						<ul>
-							<c:forEach var='exList' items="${exList}">
-							<li>
-								<div class="exListName">${exList.routineName}</div>
-								<div class="exListCreateDate">${exList.routineCreateDate}</div>
-							</li>
-							</c:forEach>
-						</ul>
+					<div class="saveListDiv">
+						<div class="saveExerciseList">
+							<ul>
+								<c:forEach var='exList' items="${exList}">
+								<li>
+									<div class="exListCreateDate">${exList.routineCreateDate}</div>
+									<div class="exListImgName">
+										<img src="<c:url value='/image/${exList.routineNo}.png'/>">
+										<div class="exListName">${exList.routineName}</div>
+									</div>
+									
+									
+								</li>
+								<li>
+									snfjksaf
+								</li>
+								<li>
+									snfjksaf
+								</li>
+								<li>
+									snfjksaf
+								</li>
+								</c:forEach>
+							</ul>
 
-					</div>
-					<!--
-					<div class="saveSupplementsList">
-						<ul>
-							<c:forEach var='comList' items="${comList}">
-							<li>
-								<div class=""></div>
-							</li>
-							</c:forEach>
-						</ul>
+						</div>
+						
+						<div class="saveSupplementsList">
+							<ul>
+								<li>
+									snfjksaf
+								</li>
+								<li>
+									snfjksaf
+								</li>
+								<li>
+									snfjksaf
+								</li>
+								<!--
+								<c:forEach var='comList' items="${comList}">
+								<li>
+									<div class="">
+										<div class="supplementsName">${comList.routineName}</div>
+										<div class="supplementsCreateDate">${comList.routineCreateDate}</div>
+									</div>
+								</li>
+								</c:forEach>
+								-->
+							</ul>
 
+						</div>
 					</div>
-					-->
+					
 				</div>
 			</div>
 	
