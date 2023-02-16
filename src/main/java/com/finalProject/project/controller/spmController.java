@@ -58,7 +58,7 @@ public class spmController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("")
+	@RequestMapping("/spm/spmDetail/like")
 	public String detailViewRoutineInfoLike(@RequestParam String spmName,
 										Model model, HttpSession session) {
 		System.out.println(spmName);

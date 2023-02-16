@@ -33,14 +33,14 @@ $(document).ready(function(){
     });
 });
  
- 
+ /*
  $('#likeBt').click(function(){
         event.preventDefault();
  		
  		// 서버에 전송하고 결과 받아서 처리
  		$.ajax({
  			type:"post",
- 			url:"/exercise/detailViewRoutineInfo/like",
+ 			url:"/spm/spmDetail/like",
  			data: {"spmName":$('#spmName').val()},
  			dataType:'text',
  			success:function(result){
@@ -55,6 +55,8 @@ $(document).ready(function(){
  				alert("실패");
  			}
  		}); // ajax 종료 	
+  */
+ 
  
  
  
