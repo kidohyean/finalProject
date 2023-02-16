@@ -14,7 +14,7 @@
 <script src="<c:url value='/js/index.js'/>"></script>
 
 <!-- 카카오 지도 스타일 -->
-
+<c:import url="/WEB-INF/views/chatbot/chatModal.jsp" />
 
 </head>
 <body>
@@ -63,8 +63,11 @@
 		</c:if>
 
 		<div class="text">아래로 스크롤 해주세요!</div>
-		<img src="<c:url value='image/chatBot.png'/>" id="chatBot" >
-
+		<div id="chatBotDiv">
+			<a data-toggle="modal" data-target="#modal" role="button"
+				class="btn btn-big openmodale"><img
+				src="<c:url value='/image/chatBot.png'/>" id="chatBot"></a>
+		</div>
 	</div>
 
 	<div class="menu">
@@ -84,7 +87,7 @@
 					onClick="location.href='<c:url value='/community/healthcare'/>'">
 				<input type="button" class="box4" value="커뮤니티"
 					onClick="location.href='<c:url value='/community/list/${num=1}'/>'">
-				
+
 			</div>
 
 			<!-- 
@@ -98,16 +101,12 @@
 	</div>
 
 	<div class="image2"></div>
-	<div>
-
-		지도 API 넣을 예정
-	
-	</div>
+	<div class="map_api">지도 API 넣을 예정</div>
 
 
 
 
-	
+
 
 	<div class="image3">
 		<div class="footer_box">
