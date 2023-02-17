@@ -57,11 +57,13 @@
 								<button><a href="<c:url value='/member/loginForm' />">로그인</a></button>	
 						</c:if>		
 					
-								<c:if test="${empty sessionScope.sid }">
-									<input type="button" id="likeBt"  >
+								<c:if test="${not empty sessionScope.sid }">
+<!-- 									<input type="button" id="likeBt"  > -->
+									<button id="likeBt"  >
 									<svg class="heart-icon icon" viewBox="0 0 512 512">
 									<rect width="512" height="512" />
 									</svg>
+									</button>
 								</c:if>
 								 </td>
 					</tr>
