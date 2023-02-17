@@ -46,6 +46,20 @@
 				  </ul>
 			</div>
 			<div class="spmprd" style="margin-top:20px;">
+			
+<!-- 				<div class="card-warp"> -->
+<%-- 					<img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="300"> --%>
+				
+<!-- 				</div> -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<table width="1280">
 					<tr><td rowspan="5" style=" text-align:center;">
 					<img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="300"></td></tr>
