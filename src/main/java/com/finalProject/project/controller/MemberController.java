@@ -228,10 +228,10 @@
 			ArrayList<HashMap<String,Object>> spList = new ArrayList<HashMap<String,Object>>();
 
 			exList = service.exLikeList(memId);
-			//spList = service.spLikeList(memId);
+			spList = service.spLikeList(memId);
 
 			model.addAttribute("exList", exList);
-			//model.addAttribute("spList", spList);
+			model.addAttribute("spList", spList);
 			return "member/likes";
 		}
 					
