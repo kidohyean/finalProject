@@ -92,12 +92,14 @@
 								<li>
 									snfjksaf
 								</li>
-								<!--
-								<c:forEach var='comList' items="${comList}">
+							
+								<c:forEach var='spList' items="${spList}">
 								<li>
-									<div class="">
-										<div class="supplementsName">${comList.routineName}</div>
-										<div class="supplementsCreateDate">${comList.routineCreateDate}</div>
+									
+									<div class="spListImgName">
+										<!-- <img src="<c:url value='/image/${spList.spmImg}'/>"> -->
+										<div class="supplementsName">${spList.spmName}</div>
+										<div class="supplementsCreateDate">${spList.spmCreateDate}</div>
 									</div>
 								</li>
 								</c:forEach>
