@@ -67,17 +67,18 @@
 					<tr><td>상세설명 </td><td style=" text-align:center;">${spm.spmExplain }</td></tr>
 					<tr><td>효과 </td><td style=" text-align:center;">${spm.spmEffect } </td></tr>
 					<tr><td colspan="2" style=" text-align:center;">
-						<c:if test="${empty sessionScope.sid }">
-								<button><a href="<c:url value='/member/loginForm' />">로그인</a></button>	
-						</c:if>		
+<%-- 						<c:if test="${empty sessionScope.sid }"> --%>
+<%-- 								<button><a href="<c:url value='/member/loginForm' />">로그인</a></button>	 --%>
+<%-- 						</c:if>		 --%>
 					
-								<c:if test="${not empty sessionScope.sid }">
-<!-- 									<input type="button" id="likeBt"  > -->
-									<button id="likeBt"  >
+								<c:if test="${ empty sessionScope.sid }">
+									
+									<button id="likeBt"  ></button>
+									<input type="hidden" id="spmName"  value="${spm.spmName }" >
 									<svg class="heart-icon icon" viewBox="0 0 512 512">
 									<rect width="512" height="512" />
 									</svg>
-									</button>
+									
 								</c:if>
 								 </td>
 					</tr>
