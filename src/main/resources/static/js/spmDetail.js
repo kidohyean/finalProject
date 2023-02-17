@@ -2,7 +2,7 @@
  * 
  */
  
- 
+ $(document).ready(function(){
   $('#likeBt').click(function(){
         event.preventDefault();
  		
@@ -24,3 +24,5 @@
  				alert("실패");
  			}
  		}); // ajax 종료 	
+	 })
+});
