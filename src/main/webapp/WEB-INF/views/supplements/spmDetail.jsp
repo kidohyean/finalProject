@@ -46,6 +46,20 @@
 				  </ul>
 			</div>
 			<div class="spmprd" style="margin-top:20px;">
+			
+<!-- 				<div class="card-warp"> -->
+<%-- 					<img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="300"> --%>
+				
+<!-- 				</div> -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<table width="1280">
 					<tr><td rowspan="5" style=" text-align:center;">
 					<img src="<c:url value='/images/${spm.spmImg}'/>" width="300" height="300"></td></tr>
@@ -60,9 +74,11 @@
 								<c:if test="${not empty sessionScope.sid }">
 <!-- 									<input type="button" id="likeBt"  > -->
 									<button id="likeBt"  >
-									<svg class="heart-icon icon" viewBox="0 0 512 512">
-									<rect width="512" height="512" />
-									</svg>
+										찜하기
+<!-- 									<svg class="heart-icon icon" viewBox="0 0 512 512"> -->
+<!-- 									<rect width="512" height="512" /> -->
+<!-- 									</svg> -->
+
 									</button>
 								</c:if>
 								 </td>
@@ -81,14 +97,14 @@
 		<c:import url="/WEB-INF/views/headerFooter/footer.jsp" />
 		</div>
 	</body>
-	<?xml version="1.0" standalone="no"?>
-	 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-		<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-			<defs>					    
-				 <clipPath id="heart-path">				    
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M256,512c0,0-256-144.938-256-311.694C0,29.22,240.62,10.145,256,192 c18.467-181.721,256-162.784,256,8.306C512,367.062,256,512,256,512z"/>
-			 	</clipPath>
-			</defs>
-			</svg>
+<!-- 	<?xml version="1.0" standalone="no"?> -->
+<!-- 	 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" -->
+<!--     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> -->
+<!-- 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg"> -->
+<!-- 			<defs>					     -->
+<%-- 				 <clipPath id="heart-path">				     --%>
+<!-- 				<path fill-rule="evenodd" clip-rule="evenodd" d="M256,512c0,0-256-144.938-256-311.694C0,29.22,240.62,10.145,256,192 c18.467-181.721,256-162.784,256,8.306C512,367.062,256,512,256,512z"/> -->
+<%-- 			 	</clipPath> --%>
+<!-- 			</defs> -->
+<!-- 			</svg> -->
 </html>
