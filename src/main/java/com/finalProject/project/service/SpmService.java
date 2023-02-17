@@ -33,7 +33,7 @@ public class SpmService implements ISpmService {
 
 	@Override
 	public int savespmList(HashMap<String, Object> map) {
-		return dao.saveSpmList(map);
+		return dao.savespmList(map);
 	}
 
 
