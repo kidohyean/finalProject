@@ -73,11 +73,12 @@
 					
 								<c:if test="${not empty sessionScope.sid }">
 									
-									<button id="likeBt"  ></button>
-									<input type="hidden" id="spmName"  value="${spm.spmName }" >
+									<button id="likeBt"  >
 									<svg class="heart-icon icon" viewBox="0 0 512 512">
 									<rect width="512" height="512" />
-									</svg>
+									</svg></button>
+									<input type="hidden" id="spmName"  value="${spm.spmName }" >
+									
 									
 								</c:if>
 								 </td>
