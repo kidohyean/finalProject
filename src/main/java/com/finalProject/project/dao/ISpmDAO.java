@@ -10,5 +10,5 @@ public interface ISpmDAO {
 	
 	public ArrayList<spmVO>listSupplement();  //전체 상품
 	public spmVO spmDetail(String spmName);  //상세 상품
-	public int saveSpmList(HashMap<String,Object> map);
+	public int savespmList(HashMap<String,Object> map);
 }
