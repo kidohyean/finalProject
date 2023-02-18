@@ -69,7 +69,7 @@
 		SELECT sl.spNo, sl.spmCreateDate, sl.spmName, spms.spmName
     FROM spmlist sl
     INNER JOIN supplements spms
-    ON sl.spNo = spms.spmName
+    ON sl.spmName = spms.spmName
     WHERE memId = #{memId}
 	</select>
 
