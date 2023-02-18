@@ -55,7 +55,7 @@
 					<h3>나의 찜 목록</h3>
 					<hr>
 					<div class="saveListDiv">
-						<div class="saveExerciseList">
+						<div class="saveExerciseList"><div class=SE_text>운동</div>
 							<ul>
 								<c:forEach var='exList' items="${exList}">
 								<li>
@@ -81,7 +81,7 @@
 
 						</div>
 						
-						<div class="saveSupplementsList">
+						<div class="saveSupplementsList"><div class=SE_text>영양제</div>
 							<ul>
 								<li>
 									snfjksaf
