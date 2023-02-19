@@ -67,11 +67,9 @@ $(document).ready(function(){
                <div class="container">
                   <div class="label-login"></div>
 
-                  <div class="image-left">
-                     <div class="image-L"></div>
-                  </div>
-                  <div class="image-right">
-                     <div class="image-R"></div>
+                  <div class="login_text">
+                   로 그 인
+                  
                   </div>
 
                   <div class="login-form">
@@ -113,5 +111,7 @@ $(document).ready(function(){
 
 
 </body>
+
+
 
 </html>
