@@ -64,8 +64,6 @@
 										<img src="<c:url value='/image/${exList.routineNo}.png'/>">
 										<div class="exListName">${exList.routineName}</div>
 									</div>
-									
-									
 								</li>
 								<li>
 									snfjksaf
@@ -97,9 +95,10 @@
 								<li>
 									
 									<div class="spListImgName">
-										<!-- <img src="<c:url value='/image/${spList.spmImg}'/>"> -->
-										<div class="supplementsName">${spList.spmName}</div>
 										<div class="supplementsCreateDate">${spList.spmCreateDate}</div>
+										 <img src="<c:url value='/image/${spList.spmImg}'/>">
+										<div class="supplementsName">${spList.spmName}</div>
+										
 									</div>
 								</li>
 								</c:forEach>
