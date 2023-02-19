@@ -53,7 +53,7 @@ public class spmController {
 	public String detailSpm(@PathVariable String spmName, Model model) {
 		spmVO spm=service.spmDetail(spmName);
 		model.addAttribute("spm",spm);
-		System.out.print(spmName);
+//		System.out.print(spmName);
 		return "supplements/spmDetail";
 	}
 	
