@@ -50,7 +50,7 @@
 			
 				<div class="section section1 section1-1" >
 					<div class="card-warp"  >
-						<img  src="<c:url value='/images/${spm.spmImg}'/>" style="width:300px; height:300px; " >
+						<img  src="<c:url value='/image/spm/${spm.spmImg}'/>" style="width:300px; height:300px; " >
 							
 							<div class="btn-heart">
 							<c:if test="${empty sessionScope.sid }">
@@ -87,7 +87,7 @@
 					<h2 class="oneD">1일 함량 및 성분표</h2>
 					<div class="card-od">
 						<div class="cod">
-							<img src="<c:url value='/images/${spm.spmIngred}'/>" width="800" >
+							<img src="<c:url value='/image/spm/${spm.spmIngred}'/>" width="800" >
 						</div>
 					</div>
 				</div>
