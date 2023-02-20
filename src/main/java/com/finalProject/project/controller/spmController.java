@@ -47,6 +47,16 @@ public class spmController {
 //		System.out.print(spmEffCtg);
 		return "supplements/supplementEff";
 	}
+	//conspmprd
+	@RequestMapping("/spm/spmlisti/{spmIngCtg}")
+	public String spmIngCtgList(@PathVariable String spmIngCtg, Model model) {
+		ArrayList<spmVO>spmIngList=service.inglistSpm(spmIngCtg);
+		model.addAttribute("spmIngList",spmIngList);
+//		System.out.print(spmEffCtg);
+		return "supplements/supplementIng";
+	}
+	
+	
 
 	// detail	
 	@RequestMapping("/supplements/spmDetail/{spmName}")
