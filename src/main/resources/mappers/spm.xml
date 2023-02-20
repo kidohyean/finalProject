@@ -26,6 +26,12 @@
 		ORDER BY spmName
 	</select>
 	
+	<!--    Ing spm page -->
+	<select id="inglistSpm" parameterType="string" resultMap="spmResult">
+		SELECT*FROM supplements WHERE spmIngCtg=#{spmIngCtg}
+		ORDER BY spmName
+	</select>
+	
 <!--  detail page   -->
    <select id="spmDetail" parameterType="string" resultType="com.finalProject.project.model.spmVO">
 		SELECT*FROM supplements WHERE spmName=#{spmName}
