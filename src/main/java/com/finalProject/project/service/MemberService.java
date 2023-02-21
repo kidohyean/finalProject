@@ -120,8 +120,14 @@ public class MemberService implements IMemberService {
 		return dao.spLikeList(memId);
 	}
 
-
-
+	@Override
+	public void deleteExList(HashMap<String, Object> map){
+		dao.deleteExList(map);
+	}
+	@Override
+	public void deleteSpList(HashMap<String, Object> map){
+		dao.deleteSpList(map);
+	}
 
 
 
